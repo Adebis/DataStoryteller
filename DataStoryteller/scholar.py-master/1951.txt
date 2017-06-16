@@ -1,0 +1,27 @@
+         Title Predicting the Major League Baseball Season
+           URL http://cs229.stanford.edu/proj2013/JiaWongZeng-PredictingTheMajorLeagueBaseballSeason.pdf
+          Year 1951
+     Citations 0
+      Versions 2
+      PDF link http://cs229.stanford.edu/proj2013/JiaWongZeng-PredictingTheMajorLeagueBaseballSeason.pdf
+ Versions list http://scholar.google.com/scholar?cluster=16971730701760702252&hl=en&as_sdt=0,5&as_ylo=1951&as_yhi=1951
+       Excerpt ... of dollars. Baseball, in particular, is not only one of the most popular sports in theUnited States, but the vast amount of recorded data and statistics made publiclyavailable also lends itself well to machine learning. Realizing ...
+
+         Title K ors, A Paocmm THAT smumx-rss'\
+           URL http://mirrors.acm.jhu.edu/bitsavers.org/pdf/rand/ipl/P-2257_GPS_A_Program_That_Simulates_Human_Thought_Apr61.pdf
+          Year 1951
+     Citations 0
+      Versions 9
+      PDF link http://mirrors.acm.jhu.edu/bitsavers.org/pdf/rand/ipl/P-2257_GPS_A_Program_That_Simulates_Human_Thought_Apr61.pdf
+ Versions list http://scholar.google.com/scholar?cluster=13002911328273568613&hl=en&as_sdt=0,5&as_ylo=1951&as_yhi=1951
+       Excerpt Page 1. K ors, A Paocmm THAT smumx-rss ' \ mum: moucm A. Nowell ComputerSciences Department The RAND Corporation and HA Simon* Consultant, The RANDCorporation P—2257 March 30, 1951 \\\7 Revised April 10 ...
+
+         Title Evolutionary ARMA Model Identification With Unknown Process Order
+           URL http://scholar.google.com/https://pdfs.semanticscholar.org/d119/bb410721d82b321daf46647cdfd788b282db.pdf
+          Year 1951
+     Citations 0
+      Versions 4
+      PDF link http://scholar.google.com/https://pdfs.semanticscholar.org/d119/bb410721d82b321daf46647cdfd788b282db.pdf
+ Versions list http://scholar.google.com/scholar?cluster=4367353669742758539&hl=en&as_sdt=0,5&as_ylo=1951&as_yhi=1951
+       Excerpt Page 1. 1951 Evolutionary ARMA Model Identification With Unknown Process Order *GN BELIGIANNIS 1,2 , EN DEMIRIS 1 and SD LIKOTHANASSIS 1,2,3 1 Departmentof Computer Engineering and Informatics University ...
+

@@ -1,0 +1,102 @@
+         Title Genetic algorithms and machine learning
+           URL http://www.springerlink.com/index/rw3572714v41q507.pdf
+          Year 1988
+     Citations 1607
+      Versions 8
+    Cluster ID 2777219727180499514
+      PDF link http://www.springerlink.com/index/rw3572714v41q507.pdf
+Citations list http://scholar.google.com/scholar?cites=2777219727180499514&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=2777219727180499514&hl=en&as_sdt=0,5&as_ylo=1988&as_yhi=1988
+       Excerpt There is no a priori reason why machine learning must borrow from nature. A field could exist, complete with well-defined algorithms, data structures, and theories of learning, without once referring to organisms, cognitive or genetic structures, and psychological or 
+
+         Title Holland. Genetic algorithms and machine learning
+          Year 1988
+     Citations 368
+      Versions 0
+    Cluster ID 10136660906461883871
+Citations list http://scholar.google.com/scholar?cites=10136660906461883871&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Learning to predict by the methods of temporal differences
+           URL http://link.springer.com/article/10.1007/BF00115009
+          Year 1988
+     Citations 4585
+      Versions 50
+    Cluster ID 13127511584304020500
+Citations list http://scholar.google.com/scholar?cites=13127511584304020500&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=13127511584304020500&hl=en&as_sdt=0,5&as_ylo=1988&as_yhi=1988
+       Excerpt Abstract This article introduces a class of incremental learning procedures specialized for prediction-that is, for using past experience with an incompletely known system to predict its future behavior. Whereas conventional prediction-learning methods assign credit by means 
+
+         Title Queries and concept learning
+           URL http://www.springerlink.com/index/U228266621966H58.pdf
+          Year 1988
+     Citations 2056
+      Versions 18
+    Cluster ID 18331680596431366641
+      PDF link http://www.springerlink.com/index/U228266621966H58.pdf
+Citations list http://scholar.google.com/scholar?cites=18331680596431366641&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=18331680596431366641&hl=en&as_sdt=0,5&as_ylo=1988&as_yhi=1988
+       Excerpt We consider the problem of using queries to learn an unknown concept. Several types of queries are described and studied: membership, equivalence, subset, superset, disjointness, and exhaustiveness queries. Examples are given of efficient learning methods 
+
+         Title Learning with genetic algorithms: An overview
+           URL http://www.springerlink.com/index/MG877066R521W781.pdf
+          Year 1988
+     Citations 607
+      Versions 14
+    Cluster ID 5181929036460536772
+      PDF link http://www.springerlink.com/index/MG877066R521W781.pdf
+Citations list http://scholar.google.com/scholar?cites=5181929036460536772&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=5181929036460536772&hl=en&as_sdt=0,5&as_ylo=1988&as_yhi=1988
+       Excerpt Genetic algorithms represent a class of adaptive search techniques that have been intensively studied in recent years. Much of the interest in genetic algorithms is due to the fact that they provide a set of efficient domain-independent search heuristics which are a 
+
+         Title Machine learning as an experimental science
+           URL http://www.springerlink.com/index/T73G473236562458.pdf
+          Year 1988
+     Citations 76
+      Versions 8
+    Cluster ID 2554302669682215673
+      PDF link http://www.springerlink.com/index/T73G473236562458.pdf
+Citations list http://scholar.google.com/scholar?cites=2554302669682215673&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=2554302669682215673&hl=en&as_sdt=0,5&as_ylo=1988&as_yhi=1988
+       Excerpt Machine learning is a scientific discipline and, like the fields of AI and computer science, has both theoretical and empirical aspects. Although recent progress has occurred on the theoretical front (see Machine Learning, volume 2, number 4), most learning algorithms are 
+
+         Title Learning from noisy examples
+           URL http://www.springerlink.com/index/W48007362627V5L5.pdf
+          Year 1988
+     Citations 647
+      Versions 10
+    Cluster ID 7223044330382644062
+      PDF link http://www.springerlink.com/index/W48007362627V5L5.pdf
+Citations list http://scholar.google.com/scholar?cites=7223044330382644062&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7223044330382644062&hl=en&as_sdt=0,5&as_ylo=1988&as_yhi=1988
+       Excerpt The basic question addressed in this paper is: how can a learning algorithm cope with incorrect training examples? Specifically, how can algorithms that produce an “approximately correct” identification with “high probability” for reliable data be adapted to 
+
+         Title Credit assignment in rule discovery systems based on genetic algorithms
+           URL http://link.springer.com/article/10.1023/A:1022614421909
+          Year 1988
+     Citations 496
+      Versions 9
+    Cluster ID 3401921656010884564
+Citations list http://scholar.google.com/scholar?cites=3401921656010884564&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=3401921656010884564&hl=en&as_sdt=0,5&as_ylo=1988&as_yhi=1988
+       Excerpt Abstract In rule discovery systems, learning often proceeds by first assessing the quality of the system's current rules and then modifying rules based on that assessment. This paper addresses the credit assignment problem that arises when long sequences of rules fire 
+
+         Title Genetic algorithms in noisy environments
+           URL http://link.springer.com/article/10.1007/BF00113893
+          Year 1988
+     Citations 412
+      Versions 14
+    Cluster ID 13200926107923992478
+Citations list http://scholar.google.com/scholar?cites=13200926107923992478&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=13200926107923992478&hl=en&as_sdt=0,5&as_ylo=1988&as_yhi=1988
+       Excerpt Abstract Genetic algorithms are adaptive search techniques which have been used to learn high-performance knowledge structures in reactive environments that provide information in the form of payoff. In general, payoff can be viewed as a noisy function of the structure being 
+
+         Title Application of neural networks and other machine learning algorithms to DNA sequence analysis
+           URL http://www.osti.gov/scitech/biblio/6246699
+          Year 1988
+     Citations 105
+      Versions 6
+    Cluster ID 3173786536426511283
+Citations list http://scholar.google.com/scholar?cites=3173786536426511283&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=3173786536426511283&hl=en&as_sdt=0,5&as_ylo=1988&as_yhi=1988
+       Excerpt ... Title: Application of neural networks and other machine learning algorithms to DNA sequenceanalysis. In this article we report initial, quantitative results on application of simple neutralnetworks, and simple machine learning methods, to two problems in DNA sequence analysis. ...
+

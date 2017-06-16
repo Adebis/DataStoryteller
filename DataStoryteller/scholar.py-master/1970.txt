@@ -1,0 +1,84 @@
+         Title The method of potential functions in the theory of machine learning
+          Year 1970
+     Citations 34
+      Versions 0
+    Cluster ID 1962382215973098576
+Citations list http://scholar.google.com/scholar?cites=1962382215973098576&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title The method of potential functions in machine learning theory
+          Year 1970
+     Citations 21
+      Versions 0
+    Cluster ID 3995000417860251262
+Citations list http://scholar.google.com/scholar?cites=3995000417860251262&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Potential function method in the theory of machine learning
+          Year 1970
+     Citations 19
+      Versions 0
+    Cluster ID 10948467104155427208
+Citations list http://scholar.google.com/scholar?cites=10948467104155427208&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Fuzzy genetic algorithm based inductive learning system (FGALS): a new machine learning approach and application for chemical process fault diagnosis
+           URL http://www.witpress.com/elibrary/wit-transactions-on-information-and-communication-technologies/16/13777
+          Year 1970
+     Citations 9
+      Versions 3
+    Cluster ID 11807090322639427128
+Citations list http://scholar.google.com/scholar?cites=11807090322639427128&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=11807090322639427128&hl=en&as_sdt=0,5&as_ylo=1970&as_yhi=1970
+       Excerpt Abstract Fuzzy Genetic Algorithm Based Inductive Learning System (FGALS): A New Machine Learning Approach and Application For Chemical Process Fault Diagnosis I. Burak Özyurt, Aydin K. Sunol Chemical Engineering Department, University of South Florida, 
+
+         Title Rediscovering some problems of artificial intelligence in the context of organic chemistry
+          Year 1970
+     Citations 44
+      Versions 0
+    Cluster ID 8729510843096501579
+Citations list http://scholar.google.com/scholar?cites=8729510843096501579&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Memo functions, the graph traverser, and a simple control situation
+          Year 1970
+     Citations 23
+      Versions 0
+    Cluster ID 5256022936414467479
+Citations list http://scholar.google.com/scholar?cites=5256022936414467479&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title A multi-criteria approach for the evaluation of rule interestingness
+           URL http://www.witpress.com/elibrary/wit-transactions-on-information-and-communication-technologies/22/6923
+          Year 1970
+     Citations 35
+      Versions 5
+    Cluster ID 2118479853292050212
+Citations list http://scholar.google.com/scholar?cites=2118479853292050212&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=2118479853292050212&hl=en&as_sdt=0,5&as_ylo=1970&as_yhi=1970
+       Excerpt ... Proc. 10th Int. Conf. Machine Learning, 81-88, 1993. [3] UM Fayyad, G. Piatetsky-Shapiro andP. Smyth. ... Page 14. [8] Kononenko & Bratko. Information-based evaluation criterion for classifier'sperformance. Machine Learning 6, 1991, 67-80. [9] M. Kubat and S. Matwin. ...
+
+         Title 8 Reinforcement-Learning Control and Pattern Recognition Systems
+           URL http://www.sciencedirect.com/science/article/pii/S007653920860497X
+          Year 1970
+     Citations 140
+      Versions 3
+    Cluster ID 7789914738543952254
+Citations list http://scholar.google.com/scholar?cites=7789914738543952254&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7789914738543952254&hl=en&as_sdt=0,5&as_ylo=1970&as_yhi=1970
+       Excerpt ... One of the most important principles in all learning theory is the law of reinforcement. References.Abramson et al., 1963; N. Abramson, D. Braverman, G. Sebestyen; Pattern Recognition andMachine Learning. IEEE Trans. Info. Theory, 9 (1963), pp. 257–261. ...
+
+         Title Generalization learning techniques for automating the learning of heuristics
+           URL http://www.sciencedirect.com/science/article/pii/0004370270900044
+          Year 1970
+     Citations 245
+      Versions 3
+    Cluster ID 10043088383007968890
+Citations list http://scholar.google.com/scholar?cites=10043088383007968890&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=10043088383007968890&hl=en&as_sdt=0,5&as_ylo=1970&as_yhi=1970
+       Excerpt ... Abstract. This paper investigates the problem of implementing machine learning of heuristics.First, a method of representing heuristics as production rules is developed which facilitatesdynamic manipulation of the heuristics by the program embodying them. ...
+
+         Title The complexity of finite objects and the development of the concepts of information and randomness by means of the theory of algorithms
+           URL http://iopscience.iop.org/article/10.1070/RM1970v025n06ABEH001269/meta
+          Year 1970
+     Citations 746
+      Versions 11
+    Cluster ID 11623480293116039982
+Citations list http://scholar.google.com/scholar?cites=11623480293116039982&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=11623480293116039982&hl=en&as_sdt=0,5&as_ylo=1970&as_yhi=1970
+

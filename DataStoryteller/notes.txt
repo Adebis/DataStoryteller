@@ -1,0 +1,9 @@
+getting data on the number of citations for each machine learning algorithm name by year
+- We collected the top N papers (by citations) for each machine learning algorithm.
+- We then plot the number of citations each algorithm gets each year.
+
+artificial neural network
+k-means clustering
+support vector machine
+linear regression
+decision tree

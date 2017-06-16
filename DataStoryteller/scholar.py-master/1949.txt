@@ -1,0 +1,10 @@
+         Title NEUROLOGICAL EFFECTS OF OXYGEN IN CHRONLC COR PULMONALE
+           URL http://www.sciencedirect.com/science/article/pii/S0140673649914592
+          Year 1949
+     Citations 81
+      Versions 5
+    Cluster ID 13305287671336726601
+Citations list http://scholar.google.com/scholar?cites=13305287671336726601&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=13305287671336726601&hl=en&as_sdt=0,5&as_ylo=1949&as_yhi=1949
+       Excerpt ... Tracking medical genetic literature through machine learning. 2016, Molecular Genetics andMetabolism more. ... Tracking medical genetic literature through machine learning. MolecularGenetics and Metabolism, Volume 118, Issue 4, August 2016, Pages 255-258. ...
+

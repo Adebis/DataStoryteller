@@ -1,0 +1,59 @@
+         Title Some experiments in machine learning using vector evaluated genetic algorithms
+           URL http://www.osti.gov/scitech/biblio/5673304
+          Year 1985
+     Citations 519
+      Versions 3
+    Cluster ID 17171945723399992085
+Citations list http://scholar.google.com/scholar?cites=17171945723399992085&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=17171945723399992085&hl=en&as_sdt=0,5&as_ylo=1985&as_yhi=1985
+       Excerpt This dissertation describes experiments conducted to explore the efficacy of using vector-valued feedback with a class of adaptive procedures called genetic algorithms. The software system developed was called VEGA for Vector Evaluated Genetic Algorithm and was first used on multiple 
+
+         Title Machine learning procedures for generating image domain feature detectors
+           URL http://dl.acm.org/citation.cfm?id=912085
+          Year 1985
+     Citations 111
+      Versions 3
+    Cluster ID 11825309409247814175
+Citations list http://scholar.google.com/scholar?cites=11825309409247814175&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=11825309409247814175&hl=en&as_sdt=0,5&as_ylo=1985&as_yhi=1985
+       Excerpt Machine learning procedures for generating image domain feature detectors. Author: AndrewMcgilvary Gillies, Publication: · Doctoral Dissertation, Machine learning procedures for generatingimage domain feature detectors. University of Michigan Ann Arbor, MI, USA ©1985. 1985 Doctoral
+
+         Title The pragmatics of analogical transfer
+           URL http://www.sciencedirect.com/science/article/pii/S0079742108605241
+          Year 1985
+     Citations 487
+      Versions 4
+    Cluster ID 6889348372780577669
+Citations list http://scholar.google.com/scholar?cites=6889348372780577669&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=6889348372780577669&hl=en&as_sdt=0,5&as_ylo=1985&as_yhi=1985
+       Excerpt ... Carbonell, 1982; JG Carbonell; Learning by analogy: Formulating and generalizing plansfrom past experience. R. Michalski, JG Carbonell, TM Mitchell (Eds.), Machine learning: Anartificial intelligence approach, Tioga Press, Palo Alto, CA (1982). ...
+
+         Title Machine learning of visual recognition using genetic algorithms
+           URL http://dl.acm.org/citation.cfm?id=657076
+          Year 1985
+     Citations 36
+      Versions 0
+    Cluster ID 9254533459989400325
+Citations list http://scholar.google.com/scholar?cites=9254533459989400325&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt Machine Learning of Visual Recognition Using Genetic Algorithms. Author: Arnold C. Englander,Published in: · Proceeding. Proceedings of the 1st International Conference on GeneticAlgorithms. Pages 197-201 L. Erlbaum Associates Inc. Hillsdale, NJ, USA ©1985 table of contents
+
+         Title The role of domain expenence in software design
+           URL http://ieeexplore.ieee.org/abstract/document/1701951/
+          Year 1985
+     Citations 526
+      Versions 9
+    Cluster ID 16567028562312582039
+Citations list http://scholar.google.com/scholar?cites=16567028562312582039&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=16567028562312582039&hl=en&as_sdt=0,5&as_ylo=1985&as_yhi=1985
+       Excerpt ... His research in machine learning produced a system called HPM that emulated develop-ments in children's mathematical skills, and (with P. Langley) a language called PRISMwhich has been used, in a number of machine learning proj- ects. ...
+
+         Title Generalizing logic circuit designs by analyzing proofs of correctness
+           URL http://dl.acm.org/citation.cfm?id=1625260
+          Year 1985
+     Citations 57
+      Versions 3
+    Cluster ID 17966141096360148579
+Citations list http://scholar.google.com/scholar?cites=17966141096360148579&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=17966141096360148579&hl=en&as_sdt=0,5&as_ylo=1985&as_yhi=1985
+       Excerpt ... Proceedings of the International Machine Learning Workshop, Champaign-Urbana, Illinois, 1983,pp. 12-18. ... 9. Mostow, J. Operationalizing advice: A problem-solving model. Proceedings of theInternational Machine Learning Workshop, Champaign-Urbana, Illinois, 1983, pp. ...
+

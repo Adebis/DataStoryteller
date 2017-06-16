@@ -1,0 +1,105 @@
+         Title Instance-based learning algorithms
+           URL http://www.springerlink.com/index/g4qv6511520x3041.pdf
+          Year 1991
+     Citations 4965
+      Versions 38
+    Cluster ID 16152773755095077867
+      PDF link http://www.springerlink.com/index/g4qv6511520x3041.pdf
+Citations list http://scholar.google.com/scholar?cites=16152773755095077867&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=16152773755095077867&hl=en&as_sdt=0,5&as_ylo=1991&as_yhi=1991
+       Excerpt Storing and using specific instances improves the performance of several supervised learning algorithms. These include algorithms that learn decision trees, classification rules, and distributed networks. However, no investigation has analyzed algorithms that use only 
+
+         Title A nearest hyperrectangle learning method
+           URL http://www.springerlink.com/index/N5321755T54RR047.pdf
+          Year 1991
+     Citations 563
+      Versions 18
+    Cluster ID 16290318223934773967
+      PDF link http://www.springerlink.com/index/N5321755T54RR047.pdf
+Citations list http://scholar.google.com/scholar?cites=16290318223934773967&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=16290318223934773967&hl=en&as_sdt=0,5&as_ylo=1991&as_yhi=1991
+       Excerpt This paper presents a theory of learning called nested generalized exemplar (NGE) theory, in which learning is accomplished by storing objects in Euclidean n-space, En, as hyperrectangles. The hyperrectangles may be nested inside one another to arbitrary depth. 
+
+         Title A distance-based attribute selection measure for decision tree induction
+           URL http://www.springerlink.com/index/h1g53072117750p5.pdf
+          Year 1991
+     Citations 482
+      Versions 6
+    Cluster ID 4448711393604668208
+      PDF link http://www.springerlink.com/index/h1g53072117750p5.pdf
+Citations list http://scholar.google.com/scholar?cites=4448711393604668208&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=4448711393604668208&hl=en&as_sdt=0,5&as_ylo=1991&as_yhi=1991
+       Excerpt This note introduces a new attribute selection measure for ID3-like inductive algorithms. This measure is based on a distance between partitions such that the selected attribute in a node induces the partition which is closest to the correct partition of the subset of training 
+
+         Title Computer systems that learn
+           URL http://www.citeulike.org/group/1778/article/932135
+          Year 1991
+     Citations 2656
+      Versions 5
+    Cluster ID 1647163772278103283
+Citations list http://scholar.google.com/scholar?cites=1647163772278103283&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1647163772278103283&hl=en&as_sdt=0,5&as_ylo=1991&as_yhi=1991
+       Excerpt Search all the public and authenticated articles in CiteULike. Include unauthenticated resultstoo (may include "spam") Enter a search phrase. You can also specify a CiteULike article id(123456),. a DOI (doi:10.1234/12345678). or a PubMed ID (pmid:12345678). ...
+
+         Title Symbolic and neural learning algorithms: An experimental comparison
+           URL http://www.springerlink.com/index/k3h16122731m9548.pdf
+          Year 1991
+     Citations 431
+      Versions 30
+    Cluster ID 3427853343375756520
+      PDF link http://www.springerlink.com/index/k3h16122731m9548.pdf
+Citations list http://scholar.google.com/scholar?cites=3427853343375756520&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=3427853343375756520&hl=en&as_sdt=0,5&as_ylo=1991&as_yhi=1991
+       Excerpt Despite the fact that many symbolic and neural network (connectionist) learning algorithms address the same problem of learning from classified examples, very little is known regarding their comparative strengths and weaknesses. Experiments comparing the ID3 
+
+         Title System identification through simulated evolution: A machine learning approach to modeling
+           URL http://dl.acm.org/citation.cfm?id=532104
+          Year 1991
+     Citations 425
+      Versions 0
+    Cluster ID 8497957280426125793
+Citations list http://scholar.google.com/scholar?cites=8497957280426125793&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt System Identification through Simulated Evolution: A Machine Learning Approach to Modeling.Author: David B. Fogel, Publication: Cover Image. · Book, System Identification through SimulatedEvolution: A Machine Learning Approach to Modeling. Ginn Press ©1991 ISBN:0536579431.
+
+         Title The induction of dynamical recognizers
+           URL http://www.springerlink.com/index/k520731721h64264.pdf
+          Year 1991
+     Citations 519
+      Versions 26
+    Cluster ID 2624276023121724159
+      PDF link http://www.springerlink.com/index/k520731721h64264.pdf
+Citations list http://scholar.google.com/scholar?cites=2624276023121724159&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=2624276023121724159&hl=en&as_sdt=0,5&as_ylo=1991&as_yhi=1991
+       Excerpt A higher order recurrent neural network architecture learns to recognize and generate languages after being “trained” on categorized exemplars. Studying these networks from the perspective of dynamical systems yields two interesting discoveries: First, a longitudinal 
+
+         Title Learning to perceive and act by trial and error
+           URL http://link.springer.com/article/10.1023/A:1022619109594
+          Year 1991
+     Citations 349
+      Versions 8
+    Cluster ID 1987606770603964473
+Citations list http://scholar.google.com/scholar?cites=1987606770603964473&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1987606770603964473&hl=en&as_sdt=0,5&as_ylo=1991&as_yhi=1991
+       Excerpt Abstract This article considers adaptive control architectures that integrate active sensory-motor systems with decision systems based on reinforcement learning. One unavoidable consequence of active perception is that the agent's internal representation often confounds 
+
+         Title Information-based evaluation criterion for classifier's performance
+           URL http://www.springerlink.com/index/g5p7473160476612.pdf
+          Year 1991
+     Citations 260
+      Versions 8
+    Cluster ID 8438771520737511985
+      PDF link http://www.springerlink.com/index/g5p7473160476612.pdf
+Citations list http://scholar.google.com/scholar?cites=8438771520737511985&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8438771520737511985&hl=en&as_sdt=0,5&as_ylo=1991&as_yhi=1991
+       Excerpt In the past few years many systems for learning decision rules from examples were developed. As different systems allow different types of answers when classifying new instances, it is difficult to appropriately evaluate the systems' classification power in 
+
+         Title The use of background knowledge in decision tree induction
+           URL http://link.springer.com/article/10.1007/BF00114778
+          Year 1991
+     Citations 274
+      Versions 11
+    Cluster ID 5414653093085039664
+Citations list http://scholar.google.com/scholar?cites=5414653093085039664&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=5414653093085039664&hl=en&as_sdt=0,5&as_ylo=1991&as_yhi=1991
+       Excerpt Abstract At present, algorithms of the ID3 family are not based on background knowledge. For that reason, most of the time they are neither logical nor understandable to experts. These algorithms cannot perform different types of generalization as others can do 
+

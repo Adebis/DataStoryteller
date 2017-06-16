@@ -1,0 +1,20 @@
+         Title Some methods of artificial intelligence and heuristic programming
+           URL http://scholar.google.com/https://pdfs.semanticscholar.org/82a7/30c61adb76347da57af95ae12945e0c5e5be.pdf
+          Year 1958
+     Citations 52
+      Versions 2
+    Cluster ID 4753742535118836834
+      PDF link http://scholar.google.com/https://pdfs.semanticscholar.org/82a7/30c61adb76347da57af95ae12945e0c5e5be.pdf
+Citations list http://scholar.google.com/scholar?cites=4753742535118836834&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=4753742535118836834&hl=en&as_sdt=0,5&as_ylo=1958&as_yhi=1958
+       Excerpt ... But if this is the case then the machine would have been in diffi— culty already, since either (1)the characteristics in use don't describe the situations in heuristically effective ways (so thatmethods cannot be efficiently selected), or (2) the machine's learning methods are not ...
+
+         Title PROPOSAL TO THE COMPUTATION ADVISORY COMMITTEE FOR SUPPORT FROM THE CENTRAL POOL STUDENT COMPUTER FEES
+           URL http://www.it.iastate.edu/committees/cac/proposals/2010-fall/proposals/05.pdf
+          Year 1958
+     Citations 0
+      Versions 2
+      PDF link http://www.it.iastate.edu/committees/cac/proposals/2010-fall/proposals/05.pdf
+ Versions list http://scholar.google.com/scholar?cluster=12109791388120803490&hl=en&as_sdt=0,5&as_ylo=1958&as_yhi=1958
+       Excerpt ... of different sections of the paper (see examples in Appendix A). The system can then automaticallycategorize each sentence in a student's writing as a particular rhetorical shift with a specificfunctional meaning by analyzing the writing with a machine learning system trained on ...
+

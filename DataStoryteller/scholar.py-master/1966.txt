@@ -1,0 +1,98 @@
+         Title A note on sequential decision approach to pattern recognition and machine learning
+           URL http://www.sciencedirect.com/science/article/pii/S0019995866800153
+          Year 1966
+     Citations 11
+      Versions 0
+    Cluster ID 2426033249655131462
+Citations list http://scholar.google.com/scholar?cites=2426033249655131462&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt A pattern recognition system has been formulated with the framework of sequential decision theory. Recognition of multiple pattern class with features properly ordered is considered. The system can switch from supervised learning to unsupervised learning to continuously improve 
+
+         Title Speculations concerning the first ultraintelligent machine
+           URL http://www.sciencedirect.com/science/article/pii/S0065245808604180
+          Year 1966
+     Citations 346
+      Versions 11
+    Cluster ID 3703392010418770351
+Citations list http://scholar.google.com/scholar?cites=3703392010418770351&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=3703392010418770351&hl=en&as_sdt=0,5&as_ylo=1966&as_yhi=1966
+       Excerpt An ultra-intelligent machine is a machine that can far surpass all the intellectual activitiesof any man however clever. The design of machines is one of these.
+
+         Title A New Machine-Learning Technique Applied to the Game of Checkers
+           URL http://scholar.google.com/https://dspace.mit.edu/handle/1721.1/5896
+          Year 1966
+     Citations 8
+      Versions 2
+    Cluster ID 7301148079624278471
+Citations list http://scholar.google.com/scholar?cites=7301148079624278471&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7301148079624278471&hl=en&as_sdt=0,5&as_ylo=1966&as_yhi=1966
+       Excerpt This paper described a recent refinement of the machine--learning process employed by Samuel (1) in connection with his development of a checker playing program. Samuels checker player operates in much the same way a human player does; by looking ahead, and 
+
+         Title Mechanism of action of starch as a disintegrating agent in aspirin tablets
+           URL http://www.sciencedirect.com/science/article/pii/S002235491535512X
+          Year 1966
+     Citations 44
+      Versions 2
+    Cluster ID 13017760234118909230
+Citations list http://scholar.google.com/scholar?cites=13017760234118909230&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=13017760234118909230&hl=en&as_sdt=0,5&as_ylo=1966&as_yhi=1966
+       Excerpt ... Building detection from orthophotos using a machine learning approach: An empirical study onimage segmentation and descriptors. ... Building detection from orthophotos using a machine learningapproach: An empirical study on image segmentation and descriptors. ...
+
+         Title Process identification using a mode learning machine.
+           URL http://scholar.google.com/https://ntrs.nasa.gov/search.jsp?R=19660057422
+          Year 1966
+     Citations 3
+      Versions 3
+    Cluster ID 1733177983330457806
+Citations list http://scholar.google.com/scholar?cites=1733177983330457806&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1733177983330457806&hl=en&as_sdt=0,5&as_ylo=1966&as_yhi=1966
+       Excerpt ... Distribution Limits: Unclassified; Publicly available; Unlimited. Rights: Copyright. NASA Terms:CONFERENCES; MACHINE LEARNING; NONLINEARITY; ON-LINE SYSTEMS; OPTIMALCONTROL; PATTERN RECOGNITION; SYSTEMS ENGINEERING. ...
+
+         Title Game-playing and game-learning automata
+           URL http://books.google.com/books?hl=en&lr=&id=z2eeBQAAQBAJ&oi=fnd&pg=PA183&dq=%22machine+learning%22&ots=hb5jtOsWG8&sig=eNqPekzoAjDDS5txebwIDir1zM4
+          Year 1966
+     Citations 60
+      Versions 0
+    Cluster ID 14114472887974780625
+Citations list http://scholar.google.com/scholar?cites=14114472887974780625&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... SAMUEL, AL (1959) Some studies in machine learning using the game of checkers, IBMJournal of Research and Development, 3, 211–29. SAMUEL, AL (1960) Programmingcomputers to play games, pp. 165-92 of Advances in Computers, vol. ...
+
+         Title Learning without a teacher
+           URL http://ieeexplore.ieee.org/abstract/document/1053865/
+          Year 1966
+     Citations 87
+      Versions 2
+    Cluster ID 14344254396734575382
+Citations list http://scholar.google.com/scholar?cites=14344254396734575382&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=14344254396734575382&hl=en&as_sdt=0,5&as_ylo=1966&as_yhi=1966
+       Excerpt ... which are best have been developed. I. INTRODUCTION A T FIRST GLANCE thetitle of this paper ap- pears to suggest a virtually insoluble problem, eit(her for humanlearning or machine learning. The probIem is, as would be ...
+
+         Title Automatic recognition of sheet music
+           URL http://www.inescporto.pt/~arebelo/education/msc_bib/literatura_bib.html
+          Year 1966
+     Citations 80
+      Versions 0
+    Cluster ID 11356768719905035912
+Citations list http://scholar.google.com/scholar?cites=11356768719905035912&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... and E. Alpaydim}, title = {Support vector machines for multiclass classification}, year = {1998} }@book{Vapnik, author = {Vapnik, Vladimir N. }, citeulike-article-id = {106699}, howpublished ={Hardcover}, isbn = {0471030031}, keywords = {machine-learning}, month = {September ...
+
+         Title Experimental evaluation of three partition selection criteria for decision table decomposition
+           URL http://www.biolab.si/blaz/papers/1998informatica.pdf
+          Year 1966
+     Citations 11
+      Versions 8
+    Cluster ID 7059079382479565659
+      PDF link http://www.biolab.si/blaz/papers/1998informatica.pdf
+Citations list http://scholar.google.com/scholar?cites=7059079382479565659&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7059079382479565659&hl=en&as_sdt=0,5&as_ylo=1966&as_yhi=1966
+       Excerpt ... Edited by: Received: March 1997 Revised: March 1998 Accepted: March 1998 Decisiontable decomposition is a machine learning approach that decomposes a given decisiontable into an equivalent hierarchy of decision tables. ...
+
+         Title A modified sequential recognition machine using time-varying stopping boundaries
+           URL http://ieeexplore.ieee.org/abstract/document/1053863/
+          Year 1966
+     Citations 43
+      Versions 3
+    Cluster ID 345119348740503035
+Citations list http://scholar.google.com/scholar?cites=345119348740503035&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=345119348740503035&hl=en&as_sdt=0,5&as_ylo=1966&as_yhi=1966
+       Excerpt Page 1. IEEE TRANSACTIONS ON INFORMATION THEORY VOL. IT-12, NO.2 APRIL.1966 A Modified Sequential Recognition Machine Using Time-Varying StoppingBoundaries Y. T. CHIEN AND K. S. FU, MEMBER, IEEE ...
+

@@ -1,0 +1,55 @@
+         Title The learning curve: Historical review and comprehensive survey
+           URL http://onlinelibrary.wiley.com/doi/10.1111/j.1540-5915.1979.tb00026.x/full
+          Year 1979
+     Citations 1607
+      Versions 2
+    Cluster ID 5935584443645411396
+Citations list http://scholar.google.com/scholar?cites=5935584443645411396&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=5935584443645411396&hl=en&as_sdt=0,5&as_ylo=1979&as_yhi=1979
+       Excerpt ... Labor Learning vs. Machine Learning Operations that have a high degree of laborcontent or are, in other words, paced by labor can be expected to have much steeperslopes than operations that are machine paced. Hirschmann ...
+
+         Title On the construction of evaluation functions for large domains
+           URL http://dl.acm.org/citation.cfm?id=1624875
+          Year 1979
+     Citations 60
+      Versions 0
+    Cluster ID 1982932414621445464
+Citations list http://scholar.google.com/scholar?cites=1982932414621445464&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... 3. Holland, T., "Better Backgammon", Reiss Games, Inc., New York, 1974. 4. Samuel,A. L, "Some Studies in Machine Learning Using the Game of Checkers", IBM Journalof Research and Development, Vol. 3, No. 3, 1959, pp. 210-229. ...
+
+         Title Machine learning with a multiple context
+          Year 1979
+     Citations 8
+      Versions 0
+    Cluster ID 5926124946992719375
+Citations list http://scholar.google.com/scholar?cites=5926124946992719375&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title A system that can learn to recognize two-dimensional shapes
+           URL http://adsabs.harvard.edu/abs/1979PhiTR..38..356P
+          Year 1979
+     Citations 18
+      Versions 2
+    Cluster ID 4212167991476491392
+Citations list http://scholar.google.com/scholar?cites=4212167991476491392&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=4212167991476491392&hl=en&as_sdt=0,5&as_ylo=1979&as_yhi=1979
+       Excerpt ... Category: Instrumentation and Photography. Origin: STI. NASA/STI Keywords: Artificial Intelligence,Automata Theory, Image Processing, Pattern Recognition, Shapes, Systems Engineering, MachineLearning, Searching. Bibliographic Code: 1979PhiTR..38..356P. Abstract. ...
+
+         Title Models of Learning Systems.
+           URL http://oai.dtic.mil/oai/oai?verb=getRecord&metadataPrefix=html&identifier=ADA066147
+          Year 1979
+     Citations 78
+      Versions 0
+    Cluster ID 4679559816275196166
+Citations list http://scholar.google.com/scholar?cites=4679559816275196166&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... In this article, three distinct approaches to machine learning and adaptation are considered:(1) the adaptive control approach,. (ii ) the pattern recognition approach, and (iii) the artificialintelligence approach. Progress in each of these areas is eunmtarized in the first part of the ...
+
+         Title Learning and generalization of characteristic descriptions: evaluation criteria and comparative review of selected methods
+           URL http://dl.acm.org/citation.cfm?id=1624912
+          Year 1979
+     Citations 55
+      Versions 3
+    Cluster ID 13583711202395327752
+Citations list http://scholar.google.com/scholar?cites=13583711202395327752&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=13583711202395327752&hl=en&as_sdt=0,5&as_ylo=1979&as_yhi=1979
+       Excerpt ... No. 869, Dept. of Comp. Sci., Univ. of Ill., Urbana, May 1977. 15. Michalski, RS, "Variable-valuedlogic and its application to pattern recognition and machine learning", In Comp. Sci. andMultiple-Valued Logic, ed. DICT Rine, North-Holland, 1977, pp.506-534. ...
+

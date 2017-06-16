@@ -1,0 +1,18 @@
+         Title Orthodontics and orthodontists
+           URL http://www.sciencedirect.com/science/article/pii/0002941650900273
+          Year 1950
+     Citations 2
+      Versions 6
+    Cluster ID 2296846518661469607
+Citations list http://scholar.google.com/scholar?cites=2296846518661469607&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=2296846518661469607&hl=en&as_sdt=0,5&as_ylo=1950&as_yhi=1950
+       Excerpt ... New approach for the diagnosis of extractions with neural network machine learning. 2016,American Journal of Orthodontics and Dentofacial Orthopedics more. Seok-Ki Jung, Tae-WooKim. New approach for the diagnosis of extractions with neural network machine learning. ...
+
+         Title Machine Learning and Kernel Methods
+           URL http://math.bu.edu/people/mkon/ma717/MachineLearning.pdf
+          Year 1950
+     Citations 0
+      Versions 0
+      PDF link http://math.bu.edu/people/mkon/ma717/MachineLearning.pdf
+       Excerpt Page 1. 285 Machine Learning and Kernel Methods Machine Learning Primary references: JohnShawe-Taylor and Nello Cristianini, Kernel Methods for Pattern Analysis Christopher Burges,A tutorial on support vector machines for pattern recognition, Data Mining and Knowledge
+

@@ -1,0 +1,102 @@
+         Title Sparse Bayesian learning and the relevance vector machine
+           URL http://www.jmlr.org/papers/v1/tipping01a.html
+          Year 2001
+     Citations 4983
+      Versions 41
+    Cluster ID 11200804397085160220
+Citations list http://scholar.google.com/scholar?cites=11200804397085160220&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=11200804397085160220&hl=en&as_sdt=0,5&as_ylo=2001&as_yhi=2001
+       Excerpt Abstract This paper introduces a general Bayesian framework for obtaining sparse solutions to regression and classification tasks utilising models linear in the parameters. Although this framework is fully general, we illustrate our approach with a particular specialisation that we 
+
+         Title Random forests
+           URL http://www.springerlink.com/index/U0P06167N6173512.pdf
+          Year 2001
+     Citations 28809
+      Versions 71
+    Cluster ID 945255950668999288
+      PDF link http://www.springerlink.com/index/U0P06167N6173512.pdf
+Citations list http://scholar.google.com/scholar?cites=945255950668999288&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=945255950668999288&hl=en&as_sdt=0,5&as_ylo=2001&as_yhi=2001
+       Excerpt Random forests are a combination of tree predictors such that each tree depends on the values of a random vector sampled independently and with the same distribution for all trees in the forest. The generalization error for forests converges as to a limit as the number of 
+
+         Title Unsupervised learning by probabilistic latent semantic analysis
+           URL http://www.springerlink.com/index/L5656365840672G8.pdf
+          Year 2001
+     Citations 2446
+      Versions 29
+    Cluster ID 5489384596695696099
+      PDF link http://www.springerlink.com/index/L5656365840672G8.pdf
+Citations list http://scholar.google.com/scholar?cites=5489384596695696099&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=5489384596695696099&hl=en&as_sdt=0,5&as_ylo=2001&as_yhi=2001
+       Excerpt This paper presents a novel statistical method for factor analysis of binary and count data which is closely related to a technique known as Latent Semantic Analysis. In contrast to the latter method which stems from linear algebra and performs a Singular Value 
+
+         Title Support vector machine active learning with applications to text classification
+           URL http://www.jmlr.org/papers/v2/tong01a.html
+          Year 2001
+     Citations 2310
+      Versions 34
+    Cluster ID 9302458823048015980
+Citations list http://scholar.google.com/scholar?cites=9302458823048015980&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=9302458823048015980&hl=en&as_sdt=0,5&as_ylo=2001&as_yhi=2001
+       Excerpt Abstract Support vector machines have met with significant success in numerous real-world learning tasks. However, like most machine learning algorithms, they are generally applied using a randomly selected training set classified in advance. In many settings, we also have 
+
+         Title Conditional random fields: Probabilistic models for segmenting and labeling sequence data
+           URL http://www.jmlr.org/papers/volume15/doppa14a/source/biblio.bib.old
+          Year 2001
+     Citations 10348
+      Versions 90
+    Cluster ID 14553887910606988646
+Citations list http://scholar.google.com/scholar?cites=14553887910606988646&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=14553887910606988646&hl=en&as_sdt=0,5&as_ylo=2001&as_yhi=2001
+       Excerpt ... title = {Conditional Random Fields: Probabilistic Models for Segmenting and Labeling SequenceData},. booktitle = {Proceedings of International Conference on Machine Learning (ICML)},. year ={2001},. pages = {282-289}. }. ... inproceedings{SVMSTRUCT-ICML:04,. author = {Ioannis
+
+         Title Incremental and decremental support vector machine learning
+           URL http://papers.nips.cc/paper/1814-incremental-and-decremental-support-vector-machine-learning.pdf
+          Year 2001
+     Citations 1172
+      Versions 25
+    Cluster ID 17789278207283625101
+      PDF link http://papers.nips.cc/paper/1814-incremental-and-decremental-support-vector-machine-learning.pdf
+Citations list http://scholar.google.com/scholar?cites=17789278207283625101&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=17789278207283625101&hl=en&as_sdt=0,5&as_ylo=2001&as_yhi=2001
+       Excerpt Abstract An on-line recursive algorithm for training support vector machines, one vector at a time, is presented. Adiabatic increments retain the Kuhn-Tucker conditions on all previously seen training data, in a number of steps each computed analytically. The incremental 
+
+         Title Support vector machine active learning for image retrieval
+           URL http://dl.acm.org/citation.cfm?id=500159
+          Year 2001
+     Citations 1485
+      Versions 20
+    Cluster ID 7532525752900698629
+Citations list http://scholar.google.com/scholar?cites=7532525752900698629&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7532525752900698629&hl=en&as_sdt=0,5&as_ylo=2001&as_yhi=2001
+       Excerpt ... learner or learner hereafter) can be regarded as a machine learning task. ... We call such a requestfor the label of an image a pool-query. Most machine learning algorithms are passive in the sensethat they are generally applied using a randomly selected training set. ...
+
+         Title Learning with kernels: support vector machines, regularization, optimization, and beyond
+           URL http://dl.acm.org/citation.cfm?id=559923
+          Year 2001
+     Citations 3715
+      Versions 0
+    Cluster ID 8300099389410005713
+Citations list http://scholar.google.com/scholar?cites=8300099389410005713&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... It provides all of the concepts necessary to enable a reader equipped with some basicmathematical knowledge to enter the world of machine learning using theoretically well-foundedyet easy-to-use kernel algorithms and to understand and apply the powerful algorithms that ...
+
+         Title Bioinformatics: the machine learning approach
+           URL http://books.google.com/books?hl=en&lr=&id=pxSM7R1sdeQC&oi=fnd&pg=PR9&dq=%22machine+learning%22&ots=SLMJL8ZVWp&sig=ph8r-9nxTOQsJn_LiTHl0YzXn3g
+          Year 2001
+     Citations 1669
+      Versions 10
+    Cluster ID 1700906866710528849
+Citations list http://scholar.google.com/scholar?cites=1700906866710528849&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1700906866710528849&hl=en&as_sdt=0,5&as_ylo=2001&as_yhi=2001
+       Excerpt An unprecedented wealth of data is being generated by genome sequencing projects and other experimental efforts to determine the structure and function of biological molecules. The demands and opportunities for interpreting these data are expanding rapidly. 
+
+         Title Reconciling schemas of disparate data sources: A machine-learning approach
+           URL http://dl.acm.org/citation.cfm?id=375731
+          Year 2001
+     Citations 975
+      Versions 35
+    Cluster ID 7443069929533701945
+Citations list http://scholar.google.com/scholar?cites=7443069929533701945&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7443069929533701945&hl=en&as_sdt=0,5&as_ylo=2001&as_yhi=2001
+       Excerpt Abstract A data-integration system provides access to a multitude of data sources through a single mediated schema. A key bottleneck in building such systems has been the laborious manual construction of semantic mappings between the source schemas and the mediated 
+

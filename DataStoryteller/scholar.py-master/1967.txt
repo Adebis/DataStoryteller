@@ -1,0 +1,88 @@
+         Title Some studies in machine learning using the game of checkers. II—recent progress
+           URL http://ieeexplore.ieee.org/abstract/document/5391906/
+          Year 1967
+     Citations 619
+      Versions 26
+    Cluster ID 6574248761605889554
+Citations list http://scholar.google.com/scholar?cites=6574248761605889554&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=6574248761605889554&hl=en&as_sdt=0,5&as_ylo=1967&as_yhi=1967
+       Excerpt Abstract: A new signature table technique is described together with an improved book learning procedure which is thought to be much superior to the linear polynomial method described earlier. Full use is made of the so called “alpha-beta” pruning and several forms of 
+
+         Title Simulation of biological evolution and machine learning: I. Selection of self-reproducing numeric patterns by data processing machines, effects of hereditary control,  …
+           URL http://www.sciencedirect.com/science/article/pii/0022519367900975
+          Year 1967
+     Citations 180
+      Versions 4
+    Cluster ID 13185305303404901376
+Citations list http://scholar.google.com/scholar?cites=13185305303404901376&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=13185305303404901376&hl=en&as_sdt=0,5&as_ylo=1967&as_yhi=1967
+       Excerpt Abstract The effect of crossing and of different types of mutations (or genetic control) on the speed of selective adaptation has been investigated by data processing machines. The procedure is based on the use of self-reproducing numeric patterns, or arrays of numbers 
+
+         Title The philosophy of the inductive sciences (first published Zytkow, JM & Simon, HA (1986) A theory of historical discovery: The 1840). Johnson Reprint.[aPT] …
+          Year 1967
+     Citations 29
+      Versions 0
+    Cluster ID 459343797367056646
+Citations list http://scholar.google.com/scholar?cites=459343797367056646&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Machine learning and recognition of faces
+           URL http://ieeexplore.ieee.org/abstract/document/4207390/
+          Year 1967
+     Citations 11
+      Versions 3
+    Cluster ID 6963543630635365505
+Citations list http://scholar.google.com/scholar?cites=6963543630635365505&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=6963543630635365505&hl=en&as_sdt=0,5&as_ylo=1967&as_yhi=1967
+       Excerpt Abstract: A learning machine has been tested in a closed-loop system in which a teaching machine performs the function of error detector. The learning curve for a set of ten photographs of faces is presented. All the faces are recognised correctly after 250 
+
+         Title Complete solution of the eight puzzle
+          Year 1967
+     Citations 48
+      Versions 0
+    Cluster ID 14608482144088453656
+Citations list http://scholar.google.com/scholar?cites=14608482144088453656&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title The psychology of learning
+           URL http://scholar.google.com/https://philpapers.org/browse/psychology-of-learning
+          Year 1967
+     Citations 127
+      Versions 3
+    Cluster ID 5464710288665539099
+Citations list http://scholar.google.com/scholar?cites=5464710288665539099&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=5464710288665539099&hl=en&as_sdt=0,5&as_ylo=1967&as_yhi=1967
+       Excerpt ... Lawrence University. Assistant Professor of Philosophy. Saint Joseph Seminary College. Professor.Jobs from PhilJobs. Siblings: Philosophy of Learning (82); Machine Learning (4); Consciousand Unconscious Learning (533); Learning, Misc (2). 1 found. Search inside: ...
+
+         Title Experiments with a learning component in a go-moku playing program
+          Year 1967
+     Citations 15
+      Versions 0
+    Cluster ID 14063150028044122120
+Citations list http://scholar.google.com/scholar?cites=14063150028044122120&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Strategy-building with the graph traverser
+          Year 1967
+     Citations 20
+      Versions 0
+    Cluster ID 3325783278842688682
+Citations list http://scholar.google.com/scholar?cites=3325783278842688682&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Learning to recognize patterns without a teacher
+           URL http://ieeexplore.ieee.org/abstract/document/1053952/
+          Year 1967
+     Citations 114
+      Versions 4
+    Cluster ID 9846109270302061600
+Citations list http://scholar.google.com/scholar?cites=9846109270302061600&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=9846109270302061600&hl=en&as_sdt=0,5&as_ylo=1967&as_yhi=1967
+       Excerpt ... SEL-62-071 (TR 2003-5), May 1962. Also in IRE Trans. on Information Theory, vol. 8, pp. 5%63, September 1962. I>. J. Braverman, “Machine learning and automatic pattern recognition,”Stanford Electronics Labs., Stanford, Calif., Tech. Rept. 2003-l February 1961. ...
+
+         Title A learning method for system identification
+           URL http://ieeexplore.ieee.org/abstract/document/1098599/
+          Year 1967
+     Citations 670
+      Versions 2
+    Cluster ID 8564966288676632974
+Citations list http://scholar.google.com/scholar?cites=8564966288676632974&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8564966288676632974&hl=en&as_sdt=0,5&as_ylo=1967&as_yhi=1967
+       Excerpt Page 1. 282 IEEE TRANSACTIOKS ON AUT0M;ITIC CONTROL, VOL. 4C-12, NO.3, JU,NE 1967 A Learning Method for System Identification JIN-ICHI KAGUMO, =DER,IEEE, AND -4TSUHIKO NOD4 Absimcf-A method for system ...
+

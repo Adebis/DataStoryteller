@@ -1,0 +1,53 @@
+         Title Mixed solutions for the deadlock problem
+           URL http://dl.acm.org/citation.cfm?id=362290
+          Year 1973
+     Citations 35
+      Versions 0
+    Cluster ID 12948325220565739695
+Citations list http://scholar.google.com/scholar?cites=12948325220565739695&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... Working paper, 1969. 4. Kozdrowicki, EW A practical application of machine learning: use oflearning in an interpreter for a tree searching language. Proc. ... 431-447. 8. Samuel, AL Somestudies in machine learning using the game of checkers. II-Recent progress. IBM J. (Nov. ...
+
+         Title A design for an adaptive self-improving teaching system
+          Year 1973
+     Citations 24
+      Versions 0
+    Cluster ID 11336488798314401281
+Citations list http://scholar.google.com/scholar?cites=11336488798314401281&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title A Grapheme-to-Phoneme Transcription Algorithm Based on the SAMPA Alphabet Extension for The Polish Language
+           URL http://scholar.google.com/https://www.internationalphoneticassociation.org/icphs-proceedings/ICPhS2003/papers/p15_2601.pdf
+          Year 1973
+     Citations 6
+      Versions 0
+    Cluster ID 15734819116391038058
+      PDF link http://scholar.google.com/https://www.internationalphoneticassociation.org/icphs-proceedings/ICPhS2003/papers/p15_2601.pdf
+Citations list http://scholar.google.com/scholar?cites=15734819116391038058&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ABSTRACT The paper concerns the automatic generation of broad and narrow transcription of the Polish language in the module of a concatenative TTS system under development at Adam Mickiewicz University and Poznan Technical University, Poland. The existing phonetic 
+
+         Title On the optimality of the simple Bayesian classifiers
+          Year 1973
+     Citations 2
+      Versions 0
+    Cluster ID 16469428411986271524
+Citations list http://scholar.google.com/scholar?cites=16469428411986271524&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Differentiation of iron deficiency from thalassaemia trait by routine blood-count
+           URL http://www.sciencedirect.com/science/article/pii/S0140673673918783
+          Year 1973
+     Citations 193
+      Versions 8
+    Cluster ID 8968081005778673110
+Citations list http://scholar.google.com/scholar?cites=8968081005778673110&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8968081005778673110&hl=en&as_sdt=0,5&as_ylo=1973&as_yhi=1973
+       Excerpt ... 2016, Proceedings - 2015 IEEE 14th International Conference on Machine Learning andApplications, ICMLA 2015 more. ... Proceedings - 2015 IEEE 14th International Conference onMachine Learning and Applications, ICMLA 2015, , 2 March 2016, Pages. ...
+
+         Title A theory of relevance for automatic document classification
+           URL http://www.sciencedirect.com/science/article/pii/S0019995873903100
+          Year 1973
+     Citations 25
+      Versions 2
+    Cluster ID 4363984522859407556
+Citations list http://scholar.google.com/scholar?cites=4363984522859407556&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=4363984522859407556&hl=en&as_sdt=0,5&as_ylo=1973&as_yhi=1973
+       Excerpt ... Information Sciences, Volume 312, 10 August 2015, Pages 1-12. View more articles. Citing articles(3). Text categorization with machine learning and hierarchical structures. ... Krendzelak M. , JakabF. Text categorization with machine learning and hierarchical structures. ...
+

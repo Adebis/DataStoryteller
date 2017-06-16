@@ -1,0 +1,92 @@
+         Title A man-machine facial recognition system—some preliminary results
+          Year 1965
+     Citations 50
+      Versions 0
+    Cluster ID 14705839889351429738
+Citations list http://scholar.google.com/scholar?cites=14705839889351429738&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Sequential decisions, pattern recognition, and machine learning
+          Year 1965
+     Citations 19
+      Versions 0
+    Cluster ID 10768523342192640721
+Citations list http://scholar.google.com/scholar?cites=10768523342192640721&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Alchemy and artificial intelligence
+           URL http://courses.csail.mit.edu/6.803/pdf/dreyfus.pdf
+          Year 1965
+     Citations 223
+      Versions 6
+    Cluster ID 5733013927634614904
+      PDF link http://courses.csail.mit.edu/6.803/pdf/dreyfus.pdf
+Citations list http://scholar.google.com/scholar?cites=5733013927634614904&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=5733013927634614904&hl=en&as_sdt=0,5&as_ylo=1965&as_yhi=1965
+       Excerpt ... 207- 220. Samuel, AL, ”Some Studies in Machine Learning Using the Game ofCheckers," in Computers and Thought, Edward A. Feigenbaum and Julian Feldman(eds.), McGraw—Hill Book Company, New York, 1963, pp. 71- 108. ...
+
+         Title Tree searching methods with an application to a network design problem
+          Year 1965
+     Citations 17
+      Versions 0
+    Cluster ID 8114544435232267702
+Citations list http://scholar.google.com/scholar?cites=8114544435232267702&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title A heuristic approach to reinforcement learning control systems
+           URL http://ieeexplore.ieee.org/abstract/document/1098193/
+          Year 1965
+     Citations 162
+      Versions 2
+    Cluster ID 1766681407651535240
+Citations list http://scholar.google.com/scholar?cites=1766681407651535240&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1766681407651535240&hl=en&as_sdt=0,5&as_ylo=1965&as_yhi=1965
+       Excerpt Page 1. IEEE TRANSACTIONS ON AUTOMATIC CONTROL POL. AC-10, NO. 4 OCTOBER,1965 A Heuristic Approach to Reinforcement Learning Control Systems Absfract-This paperdescribes a learning control system using a reinforcement technique. ...
+
+         Title Evidence for an initial acceptor of UDP-NAc-muramyl-pentapeptide in the synthesis of bacterial mucopeptide
+           URL http://www.sciencedirect.com/science/article/pii/0006291X65908739
+          Year 1965
+     Citations 61
+      Versions 3
+    Cluster ID 7823790064465417161
+Citations list http://scholar.google.com/scholar?cites=7823790064465417161&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7823790064465417161&hl=en&as_sdt=0,5&as_ylo=1965&as_yhi=1965
+       Excerpt ... Machine-learning to characterise neonatal functional connectivity in the preterm brain. 2016,NeuroImage more. ... Machine-learning to characterise neonatal functional connectivity in the pretermbrain. NeuroImage, Volume 124, Part A, 1 January 2016, Pages 267-275. ...
+
+         Title A generalization of the Popov criterion
+           URL http://ieeexplore.ieee.org/abstract/document/1098105/
+          Year 1965
+     Citations 77
+      Versions 3
+    Cluster ID 4182090137446400116
+Citations list http://scholar.google.com/scholar?cites=4182090137446400116&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=4182090137446400116&hl=en&as_sdt=0,5&as_ylo=1965&as_yhi=1965
+       Excerpt ... Stanford University. Stanford. [71 Calif.. 1963. Spragins. JD, Jr. Reproducing distributions formachine learning, Tech Rept 6103-7, Stanford Electronics Labs., Stanford. Calif., 1963. Ann.Math. Stat.. rol33, Sep 1962, pp 882-886. Blackwell. D.. and L. Dubins. ...
+
+         Title A note on learning for Gaussian properties
+           URL http://ieeexplore.ieee.org/abstract/document/1053726/
+          Year 1965
+     Citations 93
+      Versions 3
+    Cluster ID 10857088828129572166
+Citations list http://scholar.google.com/scholar?cites=10857088828129572166&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=10857088828129572166&hl=en&as_sdt=0,5&as_ylo=1965&as_yhi=1965
+       Excerpt ... REFERENCES The density for & = l/f/ 1 ' is easily obtained from (56) [I] Ab ramson, N., D.Braverman, and G. Sebestyen, Pattern since the density for [ depends just on its normsquared recognition and machine learning, IEEE Trans. on Information ...
+
+         Title Connectionism and the teaching machine
+           URL http://www.jstor.org/stable/27968004
+          Year 1965
+     Citations 2
+      Versions 2
+    Cluster ID 15184807333839524154
+Citations list http://scholar.google.com/scholar?cites=15184807333839524154&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=15184807333839524154&hl=en&as_sdt=0,5&as_ylo=1965&as_yhi=1965
+       Excerpt ... electronics. But teaching-machine learning is based on the very connec tionismthat was so safely interred. This is the rationale for this brief survey of the principlesof connectionist psychology and teaching-machine learning. ...
+
+         Title Learning in some simple non-biological systems
+           URL http://www.jstor.org/stable/27835902
+          Year 1965
+     Citations 10
+      Versions 5
+    Cluster ID 10407951595277143078
+Citations list http://scholar.google.com/scholar?cites=10407951595277143078&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=10407951595277143078&hl=en&as_sdt=0,5&as_ylo=1965&as_yhi=1965
+       Excerpt ... Score may be kept as in Figure 1. The Identity of Player Revealed. The Machine Gl The Playerwhose learning curve is exhibited in Figure 1 is, in fact, a simple machine. ... Page 3. LEARNINGIN SOME SIMPLE NON-BIOLOGICAL SYSTEMS 61 this move. ...
+

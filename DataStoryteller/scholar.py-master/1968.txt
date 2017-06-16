@@ -1,0 +1,86 @@
+         Title Memo functions and machine learning
+           URL http://scholar.google.com/https://www.cs.utexas.edu/users/hunt/research/hash-cons/hash-cons-papers/michie-memo-nature-1968.pdf
+          Year 1968
+     Citations 724
+      Versions 8
+    Cluster ID 1568348136294309867
+      PDF link http://scholar.google.com/https://www.cs.utexas.edu/users/hunt/research/hash-cons/hash-cons-papers/michie-memo-nature-1968.pdf
+Citations list http://scholar.google.com/scholar?cites=1568348136294309867&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1568348136294309867&hl=en&as_sdt=0,5&as_ylo=1968&as_yhi=1968
+       Excerpt If computers could learn from experience their usefulness would be increased. When I write a clumsy program for a contemporary computer a thousand runs on the machine do not re-educate my handiwork. On every execution, each time-wasting blemish and crudity, each 
+
+         Title Sequential methods in pattern recognition and machine learning
+           URL http://books.google.com/books?hl=en&lr=&id=TrFoHng-H8MC&oi=fnd&pg=PP2&dq=%22machine+learning%22&ots=ZgCTbRrO7F&sig=7tDDZTGYYC1YjeY96dNsPyefXHs
+          Year 1968
+     Citations 643
+      Versions 3
+    Cluster ID 17194718881769184546
+Citations list http://scholar.google.com/scholar?cites=17194718881769184546&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=17194718881769184546&hl=en&as_sdt=0,5&as_ylo=1968&as_yhi=1968
+       Excerpt During the past decade there has been a considerable growth of interest in problems of pattern recognition and machine learning. This interest has created an increasing need for methods and techniques for the design of pattern recognition and learning systems. Many 
+
+         Title On representations of problems of reasoning about actions
+          Year 1968
+     Citations 437
+      Versions 0
+    Cluster ID 4001326189708392885
+Citations list http://scholar.google.com/scholar?cites=4001326189708392885&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Machine learning of heuristics
+           URL http://oai.dtic.mil/oai/oai?verb=getRecord&metadataPrefix=html&identifier=AD0681027
+          Year 1968
+     Citations 26
+      Versions 4
+    Cluster ID 17668201600442106254
+Citations list http://scholar.google.com/scholar?cites=17668201600442106254&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=17668201600442106254&hl=en&as_sdt=0,5&as_ylo=1968&as_yhi=1968
+       Excerpt Abstract: First, a method of representing heuristics as production rules is developed which facilitates dynamic manipulation of the heuristics by the program embodying them. This representation technique permits separation of the heuristics from the program proper, 
+
+         Title Self-organizing and learning control systems.
+           URL http://scholar.google.com/https://ntrs.nasa.gov/search.jsp?R=19690040393
+          Year 1968
+     Citations 23
+      Versions 0
+    Cluster ID 17071553614941960099
+Citations list http://scholar.google.com/scholar?cites=17071553614941960099&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... Distribution Limits: Unclassified; Publicly available; Unlimited. Rights: Copyright. NASA Terms:ADAPTIVE CONTROL; MACHINE LEARNING; SELF ORGANIZING SYSTEMS; CONFERENCES;CYBERNETICS; FEEDBACK CONTROL; PERFORMANCE PREDICTION. ...
+
+         Title Learning games through pattern recognition
+           URL http://ieeexplore.ieee.org/abstract/document/4082111/
+          Year 1968
+     Citations 25
+      Versions 2
+    Cluster ID 7139611736257563907
+Citations list http://scholar.google.com/scholar?cites=7139611736257563907&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7139611736257563907&hl=en&as_sdt=0,5&as_ylo=1968&as_yhi=1968
+       Excerpt ... ssc-4, NO. 1, MARCH 1968 Learning Games Through Pattern Recognition ELLIOT B. KOFFMANAbstract-The objective of this research was to investigate a technique for machine learningthat would be useful in solving problems involving forcing states. ...
+
+         Title Experiments with a pleasure-seeking automaton
+          Year 1968
+     Citations 29
+      Versions 0
+    Cluster ID 10773093706540036683
+Citations list http://scholar.google.com/scholar?cites=10773093706540036683&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title BOXES: An experiment in adaptive control
+          Year 1968
+     Citations 498
+      Versions 5
+    Cluster ID 8870951973312343141
+Citations list http://scholar.google.com/scholar?cites=8870951973312343141&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8870951973312343141&hl=en&as_sdt=0,5&as_ylo=1968&as_yhi=1968
+
+         Title A practical application of machine learning: use of learning in an interpreter for a tree searching language
+          Year 1968
+     Citations 6
+      Versions 0
+    Cluster ID 4040317162534453555
+Citations list http://scholar.google.com/scholar?cites=4040317162534453555&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title A regression analysis program incorporating heuristic term selection
+          Year 1968
+     Citations 13
+      Versions 0
+    Cluster ID 8712789781597840900
+Citations list http://scholar.google.com/scholar?cites=8712789781597840900&as_sdt=2005&sciodt=0,5&hl=en
+

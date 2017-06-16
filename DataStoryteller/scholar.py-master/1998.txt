@@ -1,0 +1,96 @@
+         Title Machine learning for the detection of oil spills in satellite radar images
+           URL http://link.springer.com/article/10.1023/A:1007452223027
+          Year 1998
+     Citations 961
+      Versions 26
+    Cluster ID 15414045328688375134
+Citations list http://scholar.google.com/scholar?cites=15414045328688375134&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=15414045328688375134&hl=en&as_sdt=0,5&as_ylo=1998&as_yhi=1998
+       Excerpt Abstract During a project examining the use of machine learning techniques for oil spill detection, we encountered several essential questions that we believe deserve the attention of the research community. We use our particular case study to illustrate such issues as 
+
+         Title {UCI} Repository of machine learning databases
+           URL http://www.citeulike.org/group/1778/article/931098
+          Year 1998
+     Citations 6364
+      Versions 4
+    Cluster ID 3267075354729404319
+Citations list http://scholar.google.com/scholar?cites=3267075354729404319&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=3267075354729404319&hl=en&as_sdt=0,5&as_ylo=1998&as_yhi=1998
+       Excerpt ... More... Brought to you by AQnowledge, precision products for scientists. x CiteULike uses cookies,some of which may already have been set. Read about how we use cookies. We will interpretyour continued use of this site as your acceptance of our use of cookies. You may hide this
+
+         Title {UCI} Repository of machine learning databases
+           URL http://www.citeulike.org/group/14833/article/8970606
+          Year 1998
+     Citations 3388
+      Versions 2
+    Cluster ID 8699241232888331042
+Citations list http://scholar.google.com/scholar?cites=8699241232888331042&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8699241232888331042&hl=en&as_sdt=0,5&as_ylo=1998&as_yhi=1998
+       Excerpt ... More... Brought to you by AQnowledge, precision products for scientists. x CiteULike uses cookies,some of which may already have been set. Read about how we use cookies. We will interpretyour continued use of this site as your acceptance of our use of cookies. You may hide this
+
+         Title Glossary of terms
+          Year 1998
+     Citations 1154
+      Versions 0
+    Cluster ID 14474117229119938574
+Citations list http://scholar.google.com/scholar?cites=14474117229119938574&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Guest editors' introduction: On applied research in machine learning
+           URL http://www.springerlink.com/index/QJ78NM8831T443K8.pdf
+          Year 1998
+     Citations 113
+      Versions 21
+    Cluster ID 15994603257077111190
+      PDF link http://www.springerlink.com/index/QJ78NM8831T443K8.pdf
+Citations list http://scholar.google.com/scholar?cites=15994603257077111190&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=15994603257077111190&hl=en&as_sdt=0,5&as_ylo=1998&as_yhi=1998
+       Excerpt Common arguments for including applications papers in the Machine Learning literature are often based on the papers' value for advertising success stories and for boosting morale. For example, high-profile applications can help to secure funding for future research and can 
+
+         Title {UCI} Repository of machine learning databases
+           URL http://www.citeulike.org/group/2572/article/1304136
+          Year 1998
+     Citations 1472
+      Versions 2
+    Cluster ID 15277463888092363218
+Citations list http://scholar.google.com/scholar?cites=15277463888092363218&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=15277463888092363218&hl=en&as_sdt=0,5&as_ylo=1998&as_yhi=1998
+       Excerpt ... More... Brought to you by AQnowledge, precision products for scientists. x CiteULike uses cookies,some of which may already have been set. Read about how we use cookies. We will interpretyour continued use of this site as your acceptance of our use of cookies. You may hide this
+
+         Title Text categorization with support vector machines: Learning with many relevant features
+           URL http://www.springerlink.com/index/drhq581108850171.pdf
+          Year 1998
+     Citations 8519
+      Versions 40
+    Cluster ID 16647382822045926408
+      PDF link http://www.springerlink.com/index/drhq581108850171.pdf
+Citations list http://scholar.google.com/scholar?cites=16647382822045926408&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=16647382822045926408&hl=en&as_sdt=0,5&as_ylo=1998&as_yhi=1998
+       Excerpt This paper explores the use of Support Vector Machines (SVMs) for learning text classifiers from examples. It analyzes the particular properties of learning with text data and identifies why SVMs are appropriate for this task. Empirical results support the theoretical findings. 
+
+         Title UCI Repository of machine learning databases [http://www. ics. uci. edu/~ mlearn/MLRepository. html]. Irvine, CA: University of California
+          Year 1998
+     Citations 1048
+      Versions 0
+    Cluster ID 17672324301249432760
+Citations list http://scholar.google.com/scholar?cites=17672324301249432760&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Co-evolution in the successful learning of backgammon strategy
+           URL http://link.springer.com/article/10.1023/A:1007417214905
+          Year 1998
+     Citations 247
+      Versions 29
+    Cluster ID 11603853598685736684
+Citations list http://scholar.google.com/scholar?cites=11603853598685736684&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=11603853598685736684&hl=en&as_sdt=0,5&as_ylo=1998&as_yhi=1998
+       Excerpt Abstract Following Tesauro's work on TD-Gammon, we used a 4,000 parameter feedforward neural network to develop a competitive backgammon evaluation function. Play proceeds by a roll of the dice, application of the network to all legal moves, and selection of the position 
+
+         Title Practical feature subset selection for machine learning
+           URL http://researchcommons.waikato.ac.nz/handle/10289/1512
+          Year 1998
+     Citations 329
+      Versions 6
+    Cluster ID 9313590728361893824
+Citations list http://scholar.google.com/scholar?cites=9313590728361893824&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=9313590728361893824&hl=en&as_sdt=0,5&as_ylo=1998&as_yhi=1998
+       Excerpt Machine learning algorithms automatically extract knowledge from machine readable information. Unfortunately, their success is usually dependant on the quality of the data that they operate on. If the data is inadequate, or contains extraneous and irrelevant information, 
+

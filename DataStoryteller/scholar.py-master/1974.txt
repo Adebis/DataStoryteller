@@ -1,0 +1,95 @@
+         Title A comparison and evaluation of three machine learning procedures as applied to the game of checkers
+           URL http://www.sciencedirect.com/science/article/pii/0004370274900277
+          Year 1974
+     Citations 29
+      Versions 2
+    Cluster ID 9186564695718191446
+Citations list http://scholar.google.com/scholar?cites=9186564695718191446&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=9186564695718191446&hl=en&as_sdt=0,5&as_ylo=1974&as_yhi=1974
+       Excerpt Abstract This paper presents two new machine learning procedures used to arrive at “knowledgeable” static evaluators for checker board positions. The static evaluators are compared with each other, and with the linear polynomial used by Samuel [9], using two 
+
+         Title Learning control algorithms in real dynamic systems
+           URL http://link.springer.com/chapter/10.1007/978-3-642-65796-2_2
+          Year 1974
+     Citations 46
+      Versions 0
+    Cluster ID 7233004778823299138
+Citations list http://scholar.google.com/scholar?cites=7233004778823299138&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... It is shown however that the human operator can be a good teacher if he is allowed tocommunicate using natural language. I. INTRODUCTION In the last fifteen years or so "machinelearning" has been a central and stimulating area for research by computer scientists. ...
+
+         Title When should a learning machine ask for help?
+           URL http://ieeexplore.ieee.org/abstract/document/1055259/
+          Year 1974
+     Citations 17
+      Versions 2
+    Cluster ID 7070139657104442933
+Citations list http://scholar.google.com/scholar?cites=7070139657104442933&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7070139657104442933&hl=en&as_sdt=0,5&as_ylo=1974&as_yhi=1974
+       Excerpt Page 1. IEEE TRANSACTIONS ON INFORMATION THEORY, VOL. IT-20, NO. 4, JULY 1974455 for the same reason. Since the {c~} are increasing, the {Cb} wiil be increasing if det (P) >0, and decreasing if det (P) < 0. Using (78) and (79), (77) is equivalent to ...
+
+         Title A Model for``The Tragedy of the Commons''
+           URL http://ieeexplore.ieee.org/abstract/document/5408531/
+          Year 1974
+     Citations 35
+      Versions 2
+    Cluster ID 6485194653116409721
+Citations list http://scholar.google.com/scholar?cites=6485194653116409721&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=6485194653116409721&hl=en&as_sdt=0,5&as_ylo=1974&as_yhi=1974
+       Excerpt ... Philos., vol. 34, pp. 609-622, 1971. doing. Buttneaervaton f cassdenlngproertes rom [61 A. Sainuel,"Some studies in machine learning using the game of paradigms is not a machine-feasibleoperation without human checkers," IBM J. Res. Develop., vol. 11, no. 6, pp. ...
+
+         Title Memory mechanisms and machine learning
+          Year 1974
+     Citations 2
+      Versions 0
+    Cluster ID 7351701977898796921
+Citations list http://scholar.google.com/scholar?cites=7351701977898796921&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title A syntactic pattern recognition system with learning capability
+           URL http://link.springer.com/chapter/10.1007/978-1-4684-2694-6_22
+          Year 1974
+     Citations 32
+      Versions 2
+    Cluster ID 13508527142686884464
+Citations list http://scholar.google.com/scholar?cites=13508527142686884464&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=13508527142686884464&hl=en&as_sdt=0,5&as_ylo=1974&as_yhi=1974
+       Excerpt Page 1. A Syntactic Pattern Recognition System with Learning Capability* HC Leet andKS Fu School of Electrical Engineering Purdue Unirersity West Lafayette, Indiana Stochasticsyntax analysis of pictorial patterns is investigated in this study. ...
+
+         Title Heuristic programmers and their gambling machines
+           URL http://dl.acm.org/citation.cfm?id=810376
+          Year 1974
+     Citations 17
+      Versions 2
+    Cluster ID 10065779578613820134
+Citations list http://scholar.google.com/scholar?cites=10065779578613820134&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=10065779578613820134&hl=en&as_sdt=0,5&as_ylo=1974&as_yhi=1974
+       Excerpt ... making under uncertainty and risk. We have studied many aspects of human and machinelearning processes, inductive and deductive inference making ... Canada USA USA KEYWORDS:machine learning, game playing programs, automatic forming and ...
+
+         Title Computerized pattern recognition applications to chemical analysis. Development of interactive feature selection methods for the K-nearest neighbor technique
+           URL http://pubs.acs.org/doi/pdf/10.1021/ac60348a012
+          Year 1974
+     Citations 22
+      Versions 2
+    Cluster ID 4313487661231333039
+Citations list http://scholar.google.com/scholar?cites=4313487661231333039&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=4313487661231333039&hl=en&as_sdt=0,5&as_ylo=1974&as_yhi=1974
+       Excerpt ... Chem., 44, 2331 (1972). N J. Nilsson, "Learning Machines," McGraw-Hill Book Co.. New York,NY, 1965 K. S. Fu, "Sequential Methods in Pattern Recognition and Machine Learning," AcademicPress, New York, NY. 1968. P. C Jurs, 6. R. Kowalski, TL Isenhour. ...
+
+         Title A method of learning control varying search domain by fuzzy automata
+           URL http://link.springer.com/chapter/10.1007/978-1-4684-2106-4_12
+          Year 1974
+     Citations 12
+      Versions 0
+    Cluster ID 6771113901914396450
+Citations list http://scholar.google.com/scholar?cites=6771113901914396450&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt Page 1. A METHOD OF LEARNING CONTROL VARYING SEARCH DOMAIN BY FUZZYAUTOMATA Seizo Kitajima and Kiyoji Asai Osaka City University University of OsakaPerfecture Osaka, Japan Sakai, Osaka, Japan 1. INTRODUCTION ...
+
+         Title Paradigmatic Symbol-A Comparative Study of Human and Artificial Intelligence
+           URL http://ieeexplore.ieee.org/abstract/document/5408530/
+          Year 1974
+     Citations 10
+      Versions 3
+    Cluster ID 3412366299407883063
+Citations list http://scholar.google.com/scholar?cites=3412366299407883063&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=3412366299407883063&hl=en&as_sdt=0,5&as_ylo=1974&as_yhi=1974
+       Excerpt Page 1. 100 IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS, JANUARY 1974the relative interplay of these abilities in performing tasks such sidered. However, for laterreference there will be a brief discus- as learning and concept formation. ...
+

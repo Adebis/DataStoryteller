@@ -1,0 +1,104 @@
+         Title Learning logical definitions from relations
+           URL http://www.springerlink.com/index/V031486523444K05.pdf
+          Year 1990
+     Citations 2281
+      Versions 31
+    Cluster ID 1916312802758546564
+      PDF link http://www.springerlink.com/index/V031486523444K05.pdf
+Citations list http://scholar.google.com/scholar?cites=1916312802758546564&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1916312802758546564&hl=en&as_sdt=0,5&as_ylo=1990&as_yhi=1990
+       Excerpt This paper describesfoil, a system that learns Horn clauses from data expressed as relations. foil is based on ideas that have proved effective in attribute-value learning systems, but extends them to a first-order formalism. This new system has been applied 
+
+         Title Estimating probabilities: a crucial task in machine learning.
+           URL http://www.temida.si/~bojan/_resources/Cestnik_Estimating_probabilities.pdf
+          Year 1990
+     Citations 609
+      Versions 2
+    Cluster ID 16787915455893216864
+      PDF link http://www.temida.si/~bojan/_resources/Cestnik_Estimating_probabilities.pdf
+Citations list http://scholar.google.com/scholar?cites=16787915455893216864&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=16787915455893216864&hl=en&as_sdt=0,5&as_ylo=1990&as_yhi=1990
+       Excerpt Abstract The evaluation of the Bayesian formula that is used as a basis of many machine learning systems is studied in detail. It is shown that, when used naively (ie assuming the independence of attributes), its classification accuracy heavily depends on the method for 
+
+         Title Boolean feature discovery in empirical learning
+           URL http://www.springerlink.com/index/M205U681K8724776.pdf
+          Year 1990
+     Citations 582
+      Versions 10
+    Cluster ID 8059433356480567773
+      PDF link http://www.springerlink.com/index/M205U681K8724776.pdf
+Citations list http://scholar.google.com/scholar?cites=8059433356480567773&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8059433356480567773&hl=en&as_sdt=0,5&as_ylo=1990&as_yhi=1990
+       Excerpt We investigate the problem of learning Boolean functions with a short DNF representation using decision trees as a concept description language. Unfortunately, Boolean concepts with a short description may not have a small decision tree representation when the tests at 
+
+         Title The strength of weak learnability
+           URL http://link.springer.com/article/10.1023/A:1022648800760
+          Year 1990
+     Citations 4118
+      Versions 50
+    Cluster ID 17122401479337630054
+Citations list http://scholar.google.com/scholar?cites=17122401479337630054&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=17122401479337630054&hl=en&as_sdt=0,5&as_ylo=1990&as_yhi=1990
+       Excerpt Abstract This paper addresses the problem of improving the accuracy of an hypothesis output by a learning algorithm in the distribution-free (PAC) learning model. A concept class is learnable (or strongly learnable) if, given access to a source of examples of the unknown 
+
+         Title Learning sequential decision rules using simulation models and competition
+           URL http://www.springerlink.com/index/Q558435H1457XN84.pdf
+          Year 1990
+     Citations 320
+      Versions 20
+    Cluster ID 10870730132747476974
+      PDF link http://www.springerlink.com/index/Q558435H1457XN84.pdf
+Citations list http://scholar.google.com/scholar?cites=10870730132747476974&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=10870730132747476974&hl=en&as_sdt=0,5&as_ylo=1990&as_yhi=1990
+       Excerpt The problem of learning decision rules for sequential tasks is addressed, focusing on the problem of learning tactical decision rules from a simple flight simulator. The learning method relies on the notion of competition and employs genetic algorithms to search the 
+
+         Title An empirical comparison of pattern recognition, neural nets and machine learning classification methods
+           URL http://books.google.com/books?hl=en&lr=&id=UgC33U2KMCsC&oi=fnd&pg=PA177&dq=%22machine+learning%22&ots=Tfokkh6Dv7&sig=qsgKo0XNygnBiOaff-sIJz5PYyw
+          Year 1990
+     Citations 556
+      Versions 9
+    Cluster ID 4612572489486263060
+Citations list http://scholar.google.com/scholar?cites=4612572489486263060&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=4612572489486263060&hl=en&as_sdt=0,5&as_ylo=1990&as_yhi=1990
+       Excerpt Abstract Classification methods from statistical pattern recognition, neural nets, and machine learning were applied to four real-world data sets. Each of these data sets has been previously analyzed and reported in the statistical, medical, or machine learning literature. 
+
+         Title Readings in machine learning
+           URL http://books.google.com/books?hl=en&lr=&id=UgC33U2KMCsC&oi=fnd&pg=PA1&dq=%22machine+learning%22&ots=Tfokkh6Dv7&sig=mL-AawI261hh5ZIJP4kEBqP8JAY
+          Year 1990
+     Citations 402
+      Versions 2
+    Cluster ID 2031020440241972606
+Citations list http://scholar.google.com/scholar?cites=2031020440241972606&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=2031020440241972606&hl=en&as_sdt=0,5&as_ylo=1990&as_yhi=1990
+       Excerpt The ability to learn is a fundamental characteristic of intelligent behavior. Consequently, machine learning has been a focus of artificial intelligence since the beginnings of AI in the 1950s. The 1980s saw tremendous growth in the field, and this growth promises to continue 
+
+         Title Machine learning: paradigms and methods
+           URL http://dl.acm.org/citation.cfm?id=87755
+          Year 1990
+     Citations 136
+      Versions 2
+    Cluster ID 4797406383242656239
+Citations list http://scholar.google.com/scholar?cites=4797406383242656239&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=4797406383242656239&hl=en&as_sdt=0,5&as_ylo=1990&as_yhi=1990
+       Excerpt Machine learning: paradigms and methods. ... Publication: · Book, Machine learning: paradigmsand methods. Elsevier North-Holland, Inc. New York, NY, USA.
+
+         Title The computational complexity of machine learning
+           URL http://books.google.com/books?hl=en&lr=&id=y5Txq1AkJoMC&oi=fnd&pg=PA1&dq=%22machine+learning%22&ots=_ONHF2euTo&sig=8mIX9LLC52M8SUDg5tPzixx-OdE
+          Year 1990
+     Citations 227
+      Versions 5
+    Cluster ID 9118434916758664018
+Citations list http://scholar.google.com/scholar?cites=9118434916758664018&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=9118434916758664018&hl=en&as_sdt=0,5&as_ylo=1990&as_yhi=1990
+       Excerpt " The Computational Complexity of Machine Learning" is a mathematical study of the possibilities for efficient learning by computers. It works within recently introduced models for machine inference that are based on the theory of computational complexity and that place 
+
+         Title Research in machine learning
+           URL http://books.google.com/books?hl=en&lr=&id=vHyjBQAAQBAJ&oi=fnd&pg=PA3&dq=%22machine+learning%22&ots=R3_1_0DyeP&sig=MACfo5V1g8BR2hO6tAWijfpZIv8
+          Year 1990
+     Citations 128
+      Versions 7
+    Cluster ID 203168968452351989
+Citations list http://scholar.google.com/scholar?cites=203168968452351989&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=203168968452351989&hl=en&as_sdt=0,5&as_ylo=1990&as_yhi=1990
+       Excerpt Abstract The last few years have produced a remarkable expansion of research in machine learning. The field has gained an unprecedented popularity, several new areas have developed, and some previously established areas have gained new momentum. While 
+

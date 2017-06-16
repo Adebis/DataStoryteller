@@ -1,0 +1,70 @@
+         Title Impossible objects as nonsense sentences
+          Year 1971
+     Citations 989
+      Versions 0
+    Cluster ID 1412732996463295332
+Citations list http://scholar.google.com/scholar?cites=1412732996463295332&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title A language-learning heuristic program
+           URL http://www.sciencedirect.com/science/article/pii/0010028571900272
+          Year 1971
+     Citations 17
+      Versions 3
+    Cluster ID 339144891835260511
+Citations list http://scholar.google.com/scholar?cites=339144891835260511&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=339144891835260511&hl=en&as_sdt=0,5&as_ylo=1971&as_yhi=1971
+       Excerpt ... Samuel, 1963; AL Samuel; Some studies in machine learning using the game ofcheckers. IBM Journal of Research and Development, 3 (1959), pp. ... Some studies inmachine learning using the game of checkers. II—Recent progress. ...
+
+         Title Heuristics and Learning Control (Introduction to Intelligent Control)
+           URL http://link.springer.com/chapter/10.1007/978-1-4615-7566-5_26
+          Year 1971
+     Citations 11
+      Versions 2
+    Cluster ID 8512478348135422541
+Citations list http://scholar.google.com/scholar?cites=8512478348135422541&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8512478348135422541&hl=en&as_sdt=0,5&as_ylo=1971&as_yhi=1971
+       Excerpt Abstract In a phase of engineering development of cybernetics, researches on Artificial Intelligence go on increasing rapidly. Artificial Intelligence includes such pedagogical functions as learning, education, self-organizing, inductive inference, association, heuristics, 
+
+         Title Keys to developing machines with high-level artificial intelligence
+          Year 1971
+     Citations 12
+      Versions 0
+    Cluster ID 7509644470299997035
+Citations list http://scholar.google.com/scholar?cites=7509644470299997035&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Adaptive model control applied to real-time blood-pressure regulation
+           URL http://link.springer.com/chapter/10.1007/978-1-4615-7566-5_27
+          Year 1971
+     Citations 28
+      Versions 2
+    Cluster ID 3656054088546302109
+Citations list http://scholar.google.com/scholar?cites=3656054088546302109&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=3656054088546302109&hl=en&as_sdt=0,5&as_ylo=1971&as_yhi=1971
+       Excerpt Abstract A real-time computer-control system for regulating the blood pressure of an animal in a prolonged state of shock has been successfully developed and is being theoretically analyzed. The computer controls the rate of infusion of a vaso-constrictor drug inputed to the 
+
+         Title Simple and compound processes in iterative machine learning
+          Year 1971
+     Citations 4
+      Versions 0
+    Cluster ID 2401833279190388749
+Citations list http://scholar.google.com/scholar?cites=2401833279190388749&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Computerized learning machine applied to qualitative analysis of mixtures by stationary electrode polarography
+           URL http://pubs.acs.org/doi/pdf/10.1021/ac60298a009
+          Year 1971
+     Citations 22
+      Versions 0
+    Cluster ID 1862675615506125943
+Citations list http://scholar.google.com/scholar?cites=1862675615506125943&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... (7) N. J. Nilsson, “Learning Machines,” McGraw-Hill Book Co., New York, N. Y., 1965. (8) K. S.Fu, “Sequential Methods in Pattern Recognition and Machine Learning,” Academic Press, NewYork, N. Y., 1968. 382 ANALYTICAL CHEMISTRY, VOL. 43, NO. 3, MARCH 1971 ...
+
+         Title A critical review of learning control research
+           URL http://link.springer.com/chapter/10.1007/978-1-4615-7566-5_25
+          Year 1971
+     Citations 5
+      Versions 2
+    Cluster ID 10839788004199119997
+Citations list http://scholar.google.com/scholar?cites=10839788004199119997&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=10839788004199119997&hl=en&as_sdt=0,5&as_ylo=1971&as_yhi=1971
+       Excerpt Abstract In designing an optimal control system, if the a priori information required is unknown or incompletely known, one possible approach is to design a controller which is capable of estimating the unknown information during its operation and determining the 
+

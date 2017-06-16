@@ -1,0 +1,88 @@
+         Title Variable-valued logic and its applications to pattern recognition and machine learning
+           URL http://digilib.gmu.edu/jspui/bitstream/handle/1920/1522/75-04.pdf?sequence=2
+          Year 1975
+     Citations 90
+      Versions 2
+    Cluster ID 8474736594691094304
+Citations list http://scholar.google.com/scholar?cites=8474736594691094304&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8474736594691094304&hl=en&as_sdt=0,5&as_ylo=1975&as_yhi=1975
+       Excerpt Most of the work done until now on multiple-valued logic in relation to computer science is oriented toward providing a theoretical and practical basis for constructing non-binary computer and switching systems. Very few attempts been made to investigate other 
+
+         Title A new approach to manipulator control: The cerebellar model articulation controller (CMAC)
+           URL http://www.jmlr.org/papers/volume15/dann14a/source/mendeley.bib.old
+          Year 1975
+     Citations 2687
+      Versions 8
+    Cluster ID 1522201527775920779
+Citations list http://scholar.google.com/scholar?cites=1522201527775920779&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1522201527775920779&hl=en&as_sdt=0,5&as_ylo=1975&as_yhi=1975
+       Excerpt ... file = {::}. journal = {Machine Learning},. number = {1},. ... file = {:home/cdann/.local/share/data/Mendeley Ltd./Mendeley Desktop/Downloaded/Bach, Moulines, Paristech - 2011 - Non-AsymptoticAnalysis of Stochastic Approximation Algorithms for Machine Learning.pdf:pdf},. ...
+
+         Title Les Grammaires de Metamorphos
+          Year 1975
+     Citations 98
+      Versions 0
+    Cluster ID 8274088320114651823
+Citations list http://scholar.google.com/scholar?cites=8274088320114651823&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Decision theory and artificial intelligence: I. A semantics-based region analyzer
+           URL http://www.sciencedirect.com/science/article/pii/0004370274900022
+          Year 1975
+     Citations 181
+      Versions 0
+    Cluster ID 12624986365934265126
+Citations list http://scholar.google.com/scholar?cites=12624986365934265126&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... KS Fu; Sequential Methods in Pattern Recognition and Machine Learning. Academic Press, NewYork (1968). 19. A. Gill; ... 412–422. 39. AL Samuel; Some studies in machine learning using thegame of checkers. II—Recent progress. IBM J. Res. Develop., 11 (1967), pp. 601–617. ...
+
+         Title Bribip: A bridge bidding program
+           URL http://dl.acm.org/citation.cfm?id=1624684
+          Year 1975
+     Citations 20
+      Versions 0
+    Cluster ID 11213305103501407948
+Citations list http://scholar.google.com/scholar?cites=11213305103501407948&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... 1973. 9. Samuel Some Studies in Machine Learning Using the game of Checkers: 2 RecentPrograms. IBM Journal of Research and Deyelopment. 3. 210-229 (1959). 10. Samuel SomeStudies in Machine Learning Using the Game of Checkers: 2 Recent Progress. ...
+
+         Title Generation of pseudorandom numbers with specified univariate distributions and correlation coefficients
+           URL http://ieeexplore.ieee.org/abstract/document/5408380/
+          Year 1975
+     Citations 119
+      Versions 2
+    Cluster ID 2207528634052269862
+Citations list http://scholar.google.com/scholar?cites=2207528634052269862&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=2207528634052269862&hl=en&as_sdt=0,5&as_ylo=1975&as_yhi=1975
+       Excerpt ... [20] K. Tanaka, "Some studies on pattern recognition with nonsupervised functions for eachcomponent.Note that the components of learning procedures," in Pattern Recognition andMachine Learning, KS Fu, Ed. New York: Plenum, 1971, pp. 1-17. ...
+
+         Title To rear a prosocial child: Reasoning, learning by doing, and learning by teaching others
+           URL http://scholar.google.com/https://philpapers.org/rec/STATRA-4
+          Year 1975
+     Citations 58
+      Versions 0
+    Cluster ID 795354105162536542
+Citations list http://scholar.google.com/scholar?cites=795354105162536542&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... Journal of Business Ethics 113 (2):225-241. John McCarthy, The Well-Designed Child. PeterClark (1990). Nonmonotonic Reasoning , Argumentation and Machine Learning 1 Introduction.Argumentation:1-11. Paul Vogt & Andrew DM Smith (2005). ...
+
+         Title Adaptation In Search, Optimization & Machine Learning
+          Year 1975
+     Citations 4
+      Versions 0
+    Cluster ID 1110871694085293075
+Citations list http://scholar.google.com/scholar?cites=1110871694085293075&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Antiestrogens and breast cancer treatment
+           URL http://annals.org/aim/article/689838
+          Year 1975
+     Citations 11
+      Versions 5
+    Cluster ID 8754940354047636768
+Citations list http://scholar.google.com/scholar?cites=8754940354047636768&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8754940354047636768&hl=en&as_sdt=0,5&as_ylo=1975&as_yhi=1975
+       Excerpt ... PubMed Articles. A ternary classification using machine learning methods of distinctestrogen receptor activities within a large collection of environmental chemicals.Sci Total Environ 2016. Clinical Factors, Disease Parameters ...
+
+         Title Its Aplications to Pattern Recognition and Machine Learning, Chapter in the monograph: Multiple-Valued Logic and Computer Science, edt. David Rine
+          Year 1975
+     Citations 3
+      Versions 0
+    Cluster ID 13845168759273060330
+Citations list http://scholar.google.com/scholar?cites=13845168759273060330&as_sdt=2005&sciodt=0,5&hl=en
+

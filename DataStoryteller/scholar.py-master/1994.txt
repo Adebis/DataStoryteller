@@ -1,0 +1,91 @@
+         Title Machine learning, neural and statistical classification
+           URL http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.27.355
+          Year 1994
+     Citations 3181
+      Versions 7
+    Cluster ID 9461508446294740252
+Citations list http://scholar.google.com/scholar?cites=9461508446294740252&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=9461508446294740252&hl=en&as_sdt=0,5&as_ylo=1994&as_yhi=1994
+       Excerpt CiteSeerX logo. Documents: Advanced Search Include Citations. Authors: Advanced SearchInclude Citations | Disambiguate. Tables: Machine Learning, Neural and Statistical Classification(1994). ... BibTeX. @MISC{Michie94machinelearning,, author = {D. Michie and DJ Spiegelhalter
+
+         Title C4. 5: Programs for machine learning by j. ross quinlan. morgan kaufmann publishers, inc., 1993
+           URL http://www.springerlink.com/index/v986m1562062hk51.pdf
+          Year 1994
+     Citations 180
+      Versions 10
+    Cluster ID 5543583344312749937
+      PDF link http://www.springerlink.com/index/v986m1562062hk51.pdf
+Citations list http://scholar.google.com/scholar?cites=5543583344312749937&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=5543583344312749937&hl=en&as_sdt=0,5&as_ylo=1994&as_yhi=1994
+       Excerpt Algorithms for constructing decision trees are among the most well known and widely used of all machine learning methods. Among decision tree algorithms, J. Ross Quinlan's ID3 and its successor, C4. 5, are probably the most popular in the machine learning community. 
+
+         Title Asynchronous stochastic approximation and Q-learning
+           URL http://link.springer.com/article/10.1023/A:1022689125041
+          Year 1994
+     Citations 604
+      Versions 23
+    Cluster ID 6877594744449641950
+Citations list http://scholar.google.com/scholar?cites=6877594744449641950&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=6877594744449641950&hl=en&as_sdt=0,5&as_ylo=1994&as_yhi=1994
+       Excerpt Abstract We provide some general results on the convergence of a class of stochastic approximation algorithms and their parallel and asynchronous variants. We then use these results to study the Q-learning algorithm, a reinforcement learning method for solving 
+
+         Title Weka: A machine learning workbench
+           URL http://ieeexplore.ieee.org/abstract/document/396988/
+          Year 1994
+     Citations 679
+      Versions 14
+    Cluster ID 8634824755033849047
+Citations list http://scholar.google.com/scholar?cites=8634824755033849047&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8634824755033849047&hl=en&as_sdt=0,5&as_ylo=1994&as_yhi=1994
+       Excerpt Abstract: WEKA is a workbench for machine learning that is intended to aid in the application of machine learning techniques to a variety of real-world problems, in particular, those arising from agricultural and horticultural domains. Unlike other machine learning projects, 
+
+         Title Selection of relevant features in machine learning
+           URL http://scholar.google.com/https://vvvvw.aaai.org/Papers/Symposia/Fall/1994/FS-94-02/FS94-02-034.pdf
+          Year 1994
+     Citations 714
+      Versions 16
+    Cluster ID 11912524720080686051
+      PDF link http://scholar.google.com/https://vvvvw.aaai.org/Papers/Symposia/Fall/1994/FS-94-02/FS94-02-034.pdf
+Citations list http://scholar.google.com/scholar?cites=11912524720080686051&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=11912524720080686051&hl=en&as_sdt=0,5&as_ylo=1994&as_yhi=1994
+       Excerpt Abstract In this paper, we review the problem of selecting relevant features for use in machine learning. We describe this problem in terms of heuristic search through a space of feature sets, and we identify four dimensions along which approaches to the problem can 
+
+         Title Machine learning: neural networks, genetic algorithms, and fuzzy systems
+           URL http://dl.acm.org/citation.cfm?id=184216
+          Year 1994
+     Citations 483
+      Versions 0
+    Cluster ID 15373692727816111437
+Citations list http://scholar.google.com/scholar?cites=15373692727816111437&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt Machine learning: neural networks, genetic algorithms, and fuzzy systems. ...
+
+         Title Machine learning: A multistrategy approach
+           URL http://books.google.com/books?hl=en&lr=&id=sQJ1PMEOOY0C&oi=fnd&pg=PR9&dq=%22machine+learning%22&ots=4IXJPEbd9R&sig=slkmkLMMuMh178nzO3f1Qfp-p9c
+          Year 1994
+     Citations 349
+      Versions 0
+    Cluster ID 1149796884475089058
+Citations list http://scholar.google.com/scholar?cites=1149796884475089058&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt Multistrategy learning is one of the newest and most promising research directions in the development of machine learning systems. The objectives of research in this area are to study trade-offs between different learning strategies and to develop learning systems that 
+
+         Title Combining symbolic and neural learning
+           URL http://www.springerlink.com/index/T8414UN5784426L1.pdf
+          Year 1994
+     Citations 181
+      Versions 23
+    Cluster ID 1181170997806380530
+      PDF link http://www.springerlink.com/index/T8414UN5784426L1.pdf
+Citations list http://scholar.google.com/scholar?cites=1181170997806380530&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1181170997806380530&hl=en&as_sdt=0,5&as_ylo=1994&as_yhi=1994
+       Excerpt The last ten or so years have produced an explosion in the amount of research on machine learning. This rapid growth has occurred, largely independently, in both the symbolic and connectionist (neural network) machine learning communities. Fortunately, over the last few 
+
+         Title MLC++: A machine learning library in C++
+           URL http://ieeexplore.ieee.org/abstract/document/346412/
+          Year 1994
+     Citations 278
+      Versions 37
+    Cluster ID 15445822789566055155
+Citations list http://scholar.google.com/scholar?cites=15445822789566055155&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=15445822789566055155&hl=en&as_sdt=0,5&as_ylo=1994&as_yhi=1994
+       Excerpt Abstract: We present MLC++, a library of C++ classes and tools for supervised machine learning. While MLC++ provides general learning algorithms that can be used by end users, the main objective is to provide researchers and experts with a wide variety of tools that can 
+

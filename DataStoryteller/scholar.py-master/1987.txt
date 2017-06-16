@@ -1,0 +1,106 @@
+         Title Knowledge acquisition via incremental conceptual clustering
+           URL http://www.springerlink.com/index/X8552PPN35245112.pdf
+          Year 1987
+     Citations 2633
+      Versions 29
+    Cluster ID 1064237948333381593
+      PDF link http://www.springerlink.com/index/X8552PPN35245112.pdf
+Citations list http://scholar.google.com/scholar?cites=1064237948333381593&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1064237948333381593&hl=en&as_sdt=0,5&as_ylo=1987&as_yhi=1987
+       Excerpt Conceptual clustering is an important way of summarizing and explaining data. However, the recent formulation of this paradigm has allowed little exploration of conceptual clustering as a means of improving performance. Furthermore, previous work in conceptual clustering 
+
+         Title Learning decision lists
+           URL http://www.springerlink.com/index/W61056747102Q001.pdf
+          Year 1987
+     Citations 1004
+      Versions 16
+    Cluster ID 10411340083756485926
+      PDF link http://www.springerlink.com/index/W61056747102Q001.pdf
+Citations list http://scholar.google.com/scholar?cites=10411340083756485926&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=10411340083756485926&hl=en&as_sdt=0,5&as_ylo=1987&as_yhi=1987
+       Excerpt This paper introduces a new representation for Boolean functions, called decision lists, and shows that they are efficiently learnable from examples. More precisely, this result is established for k-DL the set of decision lists with conjunctive clauses of size k at each 
+
+         Title Assessing credit card applications using machine learning
+           URL http://ieeexplore.ieee.org/abstract/document/4307093/
+          Year 1987
+     Citations 253
+      Versions 2
+    Cluster ID 1184378315330921178
+Citations list http://scholar.google.com/scholar?cites=1184378315330921178&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1184378315330921178&hl=en&as_sdt=0,5&as_ylo=1987&as_yhi=1987
+       Excerpt Credit scoring is one of the most commonly used assessment systems. We base the following discussion on a paper, by David Hsia of the US Federal Reserve System, concerned with the relationship between credit scoring and antidiscrimination legislation. 10 
+
+         Title Classifier systems and the animat problem
+           URL http://www.springerlink.com/index/H781314XW75T3334.pdf
+          Year 1987
+     Citations 432
+      Versions 15
+    Cluster ID 10974569591321377738
+      PDF link http://www.springerlink.com/index/H781314XW75T3334.pdf
+Citations list http://scholar.google.com/scholar?cites=10974569591321377738&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=10974569591321377738&hl=en&as_sdt=0,5&as_ylo=1987&as_yhi=1987
+       Excerpt This paper characterizes and investigates, from the perspective of machine learning and, particularly, classifier systems, the learning problem faced by animals and autonomous robots (here collectively termed animats). We suggest that, to survive in their environments, 
+
+         Title Experiments with incremental concept formation: Unimem
+           URL http://link.springer.com/article/10.1023/A:1022800624210
+          Year 1987
+     Citations 403
+      Versions 9
+    Cluster ID 5824081163757720934
+Citations list http://scholar.google.com/scholar?cites=5824081163757720934&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=5824081163757720934&hl=en&as_sdt=0,5&as_ylo=1987&as_yhi=1987
+       Excerpt Abstract Learning by observation involves automatic creation of categories that summarize experience. In this paper we present UNIMEM, an artificial intelligence system that learns by observation. UNIMEM is a robust program that can be run on many domains with real-world 
+
+         Title 'Learning by Experimentation
+           URL http://books.google.com/books?hl=en&lr=&id=uKyjBQAAQBAJ&oi=fnd&pg=PA256&dq=%22machine+learning%22&ots=k9L1UBp1h8&sig=Fur7BkdtaBD97YDCrSH3fxMKpbo
+          Year 1987
+     Citations 76
+      Versions 3
+    Cluster ID 8476563053706439572
+Citations list http://scholar.google.com/scholar?cites=8476563053706439572&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8476563053706439572&hl=en&as_sdt=0,5&as_ylo=1987&as_yhi=1987
+       Excerpt Abstract Autonomous systems require the ability to plan effective courses of action under potentially uncertain or unpredictable contingencies. Effective planning requires knowledge of the environment, and if the environment 1S too complex or changes dynamically, goal-
+
+         Title A version space approach to learning context-free grammars
+           URL http://link.springer.com/article/10.1023/A:1022812926936
+          Year 1987
+     Citations 86
+      Versions 18
+    Cluster ID 5943457520921697158
+Citations list http://scholar.google.com/scholar?cites=5943457520921697158&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=5943457520921697158&hl=en&as_sdt=0,5&as_ylo=1987&as_yhi=1987
+       Excerpt Abstract In principle, the version space approach can be applied to any induction problem. However, in some cases the representation language for generalizations is so powerful that (1) some of the update functions for the version space are not effectively computable, and (2) 
+
+         Title Machine learning and concept formation
+           URL http://www.springerlink.com/index/T753P15342771330.pdf
+          Year 1987
+     Citations 22
+      Versions 6
+    Cluster ID 14689014463214453158
+      PDF link http://www.springerlink.com/index/T753P15342771330.pdf
+Citations list http://scholar.google.com/scholar?cites=14689014463214453158&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=14689014463214453158&hl=en&as_sdt=0,5&as_ylo=1987&as_yhi=1987
+       Excerpt The vast majority of research in machine learning has focused on the acquisition of concepts. Yet despite this emphasis, little of the work has any direct relevance to modeling human concept learning. For a variety of reasons, machine learning researchers have 
+
+         Title Machine learning and grammar induction
+           URL http://www.springerlink.com/index/P04N31N528654320.pdf
+          Year 1987
+     Citations 20
+      Versions 8
+    Cluster ID 7759408060815592697
+      PDF link http://www.springerlink.com/index/P04N31N528654320.pdf
+Citations list http://scholar.google.com/scholar?cites=7759408060815592697&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7759408060815592697&hl=en&as_sdt=0,5&as_ylo=1987&as_yhi=1987
+       Excerpt Language is a major component of cognition, and as such, its acquisition has been a central concern of machine learning researchers. Some of the earliest AI learning work focused on this topic, and interest has continued to the present. However, progress in this area has 
+
+         Title Learning syntax by automata induction
+           URL http://www.springerlink.com/index/GW3718J06616857U.pdf
+          Year 1987
+     Citations 76
+      Versions 13
+    Cluster ID 10027567737970842470
+      PDF link http://www.springerlink.com/index/GW3718J06616857U.pdf
+Citations list http://scholar.google.com/scholar?cites=10027567737970842470&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=10027567737970842470&hl=en&as_sdt=0,5&as_ylo=1987&as_yhi=1987
+       Excerpt In this paper we propose an explicit computer model for learning natural language syntax based on Angluin's (1982) efficient induction algorithms, using a complete corpus of grammatical example sentences. We use these results to show how inductive inference 
+

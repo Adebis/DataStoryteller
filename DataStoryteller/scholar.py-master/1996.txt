@@ -1,0 +1,106 @@
+         Title Learning in the presence of concept drift and hidden contexts
+           URL http://link.springer.com/article/10.1007/BF00116900
+          Year 1996
+     Citations 1410
+      Versions 17
+    Cluster ID 14074444264590141228
+Citations list http://scholar.google.com/scholar?cites=14074444264590141228&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=14074444264590141228&hl=en&as_sdt=0,5&as_ylo=1996&as_yhi=1996
+       Excerpt Abstract On-line learning in domains where the target concept depends on some hidden context poses serious problems. A changing context can induce changes in the target concepts, producing what is known as concept drift. We describe a family of learning 
+
+         Title Incremental multi-step Q-learning
+           URL http://www.springerlink.com/index/g02802n810117242.pdf
+          Year 1996
+     Citations 449
+      Versions 17
+    Cluster ID 1653537352612660964
+      PDF link http://www.springerlink.com/index/g02802n810117242.pdf
+Citations list http://scholar.google.com/scholar?cites=1653537352612660964&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1653537352612660964&hl=en&as_sdt=0,5&as_ylo=1996&as_yhi=1996
+       Excerpt This paper presents a novel incremental algorithm that combines Q-learning, a well-known dynamic-programming based reinforcement learning method, with the TD (?) return estimation process, which is typically used in actor-critic learning, another well-known 
+
+         Title Bagging predictors
+           URL http://www.springerlink.com/index/L4780124W2874025.pdf
+          Year 1996
+     Citations 16710
+      Versions 64
+    Cluster ID 18412826781870444603
+      PDF link http://www.springerlink.com/index/L4780124W2874025.pdf
+Citations list http://scholar.google.com/scholar?cites=18412826781870444603&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=18412826781870444603&hl=en&as_sdt=0,5&as_ylo=1996&as_yhi=1996
+       Excerpt Bagging predictors is a method for generating multiple versions of a predictor and using these to get an aggregated predictor. The aggregation averages over the versions when predicting a numerical outcome and does a plurality vote when predicting a class. The 
+
+         Title Error reduction through learning multiple descriptions
+           URL http://www.springerlink.com/index/v064v324w0830p34.pdf
+          Year 1996
+     Citations 369
+      Versions 19
+    Cluster ID 11449797511010846363
+      PDF link http://www.springerlink.com/index/v064v324w0830p34.pdf
+Citations list http://scholar.google.com/scholar?cites=11449797511010846363&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=11449797511010846363&hl=en&as_sdt=0,5&as_ylo=1996&as_yhi=1996
+       Excerpt Learning multiple descriptions for each class in the data has been shown to reduce generalization error but the amount of error reduction varies greatly from domain to domain. This paper presents a novel empirical analysis that helps to understand this variation. Our 
+
+         Title Global discretization of continuous attributes as preprocessing for machine learning
+           URL http://www.sciencedirect.com/science/article/pii/S0888613X96000746
+          Year 1996
+     Citations 431
+      Versions 14
+    Cluster ID 10505594364493529457
+Citations list http://scholar.google.com/scholar?cites=10505594364493529457&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=10505594364493529457&hl=en&as_sdt=0,5&as_ylo=1996&as_yhi=1996
+       Excerpt Real-life data usually are presented in databases by real numbers. On the other hand, most inductive learning methods require a small number of attribute values. Thus it is necessary to convert input data sets with continuous attributes into input data sets with discrete 
+
+         Title Elements of machine learning
+           URL http://books.google.com/books?hl=en&lr=&id=TNg5qVoqRtUC&oi=fnd&pg=PR9&dq=%22machine+learning%22&ots=Q2tt0utVSs&sig=qBc_cYyyBn4unBf5mmj3GoF4YHw
+          Year 1996
+     Citations 713
+      Versions 6
+    Cluster ID 15730120067733298691
+Citations list http://scholar.google.com/scholar?cites=15730120067733298691&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=15730120067733298691&hl=en&as_sdt=0,5&as_ylo=1996&as_yhi=1996
+       Excerpt Recent years have seen an explosion of work on machine learning, the computational study of algorithms that improve performance based on experience. Research on rule induction, neural networks, genetic algorithms, case-based reasoning, and probabilistic inference has 
+
+         Title Purposive behavior acquisition for a real robot by vision-based reinforcement learning
+           URL http://www.springerlink.com/index/V45K1ML688646G86.pdf
+          Year 1996
+     Citations 323
+      Versions 22
+    Cluster ID 14566228316590319667
+      PDF link http://www.springerlink.com/index/V45K1ML688646G86.pdf
+Citations list http://scholar.google.com/scholar?cites=14566228316590319667&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=14566228316590319667&hl=en&as_sdt=0,5&as_ylo=1996&as_yhi=1996
+       Excerpt This paper presents a method of vision-based reinforcement learning by which a robot learns to shoot a ball into a goal. We discuss several issues in applying the reinforcement learning method to a real robot with vision sensor by which the robot can obtain information 
+
+         Title Average reward reinforcement learning: Foundations, algorithms, and empirical results
+           URL http://www.springerlink.com/index/qp72660636n06k12.pdf
+          Year 1996
+     Citations 373
+      Versions 10
+    Cluster ID 8477642228767188869
+      PDF link http://www.springerlink.com/index/qp72660636n06k12.pdf
+Citations list http://scholar.google.com/scholar?cites=8477642228767188869&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8477642228767188869&hl=en&as_sdt=0,5&as_ylo=1996&as_yhi=1996
+       Excerpt This paper presents a detailed study of average reward reinforcement learning, an undiscounted optimality framework that is more appropriate for cyclical tasks than the much better studied discounted framework. A wide spectrum of average reward algorithms are 
+
+         Title Data mining using/spl Mscr//spl Lscr//spl Cscr/++ a machine learning library in C++
+           URL http://ieeexplore.ieee.org/abstract/document/560457/
+          Year 1996
+     Citations 328
+      Versions 6
+    Cluster ID 15438534429368624730
+Citations list http://scholar.google.com/scholar?cites=15438534429368624730&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=15438534429368624730&hl=en&as_sdt=0,5&as_ylo=1996&as_yhi=1996
+       Excerpt Abstract: Data mining algorithms including machine learning, statistical analysis, and pattern recognition techniques can greatly improve our understanding of data warehouses that are now becoming more widespread. In this paper, we focus on classification algorithms and 
+
+         Title Stacked regressions
+           URL http://www.springerlink.com/index/j070j33870mrg4w7.pdf
+          Year 1996
+     Citations 965
+      Versions 12
+    Cluster ID 6408717537628419545
+      PDF link http://www.springerlink.com/index/j070j33870mrg4w7.pdf
+Citations list http://scholar.google.com/scholar?cites=6408717537628419545&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=6408717537628419545&hl=en&as_sdt=0,5&as_ylo=1996&as_yhi=1996
+       Excerpt Stacking regressions is a method for forming linear combinations of different predictors to give improved prediction accuracy. The idea is to use cross-validation data and least squares under non negativity constraints to determine the coefficients in the combination. Its 
+

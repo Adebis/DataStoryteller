@@ -1,0 +1,96 @@
+         Title An Algorithm that Infers Theories from Facts.
+           URL http://scholar.google.com/https://pdfs.semanticscholar.org/293c/c9d1b43a9f2964e0b3b380812186f7be040d.pdf
+          Year 1981
+     Citations 115
+      Versions 6
+    Cluster ID 1400394324127484631
+      PDF link http://scholar.google.com/https://pdfs.semanticscholar.org/293c/c9d1b43a9f2964e0b3b380812186f7be040d.pdf
+Citations list http://scholar.google.com/scholar?cites=1400394324127484631&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1400394324127484631&hl=en&as_sdt=0,5&as_ylo=1981&as_yhi=1981
+       Excerpt ... Abstract A framework for inductive inference in logic is presented: a Model Inference Problemis defined, and it is shown that problems of machine learning and program synthesis fromexamples can be formulated naturally as model inference problems. ...
+
+         Title Learning by analogy: Skill acquisition in reactive environments
+          Year 1981
+     Citations 4
+      Versions 0
+    Cluster ID 7686846487038665168
+Citations list http://scholar.google.com/scholar?cites=7686846487038665168&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Evolution and gradualness
+           URL http://www.sciencedirect.com/science/article/pii/0303264781900708
+          Year 1981
+     Citations 30
+      Versions 4
+    Cluster ID 12066710225738262887
+Citations list http://scholar.google.com/scholar?cites=12066710225738262887&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=12066710225738262887&hl=en&as_sdt=0,5&as_ylo=1981&as_yhi=1981
+       Excerpt ... Samuel, 1959; A. Samuel; Some studies in machine learning using the game of checkers. IBMJ Res Dev., 3 (1959), pp. 210–229. ... Some studies in machine learning using the game of checkers.II — Recent progress. IBM J Res Dev., 11 (1967), pp. 601–617. ...
+
+         Title Inductive learning of structural descriptions: Evaluation criteria and comparative review of selected methods
+           URL http://www.sciencedirect.com/science/article/pii/0004370281900023
+          Year 1981
+     Citations 237
+      Versions 6
+    Cluster ID 7309212662722399895
+Citations list http://scholar.google.com/scholar?cites=7309212662722399895&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7309212662722399895&hl=en&as_sdt=0,5&as_ylo=1981&as_yhi=1981
+       Excerpt ... Many researchers have worked on other aspects of machine learning, eg, on learning decisiontree descriptions (Hunt [12], Quinlan [28, 29]), on learning recursive descriptions (Cohen andSammut [5]), on generalization with multilevel exceptions (Vere [37]), or developing ...
+
+         Title Special section on machine learning
+          Year 1981
+     Citations 3
+      Versions 0
+    Cluster ID 726130943927621104
+Citations list http://scholar.google.com/scholar?cites=726130943927621104&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title A computational model of analogical problem solving.
+           URL http://scholar.google.com/https://www.researchgate.net/profile/Jaime_Carbonell/publication/220812898_A_Computational_Model_of_Analogical_Problem_Solving/links/542570c00cf2e4ce94038117.pdf
+          Year 1981
+     Citations 88
+      Versions 10
+    Cluster ID 18333547360229879396
+      PDF link http://scholar.google.com/https://www.researchgate.net/profile/Jaime_Carbonell/publication/220812898_A_Computational_Model_of_Analogical_Problem_Solving/links/542570c00cf2e4ce94038117.pdf
+Citations list http://scholar.google.com/scholar?cites=18333547360229879396&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=18333547360229879396&hl=en&as_sdt=0,5&as_ylo=1981&as_yhi=1981
+       Excerpt ... The objective of this paper has been to lay a uniform framework for analogical problem solvingcapable of incorporating skill refinement and acquisition processes. Most work in machine learningdoes not attempt to integrate learning and problem solving into a unified process. ...
+
+         Title BEAGLE—A Darwinian approach to pattern recognition
+           URL http://www.emeraldinsight.com/doi/pdf/10.1108/eb005587
+          Year 1981
+     Citations 105
+      Versions 10
+    Cluster ID 7315131307040644935
+Citations list http://scholar.google.com/scholar?cites=7315131307040644935&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7315131307040644935&hl=en&as_sdt=0,5&as_ylo=1981&as_yhi=1981
+       Excerpt ... 1992. The construction of computerized classification systems using machine learning algorithms:An overview. Computers in Human Behavior 8:2-3, 155-167. [CrossRef] 19. ... 1989. Machinelearning: a survey of current techniques. Artificial Intelligence Review 3:4, 243-280. ...
+
+         Title A new look at classical vs modern homing missile guidance
+           URL http://scholar.google.com/https://arc.aiaa.org/doi/abs/10.2514/3.56054
+          Year 1981
+     Citations 196
+      Versions 4
+    Cluster ID 8134214839900311114
+Citations list http://scholar.google.com/scholar?cites=8134214839900311114&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8134214839900311114&hl=en&as_sdt=0,5&as_ylo=1981&as_yhi=1981
+       Excerpt ... 1738. Jium-Ming Lin, Cheng-Hung Lin. (2014) A novel intelligent neural guidancelaw design by using adjoint method. 2014 International Conference on MachineLearning and Cybernetics, 303-308. Alexander Poznyak. (2014 ...
+
+         Title The central role of learning in cognition
+           URL http://books.google.com/books?hl=en&lr=&id=PDzFBQAAQBAJ&oi=fnd&pg=PA361&dq=%22machine+learning%22&ots=Ogw_Qxox9F&sig=CRORTqidRKWQluVAW9i30gIiBFI
+          Year 1981
+     Citations 104
+      Versions 2
+    Cluster ID 2346644082317699053
+Citations list http://scholar.google.com/scholar?cites=2346644082317699053&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=2346644082317699053&hl=en&as_sdt=0,5&as_ylo=1981&as_yhi=1981
+       Excerpt Page 377. The Central Role of Learning in Cognition Pat Langley and Herbert A. SimonDepartment of Psychology Carnegie-Mellon University INTRODUCTION If we comparethe past 2 decades of research in cognition, increasingly ...
+
+         Title A two-level committee machine: a representation and a learning procedure for general piecewise linear discriminant functions
+           URL http://www.sciencedirect.com/science/article/pii/0031320381901047
+          Year 1981
+     Citations 6
+      Versions 3
+    Cluster ID 16944779694162408786
+Citations list http://scholar.google.com/scholar?cites=16944779694162408786&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=16944779694162408786&hl=en&as_sdt=0,5&as_ylo=1981&as_yhi=1981
+       Excerpt ... Pattern recognition Piecewise linear discriminant function Perceptron Committee machineLearning algorithm Two-level committee machine I. INTRODUCTION Pattern recognition consistsmainly of two parts, namely, feature extraction and pattern classification. ...
+

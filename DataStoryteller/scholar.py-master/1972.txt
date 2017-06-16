@@ -1,0 +1,96 @@
+         Title An integrated feature selection and supervised learning scheme for fast computer classification of multi-spectral data.
+           URL http://scholar.google.com/https://ntrs.nasa.gov/search.jsp?R=19730032351
+          Year 1972
+     Citations 10
+      Versions 2
+    Cluster ID 17748018454532507748
+Citations list http://scholar.google.com/scholar?cites=17748018454532507748&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=17748018454532507748&hl=en&as_sdt=0,5&as_ylo=1972&as_yhi=1972
+       Excerpt ... NASA Terms: COMPUTER TECHNIQUES; MACHINE LEARNING; MULTISPECTRALPHOTOGRAPHY; OPTICAL DATA PROCESSING; PATTERN RECOGNITION; AERIALPHOTOGRAPHY; ALGORITHMS; CLASSIFICATIONS; EARTH RESOURCES PROGRAM; FIGURE ...
+
+         Title Associatron-a model of associative memory
+           URL http://ieeexplore.ieee.org/abstract/document/4309133/
+          Year 1972
+     Citations 565
+      Versions 3
+    Cluster ID 13985813269879200432
+Citations list http://scholar.google.com/scholar?cites=13985813269879200432&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=13985813269879200432&hl=en&as_sdt=0,5&as_ylo=1972&as_yhi=1972
+       Excerpt Page 1. IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS, VOL.SMC-2, NO. 3, JULY 1972 and control systems, in monitoring systems, in dark en-vironments, and in situations where the visual processes of ...
+
+         Title On iteration rules with memory in machine learning
+          Year 1972
+     Citations 4
+      Versions 0
+    Cluster ID 9050460119834593751
+Citations list http://scholar.google.com/scholar?cites=9050460119834593751&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Pattern recognition. Powerful approach to interpreting chemical data
+           URL http://pubs.acs.org/doi/pdf/10.1021/ja00771a016
+          Year 1972
+     Citations 479
+      Versions 0
+    Cluster ID 450563025170317463
+Citations list http://scholar.google.com/scholar?cites=450563025170317463&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... 1*-l4 (2) (a) J. M. Mendel and I<. S . Fu, Ed., “Adaptive Learning and Pattern Recognition Systems,”Academic Prcss, New York, N. Y., 1970; (b) K. S. Fu, 'Sequential Methods in Pattern Recognitionand Machine Learning,” Academic Press, New York, NY, 1968. ...
+
+         Title Learning and executing generalized robot plans
+           URL http://www.sciencedirect.com/science/article/pii/0004370272900513
+          Year 1972
+     Citations 1372
+      Versions 10
+    Cluster ID 14937607229439550611
+Citations list http://scholar.google.com/scholar?cites=14937607229439550611&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=14937607229439550611&hl=en&as_sdt=0,5&as_ylo=1972&as_yhi=1972
+       Excerpt Skip to content: ...
+
+         Title On the inference of Turing machines from sample computations
+           URL http://www.sciencedirect.com/science/article/pii/0004370272900483
+          Year 1972
+     Citations 91
+      Versions 4
+    Cluster ID 16778880625252061432
+Citations list http://scholar.google.com/scholar?cites=16778880625252061432&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=16778880625252061432&hl=en&as_sdt=0,5&as_ylo=1972&as_yhi=1972
+       Excerpt ... LtcGraw-Hill, New York, 1965. I',0. Samuel AL Some studies in machine learning using the gaxneof checkers, II~ recent progress. IBM J. ofRes, ahd Develop. 11, No. ... AL Samuel. Some studiesin machine learning using the game of checkers, II—recent progress. IBM J. of Res. ...
+
+         Title The simplification of sequential machines with input restrictions
+           URL http://ieeexplore.ieee.org/abstract/document/1672114/
+          Year 1972
+     Citations 57
+      Versions 3
+    Cluster ID 16653878369692487837
+Citations list http://scholar.google.com/scholar?cites=16653878369692487837&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=16653878369692487837&hl=en&as_sdt=0,5&as_ylo=1972&as_yhi=1972
+       Excerpt ... Comput., vol. C-17, pp. 861-872, Sept. 1968. [10] KS Fu, Sequential Methods inPattern Recognition and Machine Learning. New York: Academic, 1968, p. 115.The Simplification of Sequential Machines with Input Restrictions ...
+
+         Title Parametric and nonparametric recognition by computer: An application to leukocyte image processing
+           URL http://www.sciencedirect.com/science/article/pii/S0065245808605112
+          Year 1972
+     Citations 54
+      Versions 2
+    Cluster ID 17092224618493192973
+Citations list http://scholar.google.com/scholar?cites=17092224618493192973&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=17092224618493192973&hl=en&as_sdt=0,5&as_ylo=1972&as_yhi=1972
+       Excerpt Automation of the acquisition and interpretation of data in microscopy has been a focus inbiomedical research for over a decade. In spite of many serious attem.
+
+         Title A learning approach to the parameter-adaptive self-organizing control problem
+           URL http://www.sciencedirect.com/science/article/pii/0005109872900301
+          Year 1972
+     Citations 52
+      Versions 3
+    Cluster ID 8588289376503681781
+Citations list http://scholar.google.com/scholar?cites=8588289376503681781&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8588289376503681781&hl=en&as_sdt=0,5&as_ylo=1972&as_yhi=1972
+       Excerpt ... References. [1]. GN Saridis. On a Class of Performance-Adaptive Self-organizing Control Systems.KS Fu (Ed.), Pattern Recognition and Machine Learning, Plenum Press (1971). [2]. GN Saridis,G. Stein. An Approach to the Parameter Adaptive Control Problem. ...
+
+         Title Classification method and apparatus for pattern recognition systems
+           URL http://www.google.com/patents/US3638188
+          Year 1972
+     Citations 55
+      Versions 2
+    Cluster ID 18175662914687984521
+Citations list http://scholar.google.com/scholar?cites=18175662914687984521&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=18175662914687984521&hl=en&as_sdt=0,5&as_ylo=1972&as_yhi=1972
+       Excerpt ... H615 CLASSIFICATION METHOD AND APPARATUS FOR PATTERN RECOGNITION SYSTEMSBACKGROUND OF THE INVENTION Field of the invention This invention is in the field of patternrecognition which may be generally defined, in terms of machine learning, as the ...
+

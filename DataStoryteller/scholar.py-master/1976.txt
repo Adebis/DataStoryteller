@@ -1,0 +1,98 @@
+         Title Advances in the linguistic synthesis of fuzzy controllers
+           URL http://www.sciencedirect.com/science/article/pii/S0020737376800284
+          Year 1976
+     Citations 995
+      Versions 3
+    Cluster ID 13206949554688738009
+Citations list http://scholar.google.com/scholar?cites=13206949554688738009&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=13206949554688738009&hl=en&as_sdt=0,5&as_ylo=1976&as_yhi=1976
+       Excerpt ... intelligence (AI). In particular, whilst early studies of machine learning in AI seemedclosely related to those of adaptive controllers in control engineering, in recent yearsAI research has become predominantly linguistic. These ...
+
+         Title On the complexity of causal models
+           URL http://ieeexplore.ieee.org/abstract/document/5408397/
+          Year 1976
+     Citations 65
+      Versions 11
+    Cluster ID 8303332528969092999
+Citations list http://scholar.google.com/scholar?cites=8303332528969092999&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8303332528969092999&hl=en&as_sdt=0,5&as_ylo=1976&as_yhi=1976
+       Excerpt ... Abstract-It is argued that a principle of casuality is fundamental to and to problems of systemidentification and machine learning, human thinking, and it has been observed experimentallythat this on the one hand, and to epistemology and behavioral psychology, assumption ...
+
+         Title Some natural properties of strong-identification in inductive inference
+           URL http://www.sciencedirect.com/science/article/pii/0304397576900876
+          Year 1976
+     Citations 117
+      Versions 4
+    Cluster ID 17972343999720538054
+Citations list http://scholar.google.com/scholar?cites=17972343999720538054&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=17972343999720538054&hl=en&as_sdt=0,5&as_ylo=1976&as_yhi=1976
+       Excerpt Page 1. TheoreGcal Computer Science 2 (1976) 345-360. @ North-Wolland Publishing CompanyEliana Istituto di Scienza dell'hfomazione dell' Universitci di Torino, Torino, Italy communicatedby Corrado Biihm Received January 1975 Revised November 1975 Abstrat. ...
+
+         Title Approaches to automatic programming
+           URL http://www.sciencedirect.com/science/article/pii/S0065245808605197
+          Year 1976
+     Citations 82
+      Versions 0
+    Cluster ID 2756112649169051932
+Citations list http://scholar.google.com/scholar?cites=2756112649169051932&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt Ever since the early days of electronic computers, man has been using his ingenuity to savehimself from the chores of programming. Hand coding in machine langu.
+
+         Title An application of variable-valued logic to inductive learning of plant disease diagnostic rules
+           URL http://dl.acm.org/citation.cfm?id=803614
+          Year 1976
+     Citations 27
+      Versions 2
+    Cluster ID 10750856359877599677
+Citations list http://scholar.google.com/scholar?cites=10750856359877599677&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=10750856359877599677&hl=en&as_sdt=0,5&as_ylo=1976&as_yhi=1976
+       Excerpt ... Santa Cruz (Feigenbaum 75). Moreover, it is becoming increasingly clear that newformal methodologies must be developed in order to treat the problem of machinelearning more adequately. One promising theoretical base ...
+
+         Title Second IFAC round table on fuzzy automata and decision processes
+           URL http://www.sciencedirect.com/science/article/pii/0005109876900339
+          Year 1976
+     Citations 6
+      Versions 3
+    Cluster ID 17585156590604386763
+Citations list http://scholar.google.com/scholar?cites=17585156590604386763&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=17585156590604386763&hl=en&as_sdt=0,5&as_ylo=1976&as_yhi=1976
+       Excerpt ... [34]. K. Nakamura, M. Oda. Heuristics and Learning Control. KS Fu (Ed.), Pattern Recognitionand Machine Learning, Plenum Press, New York (1971), p. 297. [35]. ... KS Fu (Ed.), PatternRecognition and Machine Learning, Plenum Press, New York (1971). [43]. M. Sugeno, T. Terano ...
+
+         Title Pattern recognition and image processing
+           URL http://ieeexplore.ieee.org/abstract/document/1674602/
+          Year 1976
+     Citations 109
+      Versions 5
+    Cluster ID 6842458790660871689
+Citations list http://scholar.google.com/scholar?cites=6842458790660871689&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=6842458790660871689&hl=en&as_sdt=0,5&as_ylo=1976&as_yhi=1976
+       Excerpt Page 1. IEEE TRANSACTIONS ON COMPUTERS, VOL. C-25, NO. 12, DECEMBER1976 Pattern Recognition and Image Processing KING-SUN FU, FELLOW, IEEE, ANDAZRIEL ROSENFELD, FELLOW, IEEE Abstract-Extensive ...
+
+         Title Galois switching functions and their applications
+           URL http://ieeexplore.ieee.org/abstract/document/5009207/
+          Year 1976
+     Citations 77
+      Versions 4
+    Cluster ID 7539302350354697150
+Citations list http://scholar.google.com/scholar?cites=7539302350354697150&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7539302350354697150&hl=en&as_sdt=0,5&as_ylo=1976&as_yhi=1976
+       Excerpt Page 1. 78 IEEE TRANSACTIONS ON COMPUTERS, VOL. c-25, NO. 1, JANUARY 1976 wheree(t) is assumed to be exponentially distributed, a [3] KS Fu, Sequential Metho&din PatternRecognition and Machine 'Learning. New York: Academic, 1968. ...
+
+         Title A method for inferring context-free grammars
+           URL http://www.sciencedirect.com/science/article/pii/S0019995876800034
+          Year 1976
+     Citations 32
+      Versions 0
+    Cluster ID 15300089525803961186
+Citations list http://scholar.google.com/scholar?cites=15300089525803961186&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... View more articles. Citing articles (11). Selection of relevant features and examples in machinelearning. ... Blum AL , Langley P. Selection of relevant features and examples in machine learning.Artificial Intelligence, Volume 97, December 1997, Pages. ...
+
+         Title On the convergence of statistical search
+           URL http://ieeexplore.ieee.org/abstract/document/5408396/
+          Year 1976
+     Citations 40
+      Versions 5
+    Cluster ID 13945666015339451277
+Citations list http://scholar.google.com/scholar?cites=13945666015339451277&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=13945666015339451277&hl=en&as_sdt=0,5&as_ylo=1976&as_yhi=1976
+       Excerpt ... The freedom in the organ- proved by using the theorems of convergence of random izationof the search within the boundaries outlined by the conditions of processes in machinelearning [9]. Old results [6], [7], convergence is emphasized. ...
+

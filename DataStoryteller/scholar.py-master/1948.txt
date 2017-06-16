@@ -1,0 +1,19 @@
+         Title A diagrammatic scale for estimating rust intensity on leaves and stems of cereals
+           URL http://www.nrcresearchpress.com/doi/abs/10.1139/cjr48c-033
+          Year 1948
+     Citations 1164
+      Versions 2
+    Cluster ID 2515763672850233508
+Citations list http://scholar.google.com/scholar?cites=2515763672850233508&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=2515763672850233508&hl=en&as_sdt=0,5&as_ylo=1948&as_yhi=1948
+       Excerpt Page 1. 496 A DIAGRAMMATIC SCALE FOR ESTIMATING RUST INTENSITY ONLEAVES AND STEMS OF CEREALS1 Bv RF PnrBnsoN,2 A, B. CAupnnLL,3 aNnAE Haxxrna Abstract The Cobb scale and the modi{ied Cobb ...
+
+         Title Montgomery County Campus Title: Software Agents with a focus on Mobile Agents Spring 2003
+           URL http://www.geocities.ws/singi007/SWAgents.doc
+          Year 1948
+     Citations 1
+      Versions 0
+    Cluster ID 15574284768714735043
+Citations list http://scholar.google.com/scholar?cites=15574284768714735043&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... manipulation. 2.1.1 where are software agents being used? Originally the field boughttogether aspects of distributed Artificial intelligence, machine learning and autonomoussystems to make a stimulating field of research. Software ...
+

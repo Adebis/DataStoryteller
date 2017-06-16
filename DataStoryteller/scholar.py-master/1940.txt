@@ -1,0 +1,9 @@
+         Title The present state of the problem of induction
+           URL http://scholar.google.com/https://philpapers.org/rec/BARTPS-3
+          Year 1940
+     Citations 1
+      Versions 0
+    Cluster ID 6726109852880637148
+Citations list http://scholar.google.com/scholar?cites=6726109852880637148&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... Greg Bamford (1989). Watkins and the Pragmatic Problem of Induction. Analysis 49 (4):203 -205.. F. Bergadano (1993). Machine Learning and the Foundations of Inductive Inference. Mindsand Machines 3 (1):31-51. Kevin B. Korb (1998). The Frame Problem: An AI Fairy Tale. ...
+

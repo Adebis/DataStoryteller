@@ -1,0 +1,57 @@
+         Title Minds and machines
+           URL http://scholar.google.com/https://philpapers.org/rec/SLUMAM
+          Year 1954
+     Citations 114
+      Versions 0
+    Cluster ID 10578140968197091666
+Citations list http://scholar.google.com/scholar?cites=10578140968197091666&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... Jon Williamson (2004). A Dynamic Interaction Between Machine Learning and the Philosophyof Science. Minds and Machines 14 (4):539-549. Kevin B. Korb (2004). Introduction: MachineLearning as Philosophy of Science. Minds and Machines 14 (4):433-440. ...
+
+         Title Studies of grazing behaviour in relation to grassland management I. Variations in grazing habits of dairy cattle
+           URL http://scholar.google.com/https://www.cambridge.org/core/journals/journal-of-agricultural-science/article/studies-of-grazing-behaviour-in-relation-to-grassland-management-i-variations-in-grazing-habits-of-dairy-cattle/04CB23E80BE3442175F0C1E487AF91E3
+          Year 1954
+     Citations 92
+      Versions 4
+    Cluster ID 8364165153314460191
+Citations list http://scholar.google.com/scholar?cites=8364165153314460191&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8364165153314460191&hl=en&as_sdt=0,5&as_ylo=1954&as_yhi=1954
+       Excerpt ... Williams, ML Mac Parthaláin, N. Brewer, P. James, WPJ and Rose, MT 2016. A novel behavioralmodel of the pasture-based dairy cow from GPS data using data mining and machine learningtechniques. Journal of Dairy Science, Vol. 99, Issue. 3, p. 2063. ...
+
+         Title Alan Turing-Einstein of computer science
+           URL http://ailab.ijs.si/dunja/TuringSLAIS-2012/Papers/Gams_Turing.pdf
+          Year 2012
+     Citations 2
+      Versions 6
+    Cluster ID 5539722937181515246
+      PDF link http://ailab.ijs.si/dunja/TuringSLAIS-2012/Papers/Gams_Turing.pdf
+Citations list http://scholar.google.com/scholar?cites=5539722937181515246&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=5539722937181515246&hl=en&as_sdt=0,5&as_ylo=1954&as_yhi=1954
+       Excerpt ... In terms of latest definitions (Gams lecture 2011), intelligent systems and intelligenceare defined with the ability to learn. All machine learning systems are therefore intelligentand practically every living being including bacteria and plants. ...
+
+         Title Singer sewing book
+          Year 1954
+     Citations 2
+      Versions 0
+    Cluster ID 1574019139344375699
+Citations list http://scholar.google.com/scholar?cites=1574019139344375699&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Computing point-of-view
+           URL http://web.media.mit.edu/~hugo/publications/drafts/thesis-proposal.R3.pdf
+          Year 1954
+     Citations 0
+      Versions 5
+      PDF link http://web.media.mit.edu/~hugo/publications/drafts/thesis-proposal.R3.pdf
+ Versions list http://scholar.google.com/scholar?cluster=7614220098575073196&hl=en&as_sdt=0,5&as_ylo=1954&as_yhi=1954
+       Excerpt ... Viewpoint spaces are acquired by a technique called culture mining, which combines naturallanguage processing and machine learning to discover the emergent semantics of culturalcorpora like social network profiles and weblog communities. ...
+
+         Title Evotest: Test case generation using genetic programming and software analysis
+           URL http://scholar.google.com/https://www.researchgate.net/profile/Arjan_Seesing/publication/239858857_EvoTest_Test_Case_Generation_using_Genetic_Programming_and_Software_Analysis/links/54da13240cf2970e4e7da602.pdf
+          Year 1954
+     Citations 18
+      Versions 3
+    Cluster ID 12121887025629038917
+      PDF link http://scholar.google.com/https://www.researchgate.net/profile/Arjan_Seesing/publication/239858857_EvoTest_Test_Case_Generation_using_Genetic_Programming_and_Software_Analysis/links/54da13240cf2970e4e7da602.pdf
+Citations list http://scholar.google.com/scholar?cites=12121887025629038917&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=12121887025629038917&hl=en&as_sdt=0,5&as_ylo=1954&as_yhi=1954
+       Excerpt ... So the idea of combining software testing and genetic algorithms came to me. I alwayshave been interested in machine learning techniques, such as neural networks, butI have never done anything substantial with genetic algorithms. ...
+

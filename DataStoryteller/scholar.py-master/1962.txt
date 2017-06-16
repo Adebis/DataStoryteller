@@ -1,0 +1,89 @@
+         Title Programs for machine learning Part I
+           URL http://www.sciencedirect.com/science/article/pii/S0019995862906496
+          Year 1962
+     Citations 11
+      Versions 2
+    Cluster ID 15642656659683029859
+Citations list http://scholar.google.com/scholar?cites=15642656659683029859&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=15642656659683029859&hl=en&as_sdt=0,5&as_ylo=1962&as_yhi=1962
+       Excerpt Our aim is to increase the" intellectual" capacities of machines by programming on a computer and, ultimately, to construct what might reasonably be called an intelligent learning system. Consideration of human problem-solving and learning activities permits 
+
+         Title Partial observability and optimal control
+           URL http://www.tandfonline.com/doi/abs/10.1080/00207216208937438
+          Year 1962
+     Citations 58
+      Versions 0
+    Cluster ID 18315933916858721170
+Citations list http://scholar.google.com/scholar?cites=18315933916858721170&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt ... illustrate their use. An important aspect of the control computation is that the valueof control depends on all the past observations, the com- pounding of pastobservations being a machine learning process. From the examples ...
+
+         Title The influence of novelty effect upon teaching machine learning.
+           URL http://eric.ed.gov/?id=ED003605
+          Year 1962
+     Citations 7
+      Versions 0
+    Cluster ID 17477727565684710478
+Citations list http://scholar.google.com/scholar?cites=17477727565684710478&as_sdt=2005&sciodt=0,5&hl=en
+       Excerpt THE EXPERIMENT PROPOSED IN THIS STUDY WAS TO SUPPLY EVIDENCE RELEVANT TO THE QUESTION OF HOW MUCH INFLUENCE, IF ANY, A POSTULATED NOVELTY EFFECT WOULD HAVE UPON THE EFFECTIVENESS OF LEARNING IN A SELF-
+
+         Title Pattern recognition by an adaptive process of sample set construction
+           URL http://ieeexplore.ieee.org/abstract/document/1057766/
+          Year 1962
+     Citations 88
+      Versions 3
+    Cluster ID 435728733150363385
+Citations list http://scholar.google.com/scholar?cites=435728733150363385&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=435728733150363385&hl=en&as_sdt=0,5&as_ylo=1962&as_yhi=1962
+       Excerpt ... their members, and then, they must recognize a new input stimulus and classify it as amember of one of several classes. Machine learning, the automatic accomplishmentof the first of these functions, requires partitioning the vector space ...
+
+         Title Experiments on machine learning to recognize visual patterns
+          Year 1962
+     Citations 6
+      Versions 0
+    Cluster ID 17144212067298680443
+Citations list http://scholar.google.com/scholar?cites=17144212067298680443&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title An Investigation of 'Teaching Machine'Variables Using Learning Programs in Symbolic Logic
+           URL http://www.tandfonline.com/doi/pdf/10.1080/00220671.1962.10882851
+          Year 1962
+     Citations 66
+      Versions 4
+    Cluster ID 2644549218479949557
+Citations list http://scholar.google.com/scholar?cites=2644549218479949557&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=2644549218479949557&hl=en&as_sdt=0,5&as_ylo=1962&as_yhi=1962
+       Excerpt ... resent a valuable step in program technology. Finally, most of the proponents ofmachine learning (eg, 22, 27) have emphasized the impor- tance of the immediatefeedback or confirmation of results which the machine provides. ...
+
+         Title Self-Organizing Grouping-A Learning Structure.
+          Year 1962
+     Citations 5
+      Versions 0
+    Cluster ID 13761302779048746822
+Citations list http://scholar.google.com/scholar?cites=13761302779048746822&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Experiments on Machine Learning to Recognise'
+          Year 1962
+     Citations 2
+      Versions 0
+    Cluster ID 9224098712491374347
+Citations list http://scholar.google.com/scholar?cites=9224098712491374347&as_sdt=2005&sciodt=0,5&hl=en
+
+         Title Learning filters for optimum pattern recognition
+           URL http://ieeexplore.ieee.org/abstract/document/1057722/
+          Year 1962
+     Citations 40
+      Versions 2
+    Cluster ID 11087142488127514877
+Citations list http://scholar.google.com/scholar?cites=11087142488127514877&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=11087142488127514877&hl=en&as_sdt=0,5&as_ylo=1962&as_yhi=1962
+       Excerpt ... The probability of error P, for this rule is 1 a __-- + 2(2?$=a, s -m exp - cx - s(2))2 dx 20: > da ,(28) l3 D. Braverman, “Machine Learning and Automatic Pattern Recognition,” Stanford ElectronicsLaboratory, Stanford, Calif., Tech. Rept. No. 2003-l; February, 1961. ...
+
+         Title Artificial intelligence–a frontier of automation
+           URL http://scholar.google.com/https://www.degruyter.com/view/j/itit.1962.4.issue-1-6/itit.1962.4.16.173/itit.1962.4.16.173.xml
+          Year 1962
+     Citations 17
+      Versions 6
+    Cluster ID 15931315560206493043
+Citations list http://scholar.google.com/scholar?cites=15931315560206493043&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=15931315560206493043&hl=en&as_sdt=0,5&as_ylo=1962&as_yhi=1962
+       Excerpt ... these concepts. 175 Brought to you by | Google Googlebot - Web Crawler SEOAuthenticated Download Date | 10/17/16 5:42 PM Page 4. Machine learning It ishere that we encounter the idea of machine learning. Suppose we ...
+

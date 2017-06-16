@@ -1,0 +1,105 @@
+         Title Machine learning for information extraction in informal domains
+           URL http://www.springerlink.com/index/M4G2454M314X8046.pdf
+          Year 2000
+     Citations 430
+      Versions 28
+    Cluster ID 1274659929506293916
+      PDF link http://www.springerlink.com/index/M4G2454M314X8046.pdf
+Citations list http://scholar.google.com/scholar?cites=1274659929506293916&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1274659929506293916&hl=en&as_sdt=0,5&as_ylo=2000&as_yhi=2000
+       Excerpt We consider the problem of learning to perform information extraction in domains where linguistic processing is problematic, such as Usenet posts, email, and finger plan files. In place of syntactic and semantic information, other sources of information can be used, such 
+
+         Title Ensemble methods in machine learning
+           URL http://link.springer.com/chapter/10.1007/3-540-45014-9_1
+          Year 2000
+     Citations 3888
+      Versions 41
+    Cluster ID 8933724544401065115
+Citations list http://scholar.google.com/scholar?cites=8933724544401065115&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=8933724544401065115&hl=en&as_sdt=0,5&as_ylo=2000&as_yhi=2000
+       Excerpt Abstract Ensemble methods are learning algorithms that construct a set of classifiers and then classify new data points by taking a (weighted) vote of their predictions. The original ensemble method is Bayesian averaging, but more recent algorithms include error-
+
+         Title Learnable evolution model: Evolutionary processes guided by machine learning
+           URL http://www.springerlink.com/index/pul39m3l63041815.pdf
+          Year 2000
+     Citations 234
+      Versions 15
+    Cluster ID 11338285455795751090
+      PDF link http://www.springerlink.com/index/pul39m3l63041815.pdf
+Citations list http://scholar.google.com/scholar?cites=11338285455795751090&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=11338285455795751090&hl=en&as_sdt=0,5&as_ylo=2000&as_yhi=2000
+       Excerpt A new class of evolutionary computation processes is presented, called Learnable Evolution Model or LEM. In contrast to Darwinian-type evolution that relies on mutation, recombination, and selection operators, LEM employs machine learning to generate new populations. 
+
+         Title An experimental comparison of three methods for constructing ensembles of decision trees: Bagging, boosting, and randomization
+           URL http://www.springerlink.com/index/h045561mr84u1018.pdf
+          Year 2000
+     Citations 2262
+      Versions 39
+    Cluster ID 12716695788653093442
+      PDF link http://www.springerlink.com/index/h045561mr84u1018.pdf
+Citations list http://scholar.google.com/scholar?cites=12716695788653093442&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=12716695788653093442&hl=en&as_sdt=0,5&as_ylo=2000&as_yhi=2000
+       Excerpt Bagging and boosting are methods that generate a diverse ensemble of classifiers by manipulating the training data given to a “base” learning algorithm. Breiman has pointed out that they rely for their effectiveness on the instability of the base learning algorithm. An 
+
+         Title Correlation-based feature selection of discrete and numeric class machine learning
+           URL http://scholar.google.com/https://waikato.researchgateway.ac.nz/handle/10289/1024
+          Year 2000
+     Citations 1936
+      Versions 18
+    Cluster ID 7825709594346459950
+Citations list http://scholar.google.com/scholar?cites=7825709594346459950&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=7825709594346459950&hl=en&as_sdt=0,5&as_ylo=2000&as_yhi=2000
+       Excerpt Algorithms for feature selection fall into two broad categories: wrappers that use the learning algorithm itself to evaluate the usefulness of features and filters that evaluate features according to heuristics based on general characteristics of the data. For application to large 
+
+         Title Reduction techniques for instance-based learning algorithms
+           URL http://www.springerlink.com/index/n748p82037443824.pdf
+          Year 2000
+     Citations 1139
+      Versions 22
+    Cluster ID 15005506092062820068
+      PDF link http://www.springerlink.com/index/n748p82037443824.pdf
+Citations list http://scholar.google.com/scholar?cites=15005506092062820068&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=15005506092062820068&hl=en&as_sdt=0,5&as_ylo=2000&as_yhi=2000
+       Excerpt Instance-based learning algorithms are often faced with the problem of deciding which instances to store for use during generalization. Storing too many instances can result in large memory requirements and slow execution speed, and can cause an oversensitivity to 
+
+         Title Multiagent systems: A survey from a machine learning perspective
+           URL http://link.springer.com/article/10.1023/A:1008942012299
+          Year 2000
+     Citations 1234
+      Versions 61
+    Cluster ID 16663741018927155616
+Citations list http://scholar.google.com/scholar?cites=16663741018927155616&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=16663741018927155616&hl=en&as_sdt=0,5&as_ylo=2000&as_yhi=2000
+       Excerpt Abstract Distributed Artificial Intelligence (DAI) has existed as a subfield of AI for less than two decades. DAI is concerned with systems that consist of multiple independent entities that interact in a domain. Traditionally, DAI has been divided into two sub-disciplines: Distributed 
+
+         Title Sparse greedy matrix approximation for machine learning
+           URL http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.43.3153
+          Year 2000
+     Citations 607
+      Versions 4
+    Cluster ID 12782513022884144793
+Citations list http://scholar.google.com/scholar?cites=12782513022884144793&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=12782513022884144793&hl=en&as_sdt=0,5&as_ylo=2000&as_yhi=2000
+       Excerpt Abstract In kernel based methods such as Regularization Networks large datasets pose signi-cant problems since the number of basis functions required for an optimal solution equals the number of samples. We present a sparse greedy approximation technique to 
+
+         Title Convergence results for single-step on-policy reinforcement-learning algorithms
+           URL http://www.springerlink.com/index/X25NV4T955681168.pdf
+          Year 2000
+     Citations 493
+      Versions 25
+    Cluster ID 14446329391232201557
+      PDF link http://www.springerlink.com/index/X25NV4T955681168.pdf
+Citations list http://scholar.google.com/scholar?cites=14446329391232201557&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=14446329391232201557&hl=en&as_sdt=0,5&as_ylo=2000&as_yhi=2000
+       Excerpt An important application of reinforcement learning (RL) is to finite-state control problems and one of the most difficult problems in learning for control is balancing the exploration/exploitation tradeoff. Existing theoretical results for RL give very little guidance on 
+
+         Title BoosTexter: A boosting-based system for text categorization
+           URL http://link.springer.com/article/10.1023/A:1007649029923
+          Year 2000
+     Citations 2247
+      Versions 34
+    Cluster ID 15544558041655828268
+Citations list http://scholar.google.com/scholar?cites=15544558041655828268&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=15544558041655828268&hl=en&as_sdt=0,5&as_ylo=2000&as_yhi=2000
+       Excerpt Abstract This work focuses on algorithms which learn from examples to perform multiclass text and speech categorization tasks. Our approach is based on a new and improved family of boosting algorithms. We describe in detail an implementation, called BoosTexter, of the 
+

@@ -1,0 +1,73 @@
+         Title Correlation-based feature selection for machine learning
+           URL http://scholar.google.com/https://www.lri.fr/~pierres/donn%E9es/save/these/articles/lpr-queue/hall99correlationbased.pdf
+          Year 1999
+     Citations 2496
+      Versions 14
+    Cluster ID 1042602034687782886
+      PDF link http://scholar.google.com/https://www.lri.fr/~pierres/donn%E9es/save/these/articles/lpr-queue/hall99correlationbased.pdf
+Citations list http://scholar.google.com/scholar?cites=1042602034687782886&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=1042602034687782886&hl=en&as_sdt=0,5&as_ylo=1999&as_yhi=1999
+       Excerpt Abstract A central problem in machine learning is identifying a representative set of features from which to construct a classification model for a particular task. This thesis addresses the problem of feature selection for machine learning through a correlation based approach. 
+
+         Title Learning information extraction rules for semi-structured and free text
+           URL http://www.springerlink.com/index/m23n8197vg924t51.pdf
+          Year 1999
+     Citations 1345
+      Versions 20
+    Cluster ID 2505268548323569800
+      PDF link http://www.springerlink.com/index/m23n8197vg924t51.pdf
+Citations list http://scholar.google.com/scholar?cites=2505268548323569800&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=2505268548323569800&hl=en&as_sdt=0,5&as_ylo=1999&as_yhi=1999
+       Excerpt A wealth of on-line text information can be made available to automatic processing by information extraction (IE) systems. Each IE application needs a separate set of rules tuned to the domain and writing style. WHISK helps to overcome this knowledge-engineering 
+
+         Title Weka: Practical machine learning tools and techniques with Java implementations
+           URL http://researchcommons.waikato.ac.nz/handle/10289/1040
+          Year 1999
+     Citations 481
+      Versions 18
+    Cluster ID 3276099380222422281
+Citations list http://scholar.google.com/scholar?cites=3276099380222422281&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=3276099380222422281&hl=en&as_sdt=0,5&as_ylo=1999&as_yhi=1999
+       Excerpt The Waikato Environment for Knowledge Analysis (Weka) is a comprehensive suite of Java class libraries that implement many state-of-the-art machine learning and data mining algorithms. Weka is freely available on the World-Wide Web and accompanies a new text on 
+
+         Title An empirical comparison of voting classification algorithms: Bagging, boosting, and variants
+           URL http://www.springerlink.com/index/L006M1614W023752.pdf
+          Year 1999
+     Citations 2299
+      Versions 22
+    Cluster ID 17604225876431829737
+      PDF link http://www.springerlink.com/index/L006M1614W023752.pdf
+Citations list http://scholar.google.com/scholar?cites=17604225876431829737&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=17604225876431829737&hl=en&as_sdt=0,5&as_ylo=1999&as_yhi=1999
+       Excerpt Methods for voting classification algorithms, such as Bagging and AdaBoost, have been shown to be very successful in improving the accuracy of certain classifiers for artificial and real-world datasets. We review these algorithms and describe a large empirical study 
+
+         Title Machine learning approaches for the prediction of signal peptides and other protein sorting signals
+           URL http://peds.oxfordjournals.org/content/12/1/3.short
+          Year 1999
+     Citations 657
+      Versions 15
+    Cluster ID 5001286663896139417
+Citations list http://scholar.google.com/scholar?cites=5001286663896139417&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=5001286663896139417&hl=en&as_sdt=0,5&as_ylo=1999&as_yhi=1999
+       Excerpt Abstract Prediction of protein sorting signals from the sequence of amino acids has great importance in the field of proteomics today. Recently, the growth of protein databases, combined with machine learning approaches, such as neural networks and hidden Markov 
+
+         Title Learning to parse natural language with maximum entropy models
+           URL http://link.springer.com/article/10.1023/A:1007502103375
+          Year 1999
+     Citations 326
+      Versions 17
+    Cluster ID 15860318177550523835
+Citations list http://scholar.google.com/scholar?cites=15860318177550523835&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=15860318177550523835&hl=en&as_sdt=0,5&as_ylo=1999&as_yhi=1999
+       Excerpt Abstract This paper presents a machine learning system for parsing natural language that learns from manually parsed example sentences, and parses unseen data at state-of-the-art accuracies. Its machine learning technology, based on the maximum entropy framework, is 
+
+         Title Feature Selection for Machine Learning: Comparing a Correlation-Based Filter Approach to the Wrapper.
+           URL http://www.aaai.org/Library/FLAIRS/1999/flairs99-042.php
+          Year 1999
+     Citations 355
+      Versions 6
+    Cluster ID 13040059195631602395
+Citations list http://scholar.google.com/scholar?cites=13040059195631602395&as_sdt=2005&sciodt=0,5&hl=en
+ Versions list http://scholar.google.com/scholar?cluster=13040059195631602395&hl=en&as_sdt=0,5&as_ylo=1999&as_yhi=1999
+       Excerpt Feature selection is often an essential data processing step prior to applying a learning algorithm. The removal of irrelevant and redundant information often improves the performance of machine learning algorithms. There are two common approaches: a wrapper 
+
