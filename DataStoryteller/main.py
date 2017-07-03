@@ -16,12 +16,13 @@ def main():
             break
         elif (input_string == "start"):
             storyteller = DataStoryteller()
+            storyteller.TellStory()
         elif (input_string == "tell story"):
             print ("Characters: ")
             for key in storyteller.yearly_citations_by_algorithm.keys():
                 print ("    " + key)
             input_string = input("Input character name: ")
-            storyteller.TellStory(input_string)
+            storyteller.TellCharacterStory(input_string)
 
 if __name__ == "__main__":
     main()
