@@ -26,7 +26,13 @@
     <Compile Include="GoogleScholarAccessor.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="http_server.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="main.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="node.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="sortby_citations_google_scholar.py" />
