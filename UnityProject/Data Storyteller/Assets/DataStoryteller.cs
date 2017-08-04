@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using System;
+using System.Linq;
 
 public class DataStoryteller {
 
@@ -10,12 +12,14 @@ public class DataStoryteller {
 
     // For parsing the data from the files.
     public List<string> character_names;
-    // The number of citations for each year, by character.
-    // Key1 is the name of the character. Key2 is the year. Value2 is the number of citations that year.
-    public Dictionary<string, Dictionary<int, int>> yearly_citations_by_algorithm;
+
+    // Key1 is the name of the character. Value1 is a dictionary of measurements and dates, by increasing order of dates.
+    // Key2 is the date that a measurement was taken. Value2 is the Secchi depth measured.
+    public Dictionary<string, SortedDictionary<DateTime, double>> data_by_character;
+
     // Key1 is the name of the character. Key2 is the name of the data, Value2 is the data itself.
     // Stores data about each character, as read from the data files.
-    public Dictionary<string, Dictionary<string, string>> data_by_character;
+    //public Dictionary<string, Dictionary<string, string>> data_by_character;
 
     // Has data for each paper for each character.
     // Key1 is the character name. Value1 is the list of paper data.
@@ -27,12 +31,364 @@ public class DataStoryteller {
 
     public DataStoryteller()
     {
-        character_names = new List<string>{"artificial_neural_network"
-                            , "decision_tree"
-                            , "k-means_clustering"
-                            , "linear_regression"
-                            , "support_vector_machine" };
+        try
+        {
+            character_names = new List<string>();
 
+            data_by_character = new Dictionary<string, SortedDictionary<System.DateTime, double>>();
+
+            // The application path is in the assets folder of Unity.
+            string application_path = Application.dataPath;
+
+            // For Lake George data, we want to replace the site codes with their proper site names.
+            Dictionary<string, string> site_code_map = new Dictionary<string, string>();
+            site_code_map.Add("F", "French Point");
+            site_code_map.Add("SD", "Sabbath Day Point");
+            site_code_map.Add("S", "Smith Bay");
+            site_code_map.Add("R", "Rogers Rock");
+            site_code_map.Add("A10", "Northwest Bay");
+            site_code_map.Add("BB", "Basin Bay");
+            site_code_map.Add("D", "Dome Island");
+            site_code_map.Add("T", "Tea Island");
+            site_code_map.Add("N", "Green Island");
+            site_code_map.Add("AN", "Anthonys Nose");
+            site_code_map.Add("CP", "Calves Pen");
+
+            // Headers:
+            // SITE,Z,Date,Zsec,PH,COND,ALK,OP,TFP,TP,CL,NO3,SO4,TN,NH4,SI,Na,Mg,Ca,K,Fe,CHLA,T,DO (mg/l),DO (sat),Zcomp (m)
+            List<string> csv_headers = new List<string>();
+            string data_file_name = "offshore_chemistry_data_1980_2016.csv";
+            // Data from the CSV. Key is the name of the header, value is the data value. Each item in the list is a row
+            // of the CSV.
+            List<Dictionary<string, string>> csv_data = new List<Dictionary<string, string>>();
+            string data_path = application_path + "/data/" + data_file_name;
+            string[] file_lines = File.ReadAllLines(data_path);
+            bool first_line = true;
+
+            foreach (string file_line in file_lines)
+            {
+                // Separate the line by commas.
+                string[] separated_line = file_line.Split(',');
+                if (separated_line.Length != 26)
+                    first_line = false;
+
+                // If this is the first line, populate the header list.
+                if (first_line)
+                {
+                    first_line = false;
+                    foreach (string header in separated_line)
+                    {
+                        csv_headers.Add(header);
+                    }//end foreach
+                    continue;
+                }//end if
+                 // Otherwise, start populating a new CSV row dictionary.
+                Dictionary<string, string> csv_row_data = new Dictionary<string, string>();
+                for (int i = 0; i < separated_line.Length; i++)
+                {
+                    string header_name = csv_headers[i];
+                    string item_to_add = separated_line[i];
+                    // For the site code (first index), make sure to replace
+                    // the code with the site name.
+                    if (i == 0)
+                    {
+                        // First, turn the site code to upper-case.
+                        item_to_add = item_to_add.ToUpper();
+                        if (site_code_map.ContainsKey(item_to_add))
+                            // Next, replace it with the corresponding site name (if we know its site name)
+                            item_to_add = site_code_map[item_to_add];
+                    }//end if
+                    csv_row_data.Add(header_name, item_to_add);
+                }//end for
+                 // Add the row to the list of rows
+                csv_data.Add(csv_row_data);
+            }//end foreach
+
+            // We are interested in Zsec (secchi depth), index 3 of each row.
+            // The characters will be each site (by name, not code).
+            // Each character will have a time-series of Zsec data. Date is index 2 of each row.
+            // Go through all of the csv data.
+            // Headers:
+            // SITE,Z,Date,Zsec,PH,COND,ALK,OP,TFP,TP,CL,NO3,SO4,TN,NH4,SI,Na,Mg,Ca,K,Fe,CHLA,T,DO (mg/l),DO (sat),Zcomp (m)
+            foreach (Dictionary<string, string> data_row in csv_data)
+            {
+                string site_name = data_row["SITE"];
+                double secchi_depth = 0.0f;
+                bool parse_success = double.TryParse(data_row["Zsec"], out secchi_depth);
+                DateTime date = DateTime.Now;
+                parse_success = DateTime.TryParse(data_row["Date"], out date);
+                // If we could not parse the secchi depth or the date, do not use this row of data.
+                if (!parse_success)
+                {
+                    continue;
+                }//end if
+
+                // Check to see if this site_name is in data by character.
+                if (!data_by_character.ContainsKey(site_name))
+                {
+                    // If not, then initialize a new sorted dictionary for it.
+                    data_by_character.Add(site_name, new SortedDictionary<System.DateTime, double>());
+                }//end if
+                bool entry_added = false;
+                int millisecond_counter = 1;
+                while (!entry_added)
+                {
+                    // Check to see if this date already has a data entry for this character.
+                    if (data_by_character[site_name].ContainsKey(date))
+                    {
+                        // If so, add a millisecond to the date and try again.
+                        date = date.AddMilliseconds(millisecond_counter);
+                        millisecond_counter += 1;
+                        continue;
+                    }//end if
+                    else
+                    {
+                        // Add this DateTime and this secchi depth to the sorted dictionary for this site name.
+                        data_by_character[site_name].Add(date, secchi_depth);
+                        entry_added = true;
+                        break;
+                    }//end else
+                }//end while
+            }//end foreach
+
+            // The keys for data_by_character now contains each character name.
+            // Populate the list of character names using these.
+            foreach (KeyValuePair<string, SortedDictionary<DateTime, double>> temp_item in data_by_character)
+                character_names.Add(temp_item.Key);
+            // Make a node for each character. Each character is connected to every other character.
+            MakeCharacterNodes();
+
+            // Our main character
+            //string main_character_name = "artificial_neural_network";
+            string main_character_name = "Northwest Bay";
+            // The 'shape' of our story. This defines the curve for the story.
+            // A good graphic on these shapes: https://visual.ly/community/infographic/other/kurt-vonnegut-shapes-stories-0?utm_source=visually_embed
+            // Shapes:
+            //  man_in_hole
+            //      - Start positive
+            //      - Dip to lower point in middle
+            //      - End higher than beginning
+            //  boy meets girl
+            //      - As previous, but ends way way higher
+            //  from bad to worse
+            //      - start bad, get worse
+            //  which way is up?
+            //      - no discernable shape
+            //  creation story
+            //      - start from middle/nowhere, go up incrementally.
+            //  old testament
+            //      - creation story that drops low at end
+            //  new testament
+            //      - creation story that drops low, then ends very high
+            //  cinderella
+            //      - Almost the same as new testament.
+            string story_shape = "man_in_hole";
+            Dictionary<string, KeyValuePair<DateTime, double>> main_character_events = DataToEvents(main_character_name, story_shape);
+            // Make a node of each event.
+            Dictionary<string, Node> event_nodes = new Dictionary<string, Node>();
+            Node main_character_node = GetNode(main_character_name);
+            foreach (KeyValuePair<string, KeyValuePair<DateTime, double>> event_entry in main_character_events)
+            {
+                Node event_node = new Node(event_entry.Key.ToString());
+                KeyValuePair<DateTime, double> event_data = event_entry.Value;
+
+                event_node.node_data.Add("date", event_data.Key.ToString());
+                event_node.node_data.Add("secchi_depth", event_data.Value.ToString());
+
+                event_nodes.Add(event_node.name, event_node);
+                // Add this node to the global list of nodes.
+                nodes.Add(event_node);
+                // Note this as a story node
+                event_node.is_story_node = true;
+                story_nodes.Add(event_node);
+                // Link all event nodes to the main character node.
+                MakeEdge(event_node, main_character_node);
+            }//end foreach
+            // Link the start to the middle and the middle to the end.
+            MakeEdge(event_nodes["start"], event_nodes["middle"]);
+            MakeEdge(event_nodes["middle"], event_nodes["end"]);
+            //List<Node> main_story = EventsToStory(main_character_events, story_shape);
+        }//end try
+        catch (Exception e)
+        {
+            character_names = new List<string>();
+        }//end catch
+    }//end constructor DataStoryteller
+
+    // Transform a character's data into a set of events. Try to conform to the given story shape.
+    private Dictionary<string, KeyValuePair<DateTime, double>> DataToEvents(string character_name, string story_shape)
+    {
+        // The map of dates to data values for the given character, sorted by date.
+        SortedDictionary<DateTime, double> time_data_map = data_by_character[character_name];
+
+        /*foreach (KeyValuePair<DateTime, double> time_data_entry in time_data_map)
+        {
+            DateTime date = time_data_entry.Key;
+            double secchi_depth = time_data_entry.Value;
+        }//end foreach*/
+         // Determine the events for this character's data.
+        List<Dictionary<string, string>> event_list = new List<Dictionary<string, string>>();
+
+        // Each story will consist of 3 to 5 events. 
+        // Here, create events according to the story shape.
+        // NOTE: Secchi depth is taken as contributing directly to the sentiment of the story. 
+        // Higher secchi depth is better.
+        // For each story in the list of potential stories, Key1 is the name of the story event, Value1 is the key-value pair of that event.
+        // For the key-value pair, Key2 is a date, Value2 is the secchi depth measured at that date.
+        List<Dictionary<string, KeyValuePair<DateTime, double>>> potential_stories = new List<Dictionary<string, KeyValuePair<DateTime, double>>>();
+        if (story_shape.Equals("man_in_hole"))
+        {
+            // For man in hole, we want a middle that is the lowest point,
+            // a beginning that is a high point, and an end that is a slightly higher point.
+            // The selection loop will continue until all choices are exhausted.
+            // First, choose the beginning.
+            foreach (KeyValuePair<DateTime, double> time_data_entry_1 in time_data_map)
+            {
+                DateTime date_1 = time_data_entry_1.Key;
+                double secchi_depth_1 = time_data_entry_1.Value;
+
+                DateTime start_date = date_1;
+                double start_secchi_depth = secchi_depth_1;
+                KeyValuePair<DateTime, double> start_entry = time_data_entry_1;
+                // Next, choose the end.
+                foreach (KeyValuePair<DateTime, double> time_data_entry_2 in time_data_map.Reverse())
+                {
+                    DateTime date_2 = time_data_entry_2.Key;
+                    double secchi_depth_2 = time_data_entry_2.Value;
+                    KeyValuePair<DateTime, double> end_entry = time_data_entry_2;
+                    DateTime end_date = date_2;
+                    // The end must be after the beginning.
+                    if (end_date <= start_date)
+                        continue;
+
+                    double end_secchi_depth = secchi_depth_2;
+                    // The end must be higher than the start.
+                    if (end_secchi_depth <= start_secchi_depth)
+                        continue;
+
+                    // Now that we have a start and an end, choose a middle.
+                    foreach (KeyValuePair<DateTime, double> time_data_entry_3 in time_data_map.Reverse())
+                    {
+                        DateTime date_3 = time_data_entry_3.Key;
+                        double secchi_depth_3 = time_data_entry_3.Value;
+                        KeyValuePair<DateTime, double> middle_entry = time_data_entry_3;
+                        DateTime middle_date = date_3;
+                        // The date must be after the start and before the end.
+                        if (middle_date <= start_date || middle_date >= end_date)
+                            continue;
+
+                        double middle_secchi_depth = secchi_depth_3;
+                        // The middle depth must be lower than the start and lower than the end.
+                        if (middle_secchi_depth >= start_secchi_depth || middle_secchi_depth >= end_secchi_depth)
+                            continue;
+
+                        // If we have reached this point, then all three dates and depths are valid.
+                        // Add the set of events the list of potential stories.
+                        Dictionary<string, KeyValuePair<DateTime, double>> potential_story = new Dictionary<string, KeyValuePair<DateTime, double>>();
+                        potential_story.Add("start", start_entry);
+                        potential_story.Add("middle", middle_entry);
+                        potential_story.Add("end", end_entry);
+                        potential_stories.Add(potential_story);
+                    }//end foreach
+                }//end foreach
+            }//end foreach
+            
+            // Now we have a list of candidate stories. They must be evaluated to choose the best one.
+            float highest_score = 0;
+            Dictionary<string, KeyValuePair<DateTime, double>> best_story = new Dictionary<string, KeyValuePair<DateTime, double>>();
+            foreach (Dictionary<string, KeyValuePair<DateTime, double>> potential_story in potential_stories)
+            {
+                KeyValuePair<DateTime, double> start_event = potential_story["start"];
+                DateTime start_date = start_event.Key;
+                double start_secchi_depth = start_event.Value;
+
+                KeyValuePair<DateTime, double> middle_event = potential_story["middle"];
+                DateTime middle_date = middle_event.Key;
+                double middle_secchi_depth = middle_event.Value;
+
+                KeyValuePair<DateTime, double> end_event = potential_story["end"];
+                DateTime end_date = end_event.Key;
+                double end_secchi_depth = end_event.Value;
+
+                // Calculate the score for this story.
+                // First, check the curve from the beginning to the middle.
+                // In an ideal man in hole, this goes continually down.
+                float number_conforming = 0;
+                float total_number = 0;
+                double previous_secchi_depth = start_secchi_depth;
+                double current_secchi_depth = 0;
+
+                foreach (KeyValuePair<DateTime, double> time_data_entry_temp in time_data_map)
+                {
+                    // Don't do anything before the start date and after the middle date.
+                    if (time_data_entry_temp.Key <= start_date || time_data_entry_temp.Key > middle_date)
+                        continue;
+                    current_secchi_depth = time_data_entry_temp.Value;
+                    // Check that the current depth is decreasing from the previous depth. If so, then this step in the story is conforming.
+                    if (current_secchi_depth < previous_secchi_depth)
+                        number_conforming += 1;
+                    total_number += 1;
+                    previous_secchi_depth = current_secchi_depth;
+                }//end foreach
+
+                // Next, check the curve from the middle to the end.
+                // For the second half of the story, in an ideal man in hole, the story goes continually up.
+                previous_secchi_depth = middle_secchi_depth;
+                current_secchi_depth = 0;
+                foreach (KeyValuePair<DateTime, double> time_data_entry_temp in time_data_map)
+                {
+                    // Don't do anything for dates before the middle date or after the end date.
+                    if (time_data_entry_temp.Key <= middle_date || time_data_entry_temp.Key > end_date)
+                        continue;
+                    current_secchi_depth = time_data_entry_temp.Value;
+                    // Check that the current depth is increasing from the previous depth. If so, then this step in the story is conforming.
+                    if (current_secchi_depth > previous_secchi_depth)
+                        number_conforming += 1;
+                    total_number += 1;
+                    previous_secchi_depth = current_secchi_depth;
+                }//end for
+                // This is the percent conformity of the story to the expected curve.
+                float percent_conformity = number_conforming / total_number;
+
+                // Check how much of the character's total data this story covers.
+                int total_events = time_data_map.Count;
+                float events_included = 0;
+                // Count the number of entries that from the start date to the end date, inclusive.
+                foreach (KeyValuePair<DateTime, double> time_data_entry_temp in time_data_map)
+                {
+                    if (time_data_entry_temp.Key >= start_date && time_data_entry_temp.Key <= end_date)
+                        events_included += 1;
+                }//end foreach
+
+                float coverage = events_included / (float)total_events;
+
+                // Take the average of the two to calculate the score.
+                float current_score = (percent_conformity + coverage) / 2;
+
+                // Pick the highest conforming story.
+                if (current_score > highest_score)
+                {
+                    highest_score = current_score;
+                    best_story = potential_story;
+                }//end if
+            }//end foreach
+            return best_story;
+        }//end if
+
+        return null;
+    }//end method DataToEvents
+
+    // Transform a set of events into a story corresponding to a given shape.
+    /*private List<Node> EventsToStory(List<Dictionary<string, Object>> events, string shape)
+    {
+        List<Node> story = new List<Node>();
+
+        return story;
+    }//end method EventsToStory*/
+
+    // Make a node for each character in the global list of character names.
+    private void MakeCharacterNodes()
+    {
         // A graph is a collection of nodes with edges.
         nodes = new List<Node>();
         edges = new List<Edge>();
@@ -55,303 +411,7 @@ public class DataStoryteller {
                     MakeEdge(character_node, other_char_node);
             }//end foreach
         }//end foreach
-
-        yearly_citations_by_algorithm = new Dictionary<string, Dictionary<int, int>>();
-        papers_by_character = new Dictionary<string, List<Dictionary<string, string>>>();
-
-        data_by_character = new Dictionary<string, Dictionary<string, string>>();
-
-        // The application path is in the assets folder of Unity.
-        string application_path = Application.dataPath;
-
-        // Headers:
-        // Cites,Authors,Title,Year,Source,Publisher,ArticleURL,CitesURL,GSRank,QueryDate,Type,DOI,ISSN,CitationURL,Volume,Issue,StartPage,EndPage,ECC
-
-        // Go through each algorithm and gather its data from the CSVs
-        foreach (string character_name in character_names)
-        {
-            // Initialize some data things for this character.
-            //papers_by_character.Add(character_name, new List<Dictionary<string, string>>());
-            // Data for each paper
-            List<Dictionary<string, string>> paper_list = new List<Dictionary<string, string>>();
-            // Number of citations for each year.
-            Dictionary<int, int> citations_by_year = new Dictionary<int, int>();
-            // Total citation count
-            int total_citations = 0;
-
-            string data_path = application_path + "/data/" + character_name + ".csv";
-            string[] file_lines = File.ReadAllLines(data_path);
-            bool first_line = true;
-            foreach (string file_line in file_lines)
-            {
-                // Skip the header.
-                if (first_line)
-                {
-                    first_line = false;
-                    continue;
-                }//end if
-                // These CSVs are separated by commas.
-                string[] separated_line = file_line.Split(',');
-                // The number of citations
-                string cites_string = separated_line[0];
-                int citations = 0;
-                int.TryParse(cites_string, out citations);
-                total_citations += citations;
-
-                string authors = separated_line[1].Replace("\"", "");
-                string title = separated_line[2].Replace("\"", "");
-
-                string year_string = separated_line[3];
-                int year = 0;
-                int.TryParse(year_string, out year);
-
-                string source = separated_line[4].Replace("\"", "");
-                string publisher = separated_line[5].Replace("\"", "");
-
-                // Either create a new entry for this year, or increment the number of citations for this year.
-                if (citations_by_year.ContainsKey(year))
-                    citations_by_year[year] += citations;
-                else
-                    citations_by_year.Add(year, citations);
-
-                // Create a new paper entry for this character.
-                Dictionary<string, string> paper_entry = new Dictionary<string, string>();
-                paper_entry.Add("citations", cites_string);
-                paper_entry.Add("year", year_string);
-                paper_entry.Add("authors", authors);
-                paper_entry.Add("title", title);
-                paper_entry.Add("source", source);
-                paper_entry.Add("publisher", publisher);
-                paper_list.Add(paper_entry);
-            }//end foreach
-
-            // Now that we have our list of paper data, add it to the global dictionary for this character.
-            papers_by_character.Add(character_name, paper_list);
-            // Additionally, we have the number of citations each year for this character. Add it to the global dictionary.
-            yearly_citations_by_algorithm.Add(character_name, citations_by_year);
-        }//end foreach
-
-        // Our main character
-        //string main_character_name = "artificial_neural_network";
-        string main_character_name = "decision_tree";
-        // The 'shape' of our story. This defines the curve for the story.
-        // A good graphic on these shapes: https://visual.ly/community/infographic/other/kurt-vonnegut-shapes-stories-0?utm_source=visually_embed
-        // Shapes:
-        //  man_in_hole
-        //      - Start positive
-        //      - Dip to lower point in middle
-        //      - End higher than beginning
-        //  boy meets girl
-        //      - As previous, but ends way way higher
-        //  from bad to worse
-        //      - start bad, get worse
-        //  which way is up?
-        //      - no discernable shape
-        //  creation story
-        //      - start from middle/nowhere, go up incrementally.
-        //  old testament
-        //      - creation story that drops low at end
-        //  new testament
-        //      - creation story that drops low, then ends very high
-        //  cinderella
-        //      - Almost the same as new testament.
-        string story_shape = "man_in_hole";
-        Dictionary<string, Dictionary<int, int>> main_character_events = DataToEvents(main_character_name, story_shape);
-        // Make a node of each event.
-        Dictionary<string, Node> event_nodes = new Dictionary<string, Node>();
-        Node main_character_node = GetNode(main_character_name);
-        foreach (KeyValuePair<string, Dictionary<int, int>> event_entry in main_character_events)
-        {
-            Node event_node = new Node(event_entry.Key);
-            Dictionary<int, int> event_data = event_entry.Value;
-            foreach (KeyValuePair<int, int> temp in event_data)
-            {
-                event_node.node_data.Add("year", temp.Key.ToString());
-                event_node.node_data.Add("citations", temp.Value.ToString());
-            }//end foreach
-            event_nodes.Add(event_node.name, event_node);
-            // Add this node to the global list of nodes.
-            nodes.Add(event_node);
-            // Note this as a story node
-            event_node.is_story_node = true;
-            story_nodes.Add(event_node);
-            // Link all event nodes to the main character node.
-            MakeEdge(event_node, main_character_node);
-        }//end foreach
-        // Link the start to the middle and the middle to the end.
-        MakeEdge(event_nodes["start"], event_nodes["middle"]);
-        MakeEdge(event_nodes["middle"], event_nodes["end"]);
-        //List<Node> main_story = EventsToStory(main_character_events, story_shape);
-    }//end constructor DataStoryteller
-
-    // Transform a character's data into a set of events. Try to conform to the given story shape.
-    private Dictionary<string, Dictionary<int, int>> DataToEvents(string character_name, string story_shape)
-    {
-        Dictionary<int, int> citations_by_year = yearly_citations_by_algorithm[character_name];
-        //Dictionary<int, int> ordered_citations_by_year = new Dictionary<int, int>();
-        // Determine the events for this character's data.
-        List<Dictionary<string, string>> event_list = new List<Dictionary<string, string>>();
-        int minimum_year = 1900;
-        int maximum_year = 2018;
-        int last_count = 0;
-        for (int year = minimum_year; year <= maximum_year; year++)
-        {
-            // If this year doesn't appear in the dictionary, then no citations were made that year.
-            int current_count = 0;
-            if (citations_by_year.ContainsKey(year))
-                current_count = citations_by_year[year];
-            else
-                citations_by_year.Add(year, 0);
-            /*// Check for appear event
-            // Where the count goes from 0 to anything positive.
-            if (last_count == 0 && current_count > 0)
-            {
-                Dictionary<string, string> appear_event = new Dictionary<string, string>();
-                appear_event.Add("type", "appear");
-                appear_event.Add("time", year.ToString());
-                appear_event.Add("actor", character_name);
-            }//end if
-            // Check for disappear event.
-            // This is when the count goes from anything positive to 0.*/
-        }//end for
-
-        // Each story will consist of 3 to 5 events. 
-        // Here, create events according to the story shape.
-        // NOTE: Number of citations for each year is taken as contributing directly to the sentiment of the story.
-        // For each story, Key is a year, Value is the number of citations that year.
-        List<Dictionary<string, Dictionary<int, int>>> potential_stories = new List<Dictionary<string, Dictionary<int, int>>>();
-        if (story_shape.Equals("man_in_hole"))
-        {
-            // For man in hole, we want a middle that is the lowest point,
-            // a beginning that is a high point, and an end that is a slightly higher point.
-            // The selection loop will continue until all choices are exhausted.
-            // First, choose the beginning.
-            for (int start_year = minimum_year; start_year < maximum_year; start_year++)
-            {
-                int start_count = citations_by_year[start_year];
-                // Don't choose a 0 citation year for the beginning.
-                if (start_count <= 0)
-                    continue;
-                // Next, choose the end.
-                for (int end_year = maximum_year; end_year > start_year; end_year--)
-                {
-                    // The end must be higher than the start.
-                    int end_count = citations_by_year[end_year];
-                    if (end_count <= start_count)
-                        continue;
-                    // Now that we have a start and an end, choose a middle.
-                    // It must be at least lower than the start year's citation count.
-                    for (int middle_year = start_year + 1; middle_year < end_year; middle_year++)
-                    {
-                        int middle_count = citations_by_year[middle_year];
-                        if (middle_count >= start_count || middle_count >= end_count)
-                            continue;
-                        // This is officially a candidate. Note the trio as a potential story.
-                        Dictionary<string, Dictionary<int, int>> potential_story = new Dictionary<string, Dictionary<int, int>>();
-                        Dictionary<int, int> start_entry = new Dictionary<int, int>();
-                        start_entry.Add(start_year, start_count);
-                        potential_story.Add("start", start_entry);
-                        Dictionary<int, int> middle_entry = new Dictionary<int, int>();
-                        middle_entry.Add(middle_year, middle_count);
-                        potential_story.Add("middle", middle_entry);
-                        Dictionary<int, int> end_entry = new Dictionary<int, int>();
-                        end_entry.Add(end_year, end_count);
-                        potential_story.Add("end", end_entry);
-                        potential_stories.Add(potential_story);
-                    }//end for
-                }//end for
-            }//end for
-            // Now we have a list of candidate stories. They must be evaluated to choose the best one.
-            float highest_score = 0;
-            Dictionary<string, Dictionary<int, int>> best_story = new Dictionary<string, Dictionary<int, int>>();
-            foreach (Dictionary<string, Dictionary<int, int>> potential_story in potential_stories)
-            {
-                Dictionary<int, int> start_event = potential_story["start"];
-                int start_year = 0;
-                int start_count = 0;
-                foreach (KeyValuePair<int, int> temp in start_event)
-                {
-                    start_year = temp.Key;
-                    start_count = temp.Value;
-                }//end foreach
-                Dictionary<int, int> middle_event = potential_story["middle"];
-                int middle_year = 0;
-                int middle_count = 0;
-                foreach (KeyValuePair<int, int> temp in middle_event)
-                {
-                    middle_year = temp.Key;
-                    middle_count = temp.Value;
-                }//end foreach
-                Dictionary<int, int> end_event = potential_story["end"];
-                int end_year = 0;
-                int end_count = 0;
-                foreach (KeyValuePair<int, int> temp in end_event)
-                {
-                    end_year = temp.Key;
-                    end_count = temp.Value;
-                }//end foreach
-                // Calculate the score for this story.
-                // First, check the curve from the beginning to the middle.
-                // In an ideal man in hole, this goes continually down.
-                // Tally the number of years that descend from the previous year.
-                float number_conforming = 0;
-                float total_number = 0;
-                int previous_count = start_count;
-                int current_count = 0;
-                for (int year = start_year + 1; year <= middle_year; year++)
-                {
-                    current_count = citations_by_year[year];
-                    if (current_count < previous_count)
-                    {
-                        number_conforming += 1;
-                    }//end if
-                    total_number += 1;
-                    previous_count = current_count;
-                }//end for
-
-                // For the second half of the story, in an ideal man in hole, the story goes continually up.
-                // Tally the years that ascend from the previous year.
-                previous_count = middle_count;
-                current_count = 0;
-                for (int year = middle_year + 1; year <= end_year; year++)
-                {
-                    current_count = citations_by_year[year];
-                    if (current_count > previous_count)
-                    {
-                        number_conforming += 1;
-                    }//end if
-                    total_number += 1;
-                    previous_count = current_count;
-                }//end for
-                // This is the percent conformity of the story to the expected curve.
-                float percent_conformity = number_conforming / total_number;
-
-                // Check how much of the data this story covers.
-                float coverage = (end_year - start_year)/(maximum_year - minimum_year);
-
-                // Take the average of the two to calculate the score.
-                float current_score = (percent_conformity + coverage) / 2;
-
-                // Pick the highest conforming story.
-                if (current_score > highest_score)
-                {
-                    highest_score = current_score;
-                    best_story = potential_story;
-                }//end if
-            }//end foreach
-            return best_story;
-        }//end if
-
-        return null;
-    }//end method DataToEvents
-
-    // Transform a set of events into a story corresponding to a given shape.
-    private List<Node> EventsToStory(List<Dictionary<string, Object>> events, string shape)
-    {
-        List<Node> story = new List<Node>();
-
-        return story;
-    }//end method EventsToStory
+    }//end method MakeCharacterNodes
 
     // Get a node by name
     public Node GetNode(string node_name)

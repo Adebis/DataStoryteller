@@ -78,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\DataStoryteller _algorithms.cs" />
     <Compile Include="Assets\DataStoryteller.cs" />
     <Compile Include="Assets\Edge.cs" />
     <Compile Include="Assets\MainController.cs" />
