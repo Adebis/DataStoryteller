@@ -160,7 +160,7 @@ public class NodeController : MonoBehaviour
         node_text_string = inner_node.name;
         if (inner_node.is_story_node)
         {
-            node_text_string += ": " + inner_node.node_data["year"] + ", " + inner_node.node_data["citations"] + " citations.";
+            node_text_string += ": " + inner_node.node_data["date"] + ", " + inner_node.node_data["secchi_depth"] + " zdepth.";
         }//end if
         this.node_text_object.GetComponent<TextMesh>().text = node_text_string;
     }//end method DisplayText

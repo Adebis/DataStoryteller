@@ -13,18 +13,15 @@ public class DataStoryteller {
     // For parsing the data from the files.
     public List<string> character_names;
 
-    // Key1 is the name of the character. Value1 is a dictionary of measurements and dates, by increasing order of dates.
-    // Key2 is the date that a measurement was taken. Value2 is the Secchi depth measured.
-    public Dictionary<string, SortedDictionary<DateTime, double>> data_by_character;
+    // Key1 is the name of the character. Value1 is the DataSet for that character.
+    // Each DataPoint of the DataSet consists of the date of the measurement,
+    // the secchi depth of the measurement, and the name of the character the measurement
+    // belongs to.
+    public Dictionary<string, DataSet> data_by_character;
 
     // Key1 is the name of the character. Key2 is the name of the data, Value2 is the data itself.
     // Stores data about each character, as read from the data files.
-    //public Dictionary<string, Dictionary<string, string>> data_by_character;
-
-    // Has data for each paper for each character.
-    // Key1 is the character name. Value1 is the list of paper data.
-    // Key2 is the name of the piece of information (e.g. year, citations, authors). Value2 is the information itself.
-    public Dictionary<string, List<Dictionary<string, string>>> papers_by_character;
+    //public Dictionary<string, Dictionary<string, string>> data_by_character
 
     //public Dictionary<string
     public List<Node> story_nodes;
@@ -35,7 +32,7 @@ public class DataStoryteller {
         {
             character_names = new List<string>();
 
-            data_by_character = new Dictionary<string, SortedDictionary<System.DateTime, double>>();
+            data_by_character = new Dictionary<string, DataSet>();
 
             // The application path is in the assets folder of Unity.
             string application_path = Application.dataPath;
@@ -112,55 +109,152 @@ public class DataStoryteller {
             // SITE,Z,Date,Zsec,PH,COND,ALK,OP,TFP,TP,CL,NO3,SO4,TN,NH4,SI,Na,Mg,Ca,K,Fe,CHLA,T,DO (mg/l),DO (sat),Zcomp (m)
             foreach (Dictionary<string, string> data_row in csv_data)
             {
+                // Create a DataPoint from this data row.
+                DataPoint new_point = new DataPoint();
+                bool populate_success = new_point.PopulateFromLakeGeorgeData(data_row);
+
                 string site_name = data_row["SITE"];
-                double secchi_depth = 0.0f;
-                bool parse_success = double.TryParse(data_row["Zsec"], out secchi_depth);
-                DateTime date = DateTime.Now;
-                parse_success = DateTime.TryParse(data_row["Date"], out date);
-                // If we could not parse the secchi depth or the date, do not use this row of data.
-                if (!parse_success)
-                {
-                    continue;
-                }//end if
 
                 // Check to see if this site_name is in data by character.
                 if (!data_by_character.ContainsKey(site_name))
                 {
-                    // If not, then initialize a new sorted dictionary for it.
-                    data_by_character.Add(site_name, new SortedDictionary<System.DateTime, double>());
+                    // If not, then initialize a new dataset for it.
+                    data_by_character.Add(site_name, new DataSet());
                 }//end if
                 bool entry_added = false;
-                int millisecond_counter = 1;
                 while (!entry_added)
                 {
-                    // Check to see if this date already has a data entry for this character.
-                    if (data_by_character[site_name].ContainsKey(date))
-                    {
-                        // If so, add a millisecond to the date and try again.
-                        date = date.AddMilliseconds(millisecond_counter);
-                        millisecond_counter += 1;
-                        continue;
-                    }//end if
-                    else
-                    {
-                        // Add this DateTime and this secchi depth to the sorted dictionary for this site name.
-                        data_by_character[site_name].Add(date, secchi_depth);
-                        entry_added = true;
-                        break;
-                    }//end else
+                    // Add this DateTime and this secchi depth to the sorted dictionary for this site name.
+                    data_by_character[site_name].AddDatapoint(new_point);
+                    entry_added = true;
+                    break;
                 }//end while
             }//end foreach
 
             // The keys for data_by_character now contains each character name.
             // Populate the list of character names using these.
-            foreach (KeyValuePair<string, SortedDictionary<DateTime, double>> temp_item in data_by_character)
+            foreach (KeyValuePair<string, DataSet> temp_item in data_by_character)
                 character_names.Add(temp_item.Key);
             // Make a node for each character. Each character is connected to every other character.
             MakeCharacterNodes();
 
-            // Our main character
-            //string main_character_name = "artificial_neural_network";
-            string main_character_name = "Northwest Bay";
+            // Create a story based on a character and a curve.
+            // NOTE: We assume that story percentage is equal to percentage of data points
+            // Each curve type has an IDEAL CURVE equation (e.g., man-in-hole is a parabola that ends higher than it started)
+            // - The ideal curve equation is based on where in the data it starts and what length of time we want to cover.
+            // To find the events for a story:
+            // 1. Choose a curve type, a character, and a story length.
+            // 2. Start a candidate story by finding a set of Known Points for the curve type, given:
+            //  - The set of data points for the character.
+            //  - A starting point (the first data point/event)
+            //  - Story length (by percentage of total data points/events covered, NOT time)
+            //  NOTE: Each curve type will have their own set of known points and method for finding known points.
+            // 3. Find the Ideal Curve Equation given:
+            //  - The known points (including the starting point)
+            //  NOTE: Each curve type will have their own method of calculating an ideal curve equation.
+            // 4. Find the error bewteen the candidate story and the ideal curve.
+            //  - For each data-point, find the difference between the point and its ideal value from the Ideal Curve Equation.
+            //  - Sum the error over all points from the start to the end, inclusive. 
+            // 5. Choose the candidate story with the lowest error. 
+            // INPUTS: Curve Type, Character Dataset, Story Length
+            // Candidate scanning: Need to find a way to limit the number of candidates analyzed!
+
+            // Man-In-A-Hole: Start somewhere positive, middle is somewhere lower than the start, end is higher than both
+            // the start and the end. Middle should be halfway between the start and the end (or in that neighborhood).
+            // FIRST PASS: Make a Man-In-A-Hole over an entire dataset (100% length), given a character.
+            // INPUTS: Character + its dataset.
+            // Tuning Parameters: middle neighborhood (# of nodes close to middle to consider, by percentage), end neighborhood (by percentage), start neighborhood (by percentage)
+            // Method: Part 1: Generate Candidates
+            // Start with the absolute start node, the absolute middle node, and the absolute end node.
+            //      Gather the set of nodes in the start neighborhood, the set in the middle neighborhood, and the set in the end neighborhood.
+            // Check each start from the very start to each node in its neighborhood.
+            // For each of these^, check each middle from the absolute middle to each node in the neighborhood.
+            // For each of these^, check each end from the absolute end to each node in its neighborhood.
+            // Check the curve type to see if the trio is a valid. Create a candidate story for each valid start/end/middle trio.
+            
+            // Part 2: Score candidates and pick best one.
+            // For each candidate, interpolate the equation for the ideal curve, using the starting points.
+            // Calculate the distance between the ACTUAL curve and the IDEAL curve (the error)
+            // The candidate with the least error is the best candidate. Pick it as the story.
+            
+            // 0 = single character single story
+            // 1 = multi character single story
+            int gen_index = 1;
+            if (gen_index == 0)
+            {
+                string main_character_name = "Northwest Bay";
+                DataSet main_character_dataset = data_by_character[main_character_name];
+
+                string story_shape = "man_in_hole";
+                StoryMaker story_maker = new StoryMaker();
+                Story story = story_maker.MakeStory(story_shape, main_character_dataset);
+                // Make a node for each initial point in the story's curve.
+                Dictionary<string, Node> initial_point_nodes = new Dictionary<string, Node>();
+                //Node main_character_node = GetNode(main_character_name);
+                foreach (KeyValuePair<string, DataPoint> initial_point in story.curve.initial_points)
+                {
+                    Node point_node = new Node(initial_point.Key.ToString());
+
+                    point_node.node_data.Add("date", initial_point.Value.time.ToString());
+                    point_node.node_data.Add("secchi_depth", initial_point.Value.value.ToString());
+
+                    initial_point_nodes.Add(point_node.name, point_node);
+                    // Add this node to the global list of nodes.
+                    nodes.Add(point_node);
+                    // Note this as a story node
+                    point_node.is_story_node = true;
+                    story_nodes.Add(point_node);
+                    // Link all point nodes to the character the data point came from.
+                    Node point_character_node = GetNode(initial_point.Value.character);
+                    MakeEdge(point_node, point_character_node);
+                }//end foreach
+                // Link the start to the middle and the middle to the end.
+                MakeEdge(initial_point_nodes["start"], initial_point_nodes["mid"]);
+                MakeEdge(initial_point_nodes["mid"], initial_point_nodes["end"]);
+            }//end if
+            else if (gen_index == 1)
+            {
+                // Multi-character single story.
+                List<string> story_character_names = new List<string>();
+                story_character_names.Add("Northwest Bay");
+                story_character_names.Add("Tea Island");
+                // Make a dataset combining all the characters' datasets.
+                DataSet all_characters_dataset = new DataSet();
+                foreach (string char_name in story_character_names)
+                {
+                    all_characters_dataset.MergeDataset(data_by_character[char_name]);
+                }//end foreach
+
+                string story_shape = "man_in_hole";
+                StoryMaker story_maker = new StoryMaker();
+                Story story = story_maker.MakeStory(story_shape, all_characters_dataset);
+                // Make a node for each initial point in the story's curve.
+                Dictionary<string, Node> initial_point_nodes = new Dictionary<string, Node>();
+                //Node main_character_node = GetNode(main_character_name);
+                foreach (KeyValuePair<string, DataPoint> initial_point in story.curve.initial_points)
+                {
+                    Node point_node = new Node(initial_point.Key.ToString());
+
+                    point_node.node_data.Add("date", initial_point.Value.time.ToString());
+                    point_node.node_data.Add("secchi_depth", initial_point.Value.value.ToString());
+
+                    initial_point_nodes.Add(point_node.name, point_node);
+                    // Add this node to the global list of nodes.
+                    nodes.Add(point_node);
+                    // Note this as a story node
+                    point_node.is_story_node = true;
+                    story_nodes.Add(point_node);
+                    // Link all point nodes to the character the data point came from.
+                    Node point_character_node = GetNode(initial_point.Value.character);
+                    MakeEdge(point_node, point_character_node);
+                }//end foreach
+                // Link the start to the middle and the middle to the end.
+                MakeEdge(initial_point_nodes["start"], initial_point_nodes["mid"]);
+                MakeEdge(initial_point_nodes["mid"], initial_point_nodes["end"]);
+            }//end else if
+
+
+
             // The 'shape' of our story. This defines the curve for the story.
             // A good graphic on these shapes: https://visual.ly/community/infographic/other/kurt-vonnegut-shapes-stories-0?utm_source=visually_embed
             // Shapes:
@@ -182,32 +276,6 @@ public class DataStoryteller {
             //      - creation story that drops low, then ends very high
             //  cinderella
             //      - Almost the same as new testament.
-            string story_shape = "man_in_hole";
-            Dictionary<string, KeyValuePair<DateTime, double>> main_character_events = DataToEvents(main_character_name, story_shape);
-            // Make a node of each event.
-            Dictionary<string, Node> event_nodes = new Dictionary<string, Node>();
-            Node main_character_node = GetNode(main_character_name);
-            foreach (KeyValuePair<string, KeyValuePair<DateTime, double>> event_entry in main_character_events)
-            {
-                Node event_node = new Node(event_entry.Key.ToString());
-                KeyValuePair<DateTime, double> event_data = event_entry.Value;
-
-                event_node.node_data.Add("date", event_data.Key.ToString());
-                event_node.node_data.Add("secchi_depth", event_data.Value.ToString());
-
-                event_nodes.Add(event_node.name, event_node);
-                // Add this node to the global list of nodes.
-                nodes.Add(event_node);
-                // Note this as a story node
-                event_node.is_story_node = true;
-                story_nodes.Add(event_node);
-                // Link all event nodes to the main character node.
-                MakeEdge(event_node, main_character_node);
-            }//end foreach
-            // Link the start to the middle and the middle to the end.
-            MakeEdge(event_nodes["start"], event_nodes["middle"]);
-            MakeEdge(event_nodes["middle"], event_nodes["end"]);
-            //List<Node> main_story = EventsToStory(main_character_events, story_shape);
         }//end try
         catch (Exception e)
         {
@@ -216,7 +284,7 @@ public class DataStoryteller {
     }//end constructor DataStoryteller
 
     // Transform a character's data into a set of events. Try to conform to the given story shape.
-    private Dictionary<string, KeyValuePair<DateTime, double>> DataToEvents(string character_name, string story_shape)
+    /*private Dictionary<string, KeyValuePair<DateTime, double>> DataToEvents(string character_name, string story_shape)
     {
         // The map of dates to data values for the given character, sorted by date.
         SortedDictionary<DateTime, double> time_data_map = data_by_character[character_name];
@@ -225,7 +293,7 @@ public class DataStoryteller {
         {
             DateTime date = time_data_entry.Key;
             double secchi_depth = time_data_entry.Value;
-        }//end foreach*/
+        }//end foreach
          // Determine the events for this character's data.
         List<Dictionary<string, string>> event_list = new List<Dictionary<string, string>>();
 
@@ -376,7 +444,7 @@ public class DataStoryteller {
         }//end if
 
         return null;
-    }//end method DataToEvents
+    }//end method DataToEvents*/
 
     // Transform a set of events into a story corresponding to a given shape.
     /*private List<Node> EventsToStory(List<Dictionary<string, Object>> events, string shape)

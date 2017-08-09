@@ -76,10 +76,11 @@ public class MainController : MonoBehaviour
             this.edge_map.Add(node_map_entry.Key, current_neighbor_map);
         }//end foreach
 
-        // Begin the scene with all story nodes selected.
+        // Begin the scene with all story nodes selected and locked.
         foreach (Node story_node in data_storyteller.story_nodes)
         {
             node_map[story_node].GetComponent<NodeController>().ToggleSelect();
+            node_map[story_node].GetComponent<NodeController>().ToggleLock();
         }//end foreach
 
     } //end start

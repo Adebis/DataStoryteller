@@ -1,7 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Storyteller", "Data Storyteller.csproj", "{BB90B3F4-B220-8C25-92E3-C103CF90050A}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Storyteller", "Assembly-CSharp.csproj", "{BC1E4C6F-BF88-32F9-9534-3FFC8E3F7B7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,12 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BB90B3F4-B220-8C25-92E3-C103CF90050A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB90B3F4-B220-8C25-92E3-C103CF90050A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB90B3F4-B220-8C25-92E3-C103CF90050A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB90B3F4-B220-8C25-92E3-C103CF90050A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC1E4C6F-BF88-32F9-9534-3FFC8E3F7B7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC1E4C6F-BF88-32F9-9534-3FFC8E3F7B7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC1E4C6F-BF88-32F9-9534-3FFC8E3F7B7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC1E4C6F-BF88-32F9-9534-3FFC8E3F7B7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
