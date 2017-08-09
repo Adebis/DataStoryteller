@@ -26,10 +26,13 @@ public class DataStoryteller {
     //public Dictionary<string
     public List<Node> story_nodes;
 
+    public string unity_log;
+
     public DataStoryteller()
     {
         try
         {
+            unity_log = "";
             character_names = new List<string>();
 
             data_by_character = new Dictionary<string, DataSet>();
@@ -112,7 +115,8 @@ public class DataStoryteller {
                 // Create a DataPoint from this data row.
                 DataPoint new_point = new DataPoint();
                 bool populate_success = new_point.PopulateFromLakeGeorgeData(data_row);
-
+                if (populate_success == false)
+                    continue;
                 string site_name = data_row["SITE"];
 
                 // Check to see if this site_name is in data by character.
@@ -183,6 +187,7 @@ public class DataStoryteller {
             if (gen_index == 0)
             {
                 string main_character_name = "Northwest Bay";
+                //string main_character_name = "French Point";
                 DataSet main_character_dataset = data_by_character[main_character_name];
 
                 string story_shape = "man_in_hole";
@@ -211,13 +216,40 @@ public class DataStoryteller {
                 // Link the start to the middle and the middle to the end.
                 MakeEdge(initial_point_nodes["start"], initial_point_nodes["mid"]);
                 MakeEdge(initial_point_nodes["mid"], initial_point_nodes["end"]);
+
+                // Print the entire datapoint set of the story to a csv file.
+                List<string> ordered_datapoint_text = new List<string>();
+                string row_text_to_add = "";
+                foreach (DataPoint point in story.curve.points_represented)
+                {
+                    row_text_to_add = point.time.ToString() + " : " + point.value.ToString();
+                    // Search for an initial point that contains this datapoint.
+                    foreach (KeyValuePair<string, DataPoint> initial_entry in story.curve.initial_points)
+                        //if (initial_entry.Value.value == point.value
+                        //    && initial_entry.Value.time == point.time
+                        //    && initial_entry.Value.character == point.character)
+                        if (initial_entry.Value.Equals(point))
+                            row_text_to_add += " : " + initial_entry.Key;
+                    ordered_datapoint_text.Add(row_text_to_add);
+                }//end foreach
+                string[] text_array_to_write = ordered_datapoint_text.ToArray();
+                System.IO.File.WriteAllLines("outputlog.txt", text_array_to_write);
             }//end if
             else if (gen_index == 1)
             {
                 // Multi-character single story.
                 List<string> story_character_names = new List<string>();
-                story_character_names.Add("Northwest Bay");
-                story_character_names.Add("Tea Island");
+                //story_character_names.Add("French Point");
+                //story_character_names.Add("Sabbath Day Point");
+                //story_character_names.Add("Smith Bay");
+                story_character_names.Add("Rogers Rock");
+                //story_character_names.Add("Northwest Bay");
+                //story_character_names.Add("Basin Bay");
+                //story_character_names.Add("Dome Island");
+                //story_character_names.Add("Tea Island");
+                //story_character_names.Add("Green Island");
+                //story_character_names.Add("Anthonys Nose");
+                //story_character_names.Add("Calves Pen");
                 // Make a dataset combining all the characters' datasets.
                 DataSet all_characters_dataset = new DataSet();
                 foreach (string char_name in story_character_names)
@@ -251,6 +283,28 @@ public class DataStoryteller {
                 // Link the start to the middle and the middle to the end.
                 MakeEdge(initial_point_nodes["start"], initial_point_nodes["mid"]);
                 MakeEdge(initial_point_nodes["mid"], initial_point_nodes["end"]);
+
+                // Print the entire datapoint set of the story to a csv file.
+                List<string> ordered_datapoint_text = new List<string>();
+                string row_text_to_add = "";
+                foreach (DataPoint point in story.curve.points_represented)
+                {
+                    double ideal_value = story.curve.ideal_curve_interpolator.Interpolate(story.curve.dataset.time_sorted_data.IndexOf(point));
+                    row_text_to_add = point.time.ToString() + " | actual: " + point.value.ToString()
+                            + " ideal: " + ideal_value.ToString() + " deviation: " + (Math.Abs(ideal_value - point.value)).ToString();
+                    // Search for an initial point that contains this datapoint.
+                    foreach (KeyValuePair<string, DataPoint> initial_entry in story.curve.initial_points)
+                        //if (initial_entry.Value.value == point.value
+                        //    && initial_entry.Value.time == point.time
+                        //    && initial_entry.Value.character == point.character)
+                        if (initial_entry.Value.Equals(point))
+                            row_text_to_add += " | initial_point: " + initial_entry.Key;
+                    ordered_datapoint_text.Add(row_text_to_add);
+                }//end foreach
+                ordered_datapoint_text.Add("total deviation from ideal: " + story.curve.total_distance_from_ideal.ToString());
+                ordered_datapoint_text.Add("average deviation from ideal: " + story.curve.average_deviation_from_ideal.ToString());
+                string[] text_array_to_write = ordered_datapoint_text.ToArray();
+                System.IO.File.WriteAllLines("outputlog.txt", text_array_to_write);
             }//end else if
 
 

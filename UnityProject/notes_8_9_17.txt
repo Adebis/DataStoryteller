@@ -1,0 +1,16 @@
+- get rid of adjacent wikipedia data
+- have to do some scaffolding for the narrative (it's how people chunk information and know what to expect)
+- e.g., brief summary of the patterns at the beginning
+- Have the storyteller define the story curves themselves the first time they interact with the system?
+- The question: how can we do scaffolding for each story curve?
+- potential experiment: one case just the curve (actual data curve); second case, description + curve
+	- see which case people remember the curve better.
+	- (subtle variations on the curve)
+	- hypothesis: recall of the curve will be better in the case that the data is cast as a familiar story curve.
+- use vocab from stock market
+
+- try writing out some end narrations
+	- do user testing using these end narrations (wizard bot)
+	- just to see whether the effect exists
+- identify AT LEAST one challenge (on the technical side) that the algorithm solves
+	- propose an algorithm that provides a solution to the task/how the algorithm solves the task.

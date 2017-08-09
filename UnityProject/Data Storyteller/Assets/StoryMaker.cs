@@ -14,9 +14,9 @@ public class StoryMaker
     // Inputs: type of curve to match, set of data to make a story out of.
     public Story MakeStory(string curve_type, DataSet dataset_in)
     {
-        double start_neighborhood_size = 0.05f;
-        double mid_neighborhood_size = 0.1f;
-        double end_neighborhood_size = 0.05f;
+        double start_neighborhood_size = 0.10f;
+        double mid_neighborhood_size = 0.10f;
+        double end_neighborhood_size = 0.10f;
         double coverage = 1.0f;
         Story return_story = new Story();
         if (curve_type.Equals("man_in_hole"))
@@ -112,7 +112,7 @@ public class StoryMaker
         Story best_story = new Story();
         foreach (Story candidate_story in candidate_stories)
         {
-            double difference_from_ideal = candidate_story.curve.DistanceFromIdealCurve();
+            double difference_from_ideal = candidate_story.curve.DistanceFromIdealCurve(lowest_difference);
             if (difference_from_ideal < lowest_difference)
             {
                 lowest_difference = difference_from_ideal;

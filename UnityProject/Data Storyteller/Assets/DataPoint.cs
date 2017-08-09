@@ -41,6 +41,11 @@ public class DataPoint
         string site_name = data_row_in["SITE"];
         double secchi_depth = 0.0f;
         bool parse_success = double.TryParse(data_row_in["Zsec"], out secchi_depth);
+        // If we could not parse the secchi depth or the date, do not use this row of data.
+        if (!parse_success)
+        {
+            return false;
+        }//end if
         DateTime date = DateTime.Now;
         parse_success = DateTime.TryParse(data_row_in["Date"], out date);
         // If we could not parse the secchi depth or the date, do not use this row of data.

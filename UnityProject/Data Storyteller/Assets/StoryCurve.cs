@@ -3,9 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using MathNet.Numerics;
 using MathNet.Numerics.Interpolation;
-//using MathNet.Numerics;
-//using MathNet.Numerics;
-//using MathNet.Numerics;
 
 // Represents a story curve.
 // Right now, only represents man-in-hole. Will abstract later.
@@ -14,6 +11,7 @@ public class StoryCurve
     // The equation describing the curve for this story.
     // Consists of coefficients at indexed by their degree.
     public Equation ideal_curve;
+    public NevillePolynomialInterpolation ideal_curve_interpolator;
     // A set of initial known points from which to extrapolate a curve.
     // E.g., for man-in-hole, the known points are
     // the beginning, the middle, and the end.
@@ -24,6 +22,7 @@ public class StoryCurve
     public string name;
     public double total_distance_from_ideal;
     // The series of points that this curve represents.
+    public double average_deviation_from_ideal;
     public List<DataPoint> points_represented;
 
     public StoryCurve()
@@ -45,6 +44,8 @@ public class StoryCurve
         dataset = new DataSet();
         total_distance_from_ideal = 0.0f;
         points_represented = new List<DataPoint>();
+        ideal_curve_interpolator = null;
+        average_deviation_from_ideal = 0.0f;
     }//end method Initialize
 
     public void SetInitialPoints(DataPoint start_point, DataPoint mid_point, DataPoint end_point)
@@ -62,7 +63,10 @@ public class StoryCurve
     // For man-in-hole, accomplish this by interpolating a polynomial between the points.
     // Then, compare the interpolated points in the ideal equation to the real data.
     // Return the total distance from ideal.
-    public double DistanceFromIdealCurve()
+    // Input parameter is what difference threshold the calculation should stop calculating.
+    // If a give_up_threshold is passed in and exceeded, the calculated value won't be
+    // stored in this object, since it would be innaccurate.
+    public double DistanceFromIdealCurve(double give_up_threshold = double.MaxValue)
     {
         // Use initial points in initial points set.
         DataPoint start_point = initial_points["start"];
@@ -80,7 +84,7 @@ public class StoryCurve
         y_input[2] = end_point.value;
         // Feed these in as sample points in a neville polynomial interpolation
         NevillePolynomialInterpolation interpolator = new NevillePolynomialInterpolation(x_input, y_input);
-
+        ideal_curve_interpolator = interpolator;
         // Now that we have a polynomial interpreter, grab all the data points between the start and end points (inclusive).
         // Note that these will still be in the correct time order.
         List<DataPoint> data_range_to_check = dataset.GetTimeSortedDataRange(start_point, end_point);
@@ -97,8 +101,11 @@ public class StoryCurve
             if (difference < 0)
                 difference *= -1.0f;
             total_difference += difference;
+            if (total_difference > give_up_threshold)
+                return total_difference;
         }//end foreach
         total_distance_from_ideal = total_difference;
+        average_deviation_from_ideal = total_distance_from_ideal / dataset.time_sorted_data.Count;
         return total_difference;
     }//end method DistanceFromIdealCurve
 
