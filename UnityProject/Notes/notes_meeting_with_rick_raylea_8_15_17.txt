@@ -1,0 +1,17 @@
+-More than a hundred million datapoints
+-Survey data not from sensors
+-Experimental data (from tanks of lake george water at the park)
+-Data from models (terabytes of data a year)
+-Data that we have is not from sensors, but from traditional surveying
+from crews that go out and measure these things
+
+- Sensors installed in 2014
+- Add intelligence to sensors; 
+- e.g. Precipitation matters for weather data; can change the lake dramatically
+in a number of hours (e.g. spring snowmelt, storm, etc.)
+	- that's when things like road salt and nutrients are flushed into the stream
+	- we'd like to see data from when that event happens
+- By adding intelligence, they mean giving the sensors the ability to sample when it's
+interesting, allocate power usage and frequency of samples taken
+- Sensors can also talk to researchers and compare data
+	- can also do some work with cleaning data (
