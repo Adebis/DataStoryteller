@@ -14,4 +14,28 @@ in a number of hours (e.g. spring snowmelt, storm, etc.)
 - By adding intelligence, they mean giving the sensors the ability to sample when it's
 interesting, allocate power usage and frequency of samples taken
 - Sensors can also talk to researchers and compare data
-	- can also do some work with cleaning data (
+	- can also do some work with cleaning data
+
+- As you go from south to north, south is where the most people live, and it
+has the lower secchi depth
+- Secchi depth varies over space and over seasons, but secchi depth over time
+is pretty flat (37 years of monitoring)
+	- Seasonally, low transparency in spring, high in summer, low in fall
+		- Growth of algea in spring, plankton eats algea by summer, growth in fall
+		- Seasonal man-in-hole
+		- perfectly natural cycle
+- The State of the Lake Report - 30-year study that came out in 2014, data till 2009
+	- More about lake chemistry + algea, data before lake george project
+	- conclusion for figure 20 wasn't accurate, clarity doesn't change over the years
+- Heat maps show spatial changes
+	- heatmap for phosphorous, which promotes harmful algeal blooms
+- Free GSI program, QGIS
+- Variables to use: Phosphorous, nitrogen, secchi depth, temperature changes, chlorophyll A (measure of algea), salt
+- Generally people want transparent lakes not full of algea
+- some percent increases are relative, and don't actually constitute large increases at all
+- e.g. salt has tripled, but still only very little total in the lake
+
+- Plan an initial story w/ 2-3 characters (data measures)
+- try grouping data by month, by site/location
+- Variation due to month, site, and year (remove one or the other to look at different aspects of the data)
+- Choose one to use at a time.
