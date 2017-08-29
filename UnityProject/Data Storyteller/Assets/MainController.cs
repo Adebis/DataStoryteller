@@ -44,6 +44,8 @@ public class MainController : MonoBehaviour
         Dictionary<string, Dictionary<string, double>> zsec_months = data_storyteller.FilterData("Zsec", "month");
         Dictionary<string, Dictionary<string, double>> zsec_years = data_storyteller.FilterData("Zsec", "year");
         Dictionary<string, Dictionary<string, double>> zsec_sites = data_storyteller.FilterData("Zsec", "site");
+        // Create a node for each datapoint
+        // 
     }//end method InstatiateGraphs
 
     // Instatiate a set of connected topic nodes.

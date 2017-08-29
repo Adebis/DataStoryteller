@@ -49,12 +49,15 @@ public class NodeController : MonoBehaviour
     public float spring_constant;
     // This object's 2d rigidbody
     private Rigidbody2D node_rigidbody;
+    // Whether or not this node is a node in a line/spatial graph
+    public bool data_node;
 
     // Use this for initialization
     void Awake()
     {
         // The length and width of this node is 500 units.
         // This is based on the node's sprite, which is 522x522 pixels with a 1-to-1 pixel to unit ratio.
+        data_node = false;
         sprite_renderer = gameObject.GetComponent<SpriteRenderer>();
         diameter = (float)sprite_renderer.bounds.size.x;
         inner_node = new Node();
@@ -112,44 +115,47 @@ public class NodeController : MonoBehaviour
     // Use for graphics.
     void Update()
     {
-        DisplayText();
-        // If the node is locked down, don't put any forces on it (but the damping force).
-        if (!locked_down)
+        if (!data_node)
         {
-            // Check each of this node's neighbors.
-            foreach (GameObject neighboring_node in this.neighbor_node_objects)
+            DisplayText();
+            // If the node is locked down, don't put any forces on it (but the damping force).
+            if (!locked_down)
             {
-                // Skip this neighbor if both this node and this neighbor are telling each other not to obey spring forces.
-                if (!obey_spring_forces && !neighboring_node.GetComponent<NodeController>().obey_spring_forces)
-                    continue;
-                Vector3 node_position = gameObject.transform.position;
-                Vector3 neighbor_position = neighboring_node.transform.position;
-                float distance = Vector3.Distance(node_position, neighbor_position);
-                float spring_displacement = this.optimal_neighbor_distance - distance;
-                // If the displacement isn't over some threshold, don't apply a restoring force.
-                if (Mathf.Abs(spring_displacement) < 0.1f)
-                    continue;
-                // Apply a force pushing (or pulling) this node if it is not at the optimal distance.
-                // The direction of the force.
-                Vector2 restoring_force = new Vector2(neighbor_position.x - node_position.x, neighbor_position.y - node_position.y);
-                // Apply the magnitude of the spring force to its direction.
-                restoring_force *= -spring_displacement * spring_constant;
+                // Check each of this node's neighbors.
+                foreach (GameObject neighboring_node in this.neighbor_node_objects)
+                {
+                    // Skip this neighbor if both this node and this neighbor are telling each other not to obey spring forces.
+                    if (!obey_spring_forces && !neighboring_node.GetComponent<NodeController>().obey_spring_forces)
+                        continue;
+                    Vector3 node_position = gameObject.transform.position;
+                    Vector3 neighbor_position = neighboring_node.transform.position;
+                    float distance = Vector3.Distance(node_position, neighbor_position);
+                    float spring_displacement = this.optimal_neighbor_distance - distance;
+                    // If the displacement isn't over some threshold, don't apply a restoring force.
+                    if (Mathf.Abs(spring_displacement) < 0.1f)
+                        continue;
+                    // Apply a force pushing (or pulling) this node if it is not at the optimal distance.
+                    // The direction of the force.
+                    Vector2 restoring_force = new Vector2(neighbor_position.x - node_position.x, neighbor_position.y - node_position.y);
+                    // Apply the magnitude of the spring force to its direction.
+                    restoring_force *= -spring_displacement * spring_constant;
 
-                //print("Restoring force: " + restoring_force.ToString());
+                    //print("Restoring force: " + restoring_force.ToString());
 
-                node_rigidbody.AddForce(restoring_force);
-            }//end foreach
-             // Damp this node's movements
-            Vector2 damping_force = node_rigidbody.velocity;
-            float damping_factor = 5.0f;
-            damping_force *= -1 * damping_factor;
-            node_rigidbody.AddForce(damping_force);
+                    node_rigidbody.AddForce(restoring_force);
+                }//end foreach
+                // Damp this node's movements
+                Vector2 damping_force = node_rigidbody.velocity;
+                float damping_factor = 5.0f;
+                damping_force *= -1 * damping_factor;
+                node_rigidbody.AddForce(damping_force);
+            }//end if
+            else
+            {
+                // Remove this node's velocity.
+                node_rigidbody.velocity = new Vector2(0, 0);
+            }//end else
         }//end if
-        else
-        {
-            // Remove this node's velocity.
-            node_rigidbody.velocity = new Vector2(0, 0);
-        }//end else
 
     } //end method Update
 
@@ -286,12 +292,15 @@ public class NodeController : MonoBehaviour
     // Lets users click and drag nodes around.
     private void OnMouseDrag()
     {
-        Vector3 mouse_world_position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
-                                                                                            Input.mousePosition.y,
-                                                                                            0));
-        // Don't change the z position of this node.
-        mouse_world_position.z = gameObject.transform.position.z;
-        gameObject.transform.position = mouse_world_position;
+        if (!data_node)
+        {
+            Vector3 mouse_world_position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,
+                                                                                                Input.mousePosition.y,
+                                                                                                0));
+            // Don't change the z position of this node.
+            mouse_world_position.z = gameObject.transform.position.z;
+            gameObject.transform.position = mouse_world_position;
+        }//end if
     }/// end method OnMouseDrag
     private void OnMouseDown()
     {
