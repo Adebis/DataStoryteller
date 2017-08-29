@@ -36,6 +36,19 @@ public class MainController : MonoBehaviour
 
         // Create a new data storyteller.
         data_storyteller = new DataStoryteller();
+        InstantiateGraphNodes();
+    } //end start
+
+    private void InstantiateGraphNodes()
+    {
+        Dictionary<string, Dictionary<string, double>> zsec_months = data_storyteller.FilterData("Zsec", "month");
+        Dictionary<string, Dictionary<string, double>> zsec_years = data_storyteller.FilterData("Zsec", "year");
+        Dictionary<string, Dictionary<string, double>> zsec_sites = data_storyteller.FilterData("Zsec", "site");
+    }//end method InstatiateGraphs
+
+    // Instatiate a set of connected topic nodes.
+    private void InstantiateTopicNodes()
+    {
         // For each of the storyteller's nodes, create a node prefab object
         float x_placement = 0;
         float y_placement = 0;
@@ -82,8 +95,7 @@ public class MainController : MonoBehaviour
             node_map[story_node].GetComponent<NodeController>().ToggleSelect();
             node_map[story_node].GetComponent<NodeController>().ToggleLock();
         }//end foreach
-
-    } //end start
+    }//end method InstantiateTopicNodes
 
     // Update is called once per frame
     void Update ()

@@ -5,7 +5,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 
-public class DataStoryteller {
+public class DataStoryteller_curves {
 
     public List<Node> nodes;
     public List<Edge> edges;
@@ -28,7 +28,7 @@ public class DataStoryteller {
 
     public string unity_log;
 
-    public DataStoryteller()
+    public DataStoryteller_curves()
     {
         try
         {
