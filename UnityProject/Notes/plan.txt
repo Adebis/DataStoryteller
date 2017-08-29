@@ -4,7 +4,7 @@ Sentiment: Generally, people want a transparent lake not full of algea
 
 1. Characters by Variable: Each variable is a character. A grouping of data for a
 character is a story for that character. We want to do stories of 2-3 characters at a time.
-2. Use secchi depth, chlorophyll, and phosphorous or nitrogen.
+2. Use secchi depth, chlorophyll, and total phosphorous.
 	- Nutrients feed algea, which increase chlorophyll A counts, which may lower secchi depth.
 3. Prepare a story of: Seasonal Variation, Yearly Variation, and Location Variation
 for each character (variable)

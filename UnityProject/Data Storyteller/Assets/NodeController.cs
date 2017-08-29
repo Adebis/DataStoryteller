@@ -10,6 +10,7 @@ public class NodeController : MonoBehaviour
     public List<GameObject> neighbor_node_objects;
     // A map of the game objects acting as this node's edges, keyed to the destination node.
     public Dictionary<Node, GameObject> edge_map;
+    public Dictionary<GameObject, GameObject> game_edge_map;
 
     // This node's text
     public GameObject node_text_object;
@@ -55,6 +56,7 @@ public class NodeController : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        game_edge_map = new Dictionary<GameObject, GameObject>();
         // The length and width of this node is 500 units.
         // This is based on the node's sprite, which is 522x522 pixels with a 1-to-1 pixel to unit ratio.
         data_node = false;
@@ -115,6 +117,7 @@ public class NodeController : MonoBehaviour
     // Use for graphics.
     void Update()
     {
+
         if (!data_node)
         {
             DisplayText();
@@ -276,18 +279,24 @@ public class NodeController : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        // Change the color
-        ColorActive();
-        moused_over = true;
+        if (!data_node)
+        {
+            // Change the color
+            ColorActive();
+            moused_over = true;
+        }//end if
     }//end method OnMouseOver
     private void OnMouseExit()
     {
-        if (!mouse_dragged)
+        if (!data_node)
         {
-            // Change the color
-            ColorIdle();
+            if (!mouse_dragged)
+            {
+                // Change the color
+                ColorIdle();
+            }//end if
+            moused_over = false;
         }//end if
-        moused_over = false;
     }//end method OnMouseExit
     // Lets users click and drag nodes around.
     private void OnMouseDrag()
@@ -304,21 +313,24 @@ public class NodeController : MonoBehaviour
     }/// end method OnMouseDrag
     private void OnMouseDown()
     {
-        // Change the color
-        ColorActive();
-        mouse_dragged = true;
-        // We may be locking this node
-        // If the user is pressing ctrl at the same time.
-        if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+        if (!data_node)
         {
-            maybe_lock = true;
-        }//end if
-        else
-        {
-            maybe_select = true;
-        }//end else
-        // Note when the mouse was pressed down on this node.
-        mouse_down_time = Time.time;
+            // Change the color
+            ColorActive();
+            mouse_dragged = true;
+            // We may be locking this node
+            // If the user is pressing ctrl at the same time.
+            if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+            {
+                maybe_lock = true;
+            }//end if
+            else
+            {
+                maybe_select = true;
+            }//end else
+            // Note when the mouse was pressed down on this node.
+            mouse_down_time = Time.time;
+        }//if
     }//end method OnMouseDown
     private void OnMouseUp()
     {

@@ -44,8 +44,40 @@ public class MainController : MonoBehaviour
         Dictionary<string, Dictionary<string, double>> zsec_months = data_storyteller.FilterData("Zsec", "month");
         Dictionary<string, Dictionary<string, double>> zsec_years = data_storyteller.FilterData("Zsec", "year");
         Dictionary<string, Dictionary<string, double>> zsec_sites = data_storyteller.FilterData("Zsec", "site");
-        // Create a node for each datapoint
-        // 
+        float x_offset = 0.0f;
+        float x_spacing = 25.0f;
+        float y_offset = 0.0f;
+        float y_spacing = 25.0f;
+        foreach (KeyValuePair<string, Dictionary<string, double>> site_group in zsec_months)
+        {
+            string site = site_group.Key;
+            Dictionary<string, double> data_group = site_group.Value;
+            foreach (KeyValuePair<string, double> data_entry in data_group)
+            {
+                string month = data_entry.Key;
+                double value = data_entry.Value;
+                // If there is no value for this entry, skip it.
+                if (double.IsNaN(value))
+                    continue;
+                y_offset = -(float)value * y_spacing;
+                GameObject new_node_object = Instantiate(node_prefab, new Vector3(x_offset, y_offset, 0), Quaternion.identity);
+                new_node_object.GetComponent<NodeController>().data_node = true;
+                // Make a line between the previous node and the node that was just made.
+                if (all_node_objects.Count > 0)
+                {
+                    GameObject previous_node_object = all_node_objects[all_node_objects.Count - 1];
+                    // Create a line edge object as a child of the previous node.
+                    GameObject line_edge_object = Instantiate(this.edge_prefab, previous_node_object.transform);
+                    // Set the previous node's neighbor as the node that was just made.
+                    previous_node_object.GetComponent<NodeController>().neighbor_node_objects.Add(new_node_object);
+                    // Add the line object to the previous node's edge map
+                    previous_node_object.GetComponent<NodeController>().game_edge_map.Add(new_node_object, line_edge_object);
+                }//end if
+                all_node_objects.Add(new_node_object);
+
+                x_offset += x_spacing;
+            }//end foreach
+        }//end foreach
     }//end method InstatiateGraphs
 
     // Instatiate a set of connected topic nodes.
@@ -148,41 +180,80 @@ public class MainController : MonoBehaviour
         // GRAPH EDGE DRAWING
         List<Edge> parsed_edges = new List<Edge>();
         // Go through all the edges and draw a line between the nodes (if the nodes are set to draw lines).
-        foreach (Edge edge in data_storyteller.edges)
+        if (data_storyteller.edges != null)
         {
-            bool skip_edge = false;
-            Node current_src = edge.src;
-            Node current_dest = edge.dest;
-            GameObject edge_object = this.edge_map[edge.src][edge.dest];
-            LineRenderer edge_renderer = edge_object.GetComponent<LineRenderer>();
-            // Check the parsed edges. If a line has already been drawn between this
-            // pair of nodes, do not do so again.
-            foreach (Edge parsed_edge in parsed_edges)
+            foreach (Edge edge in data_storyteller.edges)
             {
-                if (current_src == parsed_edge.dest && current_dest == parsed_edge.src)
+                bool skip_edge = false;
+                Node current_src = edge.src;
+                Node current_dest = edge.dest;
+                GameObject edge_object = this.edge_map[edge.src][edge.dest];
+                LineRenderer edge_renderer = edge_object.GetComponent<LineRenderer>();
+                // Check the parsed edges. If a line has already been drawn between this
+                // pair of nodes, do not do so again.
+                foreach (Edge parsed_edge in parsed_edges)
                 {
+                    if (current_src == parsed_edge.dest && current_dest == parsed_edge.src)
+                    {
+                        skip_edge = true;
+                        break;
+                    }//end if
+                }//end foreach
+                // If we are not drawing edges from this node, skip it.
+                if (node_map[current_src].GetComponent<NodeController>().draw_edges == false)
                     skip_edge = true;
-                    break;
+                if (skip_edge)
+                {
+                    // If we are skipping this edge, disable it's line renderer if it's enabled.
+                    if (edge_renderer.enabled)
+                        edge_renderer.enabled = false;
+                    continue;
                 }//end if
-            }//end foreach
-            // If we are not drawing edges from this node, skip it.
-            if (node_map[current_src].GetComponent<NodeController>().draw_edges == false)
-                skip_edge = true;
-            if (skip_edge)
-            {
-                // If we are skipping this edge, disable it's line renderer if it's enabled.
-                if (edge_renderer.enabled)
-                    edge_renderer.enabled = false;
-                continue;
-            }//end if
-            parsed_edges.Add(edge);
+                parsed_edges.Add(edge);
 
-            if (edge_renderer.enabled == false)
-                edge_renderer.enabled = true;
-            this.DrawLine(edge.src, edge.dest);
+                if (edge_renderer.enabled == false)
+                    edge_renderer.enabled = true;
+                this.DrawLine(edge.src, edge.dest);
+            }//end foreach
+        }//end if
+        
+        // Go through each node object, and attempt to draw a line to its neighbors.
+        foreach (GameObject node_object in this.all_node_objects)
+        {
+            foreach (GameObject neighbor_node_object in node_object.GetComponent<NodeController>().neighbor_node_objects)
+            {
+                this.DrawLine(node_object, neighbor_node_object);
+            }//end foreach
         }//end foreach
+
     } //end update
 
+    // Draw a line from one node game object to another.
+    private void DrawLine(GameObject source, GameObject destination)
+    {
+        // Use the source's edge object
+        GameObject edge_object = source.GetComponent<NodeController>().game_edge_map[destination];
+        Vector3 src_position = source.transform.position;
+        Vector3 dest_position = destination.transform.position;
+
+        // Set the edge object's line renderer positions to the src and dest positions.
+        Vector3[] line_points = { src_position, dest_position };
+        LineRenderer edge_renderer = edge_object.GetComponent<LineRenderer>();
+        edge_renderer.SetPositions(line_points);
+
+        // Set the color.
+        // If either the source or destination node is moused over, the color will be different.
+        if (source.GetComponent<NodeController>().moused_over || destination.GetComponent<NodeController>().moused_over)
+        {
+            edge_renderer.startColor = Color.white;
+            edge_renderer.endColor = Color.white;
+        }//end if
+        else
+        {
+            edge_renderer.startColor = Color.black;
+            edge_renderer.endColor = Color.black;
+        }//end if
+    }//end method DrawLine
     // Draw a line from one node to another.
     private void DrawLine(Node source, Node destination)
     {

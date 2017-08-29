@@ -111,7 +111,7 @@ public class DataStoryteller {
             all_data = csv_data;
             all_headers = csv_headers;
 
-            Dictionary<string, Dictionary<string, double>> grouping_results = FilterData("Zsec", "month");
+            //Dictionary<string, Dictionary<string, double>> grouping_results = FilterData("Zsec", "month");
         }//end try
         catch (Exception e)
         {

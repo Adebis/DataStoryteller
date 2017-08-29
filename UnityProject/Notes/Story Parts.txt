@@ -1,0 +1,14 @@
+Story parts:
+
+1. Story Curve Explanation - Tell them about the type of story curve that's
+going to be used.
+2. Domain Explanation - Tell them about what the measurement they're going to
+look at is, as well as what direction of data change is considered Good and Bad.=
+3. Data Explanation - Tell them about the data itself.
+	- If standard, just tell them what the data does directly.
+	- If Storytelling, use story curve and appropriate language.
+
+Test Cases:
+1. Only parts 2 and 3, w/ part 3 taken from human writing.
+2. Only parts 2 and 3, w/ part 3 taken from story construction.
+3. Parts 1, 2, and 3.
