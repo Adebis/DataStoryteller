@@ -1,0 +1,7 @@
+Get something working
+- The main idea: use the idea of story curves to prime users
+- Have them follow a curve of the data, so they can remember it better.
+
+1. Parse data
+a. Make piecewise linear approximation of data (results in a polynomial function)
+b. 
