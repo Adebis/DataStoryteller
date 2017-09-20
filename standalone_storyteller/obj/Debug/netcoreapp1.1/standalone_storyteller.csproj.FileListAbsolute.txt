@@ -1,0 +1,8 @@
+C:\Users\Zev\Documents\GitHub\DataStoryteller\standalone_storyteller\bin\Debug\netcoreapp1.1\standalone_storyteller.deps.json
+C:\Users\Zev\Documents\GitHub\DataStoryteller\standalone_storyteller\bin\Debug\netcoreapp1.1\standalone_storyteller.runtimeconfig.json
+C:\Users\Zev\Documents\GitHub\DataStoryteller\standalone_storyteller\bin\Debug\netcoreapp1.1\standalone_storyteller.runtimeconfig.dev.json
+C:\Users\Zev\Documents\GitHub\DataStoryteller\standalone_storyteller\obj\Debug\netcoreapp1.1\standalone_storyteller.AssemblyInfo.cs
+C:\Users\Zev\Documents\GitHub\DataStoryteller\standalone_storyteller\bin\Debug\netcoreapp1.1\standalone_storyteller.dll
+C:\Users\Zev\Documents\GitHub\DataStoryteller\standalone_storyteller\bin\Debug\netcoreapp1.1\standalone_storyteller.pdb
+C:\Users\Zev\Documents\GitHub\DataStoryteller\standalone_storyteller\obj\Debug\netcoreapp1.1\standalone_storyteller.dll
+C:\Users\Zev\Documents\GitHub\DataStoryteller\standalone_storyteller\obj\Debug\netcoreapp1.1\standalone_storyteller.pdb

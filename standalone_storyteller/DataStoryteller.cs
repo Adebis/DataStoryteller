@@ -1,14 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using UnityEngine;
 using System;
 using System.Linq;
+using System.Reflection;
 
 public class DataStoryteller {
-
-    public List<Node> nodes;
-    public List<Edge> edges;
 
     // For parsing the data from the files.
     public List<string> character_names;
@@ -17,17 +14,10 @@ public class DataStoryteller {
     // Each DataPoint of the DataSet consists of the date of the measurement,
     // the secchi depth of the measurement, and the name of the character the measurement
     // belongs to.
-    public Dictionary<string, DataSet> data_by_character;
-
-    // Key1 is the name of the character. Key2 is the name of the data, Value2 is the data itself.
-    // Stores data about each character, as read from the data files.
-    //public Dictionary<string, Dictionary<string, string>> data_by_character
+    public Dictionary<string, List<DataPoint>> data_by_character;
 
     List<Dictionary<string, string>> all_data;
     List<string> all_headers;
-
-    //public Dictionary<string
-    public List<Node> story_nodes;
 
     public string unity_log;
 
@@ -39,10 +29,9 @@ public class DataStoryteller {
             // Characters are going to be 
             character_names = new List<string>();
 
-            data_by_character = new Dictionary<string, DataSet>();
+            data_by_character = new Dictionary<string, List<DataPoint>>();
 
-            // The application path is in the assets folder of Unity.
-            string application_path = Application.dataPath;
+            string application_path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
             // For Lake George data, we want to replace the site codes with their proper site names.
             Dictionary<string, string> site_code_map = new Dictionary<string, string>();
@@ -111,7 +100,52 @@ public class DataStoryteller {
             all_data = csv_data;
             all_headers = csv_headers;
 
-            //Dictionary<string, Dictionary<string, double>> grouping_results = FilterData("Zsec", "month");
+            // Look at time series of chlorophyll concentrations for each character (site).
+            // Chlorophyll is CHLA.
+            // Make a DataPoint out of each data row.
+            foreach (Dictionary<string, string> data_row in all_data)
+            {
+                // Create a new datapoint with Chlorophyll A as the main value.
+                DataPoint new_datapoint = new DataPoint(data_row, "CHLA");
+                // If there is a valid Chlorophyll A value, add the datapoint to a character's list of datapoints.
+                if (new_datapoint.population_success)
+                {
+                    // Check which character it is under.
+                    string current_character = new_datapoint.character;
+                    // Add the datapoint to the appropriate list of datapoints per character.
+                    if (data_by_character.ContainsKey(current_character))
+                    {
+                        data_by_character[current_character].Add(new_datapoint);
+                    }//end if
+                    else
+                    {
+                        data_by_character.Add(current_character, new List<DataPoint>());
+                        data_by_character[current_character].Add(new_datapoint);
+                    }//end else
+                }//end if
+            }//end foreach
+
+            // We now have a list of datapoints for each character's chlorophyll A level.
+            // Run segmenter on a single character's datapoints at a time.
+            int number_of_segments = 10;
+            //string character_name = "Northwest Bay";
+            // Characters:
+            //  Northwest Bay
+            //  French Point
+            Dictionary<String, List<Segment>> segmentations_by_character = new Dictionary<String, List<Segment>>();
+            character_names = site_code_map.Values.ToList();
+            foreach (string character_name in character_names)
+            {
+                List<Segment> current_segmentation = new List<Segment>();
+                current_segmentation = SegmentData(character_name, number_of_segments);
+                segmentations_by_character.Add(character_name, current_segmentation);
+            }//end foreach
+
+            foreach (KeyValuePair<string, List<Segment>> segmentation_entry in segmentations_by_character)
+            {
+                // Describe the segmentation.
+                Console.WriteLine(DescribeSegmentation(segmentation_entry.Value, segmentation_entry.Key, "Chlorophyll A"));
+            }//end foreach
         }//end try
         catch (Exception e)
         {
@@ -119,257 +153,95 @@ public class DataStoryteller {
         }//end catch
     }//end constructor DataStoryteller
 
-    // Filter data by a variable and by a type of grouping.
-    // variable_name must be a valid header.
-    public Dictionary<string, Dictionary<string, double>> FilterData(string variable_name, string grouping, bool separate_sites = false)
+    private String DescribeSegmentation(List<Segment> segmentation, String character_name, String value_header)
     {
-        // Variables handled:
-        // Zsec = Secchi Depth
-        // CHLA = Chlorophyll A
-        // TFP = Total Soluble Phosphorus
-        // Headers:
-        // SITE,Z,Date,Zsec,PH,COND,ALK,OP,TFP,TP,CL,NO3,SO4,TN,NH4,SI,Na,Mg,Ca,K,Fe,CHLA,T,DO (mg/l),DO (sat),Zcomp (m)
-        // Types of groupings:
-        // seasonal = time series group by month
-        // yearly = time series group by year
-        // location = spatial series group by site
-        // separate_sites = if true, do separate series for each site.
-        //                  if false, do
+        String description = "";
 
-        List<Dictionary<string, string>> data_in = new List<Dictionary<string, string>>();
-        Dictionary<string, Dictionary<string, double>> grouping_by_site = new Dictionary<string, Dictionary<string, double>>();
-        List<string> site_names = new List<string>();
-        site_names.Add("French Point");
-        site_names.Add("Sabbath Day Point");
-        site_names.Add("Smith Bay");
-        site_names.Add("Rogers Rock");
-        site_names.Add("Northwest Bay");
-        site_names.Add("Basin Bay");
-        site_names.Add("Dome Island");
-        site_names.Add("Tea Island");
-        site_names.Add("Green Island");
-        site_names.Add("Anthonys Nose");
-        site_names.Add("Calves Pen");
-
-        if (!separate_sites)
+        
+        description = "\n" + value_header + " for " + character_name + " starts " + MagnitudeDescriptor(segmentation[0].point_a.y) + " at " + segmentation[0].point_a.y.ToString() + ". ";
+        description += "This is in " + (new DateTime((long)segmentation[0].point_a.x)).ToString() + ". ";
+        description += "From there, ";
+        for (int i = 1; i < segmentation.Count - 1; i++)
         {
-            data_in = this.all_data;
-            grouping_by_site = new Dictionary<string, Dictionary<string, double>>();
-            Dictionary<string, double> grouped_data = new Dictionary<string, double>();
-            if (grouping == "month")
-            {
-                grouped_data = FilterByMonth(variable_name, data_in);
-            }//end if
-            else if (grouping == "year")
-            {
-                grouped_data = FilterByYear(variable_name, data_in);
-            }//end else if
-            grouping_by_site.Add("ALL", grouped_data);
+            description += " it " + SlopeDescriptor(segmentation[i]) + ".\n ";
+        }//end for
+        description += "Finally, in " + (new DateTime((long)segmentation[0].point_a.x)).ToString() + ", " + value_header + " for " + character_name + " ends " + MagnitudeDescriptor(segmentation[0].point_a.y) + " at " + segmentation[segmentation.Count - 1].point_b.y.ToString() + ". ";
+
+        return description;
+    }//end method DescribeSegmentation
+    
+    // Helper function to describe magnitude.
+    private String MagnitudeDescriptor(double value)
+    {
+        // Define what values are low, middle, and high for this segmentation
+        double low = 1;
+        double middle = 1.5;
+        double high = 2;
+
+        double difference_low = Math.Abs(value - low);
+        double difference_middle = Math.Abs(value - middle);
+        double difference_high = Math.Abs(value - high);
+
+        if (difference_low < difference_middle && difference_low < difference_high)
+        {
+            return "low";
         }//end if
-        else if (separate_sites || grouping == "site")
+        else if (difference_high < difference_low && difference_high < difference_middle)
         {
-            // Group data by site name.
-            grouping_by_site = new Dictionary<string, Dictionary<string, double>>();
-            foreach (string site_name in site_names)
-            {
-                data_in = new List<Dictionary<string, string>>();
-                // Get all the data rows for this site.
-                foreach (Dictionary<string, string> data_row in this.all_data)
-                {
-                    if (data_row["SITE"] == site_name)
-                    {
-                        data_in.Add(data_row);
-                    }//end if
-                }//end foreach
-                // Get averages for this site according to the method of grouping.
-                Dictionary<string, double> grouped_data = new Dictionary<string, double>();
-                if (grouping == "month")
-                {
-                    grouped_data = FilterByMonth(variable_name, data_in);
-                }//end if
-                else if (grouping == "year")
-                {
-                    grouped_data = FilterByYear(variable_name, data_in);
-                }//end else if
-                else if (grouping == "site")
-                {
-                    // Sum the values for the given variable name for this site.
-                    double sum = 0.0f;
-                    double count = 0.0f;
-                    foreach (Dictionary<string, string> data_row in this.all_data)
-                    {
-                        if (data_row["SITE"] != site_name)
-                            continue;
-                        // First, try to parse the appropriate variable into a number.
-                        string variable_string = data_row[variable_name];
-                        double variable_value = 0.0f;
-                        bool parse_success = double.TryParse(variable_string, out variable_value);
-                        if (!parse_success)
-                            continue;
-                        sum += variable_value;
-                        count += 1;
-                    }//end foreach
-                    // Now that we have a sum, average it.
-                    double average = sum / count;
-                    grouped_data.Add("N/A", average);
-                }//end else if
-                grouping_by_site.Add(site_name, grouped_data);
-            }//end foreach
-        }//end else
-        return grouping_by_site;
-    }//end method FilterData
-
-    // Get the average value for the given variable name for each month.
-    private Dictionary<string, double> FilterByMonth(string variable_name, List<Dictionary<string, string>> data_in)
+            return "high";
+        }//end else if
+        else
+        {
+            return "in the middle";
+        }//end else if
+    }//end method
+    // Helper function to describe slope
+    private String SlopeDescriptor(Segment segment)
     {
-        Dictionary<string, List<double>> entries_by_month = new Dictionary<string, List<double>>();
-        Dictionary<string, double> average_by_month = new Dictionary<string, double>();
-
-        List<string> month_strings = new List<string>();
-        month_strings.Add("Jan");
-        month_strings.Add("Feb");
-        month_strings.Add("Mar");
-        month_strings.Add("Apr");
-        month_strings.Add("May");
-        month_strings.Add("Jun");
-        month_strings.Add("Jul");
-        month_strings.Add("Aug");
-        month_strings.Add("Sep");
-        month_strings.Add("Oct");
-        month_strings.Add("Nov");
-        month_strings.Add("Dec");
-        foreach (string month_string in month_strings)
+        String descriptor = "";
+        // Which direction is it going?
+        if (segment.slope < 0)
         {
-            entries_by_month.Add(month_string, new List<double>());
-            average_by_month.Add(month_string, 0.0f);
-        }//end foreach
-
-        foreach (Dictionary<string, string> data_row in data_in)
+            descriptor = "decreases ";
+        }//end if
+        else if (segment.slope > 0)
         {
-            // First, try to parse the appropriate variable into a number.
-            string variable_string = data_row[variable_name];
-            double variable_value = 0.0f;
-            bool parse_success = double.TryParse(variable_string, out variable_value);
-            if (!parse_success)
-                continue;
+            descriptor = "increases ";
+        }//end else if
 
-            // Check the date.
-            string date_string = data_row["Date"];
-            // Get the month.
-            for (int i = 0; i < month_strings.Count; i++)
-            {
-                if (date_string.Contains(month_strings[i]))
-                {
-                    entries_by_month[month_strings[i]].Add(variable_value);
-                }//end if
-            }//end for
-        }//end foreach
+        // Magnitude of the slope determines whether it's quickly or slowly
+        // Only either slow or quick right now.
+        double quick_threshold = 0.001;
+        if (Math.Abs(segment.slope) > quick_threshold)
+            descriptor += "quickly ";
+        else
+            descriptor += "slowly ";
 
-        foreach (KeyValuePair<string, List<double>> month_entries in entries_by_month)
-        {
-            List<double> entries = month_entries.Value;
-            string month = month_entries.Key;
-            double sum = 0.0f;
-            foreach (double value in entries)
-                sum += value;
-            double average = sum / entries.Count;
-            average_by_month[month] = average;
-        }//end foreach
+        double long_threshold = 1092;
+        if (segment.time_span > long_threshold)
+            descriptor += "for a long time ";
+        else
+            descriptor += "for a short time ";
 
-        return average_by_month;
-    }//end method FilterByMonth
+        //descriptor += "between " + (new DateTime((long)segment.point_a.x)).ToString() + " and " + (new DateTime((long)segment.point_b.x)).ToString();
+        descriptor += "starting in " + (new DateTime((long)segment.point_a.x)).ToString();
+        descriptor += ", going from " + segment.point_a.y.ToString() + " to " + segment.point_b.y.ToString() + " in " + segment.time_span + " days";
 
-    private Dictionary<string, double> FilterByYear(string variable_name, List<Dictionary<string, string>> data_in)
+        return descriptor;
+    }//end method SlopeDescriptor
+
+    private List<Segment> SegmentData(String character_name, int number_of_segments)
     {
-        Dictionary<string, List<double>> entries_by_year = new Dictionary<string, List<double>>();
-        Dictionary<string, double> average_by_year = new Dictionary<string, double>();
-
-        foreach (Dictionary<string, string> data_row in data_in)
+        Console.WriteLine("========== Segmenting for " + character_name + " ==========");
+        DataSegmenter segmenter = new DataSegmenter();
+        List<Segment> segmentation = segmenter.SegmentByPLA(data_by_character[character_name], number_of_segments);
+        int segment_counter = 0;
+        foreach (Segment segment in segmentation)
         {
-            // First, try to parse the appropriate variable into a number.
-            string variable_string = data_row[variable_name];
-            double variable_value = 0.0f;
-            bool parse_success = double.TryParse(variable_string, out variable_value);
-            if (!parse_success)
-                continue;
-
-            // Check the date.
-            string date_string = data_row["Date"];
-            // Get the year.
-            string year_string = date_string.Substring(date_string.Length - 4);
-            if (!entries_by_year.ContainsKey(year_string))
-            {
-                entries_by_year.Add(year_string, new List<double>());
-            }//end if
-            entries_by_year[year_string].Add(variable_value);
+            Console.WriteLine("Segment: " + segment.ToString());
         }//end foreach
+        Console.WriteLine("Segmentation complete.");
 
-        foreach (KeyValuePair<string, List<double>> year_entries in entries_by_year)
-        {
-            List<double> entries = year_entries.Value;
-            string year = year_entries.Key;
-            double sum = 0.0f;
-            foreach (double value in entries)
-                sum += value;
-            double average = sum / entries.Count;
-            if (!average_by_year.ContainsKey(year))
-                average_by_year.Add(year, average);
-        }//end foreach
-
-        return average_by_year;
-    }//end method FilterByYear
-
-    // Make a node for each character in the global list of character names.
-    private void MakeCharacterNodes()
-    {
-        // A graph is a collection of nodes with edges.
-        nodes = new List<Node>();
-        edges = new List<Edge>();
-        story_nodes = new List<Node>();
-
-        // Make a node for each character
-        List<Node> character_nodes = new List<Node>();
-        foreach (string character_name in character_names)
-        {
-            Node character_node = new Node(character_name);
-            nodes.Add(character_node);
-            character_nodes.Add(character_node);
-        }//end foreach
-        foreach (Node character_node in character_nodes)
-        {
-            // Make an edge between each character node.
-            foreach (Node other_char_node in character_nodes)
-            {
-                if (!character_node.name.Equals(other_char_node.name))
-                    MakeEdge(character_node, other_char_node);
-            }//end foreach
-        }//end foreach
-    }//end method MakeCharacterNodes
-
-    // Get a node by name
-    public Node GetNode(string node_name)
-    {
-        foreach (Node node in nodes)
-            if (node.name.Equals(node_name))
-                return node;
-        return null;
-    }//end method GetNode
-    private void MakeEdge(Node source, Node dest)
-    {
-        edges.Add(new Edge(source, dest));
-        source.AddNeighbor(dest);
-        dest.AddNeighbor(source);
-    }//end method MakeEdge
-
-    // Use this for initialization
-    void Start ()
-    {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
+        return segmentation;
+    }//end method SegmentData
 }

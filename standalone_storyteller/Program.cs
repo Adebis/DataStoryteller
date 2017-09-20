@@ -7,6 +7,7 @@ namespace standalone_storyteller
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            DataStoryteller storyteller = new DataStoryteller();
         }
     }
 }
