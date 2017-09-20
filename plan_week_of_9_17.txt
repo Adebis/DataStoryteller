@@ -1,7 +1,12 @@
 Get something working
-- The main idea: use the idea of story curves to prime users
-- Have them follow a curve of the data, so they can remember it better.
+- The main idea: use story curves to prime users so they can remember data better.
 
 1. Parse data
-a. Make piecewise linear approximation of data (results in a polynomial function)
-b. 
+a. Segmentation: Make piecewise linear approximation of data
+- Bottom up Piecewise Linear Approximation
+- Start from the finest approximation, then segments are iteratively merged.
+- First read about in Esling and Agon, 2011?
+- Read Keogh and Pazzani, 1998 about this.
+- Read Himberg et al., 2001 for fast greedy algorithms for this
+- Read Vasko and Toivonen, 2002 for statistical method for choosing # of segments
+b. Use frequency scanning methods to find interesting moments (a la weather paper)?
