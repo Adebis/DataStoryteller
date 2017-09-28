@@ -5,7 +5,7 @@ using System;
 // Represents a single datapoint.
 public class DataPoint
 {
-    // If x is a date, it is in OADate format
+    // If x is a date, expressed in ticks.
     public double x;
     // y is the actual data value (e.g. secchi depth)
     public double y;

@@ -14,6 +14,14 @@ public class Segment{
     public double time_span;
 
     public List<DataPoint> segment_set;
+    // A set of tags to describe this segment.
+    public List<string> tags;
+
+    // Mins and maxes
+    public double min_value;
+    public DataPoint min_point;
+    public double max_value;
+    public DataPoint max_point;
 
     public double cost;
 
@@ -26,6 +34,7 @@ public class Segment{
         start_index = start_index_in;
         end_index = end_index_in;
         segment_set = set_in;
+        tags = new List<string>();
         point_a = segment_set[0];
         point_b = segment_set[segment_set.Count - 1];
         cost = 0;
@@ -33,6 +42,7 @@ public class Segment{
         time_span = 0;
         CalculateSlope();
         CalculateCost();
+        CalculateMinAndMax();
     }//end constructor Segment
 
     // Find the optimal 2-split for this segment and return it.
@@ -86,6 +96,28 @@ public class Segment{
         slope = value_change / length_in_days;
         return slope;
     }//end method CalculateSlope
+
+    public void CalculateMinAndMax()
+    {
+        min_value = double.MaxValue;
+        min_point = new DataPoint();
+        max_value = double.MinValue;
+        max_point = new DataPoint();
+
+        foreach (DataPoint d in segment_set)
+        {
+            if (d.y < min_value)
+            {
+                min_value = d.y;
+                min_point = d;
+            }//end if
+            if (d.y > max_value)
+            {
+                max_value = d.y;
+                max_point = d;
+            }//end if
+        }//end foreach
+    }//end method CalculateMinimum
 
     // Calculate the cost of this segment.
     public double CalculateCost()
