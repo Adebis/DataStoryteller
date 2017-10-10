@@ -136,7 +136,7 @@ public class DataStoryteller {
 
             // We now have a list of datapoints for each character's chlorophyll A level.
             // Run segmenter on a single character's datapoints at a time.
-            int number_of_segments = 4;
+            int number_of_segments = 2;
             //string character_name = "Northwest Bay";
             // Characters:
             //  Northwest Bay
@@ -144,18 +144,17 @@ public class DataStoryteller {
             // Segment Chlorophyll A, CHLA
             Dictionary<String, List<Segment>> segmentations_by_character = new Dictionary<String, List<Segment>>();
             character_names = site_code_map.Values.ToList();
-            string header_to_segment = "CHLA";
+            //string header_to_segment = "CHLA";
             List<string> headers_to_segment = new List<string>();
-            headers_to_segment.Add("CHLA");
-            headers_to_segment.Add("Zsec");
-            string character_to_segment = "French Point";
+            headers_to_segment.Add("Ca");
+            string character_to_segment = "Dome Island";
             List<List<Segment>> segmentations = new List<List<Segment>>();
             List<List<string>> segmentation_tags = new List<List<string>>();
 
             foreach (string h in headers_to_segment)
             {
                 List<Segment> current_segmentation = new List<Segment>();
-                current_segmentation = SegmentData(character_to_segment, header_to_segment, number_of_segments);
+                current_segmentation = SegmentData(character_to_segment, h, number_of_segments);
                 segmentations.Add(current_segmentation);
                 segmentation_tags.Add(new List<string>());
             }//end foreach
@@ -163,8 +162,10 @@ public class DataStoryteller {
             for (int i = 0; i < segmentations.Count; i++)
             {
                 List<Segment> current_segmentation = segmentations[i];
+                double segmentation_min = SegmentationMinimum(current_segmentation);
+                double segmentation_max = SegmentationMaximum(current_segmentation);
                 foreach (Segment s in current_segmentation)
-                    s.tags = DetermineSegmentTags(s);
+                    s.tags = DetermineSegmentTags(s, segmentation_min, segmentation_max);
                 // Get tags for the whole segmentation once we've gotten tags for each individual segment.
                 segmentation_tags[i] = DetermineSegmentationTags(current_segmentation);
             }//end for
@@ -190,9 +191,9 @@ public class DataStoryteller {
                 {
                     Segment current_segment = current_segmentation[j];
                     if (j == 0)
-                        description_text += "At first, ";
+                        description_text += "At first (" + (new DateTime((long)current_segment.point_a.x)).ToString() + "), ";
                     else
-                        description_text += "Then, ";
+                        description_text += "Then (" + (new DateTime((long)current_segment.point_a.x)).ToString() + "), ";
                     foreach (string tag in current_segment.tags)
                         description_text += tag + " ";
                 }//end foreach
@@ -293,47 +294,78 @@ public class DataStoryteller {
 
         return return_tags;
     }//end method DetermineSegmentationTags
+    // Get the min value for a segmentation
+    private double SegmentationMinimum(List<Segment> segmentation_in)
+    {
+        double min_segment_value = double.MaxValue;
+        for (int i = 0; i < segmentation_in.Count; i++)
+        {
+            if (segmentation_in[i].min_value < min_segment_value)
+            {
+                min_segment_value = segmentation_in[i].min_value;
+            }//end if
+        }//end for
+        return min_segment_value;
+    }//end method SegmentationMinimum
+    private double SegmentationMaximum(List<Segment> segmentation_in)
+    {
+        double max_segment_value = double.MinValue;
+        for (int i = 0; i < segmentation_in.Count; i++)
+        {
+            if (segmentation_in[i].max_value > max_segment_value)
+            {
+                max_segment_value = segmentation_in[i].max_value;
+            }//end if
+        }//end for
+        return max_segment_value;
+    }//end method SegmentationMaximum
 
     // Helper functions to determine tags for a segment.
-    private List<string> DetermineSegmentTags(Segment segment_in)
+    private List<string> DetermineSegmentTags(Segment segment_in, double min_value, double max_value)
     {
         List<string> return_tags = new List<string>();
 
         // Magnitude tags for the start and end.
-        return_tags.AddRange(DetermineMagnitudeTags(segment_in));
+        return_tags.AddRange(DetermineMagnitudeTags(segment_in, min_value, max_value));
         return_tags.AddRange(DetermineSlopeTags(segment_in));
 
         return return_tags;
     }//end method DetermineTags
 
-    private List<string> DetermineMagnitudeTags(Segment segment_in)
+    private List<string> DetermineMagnitudeTags(Segment segment_in, double min_value, double max_value)
     {
         List<string> magnitude_tags = new List<string>();
         // Is the start low, middle, or high?
-        double low_amount = 0;
-        double middle_amount = 1.5;
-        double high_amount = 3;
+        double low_amount = min_value;
+        double middle_amount = min_value + ((max_value - min_value) / 2);
+        double high_amount = max_value;
         double start_value = segment_in.point_a.y;
         double start_diff_low = Math.Abs(start_value - low_amount);
         double start_diff_middle = Math.Abs(start_value - middle_amount);
         double start_diff_high = Math.Abs(start_value - high_amount);
         if (start_diff_low < start_diff_middle && start_diff_low < start_diff_high)
-            magnitude_tags.Add("starts low");
+            //magnitude_tags.Add("starts low (low:" + low_amount.ToString() + "|mid:" + middle_amount.ToString() + "|high:" + high_amount.ToString() + "|val:" + start_value.ToString() + ")");
+            magnitude_tags.Add("starts low (val:" + start_value.ToString() + ")");
         else if (start_diff_high < start_diff_middle)
-            magnitude_tags.Add("starts high");
+            //magnitude_tags.Add("starts high (low:" + low_amount.ToString() + "|mid:" + middle_amount.ToString() + "|high:" + high_amount.ToString() + "|val:" + start_value.ToString() + ")");
+            magnitude_tags.Add("starts high (val:" + start_value.ToString() + ")");
         else
-            magnitude_tags.Add("starts middle");
+            //magnitude_tags.Add("starts middle (low:" + low_amount.ToString() + "|mid:" + middle_amount.ToString() + "|high:" + high_amount.ToString() + "|val:" + start_value.ToString() + ")");
+            magnitude_tags.Add("starts middle (val:" + start_value.ToString() + ")");
         // Is the end low, middle, or high?
-        double end_value = segment_in.point_a.y;
+        double end_value = segment_in.point_b.y;
         double end_diff_low = Math.Abs(end_value - low_amount);
         double end_diff_middle = Math.Abs(end_value - middle_amount);
         double end_diff_high = Math.Abs(end_value - high_amount);
         if (end_diff_low < end_diff_middle && end_diff_low < end_diff_high)
-            magnitude_tags.Add("ends low");
+            //magnitude_tags.Add("ends low (low:" + low_amount.ToString() + "|mid:" + middle_amount.ToString() + "|high:" + high_amount.ToString() + "|val:" + end_value.ToString() + ")");
+            magnitude_tags.Add("ends low (val:" + end_value.ToString() + ")");
         else if (end_diff_high < end_diff_middle)
-            magnitude_tags.Add("ends high");
+            //magnitude_tags.Add("ends high (low:" + low_amount.ToString() + "|mid:" + middle_amount.ToString() + "|high:" + high_amount.ToString() + "|val:" + end_value.ToString() + ")");
+            magnitude_tags.Add("ends high (val:" + end_value.ToString() + ")");
         else
-            magnitude_tags.Add("ends middle");
+            //magnitude_tags.Add("ends middle (low:" + low_amount.ToString() + "|mid:" + middle_amount.ToString() + "|high:" + high_amount.ToString() + "|val:" + end_value.ToString() + ")");
+            magnitude_tags.Add("ends middle (val:" + end_value.ToString() + ")");
 
         return magnitude_tags;
     }//end method DetermineMagnitudeTags
@@ -359,9 +391,9 @@ public class DataStoryteller {
 
         double long_threshold = 1092;
         if (segment_in.time_span > long_threshold)
-            slope_tags.Add("long");
+            slope_tags.Add("long (length:" + segment_in.time_span.ToString() + ")");
         else
-            slope_tags.Add("short");
+            slope_tags.Add("short (length:" + segment_in.time_span.ToString() + ")");
 
         return slope_tags;
     }//end method DetermineMagnitudeTags
@@ -425,7 +457,7 @@ public class DataStoryteller {
 
         return descriptor;
     }//end method SlopeDescriptor
-    private String DescribeSegmentation(List<Segment> segmentation, String character_name, String value_header)
+/*    private String DescribeSegmentation(List<Segment> segmentation, String character_name, String value_header)
     {
         String description = "";
         
@@ -445,7 +477,7 @@ public class DataStoryteller {
         description += "Finally, in " + (new DateTime((long)segmentation[0].point_b.x)).ToString() + ", " + value_header + " for " + character_name + " ends " + MagnitudeDescriptor(segmentation[0].point_b.y) + " at " + segmentation[segmentation.Count - 1].point_b.y.ToString() + ". ";
 
         return description;
-    }//end method DescribeSegmentation
+    }//end method DescribeSegmentation*/
 
     private List<Segment> SegmentData(String character_name, string header_name, int number_of_segments)
     {
