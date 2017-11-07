@@ -139,22 +139,31 @@ public class DataStoryteller {
             int number_of_segments = 2;
             //string character_name = "Northwest Bay";
             // Characters:
-            //  Northwest Bay
+            //  Northwest Bay, A10
             //  French Point
-            // Segment Chlorophyll A, CHLA
+            // Headers:
+            //  CL, Chlorine
+            //  COND, Specific Conductance
+            //  Na, Sodium
+            //  CA, Calcium
+            //  SI, Soluble Silica
+            //  SO4, Sulfate
             Dictionary<String, List<Segment>> segmentations_by_character = new Dictionary<String, List<Segment>>();
             character_names = site_code_map.Values.ToList();
             //string header_to_segment = "CHLA";
             List<string> headers_to_segment = new List<string>();
-            headers_to_segment.Add("Ca");
-            string character_to_segment = "Dome Island";
+            headers_to_segment.Add("CL");
+            string character_to_segment = "Northwest Bay";
+            List<int> separation_indices = new List<int>();
+            separation_indices.Add(0);
+
             List<List<Segment>> segmentations = new List<List<Segment>>();
             List<List<string>> segmentation_tags = new List<List<string>>();
 
             foreach (string h in headers_to_segment)
             {
                 List<Segment> current_segmentation = new List<Segment>();
-                current_segmentation = SegmentData(character_to_segment, h, number_of_segments);
+                current_segmentation = SegmentData(character_to_segment, h, separation_indices);
                 segmentations.Add(current_segmentation);
                 segmentation_tags.Add(new List<string>());
             }//end foreach
@@ -479,12 +488,24 @@ public class DataStoryteller {
         return description;
     }//end method DescribeSegmentation*/
 
+    private List<Segment> SegmentData(String character_name, string header_name, List<int> separation_point_indices)
+    {
+        Console.WriteLine("========== Segmenting for " + character_name + " ==========");
+        DataSegmenter segmenter = new DataSegmenter();
+        List<Segment> segmentation = segmenter.SegmentByHand(data_by_character[character_name][header_name], separation_point_indices);
+        foreach (Segment segment in segmentation)
+        {
+            Console.WriteLine("Segment: " + segment.ToString());
+        }//end foreach
+        Console.WriteLine("Segmentation complete.");
+
+        return segmentation;
+    }//end method SegmentData
     private List<Segment> SegmentData(String character_name, string header_name, int number_of_segments)
     {
         Console.WriteLine("========== Segmenting for " + character_name + " ==========");
         DataSegmenter segmenter = new DataSegmenter();
         List<Segment> segmentation = segmenter.SegmentByPLA(data_by_character[character_name][header_name], number_of_segments);
-        int segment_counter = 0;
         foreach (Segment segment in segmentation)
         {
             Console.WriteLine("Segment: " + segment.ToString());

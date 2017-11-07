@@ -10,6 +10,9 @@ public class Segment{
     public DataPoint point_a;
     public DataPoint point_b;
 
+    // Average starting and ending values
+    public double start_average;
+    public double end_average;
     public double slope;
     public double time_span;
 
@@ -40,6 +43,7 @@ public class Segment{
         cost = 0;
         slope = 0;
         time_span = 0;
+        //CalculateAverages();
         CalculateSlope();
         CalculateCost();
         CalculateMinAndMax();
@@ -86,6 +90,37 @@ public class Segment{
 
         return optimal_split;
     }//end method GetOptimalSplit
+
+    // Calculate the average start and end values
+    // by averaging over some window of values.
+    /*public void CalculateAverages()
+    {
+        int window_size = 10;
+        // Calculate start average
+        int start_window_start_index = 0;
+        int start_window_end_index = 0;
+        if (start_index == 0 || start_index < window_size / 2)
+        {
+            start_window_start_index = 0;
+            start_window_end_index = start_window_start_index + window_size;
+        }//end if
+        else
+        {
+            start_window_start_index = start_index - window_size / 2;
+            start_window_end_index = start_index + window_size / 2;
+        }//end else if
+        double temp_sum = 0;
+        for (int i = 0; i < window_size; i++)
+        {
+            temp_sum += segment_set[i].y;
+        }//end for
+        start_average = temp_sum / window_size;
+
+        // Calculate end average
+        int end_window_start_index = 0;
+        int end_window_end_index = 0;
+        if (end_index = )
+    }//end method CalculateAverages*/
 
     public double CalculateSlope()
     {
