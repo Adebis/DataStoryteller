@@ -5,7 +5,7 @@ using System;
 // Represents a single datapoint.
 public class DataPoint
 {
-    // If x is a date, expressed in ticks.
+    // If x is a date, expressed in number of days since 1980/1/1
     public double x;
     // y is the actual data value (e.g. secchi depth)
     public double y;
