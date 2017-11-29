@@ -10,7 +10,6 @@ public class Segment
     public DataPoint end_point;
 
     // Numerical observations
-    public Dictionary<string, string>[] observations;
     // There are 8 numerical observations:
     //  0: start_x
     //  1: end_x
@@ -20,6 +19,11 @@ public class Segment
     //  5: change_y
     //  6: slope_mag
     //  7: slope_dir
+    public Dictionary<string, string>[] observations;
+    // The index of how the x, y, and slope should be presented.
+    public int x_presentation;
+    public int y_presentation;
+    public int slope_presentation;
 
     // Start and end point values
     public double start_value;

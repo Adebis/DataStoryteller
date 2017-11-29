@@ -76,8 +76,14 @@ public class NarrativeGenerator
         // How many x-axis values should be given.
         double x_value_count = 2;
 
+        // Decide how each part of each segment is going to be presented.
+        DefinePresentation(all_segments, x_refs, y_refs);
+
         // Assemble the description
         string description = "";
+
+
+
         // Global descriptors
         description += variable_name + " at " + site_name; 
         description += " from " + x_refs[0].ToString() + " to " + x_refs[x_refs.Count - 1].ToString();
@@ -92,6 +98,19 @@ public class NarrativeGenerator
         }//end foreach
         Console.WriteLine("Description all: " + description_all);
     }//end method GenerateNarrative
+
+    public void DefinePresentation(List<Segment> segments_in, List<double> x_refs, List<double> y_refs)
+    {
+        Random rand = new Random();
+        foreach (Segment temp_segment in segments_in)
+        {
+            // Generate random number between 0 and 4.
+            temp_segment.x_presentation = rand.Next(5);
+            temp_segment.y_presentation = rand.Next(5);
+            // Generate random number between 0 and 1.
+            temp_segment.slope_presentation = rand.Next(1);
+        }//end foreach
+    }//end method DefinePresentation
 
     // Gives descriptors to the numeric values in a group of segments,
     // according to the given x and y axis reference numbers.
@@ -172,17 +191,16 @@ public class NarrativeGenerator
                                                                     , y_change_threshold);
             temp_segment.AddObservationField(5, "description", y_change_description);
 
+            // Map direction of change and rate of change to descriptors.
             string slope_dir_description = DirectionDescriptor(temp_segment.GetObservationValue(6)
                                                                 , temp_segment.GetObservationValue(7)
                                                                 , steady_threshold);
-            temp_segment.AddObservation()
+            temp_segment.AddObservationField(7, "description", slope_dir_description);
 
-            // Map direction of change and rate of change to descriptors.
-            temp_segment.direction_descriptor = DirectionDescriptor(temp_segment.slope
-                                                                    , steady_threshold);
-            temp_segment.rate_descriptor = RateDescriptor(temp_segment.slope
+            string slope_mag_description = RateDescriptor(temp_segment.GetObservationValue(6)
                                                             , graph_slope
                                                             , tolerance);
+            temp_segment.AddObservationField(6, "description", slope_mag_description);
         }//end foreach
     }//end method DefineDescriptors
 
