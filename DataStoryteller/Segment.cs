@@ -24,6 +24,10 @@ public class Segment
     public int x_presentation;
     public int y_presentation;
     public int slope_presentation;
+    // Whether or not to use numerical values for x and y presentation.
+    // 0 is true, 1 is false.
+    public int use_numerical_x;
+    public int use_numerical_y;
 
     // Start and end point values
     public double start_value;
@@ -88,6 +92,10 @@ public class Segment
         else
             this.observations[observation_id].Add(field_name, field_value);
     }//end method AddObservationField
+    public string GetObservationDescription(int observation_id)
+    {
+        return this.observations[observation_id]["description"];
+    }//end method GetObservationDescription
     // Return min value if parse did not succeed.
     public double GetObservationValue(int observation_id)
     {

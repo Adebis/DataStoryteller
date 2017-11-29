@@ -10,6 +10,7 @@ using Newtonsoft.Json.Linq;
 
 public class NarrativeGenerator
 {
+    private string y_label;
 
     public NarrativeGenerator()
     {
@@ -19,7 +20,7 @@ public class NarrativeGenerator
     public void GenerateNarrative()
     {
         // First, read the input data.
-        List<Segment> all_segments = this.ReadInputCSV("bb_cl.csv");
+        List<Segment> all_segments = this.ReadInputCSV("from_output_1.csv");
         JObject info = this.ReadInputInfo("bb_cl.json");
         // Go through the info file and extract:
         //      site, the site name
@@ -30,6 +31,7 @@ public class NarrativeGenerator
         //      y_refs, the list of reference values for the y-axis
         string site_name = info["info"].Value<string>("site");
         string variable_name = info["info"].Value<string>("var");
+        y_label = info["info"].Value<string>("x_label");
         // Get the list of reference values for both axis.
         List<double> x_refs = new List<double>();
         foreach (JToken x_ref_entry in info["info"]["x_refs"])
@@ -62,9 +64,9 @@ public class NarrativeGenerator
         string global_trend_descriptor = "";
         double global_change = all_segments[all_segments.Count - 1].end_point.y - all_segments[0].start_point.y;
         if (global_change < 0)
-            global_trend_descriptor = "decrease";
+            global_trend_descriptor = "generally decreased";
         else
-            global_trend_descriptor = "increase";
+            global_trend_descriptor = "generally increased";
 
         // Define occurence connections.
 
@@ -82,13 +84,11 @@ public class NarrativeGenerator
         // Assemble the description
         string description = "";
 
-
-
         // Global descriptors
         description += variable_name + " at " + site_name; 
         description += " from " + x_refs[0].ToString() + " to " + x_refs[x_refs.Count - 1].ToString();
         description += " " + global_trend_descriptor + ".";
-        string description_all = description;
+        /*string description_all = description;
         foreach (Segment temp_segment in all_segments)
         {
             description_all += " From " + temp_segment.start_date.ToString() + " to " + temp_segment.end_date.ToString();
@@ -96,9 +96,275 @@ public class NarrativeGenerator
             description_all += " " + temp_segment.direction_descriptor + " " + temp_segment.rate_descriptor;
             description_all += ".";
         }//end foreach
-        Console.WriteLine("Description all: " + description_all);
+        Console.WriteLine("Description all: " + description_all);*/
+        int segment_counter = 0;
+        Random rand = new Random();
+        int transition_choice = 0;
+        int last_transition_choice = -1;
+        int number_of_transitions = 3;
+        foreach (Segment temp_segment in all_segments)
+        {
+            if (segment_counter == 0)
+                description += " At first, it";
+            else if (segment_counter == all_segments.Count() - 1)
+                description += " Finally, it";
+            else
+            {
+                transition_choice = rand.Next(number_of_transitions);
+                if (transition_choice == last_transition_choice)
+                {
+                    transition_choice += 1;
+                    if (transition_choice > number_of_transitions - 1)
+                        transition_choice = 0;
+                }//end if
+                if (transition_choice == 0)
+                    description += " Then, it";
+                else if (transition_choice == 1)
+                    description += " From there, it";
+                else if (transition_choice == 2)
+                    description += " After that, it";
+                else if (transition_choice == 3)
+                    description += " Following that, it";
+                last_transition_choice = transition_choice;
+            }//end else
+            description += " " + ActualizeDescription(temp_segment, x_refs, y_refs) + ".";
+
+            segment_counter += 1;
+        }//end foreach
+
+        Console.WriteLine("Description: " + description);
     }//end method GenerateNarrative
 
+    // Give words to a segment's presentation.
+    public string ActualizeDescription(Segment segment_in, List<double> x_refs, List<double> y_refs)
+    {
+        string presentation_string = "";
+
+        // Decide whether or not to use numbers for the x and y values for this segment.
+        bool use_numerical_x = false;
+        bool use_numerical_y = false;
+        /*Random rand = new Random((int)DateTime.UtcNow.Ticks);
+        int rand_int = rand.Next(2);
+        int rand_int_2 = rand.Next(2);
+
+        if (rand_int == 0)
+            use_numerical_x = false;
+        else if (rand_int == 1)
+            use_numerical_x = true;
+
+        if (rand_int_2 == 0)
+            use_numerical_y = false;
+        else if (rand_int_2 == 1)
+            use_numerical_y = true;*/
+        if (segment_in.use_numerical_x == 0)
+            use_numerical_x = true;
+        if (segment_in.use_numerical_y == 0)
+            use_numerical_y = true;
+
+        Console.WriteLine("Segment " + segment_in.id.ToString() + " Use numerical x: " + use_numerical_x.ToString() + " y: " + use_numerical_y.ToString());
+
+        // Slope
+        presentation_string += ActualizeSlopeDescription(segment_in);
+        // Then y and x values
+        presentation_string += ActualizeXYDescription(segment_in, use_numerical_x, use_numerical_y, x_refs, y_refs);
+        return presentation_string;
+    }//end method ActualizeDescription
+    private string ActualizeSlopeDescription(Segment segment_in)
+    {
+        string return_string = "";
+
+        if (segment_in.slope_presentation == 0)
+        {
+            return_string = segment_in.GetObservationDescription(7);
+        }//end if
+        else if (segment_in.slope_presentation == 1)
+        {
+            return_string = segment_in.GetObservationDescription(7) + " " + segment_in.GetObservationDescription(6);
+        }//end else if
+
+        return return_string;
+    }//end method ActualizeSlopeDescription
+    private string ActualizeXYDescription(Segment segment_in, bool use_numerical_x, bool use_numerical_y, List<double> x_refs, List<double> y_refs)
+    {
+        // Presentations by id:
+        //  0: start_y and end_y
+        //  1: start_y and y_change
+        //  2: y_change and end_y
+        //  3: y_change
+        //  4: none
+        // use_numerical:
+        //  true: Numerical values (using tick mark references)
+        //  false: Non-numerical descriptions
+
+        string return_string = "";
+
+        // transition_0 + x_change + transition_1 + start_y + transition_2 + start_x + transition_3 + y_change + transition_4 + end_y + transition_5 + end_x
+        string[] transitions = new string[6];
+        string[] descriptions = new string[6];
+        for (int i = 0; i < transitions.Length; i++)
+            transitions[i] = "";
+        for (int i = 0; i < descriptions.Length; i++)
+            descriptions[i] = "";
+
+        string start_y_string = "";
+        string end_y_string = "";
+        string y_change_string = "";
+        if (use_numerical_y)
+        {
+            start_y_string = FindNearestReference(segment_in.GetObservationValue(2), y_refs).ToString() + " " + this.y_label;
+            end_y_string = FindNearestReference(segment_in.GetObservationValue(3), y_refs).ToString() + " " + this.y_label;
+            y_change_string = Math.Round(segment_in.GetObservationValue(5)).ToString() + " " + this.y_label;
+        }//end if
+        else
+        {
+            start_y_string = segment_in.GetObservationDescription(2);
+            end_y_string = segment_in.GetObservationDescription(3);
+            y_change_string = "a " + segment_in.GetObservationDescription(5) + " amount";
+        }//end else
+
+        string start_x_string = "";
+        string end_x_string = "";
+        string x_change_string = "";
+        if (use_numerical_x)
+        {
+            start_x_string = FindNearestReference(segment_in.GetObservationValue(0), x_refs).ToString();
+            end_x_string = FindNearestReference(segment_in.GetObservationValue(1), x_refs).ToString();
+            x_change_string = Math.Round(segment_in.GetObservationValue(4)).ToString() + " years,";
+        }//end if
+        else
+        {
+            start_x_string = segment_in.GetObservationDescription(0);
+            end_x_string = segment_in.GetObservationDescription(1);
+            x_change_string = segment_in.GetObservationDescription(4) + " time,";
+
+            start_x_string = "";
+            end_x_string = "";
+        }//end else
+        
+        // Set description strings in the array according to the x and y presentation IDs.
+        //  0: start_y and end_y
+        //  1: start_y and y_change
+        //  2: y_change and end_y
+        //  3: y_change
+        //  4: none
+        // transition_0 + x_change + transition_1 + start_y + transition_2 + start_x + transition_3 + y_change + transition_4 + end_y + transition_5 + end_x
+        if (segment_in.x_presentation == 1 || segment_in.x_presentation == 2 || segment_in.x_presentation == 3)
+            descriptions[0] = x_change_string;
+        if (segment_in.y_presentation == 0 || segment_in.y_presentation == 1)
+            descriptions[1] = start_y_string;
+        if (segment_in.x_presentation == 0 || segment_in.x_presentation == 1)
+            descriptions[2] = start_x_string;
+        if (segment_in.y_presentation == 1 || segment_in.y_presentation == 2 || segment_in.y_presentation == 3)
+            descriptions[3] = y_change_string;
+        if (segment_in.y_presentation == 0 || segment_in.y_presentation == 2)
+            descriptions[4] = end_y_string;
+        if (segment_in.x_presentation == 0 || segment_in.x_presentation == 2)
+            descriptions[5] = end_x_string;
+        // Set transition strings in the array according to the x and y presentation IDs.
+        // Transition 0 is the wording that comes right before the x_change description.
+        if (descriptions[0] != "")
+        {
+            if (use_numerical_x)
+                transitions[0] = "for";
+            else if (!use_numerical_x)
+                transitions[0] = "for a";
+        }//end if
+        // Transition 1 is the wording that comes right before the start_y description.
+        if (descriptions[1] != "")
+        {
+            if (use_numerical_y)
+            {
+                if (segment_in.y_presentation == 0)
+                    transitions[1] = "from";
+                else if (segment_in.y_presentation == 1)
+                    transitions[1] = "starting at";
+            }//end if
+            else if (!use_numerical_y)
+            {
+                if (segment_in.y_presentation == 0 || segment_in.y_presentation == 1)
+                    transitions[1] = "starting";
+            }//end else if
+        }//end if
+        // Transition 2 is the wording that comes right before the start_x description.
+        if (descriptions[2] != "")
+        {
+            if (use_numerical_x)
+            {
+                // If there was a start_y description before, use 'around'
+                // If there was not, then use 'starting around'
+                if (descriptions[1] != "")
+                    transitions[2] = "around";
+                else
+                    transitions[2] = "starting around";
+            }//end if
+            else if (!use_numerical_x)
+                transitions[2] = "";
+        }//end if
+        // Transition 3 is the wording that comes right before the y_change description.
+        if (descriptions[3] != "")
+        {
+            // If there was a start_y or a start_x beforehand, use 'and changing by'
+            // If there were not either, use 'changing by'
+            if (descriptions[1] != "" || descriptions[2] != "")
+                transitions[3] = "and changing by";
+            else
+                transitions[3] = "changing by";
+        }//end if
+        // Transition 4 is the wording that comes right before the end_y description
+        if (descriptions[4] != "")
+        {
+            if (use_numerical_y)
+            {
+                // If there was a start_y beforehand, use 'to'
+                // If there was a y_change beforehand, use 'and ending at'
+                if (descriptions[1] != "")
+                    transitions[4] = "to";
+                else if (descriptions[3] != "")
+                    transitions[4] = "and ending at";
+            }//end if
+            else
+            {
+                // If there was a start_y before hand, use 'and ending'
+                // If there was not a start_y, use 'ending'
+                if (descriptions[1] != "")
+                    transitions[4] = "and ending";
+                else
+                    transitions[4] = "ending";
+            }//end else
+        }//end if
+        // Transition 5 is the wording that comes right before the end_x description.
+        if (descriptions[5] != "")
+        {
+            // If there is a start_y and an end_y, use 'in'
+            // If there is just an end_y or a y_change, use 'by'
+            // If there are neither, use 'ending at'
+            if (descriptions[1] != "" && descriptions[4] != "")
+                transitions[5] = "in";
+            else if (descriptions[4] != "" || descriptions[3] != "")
+                transitions[5] = "by";
+            else
+                transitions[5] = "ending at";
+        }//end if
+
+        // Assemble the description.
+        for (int i = 0; i < descriptions.Length; i++)
+        {
+            if (descriptions[i] != "")
+            {
+                return_string += " ";
+                if (transitions[i] != "")
+                {
+                    return_string += transitions[i];
+                    return_string += " ";
+                }//end if
+                return_string += descriptions[i];
+            }//end if
+        }//end for
+
+        return return_string;
+    }//end method ActualizeXYDescription
+
+    // Choose which presentation should be used for a segment's x, y, and slope values.
     public void DefinePresentation(List<Segment> segments_in, List<double> x_refs, List<double> y_refs)
     {
         Random rand = new Random();
@@ -108,7 +374,9 @@ public class NarrativeGenerator
             temp_segment.x_presentation = rand.Next(5);
             temp_segment.y_presentation = rand.Next(5);
             // Generate random number between 0 and 1.
-            temp_segment.slope_presentation = rand.Next(1);
+            temp_segment.slope_presentation = rand.Next(2);
+            temp_segment.use_numerical_x = rand.Next(2);
+            temp_segment.use_numerical_y = rand.Next(2);
         }//end foreach
     }//end method DefinePresentation
 
@@ -156,6 +424,7 @@ public class NarrativeGenerator
         double graph_slope = value_range / date_range;
         double tolerance = graph_slope * 0.05; // If slope magnitude is within this value from the graph slope, it is considered 1-to-1
         double steady_threshold = graph_slope * 0.1; // If the slope magnitude is below this, it is considered steady and not up or down.
+        Console.WriteLine("Graph Slope: " + graph_slope.ToString());
 
         // Now that all thresholds are calculated, descriptors and references can be assigned.
         foreach (Segment temp_segment in segments_in)
@@ -246,9 +515,9 @@ public class NarrativeGenerator
         if (slope_mag < steady_threshold)
             return "steady";
         else if (slope_dir > 0)
-            return "increase";
+            return "increased";
         else
-            return "decrease";
+            return "decreased";
     }//end method DirectionDescriptor
     // Map the magnitude of the slope to a descriptor, according to a given graph slope and a 1-to-1 envelope tolerance.
     private string RateDescriptor(double slope, double graph_slope, double envelope_tolerance)
