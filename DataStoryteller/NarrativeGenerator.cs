@@ -58,6 +58,7 @@ public class NarrativeGenerator
 
         // Fill out value references and give words to numerical observations.
         DefineDescriptors(all_segments, x_refs, y_refs);
+
         string global_trend_descriptor = "";
         double global_change = all_segments[all_segments.Count - 1].end_point.y - all_segments[0].start_point.y;
         if (global_change < 0)
@@ -127,11 +128,11 @@ public class NarrativeGenerator
         double early_date_threshold = earliest_date + (date_range / 3);
         Console.WriteLine("Early Date Threshold: " + early_date_threshold.ToString());
         // Calculate Magnitude large/small threshold.
-        double magnitude_change_threshold = value_range / 2;
+        double y_change_threshold = value_range / 2;
         // Calculate date long/short threshold.
-        double duration_threshold = date_range / 2;
-        Console.WriteLine("Magnitude Threshold: " + magnitude_change_threshold.ToString());
-        Console.WriteLine("Duration Threshold: " + duration_threshold.ToString());
+        double x_change_threshold = date_range / 2;
+        Console.WriteLine("Magnitude Threshold: " + y_change_threshold.ToString());
+        Console.WriteLine("Duration Threshold: " + x_change_threshold.ToString());
         // Calculate slope threshold and tolerances.
         double graph_slope = value_range / date_range;
         double tolerance = graph_slope * 0.05; // If slope magnitude is within this value from the graph slope, it is considered 1-to-1
@@ -141,28 +142,41 @@ public class NarrativeGenerator
         foreach (Segment temp_segment in segments_in)
         {
             // Find axis references for values and dates.
-            temp_segment.start_value_reference = FindNearestReference(temp_segment.start_value, y_refs);
-            temp_segment.end_value_reference = FindNearestReference(temp_segment.end_value, y_refs);
-            temp_segment.start_date_reference = FindNearestReference(temp_segment.start_date, x_refs);
-            temp_segment.end_date_reference = FindNearestReference(temp_segment.end_date, x_refs);
             // Map start and end values and dates to descriptors.
-            temp_segment.start_value_descriptor = ValueDescriptor(temp_segment.start_value
-                                                                    , high_value_threshold
-                                                                    , low_value_threshold);
-            temp_segment.end_value_descriptor = ValueDescriptor(temp_segment.end_value
-                                                                    , high_value_threshold
-                                                                    , low_value_threshold);
-            temp_segment.start_date_descriptor = DateDescriptor(temp_segment.start_date
-                                                                    , late_date_threshold
-                                                                    , early_date_threshold);
-            temp_segment.end_date_descriptor = DateDescriptor(temp_segment.end_date
-                                                                    , late_date_threshold
-                                                                    , early_date_threshold);                                                      
+            string start_x_description = DateDescriptor(temp_segment.GetObservationValue(0)
+                                                        , high_value_threshold
+                                                        , low_value_threshold);
+            temp_segment.AddObservationField(0, "description", start_x_description);
+
+            string end_x_description = DateDescriptor(temp_segment.GetObservationValue(1)
+                                                        , high_value_threshold
+                                                        , low_value_threshold);
+            temp_segment.AddObservationField(1, "description", end_x_description);
+
+            string start_y_description = ValueDescriptor(temp_segment.GetObservationValue(2)
+                                                        , high_value_threshold
+                                                        , low_value_threshold);
+            temp_segment.AddObservationField(2, "description", start_y_description);
+
+            string end_y_description = ValueDescriptor(temp_segment.GetObservationValue(3)
+                                                        , high_value_threshold
+                                                        , low_value_threshold);
+            temp_segment.AddObservationField(3, "description", end_y_description);
+
             // Map magnitude and duration of change to descriptors.
-            temp_segment.magnitude_descriptor = MagnitudeChangeDescriptor(temp_segment.magnitude_of_change
-                                                                            , magnitude_change_threshold);
-            temp_segment.duration_descriptor = DurationDescriptor(temp_segment.duration_of_change
-                                                                    , duration_threshold);
+            string x_change_description = DurationDescriptor(temp_segment.GetObservationValue(4)
+                                                        , x_change_threshold);
+            temp_segment.AddObservationField(4, "description", x_change_description);
+
+            string y_change_description = MagnitudeChangeDescriptor(temp_segment.GetObservationValue(5)
+                                                                    , y_change_threshold);
+            temp_segment.AddObservationField(5, "description", y_change_description);
+
+            string slope_dir_description = DirectionDescriptor(temp_segment.GetObservationValue(6)
+                                                                , temp_segment.GetObservationValue(7)
+                                                                , steady_threshold);
+            temp_segment.AddObservation()
+
             // Map direction of change and rate of change to descriptors.
             temp_segment.direction_descriptor = DirectionDescriptor(temp_segment.slope
                                                                     , steady_threshold);
@@ -209,11 +223,11 @@ public class NarrativeGenerator
             return "long";
     }//end method DurationDescriptor
     // Map the direction of the slope to a descriptor, according to the steady threshold
-    private string DirectionDescriptor(double slope, double steady_threshold)
+    private string DirectionDescriptor(double slope_mag, double slope_dir, double steady_threshold)
     {
-        if (Math.Abs(slope) < steady_threshold)
+        if (slope_mag < steady_threshold)
             return "steady";
-        else if (slope > 0)
+        else if (slope_dir > 0)
             return "increase";
         else
             return "decrease";
@@ -273,16 +287,21 @@ public class NarrativeGenerator
     // Defines the numerical observations in a segment.
     public void DefineObservations(Segment segment_in)
     {
+        segment_in.ResetObservations();
         // Raw values
-        segment_in.start_value = segment_in.start_point.y;
-        segment_in.end_value = segment_in.end_point.y;
-        segment_in.start_date = segment_in.start_point.x;
-        segment_in.end_date = segment_in.end_point.x;
+        segment_in.AddObservation(0, "start_x", segment_in.start_point.x.ToString(), "");
+        segment_in.AddObservation(1, "end_x", segment_in.end_point.x.ToString(), "");
+        segment_in.AddObservation(2, "start_y", segment_in.start_point.y.ToString(), "");
+        segment_in.AddObservation(3, "end_y", segment_in.end_point.y.ToString(), "");
         // Changes
-        segment_in.magnitude_of_change = segment_in.end_value - segment_in.start_value;
-        segment_in.duration_of_change = segment_in.end_date - segment_in.start_date;
+        double change_x = segment_in.GetObservationValue(1) - segment_in.GetObservationValue(0);
+        segment_in.AddObservation(4, "change_x", Math.Abs(change_x).ToString(), "");
+        double change_y = Math.Abs(segment_in.GetObservationValue(3) - segment_in.GetObservationValue(2));
+        segment_in.AddObservation(5, "change_y", change_y.ToString(), "");
         // Slope
-        segment_in.slope = segment_in.magnitude_of_change / segment_in.duration_of_change;
+        double slope = change_x / change_y;
+        segment_in.AddObservation(6, "slope_mag", Math.Abs(slope).ToString(), "");
+        segment_in.AddObservation(7, "slope_dir", (slope / Math.Abs(slope)).ToString(), "");
     }//end method DefineObservations
 
     // Reads an input set of segments.
