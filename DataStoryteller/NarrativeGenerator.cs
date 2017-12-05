@@ -11,6 +11,7 @@ using Newtonsoft.Json.Linq;
 public class NarrativeGenerator
 {
     private string y_label;
+    private double starting_year;
 
     public NarrativeGenerator()
     {
@@ -20,8 +21,16 @@ public class NarrativeGenerator
     public void GenerateNarrative()
     {
         // First, read the input data.
-        List<Segment> all_segments = this.ReadInputCSV("from_output_1.csv");
-        JObject info = this.ReadInputInfo("bb_cl.json");
+        // Set 1
+        //string data_file_name = "from_output_1.csv";
+        //string info_file_name = "bb_cl.json";
+        //this.starting_year = 1995;
+        // Set 2
+        string data_file_name = "from_output_2.csv";
+        string info_file_name = "an_mg.json";
+        double starting_year = 2012;
+        List<Segment> all_segments = this.ReadInputCSV(data_file_name);
+        JObject info = this.ReadInputInfo(info_file_name);
         // Go through the info file and extract:
         //      site, the site name
         //      var, the variable name
@@ -64,9 +73,9 @@ public class NarrativeGenerator
         string global_trend_descriptor = "";
         double global_change = all_segments[all_segments.Count - 1].end_point.y - all_segments[0].start_point.y;
         if (global_change < 0)
-            global_trend_descriptor = "generally decreased";
+            global_trend_descriptor = "generally decreases";
         else
-            global_trend_descriptor = "generally increased";
+            global_trend_descriptor = "generally increases";
 
         // Define occurence connections.
 
@@ -229,13 +238,19 @@ public class NarrativeGenerator
         {
             start_x_string = FindNearestReference(segment_in.GetObservationValue(0), x_refs).ToString();
             end_x_string = FindNearestReference(segment_in.GetObservationValue(1), x_refs).ToString();
-            x_change_string = Math.Round(segment_in.GetObservationValue(4)).ToString() + " years,";
+            double years_value = Math.Round(segment_in.GetObservationValue(4));
+            if (years_value < 1)
+                x_change_string = "less than a year,";
+            else if (years_value ==  1)
+                x_change_string = "a year,";
+            else
+                x_change_string = Math.Round(segment_in.GetObservationValue(4)).ToString() + " years,";
         }//end if
         else
         {
             start_x_string = segment_in.GetObservationDescription(0);
             end_x_string = segment_in.GetObservationDescription(1);
-            x_change_string = segment_in.GetObservationDescription(4) + " time,";
+            x_change_string = segment_in.GetObservationDescription(4) + " time";
 
             start_x_string = "";
             end_x_string = "";
@@ -290,12 +305,12 @@ public class NarrativeGenerator
         {
             if (use_numerical_x)
             {
-                // If there was a start_y description before, use 'around'
+                // If there was a start_y description before, use 'at around'
                 // If there was not, then use 'starting around'
                 if (descriptions[1] != "")
-                    transitions[2] = "around";
+                    transitions[2] = "at around";
                 else
-                    transitions[2] = "starting around";
+                    transitions[2] = "starting at around";
             }//end if
             else if (!use_numerical_x)
                 transitions[2] = "";
@@ -329,7 +344,7 @@ public class NarrativeGenerator
                 if (descriptions[1] != "")
                     transitions[4] = "and ending";
                 else
-                    transitions[4] = "ending";
+                    transitions[4] = "and ending";
             }//end else
         }//end if
         // Transition 5 is the wording that comes right before the end_x description.
@@ -339,7 +354,8 @@ public class NarrativeGenerator
             // If there is just an end_y or a y_change, use 'by'
             // If there are neither, use 'ending at'
             if (descriptions[1] != "" && descriptions[4] != "")
-                transitions[5] = "in";
+                //transitions[5] = "in";
+                transitions[5] = "by";
             else if (descriptions[4] != "" || descriptions[3] != "")
                 transitions[5] = "by";
             else
@@ -469,6 +485,8 @@ public class NarrativeGenerator
             string slope_mag_description = RateDescriptor(temp_segment.GetObservationValue(6)
                                                             , graph_slope
                                                             , tolerance);
+            Console.WriteLine("Segment " + temp_segment.id.ToString() + " slope: " + temp_segment.GetObservationValue(6).ToString());
+            Console.WriteLine("Slope Description: " + slope_dir_description + " " + slope_mag_description);
             temp_segment.AddObservationField(6, "description", slope_mag_description);
         }//end foreach
     }//end method DefineDescriptors
@@ -481,7 +499,7 @@ public class NarrativeGenerator
         else if (y_value < low_threshold)
             return "low";
         else
-            return "in the middle";
+            return "near the middle";
     }//end method ValueDescriptor
     // Map an x-value to a descriptor, according to a late and early threshold.
     private string DateDescriptor(double date_value, double late_threshold, double early_threshold)
@@ -513,11 +531,11 @@ public class NarrativeGenerator
     private string DirectionDescriptor(double slope_mag, double slope_dir, double steady_threshold)
     {
         if (slope_mag < steady_threshold)
-            return "steady";
+            return "stays steady";
         else if (slope_dir > 0)
-            return "increased";
+            return "increases";
         else
-            return "decreased";
+            return "decreases";
     }//end method DirectionDescriptor
     // Map the magnitude of the slope to a descriptor, according to a given graph slope and a 1-to-1 envelope tolerance.
     private string RateDescriptor(double slope, double graph_slope, double envelope_tolerance)
@@ -583,8 +601,9 @@ public class NarrativeGenerator
         // Changes
         double change_x = segment_in.GetObservationValue(1) - segment_in.GetObservationValue(0);
         segment_in.AddObservation(4, "change_x", Math.Abs(change_x).ToString(), "");
-        double change_y = Math.Abs(segment_in.GetObservationValue(3) - segment_in.GetObservationValue(2));
-        segment_in.AddObservation(5, "change_y", change_y.ToString(), "");
+        //double change_y = Math.Abs(segment_in.GetObservationValue(3) - segment_in.GetObservationValue(2));
+        double change_y = segment_in.GetObservationValue(3) - segment_in.GetObservationValue(2);
+        segment_in.AddObservation(5, "change_y", Math.Abs(change_y).ToString(), "");
         // Slope
         double slope = change_x / change_y;
         segment_in.AddObservation(6, "slope_mag", Math.Abs(slope).ToString(), "");
@@ -658,8 +677,9 @@ public class NarrativeGenerator
             // ========== END CONVERT CSV STRINGS TO NUMBERS ==========
 
             // Create a segment for this row.
-            start_x = (start_x + 1981 * 365) / 365;
-            end_x = (end_x + 1981 * 365) / 365;
+            double start_year = this.starting_year;
+            start_x = (start_x + start_year * 365) / 365;
+            end_x = (end_x + start_year * 365) / 365;
             Segment new_segment = new Segment(id, start_x, start_y, end_x, end_y);
             // Add it to the list of segments.
             return_list.Add(new_segment);

@@ -1,0 +1,10 @@
+{
+    "info": {
+        "site": "Anthony's Nose",
+        "var": "Magnesium",
+        "x_refs": [2012, 2013, 2014, 2015, 2016, 2017],
+        "y_refs": [1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8],
+        "x_label": "mg/l",
+        "y_label": "year"
+    }
+}
