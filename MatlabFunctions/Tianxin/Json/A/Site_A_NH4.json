@@ -1,0 +1,16 @@
+{
+	"max" : 0.0135377,
+	"max_date" : "14-May-2014 00:00:00",
+	"min" : 0.005,
+	"std" : 0.00271985,
+	"mean" : 0.00618868,
+	"slope" : -4.23273e-06,
+	"rapid_grow_start" : "14-May-2014 00:00:00",
+	"rapid_grow_end" : "28-May-2014 00:00:00",
+	"rapid_grow_start_data" : 0.005,
+	"rapid_grow_end_data" : 0.0135377,
+	"rapid_down_start" : "28-May-2014 00:00:00",
+	"rapid_down_end" : "10-Jun-2014 00:00:00",
+	"rapid_down_start_data" : 0.0135377,
+	"rapid_down_end_data" : 0.005
+	}

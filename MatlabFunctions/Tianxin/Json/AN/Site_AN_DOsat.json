@@ -1,0 +1,16 @@
+{
+	"max" : 1.21149,
+	"max_date" : "23-Sep-2015 00:00:00",
+	"min" : 0.517308,
+	"std" : NaN,
+	"mean" : NaN,
+	"slope" : NaN,
+	"rapid_grow_start" : "26-Jun-2014 00:00:00",
+	"rapid_grow_end" : "26-Jun-2014 00:00:00",
+	"rapid_grow_start_data" : 1.04948,
+	"rapid_grow_end_data" : 1.12234,
+	"rapid_down_start" : "24-Apr-2013 00:00:00",
+	"rapid_down_end" : "24-Apr-2013 00:00:00",
+	"rapid_down_start_data" : 1.06189,
+	"rapid_down_end_data" : 0.970308
+	}

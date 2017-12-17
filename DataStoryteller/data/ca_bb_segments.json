@@ -1,0 +1,7 @@
+
+[["start","656.25"],["starting value","10.98"],["end","1968.75"],["ending value","10.555"],["function","y=-0.00032381x+10.98"]]
+[["start","1968.75"],["starting value","10.555"],["end","3281.25"],["ending value","11.51"],["function","y=0.00072762x+10.555"]]
+[["start","3281.25"],["starting value","11.51"],["end","4593.75"],["ending value","11.97"],["function","y=0.00035048x+11.51"]]
+[["start","4593.75"],["starting value","11.97"],["end","5906.25"],["ending value","11"],["function","y=-0.00073905x+11.97"]]
+[["start","5906.25"],["starting value","11"],["end","7218.75"],["ending value","11.938"],["function","y=0.00071467x+11"]]
+[["average residual error","-8.3652"],["number of points","244"]]

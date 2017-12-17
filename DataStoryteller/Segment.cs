@@ -9,7 +9,7 @@ public class Segment
     public DataPoint start_point;
     public DataPoint end_point;
 
-    // Numerical observations
+    // The numerical observations as an array of dictionaries.
     // There are 8 numerical observations:
     //  0: start_x
     //  1: end_x
@@ -20,41 +20,37 @@ public class Segment
     //  6: slope_mag
     //  7: slope_dir
     public Dictionary<string, string>[] observations;
-    // The index of how the x, y, and slope should be presented.
+    // The IDs of the segments for which the last occurence of each observation occured.
+    // For two observations to match occurences, they have to have the same descriptor.
+    public int[] last_occurences;
+    // The IDs of the segments for which the next occurence of each observation will occur.
+    public int[] next_occurences;
+
+    // The style of how the x and y observations should be presented.
+    //  0: start value and end values
+    //  1: start value and change
+    //  2: change and end value
+    //  3: change
+    //  4: none
     public int x_presentation;
     public int y_presentation;
+    // The style of how the slope observations should be presented. 
+    //  0: direction only
+    //  1: direction and magnitude
     public int slope_presentation;
     // Whether or not to use numerical values for x and y presentation.
     // 0 is true, 1 is false.
     public int use_numerical_x;
     public int use_numerical_y;
 
-    // Start and end point values
-    public double start_value;
-    public double start_value_reference;
-    public string start_value_descriptor; //ID 0
-    public double end_value;
-    public double end_value_reference;
-    public string end_value_descriptor; // ID 0
-    // Start and end point dates
-    public double start_date;
-    public double start_date_reference;
-    public string start_date_descriptor;
-    public double end_date;
-    public double end_date_reference;
-    public string end_date_descriptor;
-    // Changes
-    public double magnitude_of_change;
-    public string magnitude_descriptor; // ID 1
-    public double duration_of_change;
-    public string duration_descriptor; // ID 2
-    // Slope
-    public double slope;
-    public string direction_descriptor; // ID 3
-    public string rate_descriptor; // ID 4
-
     // Which segments this segment should link to, by ID.
     public List<int> linked_segment_ids;
+
+    // A set of segments which are hierarchically below this segment.
+    public List<Segment> subsegments;
+
+    // A shape descriptor, if the segment forms one.
+    public string shape;
 
     public Segment()
     {
@@ -62,6 +58,8 @@ public class Segment
         this.start_point = new DataPoint();
         this.end_point = new DataPoint();
         this.linked_segment_ids = new List<int>();
+        this.subsegments = new List<Segment>();
+        shape = "";
         ResetObservations();
     }//end constructor Segment
     public Segment(int id_in, double start_x, double start_y, double end_x, double end_y)
@@ -70,9 +68,27 @@ public class Segment
         this.start_point = new DataPoint(start_x, start_y);
         this.end_point = new DataPoint(end_x, end_y);
         this.linked_segment_ids = new List<int>();
+        this.subsegments = new List<Segment>();
+        shape = "";
+        ResetObservations();
+    }//end constructor Segment
+    // Initialize this segment with a set of subsegments. The start and end points will be the
+    // start of the first segment and the end of the last segment.
+    public Segment(int id_in, List<Segment> subsegments_in)
+    {
+        this.id = id_in;
+        this.SetSubsegments(subsegments_in);
+        this.linked_segment_ids = new List<int>();
+        shape = "";
         ResetObservations();
     }//end constructor Segment
 
+    public void SetSubsegments(List<Segment> subsegments_in)
+    {
+        this.subsegments = subsegments_in;
+        this.start_point = this.subsegments[0].start_point;
+        this.end_point = this.subsegments[this.subsegments.Count - 1].end_point;
+    }//end method SetSubsegments
     private void Initialize()
     {
         
@@ -106,11 +122,60 @@ public class Segment
         else
             return double.MinValue;
     }//end method GetObservation
+
+    // Get how many other segments, total, are under this segment.
+    public int GetSubsegmentCount()
+    {
+        int subsegment_count = 0;
+        foreach (Segment subsegment in this.subsegments)
+            subsegment_count += 1 + subsegment.GetSubsegmentCount();
+        return subsegment_count;
+    }//end method GetSubsegmentCount
+
+    // Return whether or not the given segment ID is a subsegment of the current segment.
+    // Checks down the hierarchy; the ID appears in any segment lower in the hierarchy,
+    // this will return true.
+    public bool HasSubsegment(int segment_id)
+    {
+        foreach (Segment subsegment in this.subsegments)
+            if (subsegment.id == segment_id || subsegment.HasSubsegment(segment_id))
+                return true;
+        return false;
+    }//end method IsSubsegment
+
+    // Returns whether or not this segment has subsegments under it.
+    public bool IsSupersegment()
+    {
+        if (subsegments.Count > 0)
+            return true;
+        return false;
+    }
+
+    public void PrintSubsegments(int depth)
+    {
+        string padding = "  ";
+        for (int i = 0; i < depth; i++)
+            padding = padding + padding;
+        Console.WriteLine(padding + "Segment " + this.id.ToString() + ". Subsegments: ");
+        if (this.subsegments.Count > 0)
+        {        
+            foreach (Segment subsegment in this.subsegments)
+            subsegment.PrintSubsegments(depth + 1);
+        }//end if
+        else
+            Console.WriteLine(padding + "None");
+    }//end method PrintSubsegments
+
     public void ResetObservations()
     {
         this.observations = new Dictionary<string, string>[8];
         for (int i = 0; i < observations.Length; i++)
             this.observations[i] = new Dictionary<string, string>();
     }//end method ResetObservations
+    public void ResetOccurences()
+    {
+        this.last_occurences = new int[8];
+        this.next_occurences = new int[8];
+    }//end method ResetOccurences
     
 }//end class Segment

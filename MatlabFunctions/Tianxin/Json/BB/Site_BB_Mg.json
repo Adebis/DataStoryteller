@@ -1,0 +1,67 @@
+{
+	"max": 2.769,
+	"max_date": {
+		"Format": "dd-MMM-uuuu HH:mm:ss",
+		"TimeZone": "",
+		"Year": 2014,
+		"Month": 4,
+		"Day": 29,
+		"Hour": 0,
+		"Minute": 0,
+		"Second": 0,
+		"SystemTimeZone": "US\/Eastern"
+	},
+	"min": 1.84,
+	"std": 0.1589058346,
+	"mean": 2.303671141,
+	"rapid_grow_start": {
+		"Format": "dd-MMM-uuuu HH:mm:ss",
+		"TimeZone": "",
+		"Year": 1998,
+		"Month": 4,
+		"Day": 15,
+		"Hour": 0,
+		"Minute": 0,
+		"Second": 0,
+		"SystemTimeZone": "US\/Eastern"
+	},
+	"rapid_grow_end": {
+		"Format": "dd-MMM-uuuu HH:mm:ss",
+		"TimeZone": "",
+		"Year": 1998,
+		"Month": 4,
+		"Day": 15,
+		"Hour": 0,
+		"Minute": 0,
+		"Second": 0,
+		"SystemTimeZone": "US\/Eastern"
+	},
+	"rapid_grow_start_data": 2.17,
+	"rapid_grow_end_data": 2.18,
+	"rapid_down_start": {
+		"Format": "dd-MMM-uuuu HH:mm:ss",
+		"TimeZone": "",
+		"Year": 1997,
+		"Month": 5,
+		"Day": 20,
+		"Hour": 0,
+		"Minute": 0,
+		"Second": 0,
+		"SystemTimeZone": "US\/Eastern"
+	},
+	"rapid_down_end": {
+		"Format": "dd-MMM-uuuu HH:mm:ss",
+		"TimeZone": "",
+		"Year": 1997,
+		"Month": 5,
+		"Day": 20,
+		"Hour": 0,
+		"Minute": 0,
+		"Second": 0,
+		"SystemTimeZone": "US\/Eastern"
+	},
+	"rapid_down_start_data": 2.31,
+	"rapid_down_end_data": 2.27,
+	"major_up_peaks": [2.65,2.382,2.41,2.462,2.36],
+	"major_down_peaks": [1.895,2.014,2.09,2.15,2.242]
+}
