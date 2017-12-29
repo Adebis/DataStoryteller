@@ -1,0 +1,14 @@
+{
+    "info": {
+        "site": "Site A",
+        "var": "Chemical H",
+        "x_refs": [1995, 1999, 2003, 2007, 2011, 2015],
+        "y_refs": [8, 10, 12, 14, 16, 18, 20],
+        "x_label": "year",
+        "y_label": "mg/l",
+		"average_residual_error": "-8.3652",
+		"global_shape": ["line", "w"],
+		"critical_points": [[5579, 8960],[8960, 10090, 11140, 12340, 13470]],
+		"ticks_per_year": "365"
+	}
+}

@@ -177,5 +177,16 @@ public class Segment
         this.last_occurences = new int[8];
         this.next_occurences = new int[8];
     }//end method ResetOccurences
+
+    // Whether or not this segment goes up or down.
+    public bool GoesUp()
+    {
+        if (start_point.y < end_point.y)
+            return true;
+        else if (start_point.y > end_point.y)
+            return false;
+        else
+            return false;
+    }//end method Up
     
 }//end class Segment
