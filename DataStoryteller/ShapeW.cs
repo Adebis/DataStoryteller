@@ -294,14 +294,14 @@ class ShapeW : Shape
             if (start_peak.y < top_point.y)
             {
                 // If so, then it's too short.
-                temp_description += "the top's kind of stunted";
+                temp_description += "the first leg's kind of stunted";
                 temp_numerical_description = "only comes up to";
             }//end if
             // Check if it's above the top point.
             else if (start_peak.y > top_point.y)
             {
                 // If so, then it's too tall.
-                temp_description += "the top stretches up too high";
+                temp_description += "the first leg stretches up too high";
                 temp_numerical_description = "goes all the way up to";
             }//end else if
             //temp_description += "on the left";
@@ -324,14 +324,14 @@ class ShapeW : Shape
             if (end_peak.y < top_point.y)
             {
                 // If so, then it's too short.
-                temp_description += "the top's kind of stunted";
+                temp_description += "the last leg's kind of stunted";
                 temp_numerical_description = "only comes up to";
             }//end if
             // Check if it's above the top point.
             else if (end_peak.y > top_point.y)
             {
                 // If so, then it's too tall.
-                temp_description += "the top stretches up too high";
+                temp_description += "the last leg stretches up too high";
                 temp_numerical_description = "stretches all the way up to";
             }//end else if
             //temp_description += " on the right";
@@ -390,7 +390,7 @@ class ShapeW : Shape
         // Check first trough
         if (SignificantlyDifferent(first_trough.y, bottom_y, y_difference_threshold))
         {
-            temp_description = "the bottom";
+            temp_description = "the low point";
             temp_numerical_description = "";
             // Check if it's above the bottom point.
             if (first_trough.y > bottom_y)
@@ -415,7 +415,7 @@ class ShapeW : Shape
         // Check second trough
         if (SignificantlyDifferent(second_trough.y, bottom_y, y_difference_threshold))
         {
-            temp_description = "the bottom";
+            temp_description = "the low point";
             temp_numerical_description = "";
             // Check if it's above the bottom point.
             if (second_trough.y > bottom_y)
@@ -489,9 +489,9 @@ class ShapeW : Shape
         // What we call each critical point.
         List<string> critical_point_names = new List<string>();
         critical_point_names.Add("the start");  //of the 'w'
-        critical_point_names.Add("where it reaches the bottom on the left side");
+        critical_point_names.Add("the low point before the middle");
         critical_point_names.Add("the middle");
-        critical_point_names.Add("where it reaches the bottom on the right side");
+        critical_point_names.Add("the low point after the middle");
         critical_point_names.Add("the end");
 
         // Which side is the point of interest on; left, middle, or right?
