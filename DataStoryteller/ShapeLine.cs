@@ -40,8 +40,10 @@ class ShapeLine : Shape
 
     private void Initialize()
     {
+        description_type = 0;
         shape_name = "line";
         direction = "";
+        verbose = false;
         //last_boundary_index = -1;
         shape_of_interest = false;
         shape_parts = new List<ShapePart>();
@@ -63,7 +65,8 @@ class ShapeLine : Shape
             foreach (Segment segment_in in segments_in)
             {
                 if (segment_in == segments_in[segments_in.Count - 1])
-                    Console.WriteLine("Checking last segment");
+                    if (verbose)
+                        Console.WriteLine("Checking last segment");
                 if (!SignificantlyDifferent(segment_in.start_point.x, critical_point_x, 1))
                 {
                     if (!critical_points.Contains(segment_in.start_point))
@@ -84,7 +87,8 @@ class ShapeLine : Shape
                 }//end else if
             }//end foreach
             if (!match_found)
-                Console.WriteLine("No matching datapoint for " + critical_point_x.ToString());
+                if (verbose)
+                    Console.WriteLine("No matching datapoint for " + critical_point_x.ToString());
         }//end foreach
 
         // Check if this is an upward line or a downward trending line.
@@ -182,7 +186,7 @@ class ShapeLine : Shape
         }//end if
         else
         {
-            description = GenerateShallowDescription();
+            description = GenerateShallowDescription(x_refs);
         }//end else
 
         return description;
@@ -234,12 +238,12 @@ class ShapeLine : Shape
             // Check for a shallow slope
             if (shape_y_per_x < ideal_y_per_x)
             {
-                temp_description = "it's overall shallower than you'd expect";
+                temp_description = "the whole line's overall shallower than you'd expect";
             }//end if
             // Check for steep slope
             else if (shape_y_per_x > ideal_y_per_x)
             {
-                temp_description = "it's overall steeper than you'd expect";
+                temp_description = "the whole line's overall steeper than you'd expect";
             }//end else if
             Descriptor new_descriptor = new Descriptor();
             new_descriptor.descriptions.Add(temp_description);
@@ -300,20 +304,20 @@ class ShapeLine : Shape
                     if (Math.Abs(next_slope) > Math.Abs(current_slope))
                     {
                         if (direction.Equals("up"))
-                            temp_description += " it starts growing faster";
+                            temp_description += "it starts growing faster";
                         else if (direction.Equals("down"))
-                            temp_description += " the decline gets faster";
+                            temp_description += "it starts declining faster";
                     }//end if
                     else if (Math.Abs(next_slope) < Math.Abs(current_slope))
                     {
                         if (direction.Equals("up"))
-                            temp_description += " it starts slowing down";
+                            temp_description += "the line gets shallower";
                         else if (direction.Equals("down"))
-                            temp_description += " it starts falling less quickly";
+                            temp_description += "the line gets shallower";
                     }//end else if
                     string inflection_point_reference = ClosestReference(current_segment.end_point.x, reference_map);
-                    //temp_description += " " + inflection_point_reference + " at around " + Math.Round(current_segment.end_point.x).ToString();
-                    temp_description += " at around " + Math.Round(current_segment.end_point.x).ToString();
+                    //temp_description += " " + inflection_point_reference + " at around " + FindNearestReference(current_segment.end_point.x, x_refs).ToString();
+                    temp_description += " at around " + FindNearestReference(current_segment.end_point.x, x_refs).ToString();
 
                     Descriptor new_descriptor = new Descriptor();
                     new_descriptor.descriptions.Add(temp_description);
@@ -353,7 +357,16 @@ class ShapeLine : Shape
 
         // Which reference fraction (of the line) the point of interest is closest to.
         string point_of_interest_reference = ClosestReference(point_of_interest.x, reference_map);
-        string point_of_interest_hint = "But " + point_of_interest_reference + ", something interesting happens. ";
+        string point_of_interest_hint = ", with something interesting happening " + point_of_interest_reference; 
+        Random rand = new Random();
+        int number_of_hint_endings = 3;
+        int hint_ending_choice = rand.Next(0, number_of_hint_endings - 1);
+        if (hint_ending_choice == 0)
+            point_of_interest_hint += ", which we'll touch back on later. ";
+        else if (hint_ending_choice == 1)
+            point_of_interest_hint += ". But we'll talk more about that later. ";
+        else if (hint_ending_choice == 2)
+            point_of_interest_hint += ", which we'll come back to later. ";
         // A list of points we select further descriptors around.
         // For a line, just add the point of interest itself.
         List<DataPoint> related_points = new List<DataPoint>();
@@ -492,9 +505,9 @@ class ShapeLine : Shape
         if (relevant_critical_points.Contains(0) && relevant_critical_points.Contains(1))
         {
             critical_point_text += "You can see where it starts and ends at ";
-            critical_point_text += Math.Round(critical_points[0].x).ToString();
+            critical_point_text += FindNearestReference(critical_points[0].x, x_refs).ToString();
             critical_point_text += " and ";
-            critical_point_text += Math.Round(critical_points[4].x).ToString();
+            critical_point_text += FindNearestReference(critical_points[4].x, x_refs).ToString();
             points_mentioned.Add(0);
             points_mentioned.Add(1);
         }//end if
@@ -512,7 +525,7 @@ class ShapeLine : Shape
             else
                 critical_point_text += ", the ";
             critical_point_text += critical_point_names[relevant_critical_points[i]]
-            + " at " + Math.Round(critical_points[relevant_critical_points[i]].x).ToString();
+            + " at " + FindNearestReference(critical_points[relevant_critical_points[i]].x, x_refs).ToString();
             // Note that these points were mentioned.
             points_mentioned.Add(relevant_critical_points[i]);
         }//end for
@@ -522,44 +535,60 @@ class ShapeLine : Shape
         string overall_description = "";
         // Describe the shape, overall
         overall_description = "it goes " + direction + " in a line "; //from ";
-        //overall_description += Math.Round(critical_points[0].x).ToString();
+        //overall_description += FindNearestReference(critical_points[0].x, x_refs).ToString();
         //overall_description += " to ";
-        //overall_description += Math.Round(critical_points[1].x).ToString();        
+        //overall_description += FindNearestReference(critical_points[1].x, x_refs).ToString();        
         //overall_description += ". ";
         // Try not to state a point if it will be mentioned later.
         // If neither the start nor end point are mentioned later.
         if (!points_mentioned.Contains(0) && !points_mentioned.Contains(1))
         {
             overall_description += " from ";
-            overall_description += Math.Round(critical_points[0].x).ToString();
+            overall_description += FindNearestReference(critical_points[0].x, x_refs).ToString();
             overall_description += " to ";
-            overall_description += Math.Round(critical_points[1].x).ToString();
-            overall_description += ". ";
+            overall_description += FindNearestReference(critical_points[1].x, x_refs).ToString();
+            overall_description += "";
         }//end if
         // If both points are mentioned later.
         else if (points_mentioned.Contains(0) && points_mentioned.Contains(1))
         {
-            overall_description += ". ";
+            overall_description += "";
         }//end else if
         // If just the start point is mentioned later.
         else if (points_mentioned.Contains(0) && !points_mentioned.Contains(1))
         {
             overall_description += "up until ";
-            overall_description += Math.Round(critical_points[1].x).ToString();
-            overall_description += ". ";
+            overall_description += FindNearestReference(critical_points[1].x, x_refs).ToString();
+            overall_description += "";
         }//end else if
         // If just the end point is mentioned later.
         else if (!points_mentioned.Contains(0) && points_mentioned.Contains(1))
         {
             overall_description += "starting from ";
-            overall_description += Math.Round(critical_points[0].x).ToString();
-            overall_description += ". ";
+            overall_description += FindNearestReference(critical_points[0].x, x_refs).ToString();
+            overall_description += "";
         }//end else if
+
+        // === IMPORTANT ===
+        string point_of_interest_text = "";
+        // Finally, reveal the information for the point of interest.
+        point_of_interest_text += "Interestingly, " + point_of_interest_reference;
+        point_of_interest_text += ", at around " + FindNearestReference(point_of_interest.x, x_refs).ToString() 
+        + ", the average value for " + variable_name + " at " + site_name 
+        + " peaks, reaching " + Math.Round(point_of_interest.y, 3) + " " + y_label;
+
+        point_of_interest_text += ". ";
         
         // Make the full description.
         description = overall_description;
-        // Hint at the point of interest.
-        description += point_of_interest_hint;
+
+        // No hint if it's description type 1 or 2.
+        if (description_type == 1
+            || description_type == 2)
+            description += ". ";
+        else
+            // Hint at the point of interest.
+            description += point_of_interest_hint;
 
         // Add critical point descriptors, so the shape is described.
         description += critical_point_text;
@@ -567,21 +596,18 @@ class ShapeLine : Shape
         // Add the descriptions of the shape's abnormalities.
         description += abnormal_description_text;
 
-        //description += point_of_interest_hint;
-        // === IMPORTANT ===
-        // Finally, reveal the information for the point of interest.
-        description += "It's " + point_of_interest_reference;
-        description += ", at around " + Math.Round(point_of_interest.x).ToString() 
-        + ", that the average value for " + variable_name + " at " + site_name 
-        + " peaks, reaching " + Math.Round(point_of_interest.y, 4) + " " + y_label;
-
-        description += ". ";
+        // No point of interest if it's description type 2.
+        if (description_type == 2)
+            description += "";
+        else
+        // Add the description of the point of interest.
+            description += point_of_interest_text;
 
         return description;
     }// end method GenerateDetailedDescription
 
     // Generate a shallow description of this shape.
-    private string GenerateShallowDescription()
+    private string GenerateShallowDescription(List<double> x_refs)
     {
         string description = "";
 
@@ -592,9 +618,9 @@ class ShapeLine : Shape
 
         // Describe the shape, overall
         description = "it goes " + direction + " in a line from ";
-        description += Math.Round(critical_points[0].x).ToString();
+        description += FindNearestReference(critical_points[0].x, x_refs).ToString();
         description += " to ";
-        description += Math.Round(critical_points[1].x).ToString();        
+        description += FindNearestReference(critical_points[1].x, x_refs).ToString();        
         description += ". ";
 
         return description;

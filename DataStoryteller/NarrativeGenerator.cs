@@ -44,7 +44,7 @@ public class NarrativeGenerator
         //this.GenerateNarrative();
     }//end constructor NarrativeGenerator
 
-    public void GenerateNarrative(string data_file_name, string info_file_name, double starting_year)
+    public void GenerateNarrative(string data_file_name, string info_file_name, double starting_year, int description_type = 0)
     {
         // First, read the input data.
         // Set 1
@@ -115,7 +115,7 @@ public class NarrativeGenerator
         // Read input segments
         all_segments = this.ReadInputCSV(data_file_name);
 
-        Console.WriteLine("Done reading input files.");
+        //Console.WriteLine("Done reading input files.");
 
         // We now have a list of segments.
         double max_y = double.MinValue;
@@ -160,7 +160,7 @@ public class NarrativeGenerator
         for (int i = 0; i < global_shape_names.Count; i++)
         {
             current_shape_name = global_shape_names[i];
-            Console.WriteLine("Making shape: " + current_shape_name);
+            //Console.WriteLine("Making shape: " + current_shape_name);
             current_critical_points = all_critical_points[i];
             first_critical_point = current_critical_points[0];
             last_critical_point = current_critical_points[current_critical_points.Count - 1];
@@ -224,6 +224,11 @@ public class NarrativeGenerator
             else
                 description += "Then, ";
             current_shape = all_shapes[i];
+
+            // Set different description types for different test cases.
+            current_shape.description_type = description_type;
+            current_shape.verbose = false;
+
             description += current_shape.GenerateDescription(x_refs, y_refs, x_label, y_label, point_of_interest, site_name, variable_name);
         }//end foreach
         //string description = overall_shape.GenerateDescription(x_refs, y_refs, x_label, y_label, point_of_interest, site_name, variable_name);
@@ -246,9 +251,9 @@ public class NarrativeGenerator
         }//end foreach
         double value_range = highest_value - lowest_value;
         double high_value_threshold = lowest_value + (value_range / 3) * 2;
-        Console.WriteLine("High Value Threshold: " + high_value_threshold.ToString());
+        //Console.WriteLine("High Value Threshold: " + high_value_threshold.ToString());
         double low_value_threshold = lowest_value + (value_range / 3);
-        Console.WriteLine("Low Value Threshold: " + low_value_threshold.ToString());
+        //Console.WriteLine("Low Value Threshold: " + low_value_threshold.ToString());
         // Calculate date (x-axis) high and low thresholds
         double latest_date = double.MinValue;
         double earliest_date = double.MaxValue;
@@ -261,20 +266,20 @@ public class NarrativeGenerator
         }//end foreach
         double date_range = latest_date - earliest_date;
         double late_date_threshold = earliest_date + (date_range / 3) * 2;
-        Console.WriteLine("Late Date Threshold: " + late_date_threshold.ToString());
+        //Console.WriteLine("Late Date Threshold: " + late_date_threshold.ToString());
         double early_date_threshold = earliest_date + (date_range / 3);
-        Console.WriteLine("Early Date Threshold: " + early_date_threshold.ToString());
+        //Console.WriteLine("Early Date Threshold: " + early_date_threshold.ToString());
         // Calculate Magnitude large/small threshold.
         double y_change_threshold = value_range / 2;
         // Calculate date long/short threshold.
         double x_change_threshold = date_range / 2;
-        Console.WriteLine("Magnitude Threshold: " + y_change_threshold.ToString());
-        Console.WriteLine("Duration Threshold: " + x_change_threshold.ToString());
+        //Console.WriteLine("Magnitude Threshold: " + y_change_threshold.ToString());
+        //Console.WriteLine("Duration Threshold: " + x_change_threshold.ToString());
         // Calculate slope threshold and tolerances.
         double graph_slope = value_range / date_range;
         double tolerance = graph_slope * 0.05; // If slope magnitude is within this value from the graph slope, it is considered 1-to-1
         double steady_threshold = graph_slope * 0.1; // If the slope magnitude is below this, it is considered steady and not up or down.
-        Console.WriteLine("Graph Slope: " + graph_slope.ToString());
+        //Console.WriteLine("Graph Slope: " + graph_slope.ToString());
 
         // Now that all thresholds are calculated, descriptors and references can be assigned.
         foreach (Segment temp_segment in segments_in)
@@ -319,8 +324,8 @@ public class NarrativeGenerator
             string slope_mag_description = RateDescriptor(temp_segment.GetObservationValue(6)
                                                             , graph_slope
                                                             , tolerance);
-            Console.WriteLine("Segment " + temp_segment.id.ToString() + " slope: " + temp_segment.GetObservationValue(6).ToString());
-            Console.WriteLine("Slope Description: " + slope_dir_description + " " + slope_mag_description);
+            //Console.WriteLine("Segment " + temp_segment.id.ToString() + " slope: " + temp_segment.GetObservationValue(6).ToString());
+            //Console.WriteLine("Slope Description: " + slope_dir_description + " " + slope_mag_description);
             temp_segment.AddObservationField(6, "description", slope_mag_description);
         }//end foreach
     }//end method DefineDescriptors

@@ -33,6 +33,8 @@ class ShapeV : Shape
 
     private void Initialize()
     {
+        description_type = 0;
+        verbose = false;
         shape_name = "v";
         shape_of_interest = false;
         shape_parts = new List<ShapePart>();
@@ -60,7 +62,8 @@ class ShapeV : Shape
             foreach (Segment segment_in in segments_in)
             {
                 if (segment_in == segments_in[segments_in.Count - 1])
-                    Console.WriteLine("Checking last segment");
+                    if (verbose)
+                        Console.WriteLine("Checking last segment");
                 if (!SignificantlyDifferent(segment_in.start_point.x, critical_point_x, 1))
                 {
                     if (!critical_points.Contains(segment_in.start_point))
@@ -81,7 +84,8 @@ class ShapeV : Shape
                 }//end else if
             }//end foreach
             if (!match_found)
-                Console.WriteLine("No matching datapoint for " + critical_point_x.ToString());
+                if (verbose)
+                    Console.WriteLine("No matching datapoint for " + critical_point_x.ToString());
         }//end foreach
 
         // Divide up the segments by the critical points to place them into shape parts.
@@ -155,7 +159,7 @@ class ShapeV : Shape
         }//end if
         else
         {
-            description = GenerateShallowDescription();
+            description = GenerateShallowDescription(x_refs);
         }//end else
 
         return description;
@@ -328,12 +332,12 @@ class ShapeV : Shape
             // If so, check if it's above the desired point.
             if (middle_trough.y > desired_middle_y)
             {
-                temp_description += "not low enough";
+                temp_description += "too high up";
             }//end if
             // Check if it's below the desired point.
             else if (middle_trough.y < desired_middle_y)
             {
-                temp_description += "stretched too low";
+                temp_description += "too low down";
             }//end else if
 
             // Only actually add it as a description if the middle part had something to describe.
@@ -381,7 +385,7 @@ class ShapeV : Shape
             }//end else if
             // Secondarily, also a description of the middle.
             new_descriptor.shape_part.Add("middle");
-            temp_numerical_description += "the middle's at" + Math.Round(middle_trough.x).ToString();
+            temp_numerical_description += "the middle's at" + FindNearestReference(middle_trough.x, x_refs).ToString();
             new_descriptor.points.Add(middle_trough);
             new_descriptor.descriptions.Add(temp_description);
             new_descriptor.descriptions.Add(secondary_temp_description);
@@ -400,9 +404,9 @@ class ShapeV : Shape
         // Locate the point of interest within the shape.
         // What we call each critical point.
         List<string> critical_point_names = new List<string>();
-        critical_point_names.Add("where it starts");
+        critical_point_names.Add("the start"); //of the 'v'
         critical_point_names.Add("the middle");
-        critical_point_names.Add("where it ends");
+        critical_point_names.Add("the end");
 
         // Which side is the point of interest on; left, middle, or right?
         string point_of_interest_side = "";
@@ -420,6 +424,7 @@ class ShapeV : Shape
         int matching_point_index = -1;
         int lower_point_index = -1;
         int upper_point_index = -1;
+        point_of_interest_hint = ", with something interesting happening";
         for (int i = 0; i < critical_points.Count; i++)
         {
             // If the difference between the critical point's x value and this point's x value isn't significant, then consider it a match.
@@ -436,7 +441,7 @@ class ShapeV : Shape
             related_points.Add(critical_points[matching_point_index]);
             // === IMPORTANT ===
             // Explicitly tell the user that something interesting happens near this point.
-            point_of_interest_hint = "But around " + critical_point_names[matching_point_index] + ", something interesting happens. ";
+            point_of_interest_hint += " at " + critical_point_names[matching_point_index] + ". But we'll get back to that later. ";
             //description += 
         }//end if
         // If there has not been a match, find two points that the point of interest lies between.
@@ -459,7 +464,7 @@ class ShapeV : Shape
 
             // === IMPORTANT ===
             // Explicitly tell the user that something interesting happens between these two points.
-            point_of_interest_hint = "But between " + critical_point_names[lower_point_index] + " and " + critical_point_names[upper_point_index] + ", something interesting happens.";
+            point_of_interest_hint += " between " + critical_point_names[lower_point_index] + " and " + critical_point_names[upper_point_index] + ". But more on that later.";
             //description += 
         }//end else
 
@@ -693,10 +698,10 @@ class ShapeV : Shape
         // Start and end points are a pair.
         if (relevant_critical_points.Contains(0) && relevant_critical_points.Contains(2))
         {
-            critical_point_text += "You can see where it starts and ends at ";
-            critical_point_text += Math.Round(critical_points[0].x).ToString();
+            critical_point_text += "You can see where the shape starts and ends at ";
+            critical_point_text += FindNearestReference(critical_points[0].x, x_refs).ToString();
             critical_point_text += " and ";
-            critical_point_text += Math.Round(critical_points[4].x).ToString();
+            critical_point_text += FindNearestReference(critical_points[4].x, x_refs).ToString();
             points_mentioned.Add(0);
             points_mentioned.Add(4);
         }//end if
@@ -705,16 +710,47 @@ class ShapeV : Shape
         foreach (int index in points_mentioned)
             relevant_critical_points.Remove(index);
 
+        bool first_part_of_sentence = true;
+        bool middle_part_of_sentence = false;
+        bool last_part_of_sentence = false;
         for (int i = 0; i < relevant_critical_points.Count; i++)
         {
+
             if (i == 0 && critical_point_text.Equals(""))
-                critical_point_text += "You can see ";
+            {
+                first_part_of_sentence = true;
+                middle_part_of_sentence = false;
+                last_part_of_sentence = false;
+            }//end if
             else if (i == relevant_critical_points.Count - 1)
-                critical_point_text += ", and ";
+            {
+                first_part_of_sentence = false;
+                middle_part_of_sentence = false;
+                last_part_of_sentence = true;
+            }//end else if
             else
+            {
+                first_part_of_sentence = false;
+                middle_part_of_sentence = true;
+                last_part_of_sentence = false;
+            }//end else
+
+            // Pre-information part of this phrase
+            if (first_part_of_sentence)
+                critical_point_text += "You can see ";
+            else if (last_part_of_sentence)
+                critical_point_text += ", and ";
+            else if (middle_part_of_sentence)
                 critical_point_text += ", ";
-            critical_point_text += critical_point_names[relevant_critical_points[i]]
-            + " at " + Math.Round(critical_points[relevant_critical_points[i]].x).ToString();
+
+            critical_point_text += critical_point_names[relevant_critical_points[i]];
+            // Whether we reference the shape name or not
+            if (first_part_of_sentence)
+                critical_point_text += " of the 'v'";
+            else if (middle_part_of_sentence)
+                critical_point_text += " of it";
+            critical_point_text += " at " + FindNearestReference(critical_points[relevant_critical_points[i]].x, x_refs).ToString();
+
             // Note that these points were mentioned.
             points_mentioned.Add(relevant_critical_points[i]);
         }//end for
@@ -723,41 +759,66 @@ class ShapeV : Shape
         // Finally, generate the description of the shape, overall, using the start and end points.
         //string shape_name = "w";
         string overall_description = "";
-        overall_description = "it makes a sort of '" + shape_name + "' shape";
+        overall_description = "it makes a '" + shape_name + "' shape";
         // Try not to state a point if it will be mentioned later.
         // If neither the start nor end point are mentioned later.
         if (!points_mentioned.Contains(0) && !points_mentioned.Contains(2))
         {
             overall_description += " from ";
-            overall_description += Math.Round(critical_points[0].x).ToString();
+            overall_description += FindNearestReference(critical_points[0].x, x_refs).ToString();
             overall_description += " to ";
-            overall_description += Math.Round(critical_points[4].x).ToString();
-            overall_description += ". ";
+            overall_description += FindNearestReference(critical_points[4].x, x_refs).ToString();
+            overall_description += "";
         }//end if
         // If both points are mentioned later.
         else if (points_mentioned.Contains(0) && points_mentioned.Contains(2))
         {
-            overall_description += ". ";
+            overall_description += "";
         }//end else if
         // If just the start point is mentioned later.
         else if (points_mentioned.Contains(0) && !points_mentioned.Contains(2))
         {
             overall_description += " up until ";
-            overall_description += Math.Round(critical_points[4].x).ToString();
-            overall_description += ". ";
+            overall_description += FindNearestReference(critical_points[4].x, x_refs).ToString();
+            overall_description += "";
         }//end else if
         // If just the end point is mentioned later.
         else if (!points_mentioned.Contains(0) && points_mentioned.Contains(2))
         {
             overall_description += " starting from ";
-            overall_description += Math.Round(critical_points[0].x).ToString();
-            overall_description += ". ";
+            overall_description += FindNearestReference(critical_points[0].x, x_refs).ToString();
+            overall_description += "";
         }//end else if
+
+        // === IMPORTANT ===
+        string point_of_interest_text = "";
+        // Finally, reveal the information for the point of interest.
+        if (matching_point_index != -1)
+        {
+            point_of_interest_text += "Interestingly, near " + critical_point_names[matching_point_index]; 
+        }//end if
+        else
+        {
+            point_of_interest_text += "Interestingly, between " + critical_point_names[lower_point_index]
+            + " and " + critical_point_names[upper_point_index];
+        }//end else
+
+        point_of_interest_text += ", at around " + FindNearestReference(point_of_interest.x, x_refs).ToString() 
+        + ", the average value for " + variable_name + " at " + site_name 
+        + " peaks, reaching " + Math.Round(point_of_interest.y, 3) + " " + y_label;
+
+        point_of_interest_text += ". ";
         
         // Make the full description.
         description = overall_description;
-        // Hint at the point of interest.
-        description += point_of_interest_hint;
+        
+        // No hint if it's description type 1 or 2.
+        if (description_type == 1
+            || description_type == 2)
+            description += ". ";
+        else
+            // Hint at the point of interest.
+            description += point_of_interest_hint;
 
         // Add critical point descriptors, so the shape is described.
         description += critical_point_text;
@@ -765,39 +826,27 @@ class ShapeV : Shape
         // Add the descriptions of the shape's abnormalities.
         description += abnormal_description_text;
 
-        //description += point_of_interest_hint;
-        // === IMPORTANT ===
-        // Finally, reveal the information for the point of interest.
-        if (matching_point_index != -1)
-        {
-            description += "It's near " + critical_point_names[matching_point_index]; 
-        }//end if
+        // No point of interest if it's description type 2.
+        if (description_type == 2)
+            description += "";
         else
-        {
-            description += "It's between " + critical_point_names[lower_point_index]
-            + " and " + critical_point_names[upper_point_index];
-        }//end else
-
-        description += ", at around " + Math.Round(point_of_interest.x).ToString() 
-        + ", that the average value for " + variable_name + " at " + site_name 
-        + " peaks, reaching " + Math.Round(point_of_interest.y, 4) + " " + y_label;
-
-        description += ". ";
+        // Add the description of the point of interest.
+            description += point_of_interest_text;
 
         return description;
     }// end method GenerateDetailedDescription
 
     // Generate a shallow description of this shape.
-    private string GenerateShallowDescription()
+    private string GenerateShallowDescription(List<double> x_refs)
     {
         string description = "";
 
         // Describe the shape, overall
         //string shape_name = "v";
         description = "it resembles a '" + shape_name + "' from ";
-        description += Math.Round(critical_points[0].x).ToString();
+        description += FindNearestReference(critical_points[0].x, x_refs).ToString();
         description += " to ";
-        description += Math.Round(critical_points[2].x).ToString();        
+        description += FindNearestReference(critical_points[2].x, x_refs).ToString();        
         description += ". ";
 
         return description;

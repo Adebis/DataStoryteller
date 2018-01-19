@@ -6,6 +6,15 @@ abstract class Shape
 {
     public bool shape_of_interest;
     protected string shape_name;
+
+    // Whether or not we print debug information
+    public bool verbose;
+
+    // Used for generating different types of description for different test cases.
+    //  0 = default, all features included.
+    //  1 = no point-of-interest hint.
+    //  2 = no point-of-interest hint or point-of-interest information.
+    public int description_type;
     // Generate and return a text description of this shape.
     public abstract string GenerateDescription(List<double> x_refs, List<double> y_refs, string x_label, string y_label, DataPoint point_of_interest, string site_name, string variable_name);
     // Match a list of segments to this shape's parts and critical points.
