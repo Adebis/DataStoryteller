@@ -35,7 +35,7 @@ namespace DataStoryteller
             data_file_names.Add("t_ca/t_ca_segments.csv");
             info_file_names.Add("t_ca/t_ca_meta.json");
 
-            int data_index = 5;
+            int data_index = 0;
             int description_type = 0;
             NarrativeGenerator generator = new NarrativeGenerator();
             string data_file_name = data_file_names[data_index];

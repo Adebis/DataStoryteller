@@ -44,7 +44,7 @@ date_nums = days(dates - datetime(1980, 1, 1))
 
 x = date_nums;
 y = values;
-number_of_segments = 7
+number_of_segments = 14
 XI = linspace(min(x), max(x), number_of_segments + 1)
 YI = lsq_lut_piecewise(x, y, XI);
 
@@ -57,16 +57,16 @@ for n = 1:number_of_segments + 1
 end
 x_tick_array
 x_tick_label
-%plot(x,y,'.',XI,YI,'+-')
-plot(x,y,'.')
+plot(x,y,'.',XI,YI,'+-')
+%plot(x,y,'.')
 %plot(XI, YI, '+-')
 xticks(x_tick_array)
 xticklabels(x_tick_label)
 ylim([8, 14])
 ylabel('mg/l')
 xlabel('Year')
-%legend('Measured Data','Piecewise Linear Approximation')
-title_text = 'Chemical C at Site B';
-%title_text = 'Calcium Levels at Basin Bay';
+legend('Measured Data','Piecewise Linear Approximation')
+%title_text = 'Chemical C at Site B';
+title_text = 'Calcium Levels at Basin Bay';
 title(title_text)
 

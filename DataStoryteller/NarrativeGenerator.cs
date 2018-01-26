@@ -135,6 +135,8 @@ public class NarrativeGenerator
             }//end else if
         }//end foreach
         point_of_interest = max_point;
+        // POI as first point in graph.
+        point_of_interest = all_segments[0].start_point;
 
         // Calculate and define numerical observations for each segment.
         foreach (Segment temp_segment in all_segments)
