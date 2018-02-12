@@ -1,0 +1,14 @@
+{
+    "info": {
+        "site": "Site G",
+        "var": "Chemical L",
+        "x_refs": [1981, 1986, 1991, 1996, 2001, 2006, 2011, 2016],
+        "y_refs": [0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4],
+        "x_label": "year",
+        "y_label": "mg/l",
+		"average_residual_error": "0",
+		"global_shape": ["w"],
+		"critical_points": [[458, 2317, 6034, 7893, 13470]],
+		"ticks_per_year": "365"
+	}
+}

@@ -1,0 +1,14 @@
+{
+    "info": {
+        "site": "Basin Bay",
+        "var": "Calcium",
+        "x_refs": [1990, 1993, 1996, 1999, 2002, 2005, 2008, 2011, 2014, 2017],
+        "y_refs": [8, 9, 10, 11, 12, 13, 14, 15],
+        "x_label": "year",
+        "y_label": "mg/l",
+		"average_residual_error": "-8.3652",
+		"global_shape": "w",
+		"critical_points": [656.24, 1968.75, 4593.75, 5906.25, 7218.75],
+		"ticks_per_year": "300.781"
+	}
+}

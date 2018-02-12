@@ -1,0 +1,14 @@
+{
+    "info": {
+        "site": "Site T",
+        "var": "Chemical M",
+        "x_refs": [2013, 2014, 2015, 2016],
+        "y_refs": [1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8],
+        "x_label": "year",
+        "y_label": "mg/l",
+		"average_residual_error": "-8.3652",
+		"global_shape": ["v","line"],
+		"critical_points": [[12170, 12540, 13280],[13280,13470]],
+		"ticks_per_year": "365"
+	}
+}

@@ -1,0 +1,5 @@
+
+[["start","25"],["starting value","10.0375"],["end","175"],["ending value","11.4"],["function","y=0.015575x+9.8269"]]
+[["start","175"],["starting value","11.4"],["end","1325"],["ending value","14.06"],["function","y=0.001055x+9.9569"]]
+[["start","1325"],["starting value","14.06"],["end","2325"],["ending value","16.4"],["function","y=0.00047668x+13.0898"]]
+[["start","2325"],["starting value","16.4"],["end","3075"],["ending value","17.7"],["function","y=-0.00076241x+20.6329"]]
