@@ -51,8 +51,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\DataPointController.cs" />
      <Compile Include="Assets\Scripts\DataStoryteller\DataPoint.cs" />
-     <Compile Include="Assets\Scripts\DataStoryteller\DataPointController.cs" />
      <Compile Include="Assets\Scripts\DataStoryteller\Descriptor.cs" />
      <Compile Include="Assets\Scripts\DataStoryteller\Narrative.cs" />
      <Compile Include="Assets\Scripts\DataStoryteller\NarrativeEvent.cs" />
@@ -134,6 +134,9 @@
  <Reference Include="UnityEditor.WindowsStandalone.Extensions">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>C:/Users/zevsm/Documents/GitHub/DataStoryteller/VisualDataStoryteller/Assets/UnityPackages/JsonNet/Newtonsoft.Json.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Users/zevsm/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
@@ -154,9 +157,6 @@
  </Reference>
  <Reference Include="UnityEngine.StandardEvents">
  <HintPath>C:/Users/zevsm/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
- </Reference>
- <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/zevsm/Documents/GitHub/DataStoryteller/VisualDataStoryteller/Assets/UnityPackages/JsonNet/Newtonsoft.Json.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

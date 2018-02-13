@@ -195,6 +195,8 @@ class ShapeW : Shape
     {
         string description = "Description for shape 'w': ";
 
+        List<NarrativeEvent> events = new List<NarrativeEvent>();
+
         // Calculate value (y-axis) range
         double highest_value = double.MinValue;
         double lowest_value = double.MaxValue;
@@ -793,14 +795,26 @@ class ShapeW : Shape
         }//end while
 
         string critical_point_text = "";
+        List<NarrativeEvent> critical_point_events = new List<NarrativeEvent>();
         // Describe the relevant critical points.
         List<int> points_mentioned = new List<int>();
         // First, look for pairs.
         // Start and end points are a pair.
+        string temp_text = "";
         if (relevant_critical_points.Contains(0) && relevant_critical_points.Contains(4))
         {
-            critical_point_text += "You can see where the shape starts and ends at ";
-            critical_point_text += FindNearestReference(critical_points[0].x, x_refs).ToString();
+            temp_text = "You can see where the shape starts and ends";
+            critical_point_text += temp_text;
+            critical_point_events.Add(new NarrativeEvent(temp_text, new List<DataPoint>{critical_points[0], critical_points[4]}));
+
+            temp_text = " at " + FindNearestReference(critical_points[0].x, x_refs).ToString();
+            critical_point_text += temp_text;
+            critical_point_events.Add(new NarrativeEvent(temp_text, critical_points[0]));
+
+            temp_text = " and " + FindNearestReference(critical_points[4].x, x_refs).ToString();
+            critical_point_text += temp_text;
+            critical_point_events.Add(new NarrativeEvent(temp_text, critical_points[0]));
+
             critical_point_text += " and ";
             critical_point_text += FindNearestReference(critical_points[4].x, x_refs).ToString();
             points_mentioned.Add(0);
@@ -813,10 +827,10 @@ class ShapeW : Shape
                 critical_point_text += ", ";
             else
                 critical_point_text += "You can see ";
-            description += "the two bottom points at ";
-            description += FindNearestReference(critical_points[1].x, x_refs).ToString();
-            description += " and ";
-            description += FindNearestReference(critical_points[3].x, x_refs).ToString();
+            critical_point_text += "the two bottom points at ";
+            critical_point_text += FindNearestReference(critical_points[1].x, x_refs).ToString();
+            critical_point_text += " and ";
+            critical_point_text += FindNearestReference(critical_points[3].x, x_refs).ToString();
             points_mentioned.Add(1);
             points_mentioned.Add(3);
         }//end if
