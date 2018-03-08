@@ -1,0 +1,8 @@
+Place all matlab functions into one place, and make it so they can all be run together.
+- Create PLA of graph.
+- Find shapes automatically within PLA.
+- Write out start and end point of each segment to segment.csv
+- Write out 
+
+Automatically go from a CSV of the format date-time measured value to a segment file to an automatically generated description
+stretch goal: add a background to the visualization, add narrator, sync with narration.

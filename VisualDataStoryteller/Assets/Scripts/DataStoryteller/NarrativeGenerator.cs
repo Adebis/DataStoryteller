@@ -48,7 +48,7 @@ public class NarrativeGenerator
         //this.GenerateNarrative();
     }//end constructor NarrativeGenerator
 
-    public void GenerateNarrative(string data_file_name, string segment_file_name, string info_file_name, double starting_year, int description_type = 0)
+    public Narrative GenerateNarrative(string data_file_name, string segment_file_name, string info_file_name, double starting_year, int description_type = 0)
     {
         // First, read the input data.
         this.starting_year = starting_year;
@@ -233,9 +233,12 @@ public class NarrativeGenerator
             current_shape.verbose = false;
 
             description += current_shape.GenerateDescription(x_refs, y_refs, x_label, y_label, point_of_interest, site_name, variable_name);
+            // Now that GenerateDescription has been run, the shape should have a full set of narrative events.
+            main_narrative.AddEvents(current_shape.narrative_events);
         }//end foreach
         //string description = overall_shape.GenerateDescription(x_refs, y_refs, x_label, y_label, point_of_interest, site_name, variable_name);
         Console.WriteLine(description);
+        return main_narrative;
     }//end method GenerateNarrative
 
     // Gives descriptors to the numeric values in a group of segments,
@@ -439,8 +442,8 @@ public class NarrativeGenerator
         List<Segment> return_list = new List<Segment>();
         string application_path = System.IO.Directory.GetCurrentDirectory();
         
-        //application_path = "C:/Users/zevsm/Documents/GitHub/DataStoryteller/VisualDataStoryteller/Assets/Scripts/DataStoryteller";
-        application_path = "C:/Users/Zev/Documents/GitHub/DataStoryteller/VisualDataStoryteller/Assets/Scripts/DataStoryteller";
+        application_path = "C:/Users/zevsm/Documents/GitHub/DataStoryteller/VisualDataStoryteller/Assets/Scripts/DataStoryteller";
+        //application_path = "C:/Users/Zev/Documents/GitHub/DataStoryteller/VisualDataStoryteller/Assets/Scripts/DataStoryteller";
 
         string csv_file_path = application_path + "/data/" + csv_file_name;
         // CSV headers are: id, start_x, start_y, end_x, end_y.
@@ -520,7 +523,7 @@ public class NarrativeGenerator
         List<DataPoint> data_points = new List<DataPoint>();
 
         string application_path = "C:/Users/zevsm/Documents/GitHub/DataStoryteller/VisualDataStoryteller/Assets/Scripts/DataStoryteller";
-        application_path = "C:/Users/Zev/Documents/GitHub/DataStoryteller/VisualDataStoryteller/Assets/Scripts/DataStoryteller";
+        //application_path = "C:/Users/Zev/Documents/GitHub/DataStoryteller/VisualDataStoryteller/Assets/Scripts/DataStoryteller";
         
         string data_file_path = application_path + "/data/" + data_file_name;
         // CSV headers are: Date, Value
@@ -599,8 +602,8 @@ public class NarrativeGenerator
     {
         string application_path = System.IO.Directory.GetCurrentDirectory();
 
-        //application_path = "C:/Users/zevsm/Documents/GitHub/DataStoryteller/VisualDataStoryteller/Assets/Scripts/DataStoryteller";
-        application_path = "C:/Users/Zev/Documents/GitHub/DataStoryteller/VisualDataStoryteller/Assets/Scripts/DataStoryteller";
+        application_path = "C:/Users/zevsm/Documents/GitHub/DataStoryteller/VisualDataStoryteller/Assets/Scripts/DataStoryteller";
+        //application_path = "C:/Users/Zev/Documents/GitHub/DataStoryteller/VisualDataStoryteller/Assets/Scripts/DataStoryteller";
 
         string info_file_path = application_path + "/data/" + info_file_name;
         StreamReader info_file = File.OpenText(info_file_path);

@@ -508,6 +508,8 @@ class ShapeW : Shape
         // Keep track of which points we have talked about in relation to the point of interest.
         List<DataPoint> related_points = new List<DataPoint>();
         string point_of_interest_hint = "";
+        string temp_text = "";
+        List<NarrativeEvent> point_of_interest_hint_events = new List<NarrativeEvent>();
         // First, see if the point of interest is exactly one of the critical points.
         int matching_point_index = -1;
         int lower_point_index = -1;
@@ -528,13 +530,15 @@ class ShapeW : Shape
             related_points.Add(critical_points[matching_point_index]);
             // === IMPORTANT ===
             // Explicitly tell the user that something interesting happens near this point.
-            point_of_interest_hint = ", with something interesting happening"; 
+            temp_text = ", with something interesting happening"; 
             // If 'the start,' 'the middle,' or 'the end' is the critical point, add 'at'.
             if (matching_point_index == 0
                 || matching_point_index == 2
                 || matching_point_index == 4)
-                point_of_interest_hint += " at";
-            point_of_interest_hint += " " + critical_point_names[matching_point_index] + ". But more on that later. ";
+                temp_text += " at";
+            temp_text += " " + critical_point_names[matching_point_index] + ". But more on that later. ";
+            point_of_interest_hint += temp_text;
+            point_of_interest_hint_events.Add(new NarrativeEvent(temp_text, critical_points[matching_point_index]));
             //description += 
         }//end if
         // If there has not been a match, find two points that the point of interest lies between.
@@ -557,8 +561,10 @@ class ShapeW : Shape
 
             // === IMPORTANT ===
             // Explicitly tell the user that something interesting happens between these two points.
-            point_of_interest_hint = ", with something interesting happening";
-            point_of_interest_hint += " between " + critical_point_names[lower_point_index] + " and " + critical_point_names[upper_point_index] + ". But we'll get back to that later.";
+            temp_text = ", with something interesting happening";
+            temp_text += " between " + critical_point_names[lower_point_index] + " and " + critical_point_names[upper_point_index] + ". But we'll get back to that later.";
+            point_of_interest_hint += temp_text;
+            point_of_interest_hint_events.Add(new NarrativeEvent(temp_text, new List<DataPoint>{critical_points[lower_point_index], critical_points[upper_point_index]}));
             //point_of_interest_hint = "But between " + critical_point_names[lower_point_index] + " and " + critical_point_names[upper_point_index] + ", something interesting happens.";
             //description += 
         }//end else
@@ -656,6 +662,7 @@ class ShapeW : Shape
         }//end foreach
 
         string abnormal_description_text = "";
+        List<NarrativeEvent> abnormal_events = new List<NarrativeEvent>();
 
         int side_counter = 0;
         Descriptor next_descriptor = new Descriptor();
@@ -682,25 +689,28 @@ class ShapeW : Shape
         for (int i = 0; i < relevant_abnormal_descriptors.Count; i++)
         {
             if (i == 0)
-                abnormal_description_text += "However, ";
+                temp_text = "However, ";
             else if (i == relevant_abnormal_descriptors.Count - 1)
-                abnormal_description_text += ", and ";
+                temp_text = ", and ";
             else if (side_counter == 0 && transition_count == 1)
-                abnormal_description_text += first_transition;
+                temp_text = first_transition;
             else if (side_counter == 0 && transition_count == 2)
-                abnormal_description_text += second_transition;
+                temp_text = second_transition;
             else
-                abnormal_description_text += ", ";
+                temp_text = ", ";
             if (left_abnormal_descriptors.Count > 0)
             {
                 next_descriptor = left_abnormal_descriptors[side_counter];
                 // If this is about the left AND the middle, then it's talking about how the left side's too long.
                 if (next_descriptor.shape_part.Contains("middle"))
-                    abnormal_description_text += "the whole left side looks ";
+                    temp_text += "the whole left side looks ";
                 else if (side_counter == 0)
-                    abnormal_description_text += "on the left side, ";
+                    temp_text += "on the left side, ";
 
-                abnormal_description_text += next_descriptor.descriptions[0];
+                temp_text += next_descriptor.descriptions[0];
+                abnormal_description_text += temp_text;
+                abnormal_events.Add(new NarrativeEvent(temp_text, next_descriptor.points));
+
                 // If we've reached the end of the left-side abnormal descriptors, empty its list so we don't go through them again.
                 if (side_counter + 1 == left_abnormal_descriptors.Count)
                 {
@@ -714,11 +724,14 @@ class ShapeW : Shape
                 next_descriptor = right_abnormal_descriptors[side_counter];
                 // If this is about the right AND the middle, then it's talking about how the right side's too long.
                 if (next_descriptor.shape_part.Contains("middle"))
-                    abnormal_description_text += "the whole right side looks ";
+                    temp_text += "the whole right side looks ";
                 else if (side_counter == 0)
-                    abnormal_description_text += "on the right side, ";
+                    temp_text += "on the right side, ";
 
-                abnormal_description_text += next_descriptor.descriptions[0];
+                temp_text += next_descriptor.descriptions[0];
+                abnormal_description_text += temp_text;
+                abnormal_events.Add(new NarrativeEvent(temp_text, next_descriptor.points));
+
                 // If we've reached the end of the right-side abnormal descriptors, empty its list so we don't go through them again.
                 if (side_counter + 1 == right_abnormal_descriptors.Count)
                 {
@@ -732,9 +745,12 @@ class ShapeW : Shape
                 next_descriptor = middle_abnormal_descriptors[side_counter];
 
                 if (side_counter == 0)
-                    abnormal_description_text += "the middle point's ";
+                    temp_text += "the middle point's ";
 
-                abnormal_description_text += next_descriptor.descriptions[0];
+                temp_text += next_descriptor.descriptions[0];
+                abnormal_description_text += temp_text;
+                abnormal_events.Add(new NarrativeEvent(temp_text, next_descriptor.points));
+
                 // If we've reached the end of the middle abnormal descriptors, empty its list so we don't go through them again.
                 if (side_counter + 1 == middle_abnormal_descriptors.Count)
                 {
@@ -800,7 +816,6 @@ class ShapeW : Shape
         List<int> points_mentioned = new List<int>();
         // First, look for pairs.
         // Start and end points are a pair.
-        string temp_text = "";
         if (relevant_critical_points.Contains(0) && relevant_critical_points.Contains(4))
         {
             temp_text = "You can see where the shape starts and ends";
@@ -813,10 +828,8 @@ class ShapeW : Shape
 
             temp_text = " and " + FindNearestReference(critical_points[4].x, x_refs).ToString();
             critical_point_text += temp_text;
-            critical_point_events.Add(new NarrativeEvent(temp_text, critical_points[0]));
+            critical_point_events.Add(new NarrativeEvent(temp_text, critical_points[4]));
 
-            critical_point_text += " and ";
-            critical_point_text += FindNearestReference(critical_points[4].x, x_refs).ToString();
             points_mentioned.Add(0);
             points_mentioned.Add(4);
         }//end if
@@ -824,13 +837,21 @@ class ShapeW : Shape
         if (relevant_critical_points.Contains(1) && relevant_critical_points.Contains(3))
         {
             if (!critical_point_text.Equals(""))
-                critical_point_text += ", ";
+                temp_text = ", ";
             else
-                critical_point_text += "You can see ";
-            critical_point_text += "the two bottom points at ";
-            critical_point_text += FindNearestReference(critical_points[1].x, x_refs).ToString();
-            critical_point_text += " and ";
-            critical_point_text += FindNearestReference(critical_points[3].x, x_refs).ToString();
+                temp_text = "You can see ";
+            temp_text += "the two bottom points ";
+            critical_point_text += temp_text;
+            critical_point_events.Add(new NarrativeEvent(temp_text, new List<DataPoint>{critical_points[1], critical_points[3]}));
+            
+            temp_text = "at " + FindNearestReference(critical_points[1].x, x_refs).ToString();
+            critical_point_text += temp_text;
+            critical_point_events.Add(new NarrativeEvent(temp_text, critical_points[1]));
+
+            temp_text = " and " + FindNearestReference(critical_points[3].x, x_refs).ToString();
+            critical_point_text += temp_text;
+            critical_point_events.Add(new NarrativeEvent(temp_text, critical_points[3]));
+
             points_mentioned.Add(1);
             points_mentioned.Add(3);
         }//end if
@@ -865,20 +886,24 @@ class ShapeW : Shape
 
             // Pre-information part of this phrase
             if (first_part_of_sentence)
-                critical_point_text += "You can see ";
+                temp_text = "You can see ";
             else if (last_part_of_sentence)
-                critical_point_text += ", and ";
+                temp_text = ", and ";
             else if (middle_part_of_sentence)
-                critical_point_text += ", ";
+                temp_text = ", ";
+            temp_text += critical_point_names[relevant_critical_points[i]];
 
-            critical_point_text += critical_point_names[relevant_critical_points[i]];
             // Whether we reference the shape name or not
             if (first_part_of_sentence)
-                critical_point_text += " of the 'w'";
+                temp_text += " of the 'w'";
             else if (middle_part_of_sentence)
-                critical_point_text += " of it";
-            critical_point_text += " at " + FindNearestReference(critical_points[relevant_critical_points[i]].x, x_refs).ToString();
-            // Note that these points were mentioned.
+                temp_text += " of it";
+            temp_text += " near " + FindNearestReference(critical_points[relevant_critical_points[i]].x, x_refs).ToString();
+
+            critical_point_text += temp_text;
+            critical_point_events.Add(new NarrativeEvent(temp_text, critical_points[i]));
+
+            // Note that this point was mentioned.
             points_mentioned.Add(relevant_critical_points[i]);
         }//end for
         critical_point_text += ". ";
@@ -886,16 +911,23 @@ class ShapeW : Shape
         // Finally, generate the description of the shape, overall, using the start and end points.
         //string shape_name = "w";
         string overall_description = "";
-        overall_description = "it makes sort of a '" + shape_name + "' shape";
+        List<NarrativeEvent> overall_description_events = new List<NarrativeEvent>();
+        
+        temp_text = "it makes sort of a '" + shape_name + "' shape";
+        overall_description += temp_text;
+        overall_description_events.Add(new NarrativeEvent(temp_text, new List<DataPoint>{critical_points[0], critical_points[4]}));
+
         // Try not to state a point if it will be mentioned later.
         // If neither the start nor end point are mentioned later.
         if (!points_mentioned.Contains(0) && !points_mentioned.Contains(4))
         {
-            overall_description += " from ";
-            overall_description += FindNearestReference(critical_points[0].x, x_refs).ToString();
-            overall_description += " to ";
-            overall_description += FindNearestReference(critical_points[4].x, x_refs).ToString();
-            overall_description += "";
+            temp_text = " from " + FindNearestReference(critical_points[0].x, x_refs).ToString();
+            overall_description += temp_text;
+            overall_description_events.Add(new NarrativeEvent(temp_text, critical_points[0]));
+
+            temp_text = " to " + FindNearestReference(critical_points[4].x, x_refs).ToString();
+            overall_description += temp_text;
+            overall_description_events.Add(new NarrativeEvent(temp_text, critical_points[4]));
         }//end if
         // If both points are mentioned later.
         else if (points_mentioned.Contains(0) && points_mentioned.Contains(4))
@@ -905,60 +937,83 @@ class ShapeW : Shape
         // If just the start point is mentioned later.
         else if (points_mentioned.Contains(0) && !points_mentioned.Contains(4))
         {
-            overall_description += " up until ";
-            overall_description += FindNearestReference(critical_points[4].x, x_refs).ToString();
-            overall_description += "";
+            temp_text = " up until " + FindNearestReference(critical_points[4].x, x_refs).ToString();
+            overall_description += temp_text;
+            overall_description_events.Add(new NarrativeEvent(temp_text, critical_points[4]));
         }//end else if
         // If just the end point is mentioned later.
         else if (!points_mentioned.Contains(0) && points_mentioned.Contains(4))
         {
-            overall_description += " starting from ";
-            overall_description += FindNearestReference(critical_points[0].x, x_refs).ToString();
-            overall_description += "";
+            temp_text = " starting from " + FindNearestReference(critical_points[0].x, x_refs).ToString();
+            overall_description += temp_text;
+            overall_description_events.Add(new NarrativeEvent(temp_text, critical_points[0]));
         }//end else if
 
         string point_of_interest_text = "";
+        List<NarrativeEvent> point_of_interest_events = new List<NarrativeEvent>();
         // === IMPORTANT ===
         // Finally, reveal the information for the point of interest.
         if (matching_point_index != -1)
         {
-            point_of_interest_text += "Interestingly, near " + critical_point_names[matching_point_index]; 
+            temp_text = "Interestingly, near " + critical_point_names[matching_point_index]; 
+            point_of_interest_text += temp_text;
+            point_of_interest_events.Add(new NarrativeEvent(temp_text, critical_points[matching_point_index]));
         }//end if
         else
         {
-            point_of_interest_text += "Interestingly, between " + critical_point_names[lower_point_index]
-            + " and " + critical_point_names[upper_point_index];
+            temp_text = "Interestingly, between " + critical_point_names[lower_point_index] + " and " + critical_point_names[upper_point_index];
+            point_of_interest_text += temp_text;
+            point_of_interest_events.Add(new NarrativeEvent(temp_text, new List<DataPoint>{critical_points[lower_point_index], critical_points[upper_point_index]}));
         }//end else
 
-        point_of_interest_text += ", at around " + FindNearestReference(point_of_interest.x, x_refs).ToString() 
+        temp_text = ", at around " + FindNearestReference(point_of_interest.x, x_refs).ToString() 
         + ", the average value for " + variable_name + " at " + site_name 
         + " peaks, reaching " + Math.Round(point_of_interest.y, 3) + " " + y_label;
+        point_of_interest_text += temp_text;
+        point_of_interest_events.Add(new NarrativeEvent(temp_text, point_of_interest));
 
         point_of_interest_text += ". ";
         
-        // Make the full description.
+
+        // Make the full description, and arrange the full set of narrative events.
+        // Reset this shape's set of narrative events.
+        this.narrative_events = new List<NarrativeEvent>();
         description = overall_description;
+        foreach (NarrativeEvent temp_event in overall_description_events)
+            this.narrative_events.Add(temp_event);
 
         // No hint if it's description type 1 or 2.
         if (description_type == 1
             || description_type == 2)
             description += ". ";
         else
+        {
             // Hint at the point of interest.
             description += point_of_interest_hint;
+            foreach (NarrativeEvent temp_event in point_of_interest_hint_events)
+                this.narrative_events.Add(temp_event);
+        }//end else
 
         // Add critical point descriptors, so the shape is described.
         description += critical_point_text;
+        foreach (NarrativeEvent temp_event in critical_point_events)
+            this.narrative_events.Add(temp_event);
 
         // Add the descriptions of the shape's abnormalities.
         description += abnormal_description_text;
+        foreach (NarrativeEvent temp_event in abnormal_events)
+            this.narrative_events.Add(temp_event);
 
         // No point of interest if it's description type 2.
         if (description_type == 2)
             description += "";
         else
-        // Add the description of the point of interest.
+        {
+            // Add the description of the point of interest.
             description += point_of_interest_text;
+            foreach (NarrativeEvent temp_event in point_of_interest_events)
+                this.narrative_events.Add(temp_event);
+        }//end else
 
         return description;
     }// end method GenerateDetailedDescription

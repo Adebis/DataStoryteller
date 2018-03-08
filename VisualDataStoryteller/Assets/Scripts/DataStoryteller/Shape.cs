@@ -15,6 +15,9 @@ public abstract class Shape
     //  1 = no point-of-interest hint.
     //  2 = no point-of-interest hint or point-of-interest information.
     public int description_type;
+
+    public List<NarrativeEvent> narrative_events;
+
     // Generate and return a text description of this shape.
     public abstract string GenerateDescription(List<double> x_refs, List<double> y_refs, string x_label, string y_label, DataPoint point_of_interest, string site_name, string variable_name);
     // Match a list of segments to this shape's parts and critical points.
