@@ -212,7 +212,7 @@ public class NarrativeGenerator
         }//end for
         
         Narrative main_narrative = new Narrative();
-
+        
 
         // Generate a description.
         string description = "";

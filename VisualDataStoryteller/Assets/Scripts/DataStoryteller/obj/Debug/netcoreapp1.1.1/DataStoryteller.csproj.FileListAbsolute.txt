@@ -1,0 +1,10 @@
+C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\bin\Debug\netcoreapp1.1.1\DataStoryteller.deps.json
+C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\bin\Debug\netcoreapp1.1.1\DataStoryteller.runtimeconfig.json
+C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\bin\Debug\netcoreapp1.1.1\DataStoryteller.runtimeconfig.dev.json
+C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\bin\Debug\netcoreapp1.1.1\DataStoryteller.dll
+C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\bin\Debug\netcoreapp1.1.1\DataStoryteller.pdb
+C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.csproj.CoreCompileInputs.cache
+C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.AssemblyInfoInputs.cache
+C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.AssemblyInfo.cs
+C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.dll
+C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.pdb
