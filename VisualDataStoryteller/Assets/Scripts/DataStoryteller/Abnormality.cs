@@ -5,9 +5,14 @@ using System.Collections.Generic;
 public class Abnormality : GraphInfo
 {
     public CriticalPoint critical_point;
+
+    // How abnormal it is.
+    public double degree;
+
     public Abnormality()
     {
         critical_point = new CriticalPoint();
+        degree = 0;
     }//end constructor
 
     public void SetCriticalPoint(CriticalPoint point_in)

@@ -18,7 +18,6 @@ class ShapeV : Shape
     //  0 = starting peak
     //  1 = middle trough
     //  2 = ending peak
-    private List<DataPoint> critical_points;
 
     // A list of descriptors for this shape.
     // Each descriptor is a set of string descriptions for some part
@@ -853,6 +852,13 @@ class ShapeV : Shape
     }//end method GenerateLightDescription
 
     // Helper Functions
+
+    public override List<DataPoint> FindCriticalPointNormalValues(List<double> x_refs, List<double> y_refs)
+    {
+        List<DataPoint> critical_point_normal_values = new List<DataPoint>();
+
+        return critical_point_normal_values;
+    }//end method FindCriticalPointNormalValues
 
     // Returns true when the difference between value 1 and value 2 is above the given threshold
     private bool SignificantlyDifferent(double value_1, double value_2, double threshold)

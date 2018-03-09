@@ -17,7 +17,7 @@ class ShapeLine : Shape
     //  1 = ending point
     // Additionally, past the first two, every pair of indices will be the
     // start and end point to a section of the line that defies the overall trend.
-    private List<DataPoint> critical_points;
+
     // The last index that denotes a boundary points.
     //private int last_boundary_index;
 
@@ -627,6 +627,13 @@ class ShapeLine : Shape
     }//end method GenerateLightDescription
 
     // Helper Functions
+
+    public override List<DataPoint> FindCriticalPointNormalValues(List<double> x_refs, List<double> y_refs)
+    {
+        List<DataPoint> critical_point_normal_values = new List<DataPoint>();
+
+        return critical_point_normal_values;
+    }//end method FindCriticalPointNormalValues
 
     private string ClosestReference(double value_in, Dictionary<double, string> reference_map)
     {

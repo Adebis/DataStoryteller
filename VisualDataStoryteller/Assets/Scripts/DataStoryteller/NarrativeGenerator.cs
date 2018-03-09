@@ -136,15 +136,6 @@ public class NarrativeGenerator
         // POI as first point in graph.
         point_of_interest = all_segments[0].start_point;
 
-        // Calculate and define numerical observations for each segment.
-        foreach (Segment temp_segment in all_segments)
-        {
-            DefineObservations(temp_segment);
-        }//end foreach
-
-        // Fill out value references and give words to numerical observations.
-        DefineDescriptors(all_segments, x_refs, y_refs);
-
         List<Shape> all_shapes = new List<Shape>();
         Shape current_shape = null;
         // The index of each shape will be the index of its name in the list of global shape names.
@@ -212,190 +203,196 @@ public class NarrativeGenerator
         }//end for
         
         Narrative main_narrative = new Narrative();
-        
 
         // Generate a description.
         string description = "";
         for (int i = 0; i < all_shapes.Count; i++)
         {
-            if (all_shapes.Count == 1)
-                description += "For the whole graph, ";
-            else if (i == 0)
-                description += "First, ";
-            else if (i == all_shapes.Count - 1 && all_shapes.Count > 2)
-                description += "Finally, ";
-            else
-                description += "Then, ";
             current_shape = all_shapes[i];
+            // Only continue if this is the shape of interest.
+            if (!current_shape.shape_of_interest)
+            {
+                continue;
+            }//end if
 
-            // Set different description types for different test cases.
-            current_shape.description_type = description_type;
-            current_shape.verbose = false;
+            // Make critical point objects out of each of the shape's critical points.
+            List<CriticalPoint> critical_points = new List<CriticalPoint>();
+            critical_points = FindCriticalPoints(current_shape);
 
-            description += current_shape.GenerateDescription(x_refs, y_refs, x_label, y_label, point_of_interest, site_name, variable_name);
-            // Now that GenerateDescription has been run, the shape should have a full set of narrative events.
-            main_narrative.AddEvents(current_shape.narrative_events);
+            double y_per_x = ((ShapeW)current_shape).YPerX(y_refs, x_refs);
+
+            // Find normal values for each of the shape's critical points.
+            List<DataPoint> normal_values = new List<DataPoint>();
+            normal_values = current_shape.FindCriticalPointNormalValues(x_refs, y_refs);
+
+            // Assign normal values to each critical point, in order.
+            for (int j = 0; j < critical_points.Count; j++)
+            {
+                critical_points[j].normal_point = normal_values[j];
+            }//end for
+
+            // Make abnormalities for each critical point that is abnormal.
+            List<Abnormality> abnormalities = new List<Abnormality>();
+            abnormalities = FindAbnormalities(critical_points, y_per_x);
+
+            // Make narrative events for each critical point and each abnormality.
+            List<NarrativeEvent> narrative_events = new List<NarrativeEvent>();
+            narrative_events = MakeNarrativeEvents(critical_points, abnormalities);
+
+            // Order narrative events.
+            List<NarrativeEvent> ordered_narrative_events = new List<NarrativeEvent>();
+            ordered_narrative_events = OrderNarrativeEvents(narrative_events);
+
         }//end foreach
-        //string description = overall_shape.GenerateDescription(x_refs, y_refs, x_label, y_label, point_of_interest, site_name, variable_name);
-        Console.WriteLine(description);
+ 
         return main_narrative;
     }//end method GenerateNarrative
 
-    // Gives descriptors to the numeric values in a group of segments,
-    // according to the given x and y axis reference numbers.
-    public void DefineDescriptors(List<Segment> segments_in, List<double> x_refs, List<double> y_refs)
+    private List<NarrativeEvent> OrderNarrativeEvents(List<NarrativeEvent> unordered_narrative_events)
     {
-        // First, calculate value (y-axis) high and low thresholds.
-        double highest_value = double.MinValue;
-        double lowest_value = double.MaxValue;
-        foreach (double y_value in y_refs)
+        List<NarrativeEvent> ordered_narrative_events = new List<NarrativeEvent>();
+        List<NarrativeEvent> unassigned_narrative_events = new List<NarrativeEvent>();
+        foreach (NarrativeEvent temp_event in unordered_narrative_events)
+            unassigned_narrative_events.Add(temp_event);
+
+        // How quickly we assume tension degrades.
+        double tension_degrade = -0.5;
+
+        // Define the ideal tension curve.
+        // For a 5-turn story.
+        int narrative_length = 5;
+        // It rises for 2 turns, peaks at the middle turn, then falls for 2 turns.
+        List<double> discrete_tension_values = new List<double>();
+        // Each value represents what we want the tension value to be at at the END of the turn the value is on (after the event ON the turn has passed).
+        discrete_tension_values = new List<double>{0, 0.5, 1.0, 0.5, 0};
+
+        // Look for the max tension change achievable amongst the narrative events.
+        double max_tension_change = double.MinValue;
+        foreach (NarrativeEvent temp_event in unordered_narrative_events)
         {
-            if (y_value > highest_value)
-                highest_value = y_value;
-            if (y_value < lowest_value)
-                lowest_value = y_value;
+            if (temp_event.tension_change > max_tension_change)
+                max_tension_change = temp_event.tension_change;
         }//end foreach
-        double value_range = highest_value - lowest_value;
-        double high_value_threshold = lowest_value + (value_range / 3) * 2;
-        //Console.WriteLine("High Value Threshold: " + high_value_threshold.ToString());
-        double low_value_threshold = lowest_value + (value_range / 3);
-        //Console.WriteLine("Low Value Threshold: " + low_value_threshold.ToString());
-        // Calculate date (x-axis) high and low thresholds
-        double latest_date = double.MinValue;
-        double earliest_date = double.MaxValue;
-        foreach (double x_value in x_refs)
+
+        // The largest tension change is considered to raise tension to "1". All other tension changes are normalized to this.
+        double tension_normalizer = 1 / max_tension_change;
+        
+        double current_tension = 0;
+        double desired_tension_difference = 0;
+        double next_best_tension_change = 0;
+        NarrativeEvent next_best_event = new NarrativeEvent();
+        for (int i = 0; i < narrative_length; i++)
         {
-            if (x_value > latest_date)
-                latest_date = x_value;
-            if (x_value < earliest_date)
-                earliest_date = x_value;
-        }//end foreach
-        double date_range = latest_date - earliest_date;
-        double late_date_threshold = earliest_date + (date_range / 3) * 2;
-        //Console.WriteLine("Late Date Threshold: " + late_date_threshold.ToString());
-        double early_date_threshold = earliest_date + (date_range / 3);
-        //Console.WriteLine("Early Date Threshold: " + early_date_threshold.ToString());
-        // Calculate Magnitude large/small threshold.
-        double y_change_threshold = value_range / 2;
-        // Calculate date long/short threshold.
-        double x_change_threshold = date_range / 2;
-        //Console.WriteLine("Magnitude Threshold: " + y_change_threshold.ToString());
-        //Console.WriteLine("Duration Threshold: " + x_change_threshold.ToString());
-        // Calculate slope threshold and tolerances.
-        double graph_slope = value_range / date_range;
-        double tolerance = graph_slope * 0.05; // If slope magnitude is within this value from the graph slope, it is considered 1-to-1
-        double steady_threshold = graph_slope * 0.1; // If the slope magnitude is below this, it is considered steady and not up or down.
-        //Console.WriteLine("Graph Slope: " + graph_slope.ToString());
+            next_best_tension_change = 0;
+            next_best_event = new NarrativeEvent();
+            desired_tension_difference = discrete_tension_values[i] - current_tension;
+            // If we have less tension than we want, pick the narrative event which will increase the tension closest to the amount we wish for.
+            if (desired_tension_difference > 0)
+            {
+                foreach (NarrativeEvent temp_event in unassigned_narrative_events)
+                {
+                    if (Math.Abs(desired_tension_difference - next_best_tension_change) > Math.Abs(desired_tension_difference - temp_event.tension_change * tension_normalizer))
+                    {
+                        next_best_tension_change = temp_event.tension_change * tension_normalizer;
+                        next_best_event = temp_event;
+                    }//end if
+                }//end foreach
+            }//end if
+            else
+                next_best_event = unassigned_narrative_events[0];
+            
+            // Add the event to the ordered list of events and remove it from the unordered list.
+            ordered_narrative_events.Add(next_best_event);
+            unassigned_narrative_events.Remove(next_best_event);
 
-        // Now that all thresholds are calculated, descriptors and references can be assigned.
-        foreach (Segment temp_segment in segments_in)
+            // If the tension is not being changed by an event, degrade it.
+            if (next_best_tension_change == 0)
+                next_best_tension_change = tension_degrade;
+
+            // Increase tension according to event chosen.
+            current_tension += next_best_tension_change;
+        }//end for
+
+        return ordered_narrative_events;
+    }//end method OrderNarrativeEvents
+
+    private List<NarrativeEvent> MakeNarrativeEvents(List<CriticalPoint> critical_points, List<Abnormality> abnormalities)
+    {
+        List<NarrativeEvent> return_list = new List<NarrativeEvent>();
+
+        NarrativeEvent new_narrative_event = new NarrativeEvent();
+
+        // Make a narrative event for each critical point.
+        foreach (CriticalPoint critical_point in critical_points)
         {
-            // Find axis references for values and dates.
-            // Map start and end values and dates to descriptors.
-            string start_x_description = DateDescriptor(temp_segment.GetObservationValue(0)
-                                                        , high_value_threshold
-                                                        , low_value_threshold);
-            temp_segment.AddObservationField(0, "description", start_x_description);
-
-            string end_x_description = DateDescriptor(temp_segment.GetObservationValue(1)
-                                                        , high_value_threshold
-                                                        , low_value_threshold);
-            temp_segment.AddObservationField(1, "description", end_x_description);
-
-            string start_y_description = ValueDescriptor(temp_segment.GetObservationValue(2)
-                                                        , high_value_threshold
-                                                        , low_value_threshold);
-            temp_segment.AddObservationField(2, "description", start_y_description);
-
-            string end_y_description = ValueDescriptor(temp_segment.GetObservationValue(3)
-                                                        , high_value_threshold
-                                                        , low_value_threshold);
-            temp_segment.AddObservationField(3, "description", end_y_description);
-
-            // Map magnitude and duration of change to descriptors.
-            string x_change_description = DurationDescriptor(temp_segment.GetObservationValue(4)
-                                                        , x_change_threshold);
-            temp_segment.AddObservationField(4, "description", x_change_description);
-
-            string y_change_description = MagnitudeChangeDescriptor(temp_segment.GetObservationValue(5)
-                                                                    , y_change_threshold);
-            temp_segment.AddObservationField(5, "description", y_change_description);
-
-            // Map direction of change and rate of change to descriptors.
-            string slope_dir_description = DirectionDescriptor(temp_segment.GetObservationValue(6)
-                                                                , temp_segment.GetObservationValue(7)
-                                                                , steady_threshold);
-            temp_segment.AddObservationField(7, "description", slope_dir_description);
-
-            string slope_mag_description = RateDescriptor(temp_segment.GetObservationValue(6)
-                                                            , graph_slope
-                                                            , tolerance);
-            //Console.WriteLine("Segment " + temp_segment.id.ToString() + " slope: " + temp_segment.GetObservationValue(6).ToString());
-            //Console.WriteLine("Slope Description: " + slope_dir_description + " " + slope_mag_description);
-            temp_segment.AddObservationField(6, "description", slope_mag_description);
+            new_narrative_event = new NarrativeEvent(critical_point, 0);
+            return_list.Add(new_narrative_event);
         }//end foreach
-    }//end method DefineDescriptors
+        
+        // Make a narrative event for each abnormality.
+        foreach (Abnormality abnormality in abnormalities)
+        {
+            new_narrative_event = new NarrativeEvent(abnormality, 1);
+            return_list.Add(new_narrative_event);
+        }//end foreach
 
-    // Map a y-value to a descriptor, according to high and low thresholds.
-    private string ValueDescriptor(double y_value, double high_threshold, double low_threshold)
+        return return_list;
+    }//end method MakeNarrativeEvents
+
+    private List<CriticalPoint> FindCriticalPoints(Shape shape_in)
     {
-        if (y_value > high_threshold)
-            return "high";
-        else if (y_value < low_threshold)
-            return "low";
-        else
-            return "near the middle";
-    }//end method ValueDescriptor
-    // Map an x-value to a descriptor, according to a late and early threshold.
-    private string DateDescriptor(double date_value, double late_threshold, double early_threshold)
+        List<CriticalPoint> return_list = new List<CriticalPoint>();
+        
+        CriticalPoint new_critical_point = new CriticalPoint();
+
+        foreach (DataPoint critical_data_point in shape_in.critical_points)
+        {
+            new_critical_point = new CriticalPoint(critical_data_point);
+            new_critical_point.name = critical_data_point.name;
+            return_list.Add(new_critical_point);
+        }//end foreach
+
+        return return_list;
+    }//end method FindCriticalPoints
+
+    private List<Abnormality> FindAbnormalities(List<CriticalPoint> critical_points, double y_per_x)
     {
-        if (date_value > late_threshold)
-            return "late";
-        else if (date_value < early_threshold)
-            return "early";
-        else
-            return "near the middle";
-    }//end method DateDescriptor
-    // Map a magnitude change to a descriptor, according to the given threshold.
-    private string MagnitudeChangeDescriptor(double magnitude_change, double threshold)
+        List<Abnormality> return_list = new List<Abnormality>();
+
+        // Threshold distance of critical point from normal point to consider it an abnormality.
+        double distance_threshold = 1.0f;
+
+        double current_distance = 0.0f;
+
+        Abnormality new_abnormality = new Abnormality();
+        foreach (CriticalPoint critical_point in critical_points)
+        {
+            new_abnormality = new Abnormality();
+            new_abnormality.critical_point = critical_point;
+
+            // Measure the distance between the critical point and its normal value.
+            current_distance = DistanceBetweenPoints(critical_point.data_point, critical_point.normal_point, y_per_x);
+            // Set it as the abnormality's degree
+            new_abnormality.degree = current_distance;
+            return_list.Add(new_abnormality);
+        }//end foreach
+
+        return return_list;
+    }//end method FindAbnormalities
+
+    // Returns the distance from point 1 to point 2.
+    private double DistanceBetweenPoints(DataPoint point_1, DataPoint point_2, double y_per_x)
     {
-        if (magnitude_change < threshold)
-            return "small";
-        else
-            return "large";
-    }//end method MagnitudeChangeDescriptor
-    // Map a date duration to a descriptor, according to the given threshold.
-    private string DurationDescriptor(double duration, double threshold)
-    {
-        if (duration < threshold)
-            return "short";
-        else
-            return "long";
-    }//end method DurationDescriptor
-    // Map the direction of the slope to a descriptor, according to the steady threshold
-    private string DirectionDescriptor(double slope_mag, double slope_dir, double steady_threshold)
-    {
-        if (slope_mag < steady_threshold)
-            return "stays steady";
-        else if (slope_dir > 0)
-            return "increases";
-        else
-            return "decreases";
-    }//end method DirectionDescriptor
-    // Map the magnitude of the slope to a descriptor, according to a given graph slope and a 1-to-1 envelope tolerance.
-    private string RateDescriptor(double slope, double graph_slope, double envelope_tolerance)
-    {
-        double slope_magnitude = Math.Abs(slope);
-        // NOTE: Graph slope is always positive.
-        double diff = Math.Abs(graph_slope - slope_magnitude);
-        // NOTE: Changed from substantially, dramatically, and steadily.
-        if (diff < envelope_tolerance)
-            return "consistently";
-        else if (slope_magnitude > graph_slope)
-            return "sharply";
-        else
-            return "slowly";
-    }//end mehtod RateDescriptor
+        // Measure the distance as though the two axis are scaled to each other.
+        // Convert x values to their y equivalents using y_per_x parameter.
+
+        double x_diff = point_2.x * y_per_x - point_1.x * y_per_x;
+        double y_diff = point_2.y - point_1.y;
+        double sum_squares = x_diff * x_diff + y_diff * y_diff;
+        double distance = Math.Sqrt(sum_squares);
+
+        return distance;
+    }//end method DistanceBetweenPoints
 
     // Finds the reference value in the given list closest to the real value given.
     private double FindNearestReference(double real_value, List<double> reference_list)
@@ -413,27 +410,6 @@ public class NarrativeGenerator
         }//end foreach
         return closest_reference;
     }//end method FindNearestReference
-
-    // Defines the numerical observations in a segment.
-    public void DefineObservations(Segment segment_in)
-    {
-        segment_in.ResetObservations();
-        // Raw values
-        segment_in.AddObservation(0, "start_x", segment_in.start_point.x.ToString(), "");
-        segment_in.AddObservation(1, "end_x", segment_in.end_point.x.ToString(), "");
-        segment_in.AddObservation(2, "start_y", segment_in.start_point.y.ToString(), "");
-        segment_in.AddObservation(3, "end_y", segment_in.end_point.y.ToString(), "");
-        // Changes
-        double change_x = segment_in.GetObservationValue(1) - segment_in.GetObservationValue(0);
-        segment_in.AddObservation(4, "change_x", Math.Abs(change_x).ToString(), "");
-        //double change_y = Math.Abs(segment_in.GetObservationValue(3) - segment_in.GetObservationValue(2));
-        double change_y = segment_in.GetObservationValue(3) - segment_in.GetObservationValue(2);
-        segment_in.AddObservation(5, "change_y", Math.Abs(change_y).ToString(), "");
-        // Slope
-        double slope = change_x / change_y;
-        segment_in.AddObservation(6, "slope_mag", Math.Abs(slope).ToString(), "");
-        segment_in.AddObservation(7, "slope_dir", (slope / Math.Abs(slope)).ToString(), "");
-    }//end method DefineObservations
 
     // Reads an input set of segments.
     // All input files are assumed to be in the "data" folder.

@@ -8,9 +8,18 @@ public class CriticalPoint : GraphInfo
 
     public DataPoint normal_point;
 
+    public string name;
+
     public CriticalPoint()
     {
         data_point = new DataPoint();
         normal_point = new DataPoint();
-    }//end constructor
+        name = "";
+    }//end constructor CriticalPoint
+    public CriticalPoint(DataPoint data_point_in)
+    {
+        data_point = data_point_in;
+        normal_point = new DataPoint();
+        name = "";
+    }//end constructor CriticalPoint
 }//end class Abnormality

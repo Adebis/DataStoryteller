@@ -22,7 +22,7 @@ public class NarrativeEvent
     public List<GraphInfo> grounding_info;
 
     // How much the tension changes as a result of this narrative event.
-    public float tension_change;
+    public double tension_change;
 
     public NarrativeEvent()
     {
@@ -34,7 +34,28 @@ public class NarrativeEvent
         grounding_info = new List<GraphInfo>();
         tension_change = 0;
     }//end constructor
+    public NarrativeEvent(GraphInfo info_in, int type_in)
+    {
+        event_info = info_in;
+        information_type = type_in;
+        // Initialize different types of information based on the type.
+        if (information_type == 0)
+            InitializeCriticalPoint();
+        else if (information_type == 1)
+            InitializeAbnormality();
+    }//end constructor
 
+    private void InitializeCriticalPoint()
+    {
+        grounding_info = new List<GraphInfo>();
+        tension_change = 0;
+    }//end method InitializeCriticalPoint
+    private void InitializeAbnormality()
+    {
+        grounding_info = new List<GraphInfo>();
+        grounding_info.Add(((Abnormality)this.event_info).critical_point);
+        tension_change = ((Abnormality)this.event_info).degree;
+    }//end method InitializeAbnormality
     
     public NarrativeEvent(string description_in, DataPoint associated_point_in)
     {

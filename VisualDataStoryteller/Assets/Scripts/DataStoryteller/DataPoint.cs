@@ -10,6 +10,8 @@ public class DataPoint
     // y is the actual data value (e.g. secchi depth)
     public double y;
 
+    public string name;
+
     // A non-numerical description
     //public string description;
     // A numerical description
@@ -21,11 +23,13 @@ public class DataPoint
     {
         this.x = 0;
         this.y = 0;
+        name = "";
     }//end constructor DataPoint
     public DataPoint(double x_in, double y_in)
     {
         this.x = x_in;
         this.y = y_in;
+        name = "";
     }//end constructor DataPoint
 
     private void Initialize()

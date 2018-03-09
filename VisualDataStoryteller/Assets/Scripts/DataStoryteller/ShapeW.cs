@@ -23,7 +23,6 @@ class ShapeW : Shape
     //  2 = middle peak
     //  3 = second trough
     //  4 = ending peak
-    private List<DataPoint> critical_points;
 
     // A list of descriptors for this shape.
     // Each descriptor is a set of string descriptions for some part
@@ -101,6 +100,12 @@ class ShapeW : Shape
                 if (verbose)
                     Console.WriteLine("No matching datapoint for " + critical_point_x.ToString());
         }//end foreach
+
+        critical_points[0].name = "start";
+        critical_points[1].name = "first_trough";
+        critical_points[2].name = "middle";
+        critical_points[3].name = "second_trough";
+        critical_points[4].name = "end";
 
         // Divide up the segments by the critical points to place them into shape parts.
         // Go through each segment, adding them to a shape part. When a segment ends at a 
@@ -1043,6 +1048,179 @@ class ShapeW : Shape
     }//end method GenerateLightDescription
 
     // Helper Functions
+
+    public override List<DataPoint> FindCriticalPointNormalValues(List<double> x_refs, List<double> y_refs)
+    {
+        List<DataPoint> critical_point_normal_values = new List<DataPoint>();
+
+        // Calculate value (y-axis) range
+        double highest_value = double.MinValue;
+        double lowest_value = double.MaxValue;
+        foreach (double y_value in y_refs)
+        {
+            if (y_value > highest_value)
+                highest_value = y_value;
+            if (y_value < lowest_value)
+                lowest_value = y_value;
+        }//end foreach
+        double value_range = highest_value - lowest_value;
+        // Calculate date (x-axis) range
+        double latest_date = double.MinValue;
+        double earliest_date = double.MaxValue;
+        foreach (double x_value in x_refs)
+        {
+            if (x_value > latest_date)
+                latest_date = x_value;
+            if (x_value < earliest_date)
+                earliest_date = x_value;
+        }//end foreach
+        double date_range = latest_date - earliest_date;
+
+        date_range = critical_points[4].x - critical_points[0].x;
+
+        // What, roughly, a 1-1 slope should be.
+        // y-per-x
+        double y_per_x = value_range / date_range;
+
+        //  Define the start and end (x values) of the shape as the first and last critical points.
+        DataPoint start_peak = critical_points[0];
+        DataPoint end_peak = critical_points[4];
+        double start_x = start_peak.x;
+        double end_x = end_peak.x;
+        //  Define the top and bottom of the shape:
+        //      Look at the start and end peaks and the first and second troughs.
+        //      Choose the the peak (as the top) and the trough (as the bottom) that
+        //          makes the vertical difference of the shape most closely match the horizontal difference (is most square)
+        DataPoint top_point = null;
+        DataPoint bottom_point = null;
+        double top_y = 0;
+        double bottom_y = 0;
+        DataPoint middle_peak = critical_points[2];
+        DataPoint first_trough = critical_points[1];
+        DataPoint second_trough = critical_points[3];
+        List<DataPoint> peaks = new List<DataPoint>();
+        peaks.Add(start_peak);
+        peaks.Add(middle_peak);
+        peaks.Add(end_peak);
+        List<DataPoint> troughs = new List<DataPoint>();
+        troughs.Add(first_trough);
+        troughs.Add(second_trough);
+
+        // The desired y difference is the one that matches the converted x difference.
+        // This allows us to match the ratio of y to x for the graph as a whole.
+        double x_difference = end_x - start_x;
+        double desired_y_difference = x_difference * y_per_x;
+
+        double closest_y_difference = double.MinValue;
+        double current_y_difference = 0;
+
+        foreach (DataPoint peak in peaks)
+        {
+            foreach (DataPoint trough in troughs)
+            {
+                current_y_difference = peak.y - trough.y;
+                // See if the current y difference is closer to the desired y 
+                // difference than the current closest y difference.
+                if (Math.Abs(desired_y_difference - current_y_difference) < Math.Abs(desired_y_difference - closest_y_difference))
+                {
+                    closest_y_difference = current_y_difference;
+                    top_point = peak;
+                    bottom_point = trough;
+                }//end if
+            }//end foreach
+        }//end foreach
+        top_y = top_point.y;
+        bottom_y = bottom_point.y;
+
+        // Calculate normal values for each critical point.
+        DataPoint current_normal_value = new DataPoint();
+
+        // Take the point between the start and end x values as the middle x value.
+        // From there, take the point between the top and bottom y values as the middle y value.
+        double middle_y = top_y - ((top_y - bottom_y) / 2);
+        // The normal top y value will be the middle y plus half the desired y distance.
+        double normal_top_y = middle_y + desired_y_difference / 2;
+        // The normal bottom y value will be the middle y minus half the desired y distance.
+        double normal_bottom_y = middle_y - desired_y_difference / 2;
+
+        // The normal middle x value will be halfway between the start x and end x values
+        double normal_middle_x = start_x - ((start_x - end_x) / 2);
+
+        // 1st point/Start point/first peak.
+        // x value should match the start point.
+        current_normal_value.x = start_peak.x;
+        // y value should match the normal top y value.
+        current_normal_value.y = normal_top_y;
+        critical_point_normal_values.Add(current_normal_value);
+
+        // 2nd point/first trough.
+        // x value should be halfway between the start x and the normal middle x
+        current_normal_value = new DataPoint();
+        current_normal_value.x = start_x + ((normal_middle_x - start_x) / 2);
+        // y value should be the normal bottom y value.
+        current_normal_value.y = normal_bottom_y;
+        critical_point_normal_values.Add(current_normal_value);
+
+        // 3rd point/middle point/second peak.
+        // x value should be normal middle x value.
+        current_normal_value = new DataPoint();
+        current_normal_value.x = normal_middle_x;
+        // y value should be the normal top y value.
+        current_normal_value.y = normal_top_y;
+        critical_point_normal_values.Add(current_normal_value);
+
+        // 4th point/second trough.
+        // x value should be halfway between the normal middle x and the end x
+        current_normal_value = new DataPoint();
+        current_normal_value.x = normal_middle_x + ((end_x - normal_middle_x) / 2);
+        // y value should be the normal bottom y value
+        current_normal_value.y = normal_bottom_y;
+        critical_point_normal_values.Add(current_normal_value);
+
+        // 5th point/end point/third peak.
+        // x value should be the end x value.
+        current_normal_value = new DataPoint();
+        current_normal_value.x = end_x;
+        // y value should be the normal top y value
+        current_normal_value.y = normal_top_y;
+        critical_point_normal_values.Add(current_normal_value);
+
+        return critical_point_normal_values;
+    }//end method FindCriticalPointNormalValues
+
+    public double YPerX(List<double> y_refs, List<double> x_refs)
+    {
+        // Calculate value (y-axis) range
+        double highest_value = double.MinValue;
+        double lowest_value = double.MaxValue;
+        foreach (double y_value in y_refs)
+        {
+            if (y_value > highest_value)
+                highest_value = y_value;
+            if (y_value < lowest_value)
+                lowest_value = y_value;
+        }//end foreach
+        double value_range = highest_value - lowest_value;
+        // Calculate date (x-axis) range
+        double latest_date = double.MinValue;
+        double earliest_date = double.MaxValue;
+        foreach (double x_value in x_refs)
+        {
+            if (x_value > latest_date)
+                latest_date = x_value;
+            if (x_value < earliest_date)
+                earliest_date = x_value;
+        }//end foreach
+        double date_range = latest_date - earliest_date;
+
+        date_range = critical_points[4].x - critical_points[0].x;
+
+        // What, roughly, a 1-1 slope should be.
+        // y-per-x
+        double y_per_x = value_range / date_range;
+
+        return y_per_x;
+    }//end method YPerX
 
     // Returns true when the difference between value 1 and value 2 is above the given threshold
     private bool SignificantlyDifferent(double value_1, double value_2, double threshold)

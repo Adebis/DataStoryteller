@@ -18,10 +18,14 @@ public abstract class Shape
 
     public List<NarrativeEvent> narrative_events;
 
+    public List<DataPoint> critical_points;
+
     // Generate and return a text description of this shape.
     public abstract string GenerateDescription(List<double> x_refs, List<double> y_refs, string x_label, string y_label, DataPoint point_of_interest, string site_name, string variable_name);
     // Match a list of segments to this shape's parts and critical points.
     public abstract void MatchSegmentsToShape(List<Segment> segments_in, List<double> critical_points_in);
+
+    public abstract List<DataPoint> FindCriticalPointNormalValues(List<double> x_refs, List<double> y_refs);
 
     protected double FindNearestReference(double real_value, List<double> reference_list)
     {
