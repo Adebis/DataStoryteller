@@ -274,7 +274,7 @@ public class NarrativeGenerator
                 max_tension_change = temp_event.tension_change;
         }//end foreach
 
-        // The largest tension change is considered to raise tension to "1". All other tension changes are normalized to this.
+        // The largest tension change is considered to raise tension by "1". All other tension changes are normalized to this.
         double tension_normalizer = 1 / max_tension_change;
         
         double current_tension = 0;
