@@ -8,8 +8,6 @@ public class CriticalPoint : GraphInfo
 
     public DataPoint normal_point;
 
-    public string name;
-
     public CriticalPoint()
     {
         data_point = new DataPoint();

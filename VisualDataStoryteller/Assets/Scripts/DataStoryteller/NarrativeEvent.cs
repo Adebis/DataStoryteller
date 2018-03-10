@@ -24,10 +24,13 @@ public class NarrativeEvent
     // How much the tension changes as a result of this narrative event.
     public double tension_change;
 
+    public string name;
+
     public NarrativeEvent()
     {
         associated_points = new List<DataPoint>();
         description = "";
+        name = "";
 
         information_type = -1;
         event_info = new GraphInfo();
@@ -43,6 +46,7 @@ public class NarrativeEvent
             InitializeCriticalPoint();
         else if (information_type == 1)
             InitializeAbnormality();
+        name = this.event_info.name;
     }//end constructor
 
     private void InitializeCriticalPoint()

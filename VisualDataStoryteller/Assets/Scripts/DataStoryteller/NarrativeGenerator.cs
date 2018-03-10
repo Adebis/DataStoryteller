@@ -243,6 +243,7 @@ public class NarrativeGenerator
             List<NarrativeEvent> ordered_narrative_events = new List<NarrativeEvent>();
             ordered_narrative_events = OrderNarrativeEvents(narrative_events);
 
+            main_narrative.AddEvents(ordered_narrative_events);
         }//end foreach
  
         return main_narrative;
@@ -276,31 +277,14 @@ public class NarrativeGenerator
 
         // The largest tension change is considered to raise tension by "1". All other tension changes are normalized to this.
         double tension_normalizer = 1 / max_tension_change;
-        
+
         double current_tension = 0;
-        double desired_tension_difference = 0;
         double next_best_tension_change = 0;
         NarrativeEvent next_best_event = new NarrativeEvent();
         for (int i = 0; i < narrative_length; i++)
         {
-            next_best_tension_change = 0;
-            next_best_event = new NarrativeEvent();
-            desired_tension_difference = discrete_tension_values[i] - current_tension;
-            // If we have less tension than we want, pick the narrative event which will increase the tension closest to the amount we wish for.
-            if (desired_tension_difference > 0)
-            {
-                foreach (NarrativeEvent temp_event in unassigned_narrative_events)
-                {
-                    if (Math.Abs(desired_tension_difference - next_best_tension_change) > Math.Abs(desired_tension_difference - temp_event.tension_change * tension_normalizer))
-                    {
-                        next_best_tension_change = temp_event.tension_change * tension_normalizer;
-                        next_best_event = temp_event;
-                    }//end if
-                }//end foreach
-            }//end if
-            else
-                next_best_event = unassigned_narrative_events[0];
-            
+            next_best_event = GetNextBestEventByTension(current_tension, discrete_tension_values[i], tension_normalizer, unassigned_narrative_events);
+
             // Add the event to the ordered list of events and remove it from the unordered list.
             ordered_narrative_events.Add(next_best_event);
             unassigned_narrative_events.Remove(next_best_event);
@@ -315,6 +299,29 @@ public class NarrativeGenerator
 
         return ordered_narrative_events;
     }//end method OrderNarrativeEvents
+
+    private NarrativeEvent GetNextBestEventByTension(double current_tension, double desired_tension, double tension_normalizer, List<NarrativeEvent> possible_events)
+    {
+        NarrativeEvent next_best_event = null;
+
+        double desired_tension_difference = 0;
+        double next_best_tension_change = 0;
+
+        next_best_tension_change = 0;
+        next_best_event = new NarrativeEvent();
+        desired_tension_difference = desired_tension - current_tension;
+        // Pick the narrative event which will increase the tension closest to the amount we wish for.
+        foreach (NarrativeEvent temp_event in possible_events)
+        {
+            if (Math.Abs(desired_tension_difference - next_best_tension_change) > Math.Abs(desired_tension_difference - temp_event.tension_change * tension_normalizer))
+            {
+                next_best_tension_change = temp_event.tension_change * tension_normalizer;
+                next_best_event = temp_event;
+            }//end if
+        }//end foreach
+
+        return next_best_event;
+    }//end function GetNextBestEventByTension
 
     private List<NarrativeEvent> MakeNarrativeEvents(List<CriticalPoint> critical_points, List<Abnormality> abnormalities)
     {
@@ -369,6 +376,7 @@ public class NarrativeGenerator
         {
             new_abnormality = new Abnormality();
             new_abnormality.critical_point = critical_point;
+            new_abnormality.name = critical_point.name + "_abnormality";
 
             // Measure the distance between the critical point and its normal value.
             current_distance = DistanceBetweenPoints(critical_point.data_point, critical_point.normal_point, y_per_x);

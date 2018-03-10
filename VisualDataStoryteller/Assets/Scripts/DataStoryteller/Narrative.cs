@@ -24,6 +24,17 @@ public class Narrative
             events.Add(event_to_add);
     }//end method AddEvents
 
+    // Print the sequence of events by name.
+    public string PrintSequence()
+    {
+        string return_string = "";
+
+        foreach (NarrativeEvent temp_event in this.events)
+            return_string += " | " + temp_event.name;
+
+        return return_string;
+    }//end method PrintSequence
+
     // Return the event at the current event index, then increment the index.
     // Returns null if the narrative has reached its end.
     public NarrativeEvent AdvanceNarrative()

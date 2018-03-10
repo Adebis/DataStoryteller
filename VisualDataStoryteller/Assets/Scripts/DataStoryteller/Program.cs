@@ -57,6 +57,8 @@ namespace DataStoryteller
 			//for (int i = 0; i < 3; i++)
 			current_narrative = generator.GenerateNarrative(data_file_name, segment_file_name, info_file_name, starting_year, description_type);
 
+			Console.WriteLine(current_narrative.PrintSequence());
+
 			Console.WriteLine("Done.");
         }
     }
