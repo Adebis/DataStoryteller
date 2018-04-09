@@ -8,3 +8,11 @@ C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scr
 C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.AssemblyInfo.cs
 C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.dll
 C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.pdb
+C:\Users\Zev\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\bin\Debug\netcoreapp1.1.1\DataStoryteller.deps.json
+C:\Users\Zev\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\bin\Debug\netcoreapp1.1.1\DataStoryteller.runtimeconfig.json
+C:\Users\Zev\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\bin\Debug\netcoreapp1.1.1\DataStoryteller.runtimeconfig.dev.json
+C:\Users\Zev\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\bin\Debug\netcoreapp1.1.1\DataStoryteller.dll
+C:\Users\Zev\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\bin\Debug\netcoreapp1.1.1\DataStoryteller.pdb
+C:\Users\Zev\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.AssemblyInfo.cs
+C:\Users\Zev\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.dll
+C:\Users\Zev\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.pdb

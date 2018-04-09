@@ -47,15 +47,13 @@ namespace DataStoryteller
 			data_file_names.Add("t_ca/t_ca_csv.csv");
 
 			int data_index = 0;
-			int description_type = 2;	// 1 is no hint, point of interest. 2 is no hint, no point of interest. 3 is full.
 			NarrativeGenerator generator = new NarrativeGenerator();
 			string segment_file_name = segment_file_names[data_index];
 			string info_file_name = info_file_names[data_index];
 			string data_file_name = data_file_names[data_index];
-			double starting_year = 1980;
 
 			//for (int i = 0; i < 3; i++)
-			current_narrative = generator.GenerateNarrative(data_file_name, segment_file_name, info_file_name, starting_year, description_type);
+			current_narrative = generator.GenerateNarrative(data_file_name, segment_file_name, info_file_name);
 
 			Console.WriteLine(current_narrative.PrintSequence());
 
