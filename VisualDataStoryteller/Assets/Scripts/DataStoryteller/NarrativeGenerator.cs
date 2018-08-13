@@ -108,8 +108,10 @@ public class NarrativeGenerator
 
         //Console.WriteLine("Done reading input files.");
 
-        // We now have a list of segments.
+        // Default point of interest is leftmost data point
+        point_of_interest = all_data_points[0];
 
+        // We now have a list of segments.
         List<Shape> all_shapes = new List<Shape>();
         Shape current_shape = null;
         // The index of each shape will be the index of its name in the list of global shape names.
@@ -175,6 +177,24 @@ public class NarrativeGenerator
                 all_shapes.Add(current_shape);
             }//end if
         }//end for
+
+        // If no shape of interest has been found, find the shape closest to the point of interest horizontally.
+        double closest_distance = float.MaxValue;
+        Shape closest_shape = null;
+        if (!shape_of_interest_found)
+        {
+            foreach (Shape shape in all_shapes)
+            {
+                foreach (DataPoint shape_critical_point in shape.critical_points)
+                {
+                    double distance_to_point_of_interest = Math.Abs(shape_critical_point.x - point_of_interest.x);
+                    if (distance_to_point_of_interest < closest_distance)
+                        closest_shape = shape;
+                }//end foreach
+            }//end for
+        }//end if
+        closest_shape.shape_of_interest = true;
+        shape_of_interest_found = true;
         
         Narrative main_narrative = new Narrative();
 

@@ -16,3 +16,4 @@ C:\Users\Zev\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scrip
 C:\Users\Zev\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.AssemblyInfo.cs
 C:\Users\Zev\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.dll
 C:\Users\Zev\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.pdb
+C:\Users\zevsm\Documents\GitHub\DataStoryteller\VisualDataStoryteller\Assets\Scripts\DataStoryteller\obj\Debug\netcoreapp1.1.1\DataStoryteller.csprojResolveAssemblyReference.cache

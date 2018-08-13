@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v1.1.1": {
-      "datastoryteller/1.0.0": {
+      "DataStoryteller/1.0.0": {
         "dependencies": {
           "Newtonsoft.Json": "10.0.3"
         },
@@ -14,7 +14,7 @@
           "DataStoryteller.dll": {}
         }
       },
-      "newtonsoft.json/10.0.3": {
+      "Newtonsoft.Json/10.0.3": {
         "dependencies": {
           "System.ComponentModel.TypeConverter": "4.3.0",
           "System.Runtime.Serialization.Formatters": "4.3.0",
@@ -25,12 +25,12 @@
           "lib/netstandard1.3/Newtonsoft.Json.dll": {}
         }
       },
-      "system.collections.nongeneric/4.3.0": {
+      "System.Collections.NonGeneric/4.3.0": {
         "runtime": {
           "lib/netstandard1.3/System.Collections.NonGeneric.dll": {}
         }
       },
-      "system.collections.specialized/4.3.0": {
+      "System.Collections.Specialized/4.3.0": {
         "dependencies": {
           "System.Collections.NonGeneric": "4.3.0"
         },
@@ -38,12 +38,12 @@
           "lib/netstandard1.3/System.Collections.Specialized.dll": {}
         }
       },
-      "system.componentmodel.primitives/4.3.0": {
+      "System.ComponentModel.Primitives/4.3.0": {
         "runtime": {
           "lib/netstandard1.0/System.ComponentModel.Primitives.dll": {}
         }
       },
-      "system.componentmodel.typeconverter/4.3.0": {
+      "System.ComponentModel.TypeConverter/4.3.0": {
         "dependencies": {
           "System.Collections.NonGeneric": "4.3.0",
           "System.Collections.Specialized": "4.3.0",
@@ -53,7 +53,7 @@
           "lib/netstandard1.5/System.ComponentModel.TypeConverter.dll": {}
         }
       },
-      "system.runtime.serialization.formatters/4.3.0": {
+      "System.Runtime.Serialization.Formatters/4.3.0": {
         "dependencies": {
           "System.Runtime.Serialization.Primitives": "4.3.0"
         },
@@ -61,12 +61,12 @@
           "lib/netstandard1.4/System.Runtime.Serialization.Formatters.dll": {}
         }
       },
-      "system.runtime.serialization.primitives/4.3.0": {
+      "System.Runtime.Serialization.Primitives/4.3.0": {
         "runtime": {
           "lib/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {}
         }
       },
-      "system.xml.xmldocument/4.3.0": {
+      "System.Xml.XmlDocument/4.3.0": {
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlDocument.dll": {}
         }
@@ -74,64 +74,64 @@
     }
   },
   "libraries": {
-    "datastoryteller/1.0.0": {
+    "DataStoryteller/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "newtonsoft.json/10.0.3": {
+    "Newtonsoft.Json/10.0.3": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-hSXaFmh7hNCuEoC4XNY5DrRkLDzYHqPx/Ik23R4J86Z7PE/Y6YidhG602dFVdLBRSdG6xp9NabH3dXpcoxWvww==",
       "path": "newtonsoft.json/10.0.3",
       "hashPath": "newtonsoft.json.10.0.3.nupkg.sha512"
     },
-    "system.collections.nongeneric/4.3.0": {
+    "System.Collections.NonGeneric/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aQwBSSXVrwV7l9nMTJ7Yc1Euh61+XP/fn6zw9B6onDQCExm3ciXyl0GzbhehthcKfnfYxtzrPBETBP439iyJxA==",
+      "sha512": "sha512-exyf2WqrFdRc/NMXv4xOQP+G4EhgmKKGB3k1kpeUQpBwJSQ/UbLAgvh26h/2Q+XVNOc7FuOpE4PhdqVDB1Hnnw==",
       "path": "system.collections.nongeneric/4.3.0",
       "hashPath": "system.collections.nongeneric.4.3.0.nupkg.sha512"
     },
-    "system.collections.specialized/4.3.0": {
+    "System.Collections.Specialized/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-5cNXQcLcEShwcoFjR9P2s4T5PKjRkq/N0zEFwajMz8ZAv4epBmL2Nhtx2wKV+bxvU6+j2aaZE7/H2N0Gp+Pcog==",
+      "sha512": "sha512-QQ8Md4joj9XqBPsP0EtOxkPRv63ThQ0LgxY3BucwVuRC5b48zxIEtiCFHFMKHh/3vcQDlBjCAtfv0+fvtDqI8Q==",
       "path": "system.collections.specialized/4.3.0",
       "hashPath": "system.collections.specialized.4.3.0.nupkg.sha512"
     },
-    "system.componentmodel.primitives/4.3.0": {
+    "System.ComponentModel.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lL/U0yGOtC4q+W4gWrTsMH1ic/O6EFgWu4HGGc+RWhknzNfwmHJBUf/rOjWz++xVK2Pz2pg2suL3qXyMv0TANw==",
+      "sha512": "sha512-JiyrP/2ZVNRNd7ezCJwNPLgBIesFecZ74XeMRK9KthKcbegQz80EZZMghGv4GnnJxj8vnNQAOT04F5xTcZ2Akg==",
       "path": "system.componentmodel.primitives/4.3.0",
       "hashPath": "system.componentmodel.primitives.4.3.0.nupkg.sha512"
     },
-    "system.componentmodel.typeconverter/4.3.0": {
+    "System.ComponentModel.TypeConverter/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-yk7IeolUiXzvxv/pkZe1aWw5/QrgWNeNPw64S1me7g7XCJCK5YLAF2tO5f/ew+zDUwb6jEGOKKYCaGadoDZ70Q==",
+      "sha512": "sha512-IRgWtFmPXwScqShfX2HAX6GkBmiRvAOSWcBw+56E4UMNrzEvoz8x2uKy5KSa0st0EPyO5rylJozGNEF7PskINg==",
       "path": "system.componentmodel.typeconverter/4.3.0",
       "hashPath": "system.componentmodel.typeconverter.4.3.0.nupkg.sha512"
     },
-    "system.runtime.serialization.formatters/4.3.0": {
+    "System.Runtime.Serialization.Formatters/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-KT591AkTNFOTbhZlaeMVvfax3RqhH1EJlcwF50Wm7sfnBLuHiOeZRRKrr1ns3NESkM20KPZ5Ol/ueMq5vg4QoQ==",
+      "sha512": "sha512-06f7ALhm1+nEc3mK632H81K4yORoyfxXKHpBjSZE3iRRIDrgPfIJDu6/hOgVtzqaggDIOxWAO9xh1SA6JoRQcQ==",
       "path": "system.runtime.serialization.formatters/4.3.0",
       "hashPath": "system.runtime.serialization.formatters.4.3.0.nupkg.sha512"
     },
-    "system.runtime.serialization.primitives/4.3.0": {
+    "System.Runtime.Serialization.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9fG1waGJMTtlNx+VswJNYlyqbc15DGZmDE7CdVlH+YBOQggCamtrx61YXas1WxCYSM5SldaMWL9KAwrxo07x0A==",
+      "sha512": "sha512-mHliRD635mz0qwazgYJfiZw1Vm2H7hen7cQ/s8UaBJkplA1CSvJzO201Kj9TglvFbct0Uq8D7ngXJcJZzhd69A==",
       "path": "system.runtime.serialization.primitives/4.3.0",
       "hashPath": "system.runtime.serialization.primitives.4.3.0.nupkg.sha512"
     },
-    "system.xml.xmldocument/4.3.0": {
+    "System.Xml.XmlDocument/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lJ8AxvkX7GQxpC6GFCeBj8ThYVyQczx2+f/cWHJU8tjS7YfI6Cv6bon70jVEgs2CiFbmmM8b9j1oZVx0dSI2Ww==",
+      "sha512": "sha512-+xHEpu/igS1cBvOZ1L1nSHDKZrcLDMb5bvYNI7LFXXLHFlUaXa/nLL3KzKmu3uyqaXYJnQm5ZQDzWF8YU9q8SA==",
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     }
