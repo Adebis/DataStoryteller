@@ -36,6 +36,9 @@ public class NarrativeGenerator
 
     private List<Segment> all_segments_hierarchical;
 
+    // Map x-ref values to x-ref labels.
+    private Dictionary<double, string> reference_map;
+
     // Which piece of information we will try to make more salient.
     private DataPoint point_of_interest;
 
@@ -81,6 +84,19 @@ public class NarrativeGenerator
             //x_refs.Add(converted_x_ref);
             x_refs.Add(x_ref_entry.ToObject<double>());
         }//end foreach
+        // Get the list of reference labels for the x-axis.
+        List<string> x_ref_labels = new List<string>();
+        foreach (JToken x_ref_label in info["info"]["x_refs_labels"])
+        {
+            x_ref_labels.Add(x_ref_label.ToObject<string>());
+        }//end foreach
+        // Map x ref values to their corresponding string labels.
+        reference_map = new Dictionary<double, string>();
+        for (int i = 0; i < x_refs.Count(); i++)
+        {
+            reference_map.Add(x_refs[i], x_ref_labels[i]);
+        }//end for
+
         List<double> y_refs = new List<double>();
         foreach (JToken y_ref_entry in info["info"]["y_refs"])
         {
@@ -136,7 +152,7 @@ public class NarrativeGenerator
         }//end foreach
         point_of_interest = max_point;
         // POI as first point in graph.
-        point_of_interest = all_segments[0].start_point;
+        //point_of_interest = all_segments[0].start_point;
 
         // Calculate and define numerical observations for each segment.
         foreach (Segment temp_segment in all_segments)
@@ -208,7 +224,7 @@ public class NarrativeGenerator
                     current_shape.shape_of_interest = true;
                     shape_of_interest_found = true;
                 }//end if
-
+                current_shape.reference_map = this.reference_map;
                 all_shapes.Add(current_shape);
             }//end if
         }//end for
@@ -394,21 +410,21 @@ public class NarrativeGenerator
     }//end mehtod RateDescriptor
 
     // Finds the reference value in the given list closest to the real value given.
-    private double FindNearestReference(double real_value, List<double> reference_list)
-    {
-        double smallest_difference = double.MaxValue;
-        double closest_reference = 0;
-        foreach (double reference_value in reference_list)
-        {
-            double current_difference = Math.Abs(real_value - reference_value);
-            if (current_difference < smallest_difference)
-            {
-                smallest_difference = current_difference;
-                closest_reference = reference_value;
-            }//end if
-        }//end foreach
-        return closest_reference;
-    }//end method FindNearestReference
+    // private double FindNearestReference(double real_value, List<double> reference_list)
+    // {
+    //     double smallest_difference = double.MaxValue;
+    //     double closest_reference = 0;
+    //     foreach (double reference_value in reference_list)
+    //     {
+    //         double current_difference = Math.Abs(real_value - reference_value);
+    //         if (current_difference < smallest_difference)
+    //         {
+    //             smallest_difference = current_difference;
+    //             closest_reference = reference_value;
+    //         }//end if
+    //     }//end foreach
+    //     return closest_reference;
+    // }//end method FindNearestReference
 
     // Defines the numerical observations in a segment.
     public void DefineObservations(Segment segment_in)
@@ -512,7 +528,8 @@ public class NarrativeGenerator
     // Converts an x value from matlan into years.
     private double ConvertXValue(double x_val_to_convert)
     {
-        double return_value = (x_val_to_convert + this.starting_year * this.ticks_per_year) / this.ticks_per_year;
+        //double return_value = (x_val_to_convert + this.starting_year * this.ticks_per_year) / this.ticks_per_year;
+        double return_value = x_val_to_convert;
         return return_value;
     }//end method ConvertXValue
 

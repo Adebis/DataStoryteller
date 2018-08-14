@@ -10,6 +10,9 @@ abstract class Shape
     // Whether or not we print debug information
     public bool verbose;
 
+    // Dictionary mapping numerical reference values to their string representations.
+    public Dictionary<double, string> reference_map;
+
     // Used for generating different types of description for different test cases.
     //  0 = default, all features included.
     //  1 = no point-of-interest hint.
@@ -20,7 +23,7 @@ abstract class Shape
     // Match a list of segments to this shape's parts and critical points.
     public abstract void MatchSegmentsToShape(List<Segment> segments_in, List<double> critical_points_in);
 
-    protected double FindNearestReference(double real_value, List<double> reference_list)
+    protected string FindNearestReference(double real_value, List<double> reference_list, bool y_refs = false)
     {
         double smallest_difference = double.MaxValue;
         double closest_reference = 0;
@@ -33,6 +36,12 @@ abstract class Shape
                 closest_reference = reference_value;
             }//end if
         }//end foreach
-        return closest_reference;
+        // Convert reference value (which is in days since 1980) into its corresponding string representation.
+        string closest_label = "";
+        if (!y_refs)
+            closest_label = reference_map[closest_reference];
+        else if(y_refs)
+            closest_label = closest_reference.ToString();
+        return closest_label;
     }//end method FindNearestReference
 }//end class Shape

@@ -317,7 +317,7 @@ class ShapeLine : Shape
                     }//end else if
                     string inflection_point_reference = ClosestReference(current_segment.end_point.x, reference_map);
                     //temp_description += " " + inflection_point_reference + " at around " + FindNearestReference(current_segment.end_point.x, x_refs).ToString();
-                    temp_description += " at around " + FindNearestReference(current_segment.end_point.x, x_refs).ToString();
+                    temp_description += " at around " + FindNearestReference(current_segment.end_point.x, x_refs);
 
                     Descriptor new_descriptor = new Descriptor();
                     new_descriptor.descriptions.Add(temp_description);
@@ -335,7 +335,7 @@ class ShapeLine : Shape
             Descriptor new_descriptor = new Descriptor();
             reference_text = ClosestReference(abnormal_shape_part.part_segments[0].start_point.x, reference_map);
             temp_description = reference_text;
-            temp_description += ", it goes ";
+            temp_description += ", the graph goes ";
             if (direction.Equals("up"))
                 temp_description += "down instead of up";
             else if (direction.Equals("down"))
@@ -505,9 +505,9 @@ class ShapeLine : Shape
         if (relevant_critical_points.Contains(0) && relevant_critical_points.Contains(1))
         {
             critical_point_text += "You can see where it starts and ends at ";
-            critical_point_text += FindNearestReference(critical_points[0].x, x_refs).ToString();
+            critical_point_text += FindNearestReference(critical_points[0].x, x_refs);
             critical_point_text += " and ";
-            critical_point_text += FindNearestReference(critical_points[4].x, x_refs).ToString();
+            critical_point_text += FindNearestReference(critical_points[4].x, x_refs);
             points_mentioned.Add(0);
             points_mentioned.Add(1);
         }//end if
@@ -525,7 +525,7 @@ class ShapeLine : Shape
             else
                 critical_point_text += ", the ";
             critical_point_text += critical_point_names[relevant_critical_points[i]]
-            + " at " + FindNearestReference(critical_points[relevant_critical_points[i]].x, x_refs).ToString();
+            + " at " + FindNearestReference(critical_points[relevant_critical_points[i]].x, x_refs);
             // Note that these points were mentioned.
             points_mentioned.Add(relevant_critical_points[i]);
         }//end for
@@ -534,7 +534,7 @@ class ShapeLine : Shape
         // Finally, generate the description of the shape, overall, using the start and end points.
         string overall_description = "";
         // Describe the shape, overall
-        overall_description = "it goes " + direction + " in a line "; //from ";
+        overall_description = "the graph goes " + direction + " in a line "; //from ";
         //overall_description += FindNearestReference(critical_points[0].x, x_refs).ToString();
         //overall_description += " to ";
         //overall_description += FindNearestReference(critical_points[1].x, x_refs).ToString();        
@@ -544,9 +544,9 @@ class ShapeLine : Shape
         if (!points_mentioned.Contains(0) && !points_mentioned.Contains(1))
         {
             overall_description += " from ";
-            overall_description += FindNearestReference(critical_points[0].x, x_refs).ToString();
+            overall_description += FindNearestReference(critical_points[0].x, x_refs);
             overall_description += " to ";
-            overall_description += FindNearestReference(critical_points[1].x, x_refs).ToString();
+            overall_description += FindNearestReference(critical_points[1].x, x_refs);
             overall_description += "";
         }//end if
         // If both points are mentioned later.
@@ -558,14 +558,14 @@ class ShapeLine : Shape
         else if (points_mentioned.Contains(0) && !points_mentioned.Contains(1))
         {
             overall_description += "up until ";
-            overall_description += FindNearestReference(critical_points[1].x, x_refs).ToString();
+            overall_description += FindNearestReference(critical_points[1].x, x_refs);
             overall_description += "";
         }//end else if
         // If just the end point is mentioned later.
         else if (!points_mentioned.Contains(0) && points_mentioned.Contains(1))
         {
             overall_description += "starting from ";
-            overall_description += FindNearestReference(critical_points[0].x, x_refs).ToString();
+            overall_description += FindNearestReference(critical_points[0].x, x_refs);
             overall_description += "";
         }//end else if
 
@@ -573,7 +573,7 @@ class ShapeLine : Shape
         string point_of_interest_text = "";
         // Finally, reveal the information for the point of interest.
         point_of_interest_text += "Interestingly, " + point_of_interest_reference;
-        point_of_interest_text += ", at around " + FindNearestReference(point_of_interest.x, x_refs).ToString() 
+        point_of_interest_text += ", at around " + FindNearestReference(point_of_interest.x, x_refs) 
         + ", the average value for " + variable_name + " at " + site_name 
         + " peaks, reaching " + Math.Round(point_of_interest.y, 3) + " " + y_label;
 
@@ -617,10 +617,10 @@ class ShapeLine : Shape
         //  End point (index 1)
 
         // Describe the shape, overall
-        description = "it goes " + direction + " in a line from ";
-        description += FindNearestReference(critical_points[0].x, x_refs).ToString();
+        description = "the graph goes " + direction + " in a line from ";
+        description += FindNearestReference(critical_points[0].x, x_refs);
         description += " to ";
-        description += FindNearestReference(critical_points[1].x, x_refs).ToString();        
+        description += FindNearestReference(critical_points[1].x, x_refs);        
         description += ". ";
 
         return description;

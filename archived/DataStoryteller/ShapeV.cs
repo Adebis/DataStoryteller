@@ -266,18 +266,18 @@ class ShapeV : Shape
             if (start_peak.y < top_point.y)
             {
                 // If so, then it's too short.
-                temp_description += "it's not tall enough";
+                temp_description += "the shape's not tall enough";
                 temp_numerical_description = "only comes up to";
             }//end if
             // Check if it's above the top point.
             else if (start_peak.y > top_point.y)
             {
                 // If so, then it's too tall.
-                temp_description += "it's too tall";
+                temp_description += "the shape's too tall";
                 temp_numerical_description = "goes all the way up to";
             }//end else if
             //temp_description += "on the left";
-            temp_numerical_description += " " + FindNearestReference(start_peak.y, y_refs).ToString() + " " + y_label;
+            temp_numerical_description += " " + FindNearestReference(start_peak.y, y_refs, true) + " " + y_label;
             Descriptor new_descriptor = new Descriptor();
             new_descriptor.descriptions.Add(temp_description);
             new_descriptor.descriptions.Add(temp_numerical_description);
@@ -296,18 +296,18 @@ class ShapeV : Shape
             if (end_peak.y < top_point.y)
             {
                 // If so, then it's too short.
-                temp_description += "it's not tall enough";
+                temp_description += "the shape's not tall enough";
                 temp_numerical_description = "only comes up to";
             }//end if
             // Check if it's above the top point.
             else if (end_peak.y > top_point.y)
             {
                 // If so, then it's too tall.
-                temp_description += "it's too tall";
+                temp_description += "the shape's too tall";
                 temp_numerical_description = "stretches all the way up to";
             }//end else if
             //temp_description += " on the right";
-            temp_numerical_description += " " + FindNearestReference(end_peak.y, y_refs).ToString() + " " + y_label;
+            temp_numerical_description += " " + FindNearestReference(end_peak.y, y_refs, true) + " " + y_label;
             Descriptor new_descriptor = new Descriptor();
             new_descriptor.points.Add(end_peak);
             new_descriptor.descriptions.Add(temp_description);
@@ -344,7 +344,7 @@ class ShapeV : Shape
             if (!temp_description.Equals(""))
             {
                 //temp_description += " in the middle";
-                temp_numerical_description += " " + FindNearestReference(middle_trough.y, y_refs).ToString() + " " + y_label;
+                temp_numerical_description += " " + FindNearestReference(middle_trough.y, y_refs, true) + " " + y_label;
                 Descriptor new_descriptor = new Descriptor();
                 new_descriptor.points.Add(middle_trough);
                 new_descriptor.descriptions.Add(temp_description);
@@ -385,7 +385,7 @@ class ShapeV : Shape
             }//end else if
             // Secondarily, also a description of the middle.
             new_descriptor.shape_part.Add("middle");
-            temp_numerical_description += "the middle's at" + FindNearestReference(middle_trough.x, x_refs).ToString();
+            temp_numerical_description += "the middle's at" + FindNearestReference(middle_trough.x, x_refs);
             new_descriptor.points.Add(middle_trough);
             new_descriptor.descriptions.Add(temp_description);
             new_descriptor.descriptions.Add(secondary_temp_description);
@@ -699,9 +699,9 @@ class ShapeV : Shape
         if (relevant_critical_points.Contains(0) && relevant_critical_points.Contains(2))
         {
             critical_point_text += "You can see where the shape starts and ends at ";
-            critical_point_text += FindNearestReference(critical_points[0].x, x_refs).ToString();
+            critical_point_text += FindNearestReference(critical_points[0].x, x_refs);
             critical_point_text += " and ";
-            critical_point_text += FindNearestReference(critical_points[4].x, x_refs).ToString();
+            critical_point_text += FindNearestReference(critical_points[4].x, x_refs);
             points_mentioned.Add(0);
             points_mentioned.Add(4);
         }//end if
@@ -749,7 +749,7 @@ class ShapeV : Shape
                 critical_point_text += " of the 'v'";
             else if (middle_part_of_sentence)
                 critical_point_text += " of it";
-            critical_point_text += " at " + FindNearestReference(critical_points[relevant_critical_points[i]].x, x_refs).ToString();
+            critical_point_text += " at " + FindNearestReference(critical_points[relevant_critical_points[i]].x, x_refs);
 
             // Note that these points were mentioned.
             points_mentioned.Add(relevant_critical_points[i]);
@@ -765,9 +765,9 @@ class ShapeV : Shape
         if (!points_mentioned.Contains(0) && !points_mentioned.Contains(2))
         {
             overall_description += " from ";
-            overall_description += FindNearestReference(critical_points[0].x, x_refs).ToString();
+            overall_description += FindNearestReference(critical_points[0].x, x_refs);
             overall_description += " to ";
-            overall_description += FindNearestReference(critical_points[4].x, x_refs).ToString();
+            overall_description += FindNearestReference(critical_points[4].x, x_refs);
             overall_description += "";
         }//end if
         // If both points are mentioned later.
@@ -779,14 +779,14 @@ class ShapeV : Shape
         else if (points_mentioned.Contains(0) && !points_mentioned.Contains(2))
         {
             overall_description += " up until ";
-            overall_description += FindNearestReference(critical_points[4].x, x_refs).ToString();
+            overall_description += FindNearestReference(critical_points[4].x, x_refs);
             overall_description += "";
         }//end else if
         // If just the end point is mentioned later.
         else if (!points_mentioned.Contains(0) && points_mentioned.Contains(2))
         {
             overall_description += " starting from ";
-            overall_description += FindNearestReference(critical_points[0].x, x_refs).ToString();
+            overall_description += FindNearestReference(critical_points[0].x, x_refs);
             overall_description += "";
         }//end else if
 
@@ -803,7 +803,7 @@ class ShapeV : Shape
             + " and " + critical_point_names[upper_point_index];
         }//end else
 
-        point_of_interest_text += ", at around " + FindNearestReference(point_of_interest.x, x_refs).ToString() 
+        point_of_interest_text += ", at around " + FindNearestReference(point_of_interest.x, x_refs) 
         + ", the average value for " + variable_name + " at " + site_name 
         + " peaks, reaching " + Math.Round(point_of_interest.y, 3) + " " + y_label;
 
@@ -843,10 +843,10 @@ class ShapeV : Shape
 
         // Describe the shape, overall
         //string shape_name = "v";
-        description = "it resembles a '" + shape_name + "' from ";
-        description += FindNearestReference(critical_points[0].x, x_refs).ToString();
+        description = "the graph resembles a '" + shape_name + "' from ";
+        description += FindNearestReference(critical_points[0].x, x_refs);
         description += " to ";
-        description += FindNearestReference(critical_points[2].x, x_refs).ToString();        
+        description += FindNearestReference(critical_points[2].x, x_refs);        
         description += ". ";
 
         return description;

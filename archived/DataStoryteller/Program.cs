@@ -34,16 +34,19 @@ namespace DataStoryteller
             // Calcium at Tea Island (a.k.a. Chemical E at Site K), line. Index 7
             data_file_names.Add("t_ca/t_ca_segments.csv");
             info_file_names.Add("t_ca/t_ca_meta.json");
+            // Facebook stock prices, line, v, line. Index 8.
+            data_file_names.Add("fb_stocks/fb_stocks_segments.csv");
+            info_file_names.Add("fb_stocks/fb_stocks_meta.json");
 
-            int data_index = 0;
-            int description_type = 0;
+            int data_index = 8;
+            int description_type = 2;
             NarrativeGenerator generator = new NarrativeGenerator();
             string data_file_name = data_file_names[data_index];
             string info_file_name = info_file_names[data_index];
             double starting_year = 1980;
 
-            for (int i = 0; i < 3; i++)
-                generator.GenerateNarrative(data_file_name, info_file_name, starting_year, i);
+            //for (int i = 0; i < 3; i++)
+            generator.GenerateNarrative(data_file_name, info_file_name, starting_year, description_type);
         }
     }
 }

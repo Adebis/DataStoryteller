@@ -1,0 +1,15 @@
+{
+    "info": {
+        "site": "Facebook",
+        "var": "Stocks",
+		"x_refs": [13728, 13759, 13789, 13820, 13850, 13881, 13912, 13940, 13971, 14001, 14032, 14062, 14093, 14124],
+        "x_refs_labels": ['August 2017', 'September 2017', 'October 2017', 'November 2017', 'December 2017', 'January 2018', 'February 2018', 'March 2018', 'April 2018', 'May 2018', 'June 2018', 'July 2018', 'August 2018', 'September 2018'],
+        "y_refs": [150, 160, 170, 180, 190, 200, 210, 220],
+        "x_label": "Month",
+        "y_label": "Price per Stock",
+		"average_residual_error": "0",
+		"global_shape": ["line", "v", "line"],
+		"critical_points": [[13740, 13890], [13890, 14000, 14050], [14050, 14100]],
+		"ticks_per_year": "365"
+	}
+}
